@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="kongjune">
+    <meta name="keywords" content>
+    <title>蒟蒻的ACM初体验——后缀数组 ~ KONGJUNE&#39;s BLOG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/github-Typora.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">档案</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/后缀数组/banner.jpeg")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2">蒟蒻的ACM初体验——后缀数组</p>
+            <br>
+            
+            <p>星期日, 七月 28日 2019, 2:03 下午</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <blockquote>
+<p>学习自：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0" target="_blank" rel="noopener">https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0</a></li>
+<li><a href="https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=提醒填坑&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=" target="_blank" rel="noopener">https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=</a></li>
+</ul>
+</blockquote>
+<h2 id="后缀数组简介"><a href="#后缀数组简介" class="headerlink" title="后缀数组简介"></a>后缀数组简介</h2><p><strong>后缀</strong>：从字符串某个位置 $i$ 到字符串末尾的子串，我们定义以字符串 $str$ 的第 $i$ 位为第一个元素的后缀为<code>suff[i]</code>。（后缀的英文：<em>suffix</em>）</p>
+<p><strong>后缀数组</strong>：把字符串 $str$ 的每一个后缀==按照字典序排序==后所形成的数组。</p>
+<h2 id="后缀数组的实现"><a href="#后缀数组的实现" class="headerlink" title="后缀数组的实现"></a>后缀数组的实现</h2><h3 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h3><ul>
+<li><code>suff[]</code>数组，用来记录从第 $i$ 位开始的后缀</li>
+<li><code>sa[]</code>数组（<em>suffix array</em>），存储的是字典第 $i$ 小的后缀的<strong>下标</strong>。比如<code>sa[0] = 8</code>代表的是<code>suff[]</code>数组中第 $8$ 位后缀在字典序中最小。而<code>suff(sa[0])</code>才真正存储这最小的那个后缀的内容。</li>
+<li><code>rank[]</code>数组，与<code>sa[]</code>相反，存储的是下标为 $i$ 的后缀为第几小。一定存在关系 $\text{rank}[\text{sa}[i]] = i$。</li>
+</ul>
+<h3 id="倍增算法"><a href="#倍增算法" class="headerlink" title="倍增算法"></a>倍增算法</h3><p>问题在于我们怎么给这个后缀数组排序，如果强硬 sort 的话，sort 算法复杂度本来就有 $O(n\log_2n)$ 字符串排序还不用于一般数字的排序，每个字符串对比还有 $O(n)$ 复杂度。也就是说用 sort 的话，复杂度会达到 $O(n^2\log_2n)$。这就很伤不是么，所以我们要想出来一个复杂度更低的算法。</p>
+<p>我们知道，两个字符串的比较，如果前半部分相同则比较结果取决于后半部分的比较结果，否则只需要看前半部分的比较结果。基于这个事实，我们考虑以下方法：</p>
+<p>对于字符串 $str$，定义<strong>k-前缀</strong>为：</p>
+<script type="math/tex; mode=display">
+str_k=\begin{cases}
+str[0\dots k - 1] = str.\mathrm{substr}(0, k) & (k\leq str.\mathrm{length}()) \\
+str & (k > str.\mathrm{length}())
+\end{cases}</script><p>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
+<ul>
+<li><p>容易求出 $rank_1$ 的值与 $sa_1$ 的值，只需要进行 sort 对第一个字母排序就可以了。</p>
+</li>
+<li><p>得到了 $rank_k$，则定义二元组 $(rank_k[i],rank_k[i + k])$，按照“如果 $rank_k[i]$ 相同则比较$rank_k[i +k]$，否则则比较 $rank_k[i]$ ”的方法来进行sort，即可求出 $sa_{2k}$。</p>
+</li>
+<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：</p>
+<script type="math/tex; mode=display">
+rank_k[i] = \begin{cases}
+rank_k[i - 1] & suff[sa[i]]_k = suff[sa[i - 1]]_k \\
+rank_k[i - 1] + 1 & suff[sa[i]] _ k \neq suff[sa[i - 1]]_k
+\end{cases}</script></li>
+</ul>
+<p>这样的话我们求解的顺序就是：</p>
+<script type="math/tex; mode=display">
+sa_1\  \& \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4\rightarrow \cdots \rightarrow sa_n \rightarrow rank_n</script><p>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
+<p><img src="/img/后缀数组/1564227558972.png" alt="1564227558972"></p>
+<p>每一次排序需要进行 $n\log_2n$ 次比较，每一次比较需要 $O(1)$ 复杂度，总共进行 $\log_2n$ 次比较，因此总时间复杂度为$O(n\log_2^2n)$。</p>
+<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>这一部分我们要试图探索比 $O(n\log _2^2n)$ 更优的排序算法。</p>
+
+                <hr>
+                <div>
+                    <p>
+                         
+                        <span class="badge badge-light">#&nbsp;ACM</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Programming</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Learning Note</span>
+                        &nbsp;
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+
+<div class="comments" id="comments">
+ 
+</div>
+
+
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

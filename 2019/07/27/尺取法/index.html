@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="kongjune">
+    <meta name="keywords" content>
+    <title>蒟蒻的ACM初体验——尺取法 ~ KONGJUNE&#39;s BLOG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/github-Typora.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">档案</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/尺取法/banner.jpeg")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2">蒟蒻的ACM初体验——尺取法</p>
+            <br>
+            
+            <p>星期六, 七月 27日 2019, 3:10 下午</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <p>假设给你一个数组与一个整数，要求你的到这个数组中的一个子区间使其的区间和等于这个整数，你会怎么做呢。可能首先想到的就是开一个双重循环，然后每一次都求一次和，然后和给定的数进行比较：</p>
+<pre><code class="lang-C++">int sum;
+int ansi, ansj;
+for(int i = 0; i &lt; n; i++){
+    for(int j = i + 1; j &lt; n; j++){
+        sum = 0;
+        for(int k = i; k &lt;= j; k++){
+            sum += ls[k];
+        }
+        if(sum == x){
+            ansi = i; ansj = j;
+            goto ans;
+        }
+    }
+}
+ans:
+printf(&quot;%d %d\n&quot;, ansi, ansj);
+</code></pre>
+<p>这样的话，复杂度就会到达 $O(n^2)$。</p>
+<p>尺取法的算法思想来源于以上那个算法，区别在于不再对前后指针进行疯狂枚举，也不再需要每次都进行一次求和。我们设置两个指针，起初都指向开头。然后如果区间的元素和小于给定的数，则将右指针右移。如果大于指定的数，则将区间的左指针右移。相同就出结果了。这样的话每次求和只需要加上或减去那个唯一一个有区别的元素。复杂度会降低到 $O(n)$。</p>
+<p>如下习题（POJ 3016）：</p>
+<blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A sequence  of $N$ positive integers $(10 &lt; N &lt; 100 000)$, each of them less than  or equal $10000$, and a positive integer $S$ $(S &lt; 100 000 000)$ are given.  Write a program to find the minimal length of the subsequence of  consecutive elements of the sequence, the sum of which is greater than  or equal to $S$.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The  first line is the number of test cases. For each test case the program  has to read the numbers $N$ and $S$, separated by an interval, from the  first line. The numbers of the sequence are given in the second line of  the test case, separated by intervals. The input will finish with the  end of file.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each the case the program has to print the result on separate line of the output file. if no answer, print $0$.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>2
+10 15
+5 1 3 5 10 7 4 9 2 8
+5 11
+1 2 3 4 5
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>2
+3
+</code></pre></blockquote>
+<p>AC代码：</p>
+<pre><code class="lang-C++">#include &lt;cstdio&gt;
+#include &lt;climits&gt;
+using namespace std;
+int lis[100005];
+long long sum;
+int min(int a, int b){
+    if(a &gt; b)
+        return b;
+    else return a;
+}
+int main(){
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--){
+        int N, S;
+        scanf(&quot;%d %d&quot;, &amp;N, &amp;S);
+        for (size_t i = 0; i &lt; (size_t)N; i++) {
+            scanf(&quot;%d&quot;, &amp;lis[i]);
+        }
+        int left = 0, right = 0;
+        sum = lis[0];
+        int ans = INT_MAX;
+        while(left &lt;= right &amp;&amp; right &lt; N){
+            if(sum &lt; S){
+                right++;
+                sum += lis[right];
+            }else if(sum &gt;= S){
+                ans = min(ans, right - left + 1);
+                sum -= lis[left];
+                left++;
+            }
+        }&gt;
+        if(ans != INT_MAX)
+            printf(&quot;%d\n&quot;, ans);
+        else printf(&quot;0\n&quot;);
+    }
+}
+</code></pre>
+
+                <hr>
+                <div>
+                    <p>
+                         
+                        <span class="badge badge-light">#&nbsp;ACM</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Programming</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Learning Note</span>
+                        &nbsp;
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+
+<div class="comments" id="comments">
+ 
+</div>
+
+
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

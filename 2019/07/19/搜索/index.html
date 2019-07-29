@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="kongjune">
+    <meta name="keywords" content>
+    <title>蒟蒻的ACM初体验——搜索 ~ KONGJUNE&#39;s BLOG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/github-Typora.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">档案</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/搜索/banner.jpeg")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2">蒟蒻的ACM初体验——搜索</p>
+            <br>
+            
+            <p>星期五, 七月 19日 2019, 4:24 下午</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <h1 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h1><p>DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。</p>
+<p>如下图所示的图：</p>
+<p><img src="/img/搜索/1563515220039.png" alt="1563515220039"></p>
+<p>它的DFS遍历顺序为：$1 \rightarrow 2 \rightarrow 3\rightarrow 4 \rightarrow 5 \rightarrow 6 \rightarrow 7 \rightarrow 8 \rightarrow 9$（这个真的只是巧了）。</p>
+<p>有的时候还需要得到带有回溯的DFS序，如图就为：$1\rightarrow 2\rightarrow 3 \rightarrow 4\rightarrow 5\rightarrow 4\rightarrow 6\rightarrow 7\rightarrow 6\rightarrow 8\rightarrow 9\rightarrow 8\rightarrow 6\rightarrow 4\rightarrow 3\rightarrow 2\rightarrow 1$</p>
+<p>但DFS不仅仅只有搜索图那么简单还可以解决一些实际问题。如下题目（POJ 3900）：</p>
+<blockquote>
+<p>一个劫匪带着一个可装 $m$ 重量的超大背包去抢银行，银行有 $n$ 个大箱子，第 $i$ 个箱子里有 $i$ 个重量为 $w_i$ ，价值为 $c_i$ 的大钻石，问该劫匪抢走钻石的最大价值。（一共有 $T$ 组数据）</p>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>$1\leq T \leq 74$；</p>
+<p>$1 \leq n \leq 15$；</p>
+<p>$1 \leq m \leq 1000000000 (10^9)$；</p>
+<p>$1 \leq w_i, c_i \leq 1000000000  (10^9)$。</p>
+</blockquote>
+<p>这道题看上去是一个01背包问题，但由于数据量巨大，无法开那么大的数组，所以只能使用DFS搜索。所以能够得到下面这段DFS代码：</p>
+<pre><code class="lang-C++">void dfs(int pos, long long nowcost, long long lastw){
+    // pos:搜索的位置 nowcost:当前抢走的总价值 lastw:背包剩余的空间
+    if (pos == n || lastw &lt;= 0) // 如果搜到了最后一个箱子或者没空间了
+        return;
+    ans = max(ans, nowcost);
+    for (int i = a[pos].num; i &gt;= 0; i--){ // 对每个箱子一个一个钻石的查
+        dfs(pos + 1, nowcost + i * a[pos].c, lastw - i * a[pos].w);
+    }
+}
+</code></pre>
+<p>但这样太暴力了！TLE预定系列。所以我们要对我们的DFS进行一定的优化。</p>
+<h1 id="深度优先搜索的优化"><a href="#深度优先搜索的优化" class="headerlink" title="深度优先搜索的优化"></a>深度优先搜索的优化</h1><p><strong>剪枝</strong>：对不满足条件的情况进行清除，减少算法所需要的时间，分为以下两种：</p>
+<ul>
+<li>可行性剪枝：判断搜索能否得出答案，如果不能的话直接回溯。</li>
+<li>最优性剪枝：又称为上下界剪枝，是一种重要的剪枝策略。它记录当前得到的最优值，如果当前节点已经无法产生比当前最优解更优的解时，可以提前回溯。</li>
+</ul>
+<p>以上一个题目为示例，我们考虑它可能出现的剪枝方法：</p>
+<ol>
+<li><p>在枚举时，如果出现了$w_{\text{当前要去取的}} &gt; w_{\text{背包剩余的}}$，则直接跳过：</p>
+<pre><code class="lang-c++">if (i * a[pos].w &gt; lastw) continue;
+</code></pre>
+<p>这是一种<strong>可行性剪枝</strong>。</p>
+</li>
+<li><p>在枚举时，如果$c_\text{已经拿了的} + c_\text{还没有拿的箱子的全部钻石} &lt; ans$，则不可能会出现更优解，所以回溯：</p>
+<pre><code class="lang-C++">if (nowcost + sum[pos] &lt; ans) return;
+</code></pre>
+<p>这是一种<strong>最优性剪枝</strong>。</p>
+</li>
+<li><p>在枚举时，设矿物的性价比为 $s$ ，$s_i = \displaystyle\frac{c_i}{w_i}$。如果 $w_\text{背包剩余的} * s_\text{还未偷的最大的} &lt; ans$，则不可能出现最优解，所以回溯。如果要石用这个剪枝的话，则要求在开始时就将这 $n$ 个箱子按照性价比从高到低进行排序，而 $n$ 的最大值也就只有 $15$ ，所以时间复杂度不高，完全可以满足要求。</p>
+<pre><code class="lang-c++">if (nowcost + (long long)ceil(a[pos].s * lastw) &lt; ans) return;
+</code></pre>
+<p>这是一种<strong>最优性剪枝</strong>。</p>
+</li>
+</ol>
+<p>另一个可以优化的搜索题目（POJ 1088）：</p>
+<blockquote>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
+<script type="math/tex; mode=display">
+\begin{eqnarray}
+& 1 & 2 & 3 & 4 & 5 \\
+& 16 & 17 & 18 & 19 & 6 \\
+& 15 & 24 & 25 & 20 & 7\\
+& 14 & 23 & 22 & 21 & 8 \\
+& 13 & 12 & 11 & 10 & 9
+\end{eqnarray}</script><p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
+</blockquote>
+<p><strong>记忆化搜索</strong>：记录以前搜索所得到的结果，当我搜索其他位置而需要这个位置的值时，我就可以直接使用这个值而减少搜索时间。</p>
+<p>如在这个题目中，每个点到最低点的最优解是一定的，所以我在遍历的过程中可以记住已经遍历出结果的点，这样就可以节省很多的时间。</p>
+<pre><code class="lang-C++">int dfs(int x, int y){
+    if (f[x][y] != 0) // 已经记录了这个点的结果
+        return f[x][y];
+    int maxt = 1; 用以计数
+    int t; // test 用以记录中间结果
+    for    (int i = 0; i &lt; 4; i++){ // 上下左右四个点
+        int tx = x + dx[i], ty = y + dy[i]; // dx[] 与 dy[] 是用来记录得到四个点坐标的操作数组
+        if(tx &gt; 0 &amp;&amp; ty &gt; 0 &amp;&amp; tx &lt;= r &amp;&amp; ty &lt;= c &amp;&amp; hill[tx][ty] &gt; hill[x][y]){
+            t = dfs(tx, ty) + 1;
+            maxt = max(t, maxt);
+        }
+    }
+    f[x][y] = maxt; // 记忆化
+    return maxt;
+}
+</code></pre>
+<h1 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h1><p>BFS是一种使用队列实现的搜索算法，每次搜索对一层的节点进行搜索，所以最后呈现出来的结果是一圈一圈地扩大，具体过程如下图所示（其中Q为当前的队列信息，标有阴影的边为BFS算法所走过的边）：</p>
+<p><img src="/img/搜索/1563521989690.png" alt="1563521989690"></p>
+<p>由于BFS是一层一层地进行搜索，所以BFS很适合进行搜索到一个点最少步数类型的搜索。</p>
+<pre><code class="lang-C++">const int stepArr[4][2] = {{-1, 1, 0, 0}, {0, 0, -1, 0}}; // 方向数组：分别为上下左右移动
+int visited[x][y]; // 标记是否已经被访问
+struct Node{
+    int x;
+    int y;
+    int step;
+    Node(int x1,int y1,int step1):x(x1),y(y1),step(step1){} // 生成节点的函数
+};
+Node node(0,0,0); // 生成一个节点
+queue&lt;Node&gt; q;
+int BFS(){
+    q.push(node);
+    while(!q.empty()){
+        node = q.front();
+        q.pop();
+        if(node.x == n-1 &amp;&amp; node.y == n-1){
+            return node.step;
+        }
+        visit[node.x][node.y] = 1;
+        for(int i=0; i &lt; 4; i++){
+            int x = node.x + stepArr[i][0];
+            int y = node.y + stepArr[i][1];
+            if (x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp; x &lt; n &amp;&amp; y &lt; n &amp;&amp; visit[x][y] == 0 &amp;&amp; 其它条件 ){
+                visit[x][y] = 1;
+                Node next(x,y,node.step+1);
+                q.push(next);
+            }
+        }
+    }
+    return-1;
+}
+</code></pre>
+<h1 id="广度优先搜索的优化"><a href="#广度优先搜索的优化" class="headerlink" title="广度优先搜索的优化"></a>广度优先搜索的优化</h1><ul>
+<li><p>双向广搜：从初状态和末状态两端进行广搜，直到两区域开始重叠或者有公众节点结束</p>
+<p>如果一个节点产生的系统呈二叉树式增长，那么对于扩展 $n$ 次的代价， 单向为 $2^n$，而双向则是 $2 * 2^\frac{n}{2} = 2 ^{\frac{n}{2} + 1}$</p>
+</li>
+<li><p>利用散列表（Hash表）记录状态，避免遇到相同状态而增加搜索时间 </p>
+</li>
+</ul>
+<p>如以下题目（洛谷P2730）：</p>
+<blockquote>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：</p>
+<script type="math/tex; mode=display">
+\begin{eqnarray}
+&1&2&3&4 \\
+&8&7&6&5
+\end{eqnarray}</script><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们知道魔板的每一个方格都有一种颜色。这8种颜色用前8个正整数来表示。可以用颜色的序列来表示一种魔板状态，规定从魔板的左上角开始，沿顺时针方向依次取出整数，构成一个颜色序列。对于上图的魔板状态，我们用序列（1，2，3，4，5，6，7，8）来表示。这是基本状态。</p>
+<p>这里提供三种基本操作，分别用大写字母“A”，“B”，“C”来表示（可以通过这些操作改变魔板的状态）：</p>
+<p>“A”：交换上下两行；</p>
+<p>“B”：将最右边的一列插入最左边；</p>
+<p>“C”：魔板中央四格作顺时针旋转。</p>
+<p>下面是对基本状态进行操作的示范：</p>
+<p><strong>A</strong>: </p>
+<script type="math/tex; mode=display">
+\begin{eqnarray}
+&8&7&6&5 \\
+&1&2&3&4
+\end{eqnarray}</script><p><strong>B</strong>:</p>
+<script type="math/tex; mode=display">
+\begin{eqnarray}
+&4&1&2&3 \\
+&5&8&7&6
+\end{eqnarray}</script><p><strong>C</strong>: </p>
+<script type="math/tex; mode=display">
+\begin{eqnarray}
+&1&7&2&4 \\
+&8&6&3&5
+\end{eqnarray}</script><p>对于每种可能的状态，这三种基本操作都可以使用。</p>
+<p>你要编程计算用最少的基本操作完成基本状态到目标状态的转换，输出基本操作序列。</p>
+</blockquote>
+<p>A、B、C三种操作我们可以找到规则，写为函数来进行模拟，于是这样进行BFS。重点在于我们如何记录每一个状态。如果我们保留这8位数存储，使用一个8位的bool数组存储，判重时需要接近 $10^8$ 的布尔数组，空间接近200M，肯定超过限制。而我们最终需要的结果是操作的序列，所以我们不如使用操作序列来记录所有的状态。</p>
+<p>所以有以下的AC代码（摘自洛谷巨佬<a href="https://www.luogu.org/blog/getchar123/solution-p2730" target="_blank" rel="noopener">getchar123</a>）：</p>
+<pre><code class="lang-C++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+string a;#include&lt;bits/stdc++.h&gt;
+using namespace std;
+string a;
+map&lt;string,string&gt;m;
+queue&lt;string&gt;q;
+void A(string x){
+    string xx=x;
+    for(int i=0;i&lt;4;i++){
+        char x1=x[i];
+        x[i]=x[7-i];
+        x[7-i]=x1;
+    }
+    if(m.count(x)==0){//没有出现过
+        q.push(x);
+        m[x]=m[xx]+&#39;A&#39;;
+    }
+    return;
+}
+void B(string x){
+    string xx=x;
+    x[0]=xx[3],x[1]=xx[0],x[2]=xx[1],x[3]=xx[2],x[4]=xx[5],x[5]=xx[6],x[6]=xx[7],x[7]=xx[4];
+    if(m.count(x)==0){
+        q.push(x);
+        m[x]=m[xx]+&#39;B&#39;;
+    }
+    return;
+}
+void C(string x){
+    string xx=x;
+    x[1]=xx[6],x[2]=xx[1],x[5]=xx[2],x[6]=xx[5];
+    if(m.count(x)==0){
+        q.push(x);
+        m[x]=m[xx]+&#39;C&#39;;
+    }
+    return;
+}
+void bfs(){
+    q.push(&quot;12345678&quot;);
+    m[&quot;12345678&quot;]=&quot;&quot;;
+    while(q.empty()==false){
+        A(q.front());
+        B(q.front());
+        C(q.front());
+        if(m.count(a)!=0){//当出现目标序列
+            cout&lt;&lt;m[a].size()&lt;&lt;endl&lt;&lt;m[a];
+            return;
+        }
+        q.pop();
+    }
+    return;
+}
+int main(){
+    for(int i=0;i&lt;8;i++){
+        char a1;
+        cin&gt;&gt;a1;
+        a+=a1;
+        getchar();
+    }
+    bfs();
+    return 0;
+}
+map&lt;string,string&gt;m;
+queue&lt;string&gt;q;
+void A(string x){
+    string xx=x;
+    for(int i=0;i&lt;4;i++){
+        char x1=x[i];
+        x[i]=x[7-i];
+        x[7-i]=x1;
+    }
+    if(m.count(x)==0){//没有出现过
+        q.push(x);
+        m[x]=m[xx]+&#39;A&#39;;
+    }
+    return;
+}
+void B(string x){
+    string xx=x;
+    x[0]=xx[3],x[1]=xx[0],x[2]=xx[1],x[3]=xx[2],x[4]=xx[5],x[5]=xx[6],x[6]=xx[7],x[7]=xx[4];
+    if(m.count(x)==0){
+        q.push(x);
+        m[x]=m[xx]+&#39;B&#39;;
+    }
+    return;
+}
+void C(string x){
+    string xx=x;
+    x[1]=xx[6],x[2]=xx[1],x[5]=xx[2],x[6]=xx[5];
+    if(m.count(x)==0){
+        q.push(x);
+        m[x]=m[xx]+&#39;C&#39;;
+    }
+    return;
+}
+void bfs(){
+    q.push(&quot;12345678&quot;);
+    m[&quot;12345678&quot;]=&quot;&quot;;
+    while(q.empty()==false){
+        A(q.front());
+        B(q.front());
+        C(q.front());
+        if(m.count(a)!=0){//当出现目标序列
+            cout&lt;&lt;m[a].size()&lt;&lt;endl&lt;&lt;m[a];
+            return;
+        }
+        q.pop();
+    }
+    return;
+}
+int main(){
+    for(int i=0;i&lt;8;i++){
+        char a1;
+        cin&gt;&gt;a1;
+        a+=a1;
+        getchar();
+    }
+    bfs();
+    return 0;
+}
+</code></pre>
+<h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>（看到这里请提醒博主填完这里<del>或者删掉</del>）</p>
+
+                <hr>
+                <div>
+                    <p>
+                         
+                        <span class="badge badge-light">#&nbsp;ACM</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Programming</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Learning Note</span>
+                        &nbsp;
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+
+<div class="comments" id="comments">
+ 
+</div>
+
+
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

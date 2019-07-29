@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="kongjune">
+    <meta name="keywords" content>
+    <title>蒟蒻的ACM初体验——基础数据结构 ~ KONGJUNE&#39;s BLOG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/github-Typora.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">档案</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/某些数据结构（树状数组、差分对列、线段树）/banner.jpeg")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2">蒟蒻的ACM初体验——基础数据结构</p>
+            <br>
+            
+            <p>星期三, 七月 17日 2019, 1:49 下午</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <p>单调队列、树状数组、差分队列与线段树。<br><a id="more"></a></p>
+<h1 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h1><p>一个具有单调性的队列，具体操作为：（单调增的队列）</p>
+<ol>
+<li>若队列为空，将<code>A[i]</code>从对队尾入队。</li>
+<li>若队列不为空，将比<code>A[i]</code>大的元素从队尾弹出，然后把<code>A[i]</code>入队。</li>
+<li>若队列不为空且<code>A[i]</code>大于队尾，则直接从队尾把<code>A[i]</code>入队。</li>
+</ol>
+<h1 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h1><blockquote>
+<p>以前的板子有，先略过</p>
+</blockquote>
+<h2 id="差分队列（区间修改点查询的树状数组）"><a href="#差分队列（区间修改点查询的树状数组）" class="headerlink" title="差分队列（区间修改点查询的树状数组）"></a>差分队列（区间修改点查询的树状数组）</h2><p>树状数组本身是点修改区间查询的，对于原本的模式他有两个数组：<code>a[]</code>，用以记录原本的数组序列；<code>b[]</code>用以记录形成的树状数组。</p>
+<p>将这两个数组角色翻转，用<code>b[]</code>来表示原本的、要被修改的数组，用<code>a[]</code>记录辅助的，用以查询的数组。则按以下方法构建：</p>
+<ul>
+<li>有已知数组<code>a[]</code>，用以记录原数组值。</li>
+<li>引入差分数组<code>b[]</code>，定义$b[i] = a[i] - a[i-1]$。可以得到 $a[i] = b[1] + b[2] + b[3] + \cdots+b[i] $。</li>
+<li>引入树状数组<code>a[]</code>维护<code>b[]</code>的前缀和。</li>
+</ul>
+<p>由以上关系，当我需要对<code>a[]</code>的区间 $[l,r]$ 进行修改，全部加上<code>k</code>值，只需要将<code>b[l] += k</code>，<code>b[r + 1]-= k</code>即可实现。Update后对<code>a[i]</code>具体值直接进行点查询。</p>
+<h2 id="二维树状数组"><a href="#二维树状数组" class="headerlink" title="二维树状数组"></a>二维树状数组</h2><pre><code class="lang-C++">int s[105][105],N,M;
+int lowbit(int i){
+    return i &amp; -i;
+}
+void set(int i, int j, int x){
+    for    (int ii = i;ii &lt;= N;ii+= lowbit(ii)){
+        for(int jj = j;j &lt;= M;jj += lowbit(jj)){
+            s[ii][jj] += x;
+        }
+    }
+}
+int get(int i, int j){
+    int ans = 0;
+    for (int ii = i;ii &gt; 0;ii -= lowbit(ii))
+        for(int jj = j;jj &gt; 0;jj -= lowbit(jj))
+            ans += a[ii][jj];
+    return ans;
+}
+</code></pre>
+<h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1><p><img src="/img/某些数据结构（树状数组、差分对列、线段树）/1563250811851.png" alt="1563250811851"></p>
+<p>线段树是一种如上图所示的数据结构，将一个长度较长的数组按照树的结构不断二分形成如图结构。</p>
+<p><strong>线段树的解题关键</strong>：</p>
+<ul>
+<li>如何通过子节点来推出父节点的信息？每一个节点都需要哪些信息？</li>
+<li>在区间更新中，我如何通过父节点的增值内容推出子节点的增值内容以便在进行区间查询时得到正确的结果？(<em>Lazy Tag</em> 的设定)</li>
+</ul>
+<p><strong>线段树的存储结构</strong>：</p>
+<ul>
+<li>建立数组<code>tree[]</code>，数组下标从<code>1</code>开始，其中<code>tree[1]</code>为根节点，整体的统计信息、最终答案都将会存在<code>tree[1]</code>中。</li>
+<li>对于任意一个节点<code>tree[x]</code>，它的左节点信息存储在<code>tree[2 * x]</code>中，右节点信息存储在<code>tree[2 * x + 1]</code>中。</li>
+</ul>
+<p><strong>线段树的操作函数</strong>：</p>
+<ul>
+<li><p><code>build()</code>函数：用于建立整个线段树。</p>
+<ul>
+<li><p>通过递归不断将二分分解原区间，直到找到叶节点所在位置（长度为1的区间）</p>
+</li>
+<li><p>将具体值放在这个叶节点，然后不断向上回溯修改所有父节点的值。</p>
+</li>
+</ul>
+<pre><code class="lang-C++">void build(int l, int r, int root){
+    if(l == r){
+        num[root] = 1;
+        return;
+    }
+
+    // [l, mid]:左子树  [mid+1, r]:右子树
+    int mid = (l + r) / 2;
+    build(l, mid, root*2);
+    build(mid+1, r, root*2 + 1);
+    push_up(root);
+    // 对于这个根节点，先把左右子树都算出来了，再来更新它的值。
+    // 沿路回溯。回溯到的点root，都是被[la, rb]或其子区间影响到的点，边回溯边更新。
+}
+
+// 调用 build(1, N, 1);
+</code></pre>
+</li>
+<li><p><code>update()</code>函数：修改（更新）函数，分为单点更新和区间更新。</p>
+<ul>
+<li><p>单点更新的<code>update()</code>函数：</p>
+<ul>
+<li>由根节点 $1$ 向下递归，找到对应的叶节点；</li>
+<li>修改叶结点的值；</li>
+<li>向上返回，在函数返回的过程中，更新路径上的节点的统计信息。</li>
+</ul>
+<pre><code class="lang-C++">void upgrade(int p, int val, int l, int r, int root){
+    // 单点更新，值增加增加val
+    if (l == r){
+        num[root] += val;
+      return;
+    }
+
+    int mid = (l + r) / 2;
+    if (p &gt; mid) // 如果p &gt; 当前区间的中点， 说明我想找的[p, p]区间，在右半边
+        upgrade(p, val, mid+1, r, root * 2 + 1);
+    else upgrade(p, val, l , mid, root * 2);
+
+    //沿路返回，回溯到的点root， 都是被[p, p]区间影响到的点，边回溯边更新
+    num[root] = num[root * 2] + num[root * 2 + 1];
+}
+</code></pre>
+</li>
+<li><p>区间更新的<code>update()</code>函数：</p>
+<ul>
+<li>与单点更新的区别在于，区间修改在理论上是需要向下修改的（因为父区间变化，子区间也会变化）</li>
+<li>为减少操作的复杂度，引入<code>lazy_tag</code>，这样我们暂时不更新下面的子节点，而是在需要用到子节点的时候再顺着这个标签向下更新子节点（需要用到<code>push_down()</code>函数）</li>
+</ul>
+<pre><code class="lang-C++">void update(int la, int rb, int l, int r, int val, int root){
+    /*  la、lb为需要更新的区间的左端点（不发生变化）
+        l、r为当前区间的左、右端点（会随着递归而发生更新）
+        root为当前[l, r]对应的根存储位置（随递归更新）
+        更改区间内值为val
+    */
+    // 如果本次所看的区间，整个就包含在所要查询的区间内。
+    if(la &lt;= l &amp;&amp; rb &gt;= r){
+        num[root] = (r - l + 1) * val; // 把本区间的num更新为正确值
+        lazy[root] = val; // 增加lazy标记，表示本区间的Sum正确，子区间的Sum 任然需要根据lazy的值来调整。
+        return;
+    }
+    push_down(root, r - l + 1);
+    //继续递归前，先将当前root的标记向下传，从而保证再计算root时，他的左右两个自述都已经是正确的值，左右两个子树都不存在lazy更新延迟，都已经更新好了。
+    int mid = (l + r) / 2;
+    if (la &lt;= mid){
+        update(la, rb, l, mid, val, root * 2);
+    }
+    if (rb &gt; mid){
+        update(la, rb, mid + 1, r, val, root * 2 + 1);
+    }
+
+    push_up(root);
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>push_up()</code>函数：父节点回溯更新函数</p>
+<ul>
+<li>这个函数的目的是，已经知道了两个子节点的信息，利用这个函数推出父节点的信息。</li>
+<li>前提是两个节点的信息已经是<strong>正确了的、更新过了的</strong>。</li>
+</ul>
+<pre><code class="lang-C++">void push_up(int root){
+    num[root] = num[root * 2] + num[root * 2 + 1];
+}
+</code></pre>
+</li>
+<li><p><code>push_down()</code>函数：区间更新，将lazy_tag向下推。</p>
+<ul>
+<li>更新左右节点的 <em>Lazy</em> 值，也就是：把父节点root上面的 <em>Lazy</em> 标记，下推到两个子节点上</li>
+<li>依据 <em>Lazy Tag</em> 的定义，更新左右节点的<code>num</code>值，使左右子节点的值成为<strong>被更新过的、正确的值</strong>。</li>
+<li>把父节点的 <em>Lazy Tag</em> 值清空。因为 <em>Lazy Tag</em> 已经下推，就向上查询来看，父节点自身的 <em>Lazy Tag</em> 已经不再需要。</li>
+</ul>
+<pre><code class="lang-C++">void push_down(int root, int len){
+    if (lazy[root] == 0)
+        return;
+    lazy[root * 2] = lazy[root];
+    lazy[root * 2 + 1] = lazy[root];
+
+    num[root * 2] = lazy[root * 2] * (len - (len) / 2);
+    num[root * 2 + 1] = lazy[root * 2 + 1] * ((len) / 2);
+
+    lazy[root] = 0;
+}
+</code></pre>
+</li>
+</ul>
+
+                <hr>
+                <div>
+                    <p>
+                         
+                        <span class="badge badge-light">#&nbsp;ACM</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Programming</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Learning Note</span>
+                        &nbsp;
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+
+<div class="comments" id="comments">
+ 
+</div>
+
+
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
