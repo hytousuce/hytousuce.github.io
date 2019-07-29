@@ -162,56 +162,62 @@ int find(string str){
 <p>发现依旧不匹配，继续将匹配串右移。</p>
 </li>
 <li><p>直到出现了一次匹配（匹配串移动到了第4位）：</p>
-<p><img src="https://img-blog.csdn.net/20140726213602848" alt="img"></p>
+<p><img src="/img/AC自动机/20140726213602848" alt="img"></p>
 <p>发现匹配成功，则<code>i++</code>、<code>j++</code>。对下一位进行匹配。</p>
 </li>
 <li><p>将文本串的第5位与匹配串的第1位匹配：</p>
-<p><img src="https://img-blog.csdn.net/20140726213343578" alt="img"></p>
+<p><img src="/img/AC自动机/20140726213343578" alt="img"></p>
 <p>发现匹配成功，继续<code>i++</code>、<code>j++</code>。对下一位匹配，直到出现不能匹配的项。</p>
 </li>
 <li><p>再次出现不能匹配的项：</p>
-<p><img src="https://img-blog.csdn.net/20140726213353687" alt="img"></p>
+<p><img src="/img/AC自动机/20140726213353687" alt="img"></p>
 <p>发现匹配不成功，则匹配串右移，重新从匹配串的第一位开始进行匹配。</p>
 </li>
 <li><p>じゃ、もう一度！</p>
-<p><img src="https://img-blog.csdn.net/20140726213631208" alt="img"></p>
+<p><img src="/img/AC自动机/20140726213631208" alt="img"></p>
 </li>
 </ul>
 <p>从示例可以看出，这种匹配模式下，每次出现错误的匹配都需要回溯到词头再进行匹配，十分的低效，算法复杂度也到了$O(m\cdot n)$。如果我们在进行匹配的时候，能基本做到不进行回溯而只移动模式串的话，算法复杂度将极大地提升。</p>
 <h3 id="KMP算法匹配字符串"><a href="#KMP算法匹配字符串" class="headerlink" title="KMP算法匹配字符串"></a>KMP算法匹配字符串</h3><p>让我们回到起点重新进行模式串匹配：</p>
 <ul>
 <li><p>首先匹配文本串的第0位：</p>
-<p><img src="https://img-blog.csdn.net/20140723224710203" alt="img">发现匹配不成功，则匹配串右移。</p>
+<p><img src="/img/AC自动机/20140723224710203" alt="img"></p>
+<p>发现匹配不成功，则匹配串右移。</p>
 </li>
-<li><p>匹配文本串的第1位：<img src="https://img-blog.csdn.net/20140726213551553" alt="img">发现依旧不匹配，继续将匹配串右移。</p>
+<li><p>匹配文本串的第1位：</p>
+<p><img src="img/AC自动机/20140726213551553" alt="img"></p>
+<p>发现依旧不匹配，继续将匹配串右移。</p>
 </li>
 <li><p>直到出现了一次匹配（匹配串移动到了第4位）：</p>
-<p><img src="https://img-blog.csdn.net/20140726213602848" alt="img"></p>
+<p><img src="img/AC自动机/20140726213602848" alt="img"></p>
 <p>发现匹配成功，则<code>i++</code>、<code>j++</code>。对下一位进行匹配。</p>
 </li>
-<li><p>将文本串的第5位与匹配串的第1位匹配：<img src="https://img-blog.csdn.net/20140726213343578" alt="img">发现匹配成功，继续<code>i++</code>、<code>j++</code>。对下一位匹配，直到出现不能匹配的项。</p>
+<li><p>将文本串的第5位与匹配串的第1位匹配：</p>
+<p><img src="/img/AC自动机/20140726213343578" alt="img"></p>
+<p>发现匹配成功，继续<code>i++</code>、<code>j++</code>。对下一位匹配，直到出现不能匹配的项。</p>
 </li>
 <li><p>再次出现不能匹配的项：</p>
-<p><img src="https://img-blog.csdn.net/20140726213353687" alt="img"></p>
+<p><img src="/img/AC自动机/20140726213353687" alt="img"></p>
 <p>发现匹配不成功，则匹配串右移，重新从匹配串的第一位开始进行匹配。</p>
 </li>
 </ul>
 <p>这时我们考虑，真的要回溯到文本串的第5位然后重新开始与模式串的第一位进行比较么？我们可以发现我们已经匹配了的部分中有一段字符串<code>&quot;AB&quot;</code>，而模式串的前缀中也有<code>&quot;AB&quot;</code>。也就是说，<strong>其实我们可以认为已经将模式串的前两位匹配成功了</strong>，我们只需要继续匹配模式串的第2位（从0开始编号）就可以了。</p>
 <ul>
 <li><p>不进行回溯而将模式串右移一定的位：</p>
-<p><img src="https://img-blog.csdn.net/20140721223539765" alt="img"></p>
+<p><img src="/img/AC自动机/20140721223539765" alt="img"></p>
 <p>发现匹配错误，将模式串继续移位。</p>
 </li>
 <li><p>移位将字符串的第10位与模式串第0位进行匹配：</p>
-<p><img src="https://img-blog.csdn.net/20140721223823548" alt="img"></p>
-<p>发现匹配错误，移位对字符串的下一位进行匹配。</p>
+<p><img src="/img/AC自动机/20140721223823548" alt="img"></p>
+</li>
+<li><p>发现匹配错误，移位对字符串的下一位进行匹配。</p>
 </li>
 <li><p>移位将字符串第11位与模式串第0位进行匹配：</p>
 <p><img src="/img/AC自动机/1563430728158.png" alt="1563430728158"></p>
 <p>发现匹配成功。则<code>i++</code>、<code>j++</code>，进行下一位匹配。以此类推，直到再次发生不能匹配。</p>
 </li>
 <li><p>直到再一次发生匹配失败：</p>
-<p><img src="https://img-blog.csdn.net/20140721223558140" alt="img"></p>
+<p><img src="/img/AC自动机/20140721223558140" alt="img"></p>
 <p>情况与上一次相似，都是出现在了<code>&#39;D&#39;</code>位，所以模式串向右移动。</p>
 </li>
 <li><p>模式串向右移动四位：</p>
@@ -219,7 +225,7 @@ int find(string str){
 <p>发现匹配成功，则不断的<code>i++</code>、<code>j++</code>。</p>
 </li>
 <li><p>匹配完成：</p>
-<p><img src="https://img-blog.csdn.net/20140721223611515" alt="img"></p>
+<p><img src="/img/AC自动机/20140721223611515" alt="img"></p>
 </li>
 </ul>
 <p>这种匹配方式下，字符串完全不需要进行回溯，只需要将模式串进行一定量的右移就可以得到最终结果。这是一种高效的模式串匹配方法。算法的时间复杂度仅为 $O(m + n)$。</p>
