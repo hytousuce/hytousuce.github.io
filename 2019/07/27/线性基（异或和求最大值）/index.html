@@ -93,17 +93,17 @@
 <p>学习自博客：<a href="https://blog.sengxian.com/algorithms/linear-basis" target="_blank" rel="noopener">https://blog.sengxian.com/algorithms/linear-basis</a></p>
 </blockquote>
 <p><strong>基（basis）</strong>是线性代数中的一个概念，他是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素被称为基向量。向量空间中的任意一个元素，都可以唯一地被表示成基向量的线性组合。异或空间基向量，被称为线性基。</p>
-<h2 id="从线性代数开始的异或世界"><a href="#从线性代数开始的异或世界" class="headerlink" title="从线性代数开始的异或世界"></a>从线性代数开始的异或世界</h2><h3 id="线性空间-（向量空间）"><a href="#线性空间-（向量空间）" class="headerlink" title="线性空间~（向量空间）~"></a>线性空间~（向量空间）~</h3><p>定义$({\Bbb F},\mathrm V,+,\cdot)$为线性空间（<em>Vector Space</em>）。其中 $\Bbb F$ 为域，其中的元素为标量；$\mathrm V$ 为集合，其中的元素称为向量，有以下两个运算：</p>
+<h2 id="从线性代数开始的异或世界"><a href="#从线性代数开始的异或世界" class="headerlink" title="从线性代数开始的异或世界"></a>从线性代数开始的异或世界</h2><h3 id="线性空间（向量空间）"><a href="#线性空间（向量空间）" class="headerlink" title="线性空间（向量空间）"></a>线性空间（向量空间）</h3><p>定义$({\Bbb F},\mathrm V,+,\cdot)$为线性空间（<em>Vector Space</em>）。其中 $\Bbb F$ 为域，其中的元素为标量；$\mathrm V$ 为集合，其中的元素称为向量，有以下两个运算：</p>
 <ol>
-<li>向量加法：$\mathrm V+\mathrm V\rightarrow \mathrm V$，记作 ${\bf v}+{\bf w},\exist {\bf v},{\bf m} \in \mathrm V$；</li>
-<li>标量乘法：${\Bbb F}\cdot \mathrm V\rightarrow \mathrm V$，记作 $a \cdot {\bf v},  \exist {\bf a} \in {\Bbb F},{\bf v}\in \mit \mathrm V$</li>
+<li>向量加法：$\mathrm V+\mathrm V\rightarrow \mathrm V$，记作 ${\bf v}+{\bf w},\exists {\bf v},{\bf m} \in \mathrm V$；</li>
+<li>标量乘法：${\Bbb F}\cdot \mathrm V\rightarrow \mathrm V$，记作 $a \cdot {\bf v},  \exists {\bf a} \in {\Bbb F},{\bf v}\in \mit \mathrm V$</li>
 </ol>
 <p>且运算满足以下公理：</p>
 <ol>
 <li>向量加法结合律：${\bf u} + ({\bf v} + {\bf w}) = ({\bf u} + {\bf v} ) + {\bf w}$；</li>
 <li>向量加法交换律：${\bf v} + {\bf w} = {\bf w} + {\bf v}$；</li>
 <li>向量加法的单位元：$\mathrm V$ 中有一个被称为零向量的 $\bf 0$，$\forall {\bf v}\in \mathrm V$，${\bf v} + {\bf 0} = {\bf v}$；</li>
-<li>向量加法的逆元素：$\forall {\bf v}\in \mathrm {V}$，$\exist {\bf w} \in \mathrm V$，使得${\bf v} + {\bf w} = 0$，其中 ${\bf w}$ 称为 ${\bf v}$ 的逆元；</li>
+<li>向量加法的逆元素：$\forall {\bf v}\in \mathrm {V}$，$\exists {\bf w} \in \mathrm V$，使得${\bf v} + {\bf w} = 0$，其中 ${\bf w}$ 称为 ${\bf v}$ 的逆元；</li>
 <li>标量乘法与标量的域乘法相容：$a(b{\bf v} ) = (ab){\bf v}$；</li>
 <li>标量乘法的单位元：域$\Bbb F$存在乘法单位元 $1$ 满足 $1{\bf v} = {\bf v}$；</li>
 <li>标量乘法对向量加法的分配律：$a({\bf u} + {\bf v}) = a{\bf u} + a{\bf v}$；</li>
@@ -130,7 +130,7 @@ a_1{\bf v}_1 + a_2{\bf v_2} + \dots + a_n{\bf v} _ n = 0</script><p>则称 $n$ �
 a_1{\bf v_1} + a_2{\bf v}_2 + \dots+a_n{\bf v}_n</script><p>其中 $a_1,\dots,a_n\in \mathbb F$。</p>
 <h3 id="张成（Span）"><a href="#张成（Span）" class="headerlink" title="张成（Span）"></a>张成（<em>Span</em>）</h3><p>对于相连空间中 $V$ 上 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，其所有线性组合所构成的集合称为 $({\bf v}_1,\dots,{\bf v}_n)$ 的<strong>张成</strong>（<em>Span</em>），记作$\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_n)$。</p>
 <h3 id="基（Basis"><a href="#基（Basis" class="headerlink" title="基（Basis)"></a>基（<em>Basis</em>)</h3><p><strong>基</strong>（<em>Basis</em>）（也称为<strong>基底</strong>）是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素称为<strong>基向量</strong>。向量空间中任意一个元素，都可以唯一地表示成基向量的线性组合。如果基中元素个数有限，就称向量空间为有限维向量空间，将元素的个数称作向量空间的<strong>维数</strong>。</p>
-<p>给定一个向量空间 ${\displaystyle \mathrm {V}}$。${\displaystyle \mathrm {V}}$ 的一组<strong>基</strong> ${\displaystyle {\mathfrak {B}}}$ 是指 ${\displaystyle \mathrm {V} }$ 里面的可线性生成 ${\displaystyle \mathrm {V} }$ 的一个==线性无关==子集。${\displaystyle {\mathfrak {B}}}$ 的元素称为<strong>基向量</strong>。</p>
+<p>给定一个向量空间 ${\displaystyle \mathrm {V}}$。${\displaystyle \mathrm {V}}$ 的一组<strong>基</strong> ${\displaystyle {\mathfrak {B}}}$ 是指 ${\displaystyle \mathrm {V} }$ 里面的可线性生成 ${\displaystyle \mathrm {V} }$ 的一个线性无关子集。${\displaystyle {\mathfrak {B}}}$ 的元素称为<strong>基向量</strong>。</p>
 <p>更详细来说，设 ${\displaystyle {\mathfrak {B}}=\{\mathbf e_{1},\mathbf e_{2},\cdots ,\mathbf e_{n}\}}$ 是在系数域 ${\displaystyle \mathbb {F}}$（比如实数域 ${\displaystyle \mathbb {R}}$ 或复数域${\displaystyle \mathbb {C}}$）上的向量空间 ${\displaystyle \mathrm {V}}$ 的有限子集。如果 ${\displaystyle {\mathfrak {B}}}$ 满足下列条件：</p>
 <ol>
 <li>对任意 ${\displaystyle (\lambda _{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$ ，如果 ${\displaystyle \lambda _{1}\mathbf e_{1}+\lambda _{2}\mathbf e_{2}+\cdots +\lambda _{n}\mathbf e_{n}=0}$ 则必然 ${\displaystyle \lambda _{1}=\lambda _{2}=\cdots =\lambda _{n}=0}$；</li>
@@ -140,8 +140,8 @@ a_1{\bf v_1} + a_2{\bf v}_2 + \dots+a_n{\bf v}_n</script><p>其中 $a_1,\dots,a_
 <p><strong>性质</strong>：</p>
 <p>设 $\mathfrak {B}$ 是向量空间 $\mathrm V$ 的基。则 $\mathfrak {B}$ 具有以下性质：</p>
 <ol>
-<li>$\mathrm V$ 是 $\mathfrak {B}$ 的极小生成集，就是说只有 $\mathfrak {B}$ 能张成 $\mathrm  V$，而它的==任何真子集==都不张成全部的向量空间。</li>
-<li>$\mathfrak {B}$ 是 $\mathrm  V$ 中==线性无关向量的极大集合==，就是说 $\mathfrak {B}$ 在 $\mathrm  V$ 中是线性无关集合，而且 $\mathrm V$ 中没有其他线性无关集合包含它作为真子集。</li>
+<li>$\mathrm V$ 是 $\mathfrak {B}$ 的极小生成集，就是说只有 $\mathfrak {B}$ 能张成 $\mathrm  V$，而它的任何<strong>真子集</strong>都不张成全部的向量空间。</li>
+<li>$\mathfrak {B}$ 是 $\mathrm  V$ 中<strong>线性无关向量的极大集合</strong>，就是说 $\mathfrak {B}$ 在 $\mathrm  V$ 中是线性无关集合，而且 $\mathrm V$ 中没有其他线性无关集合包含它作为真子集。</li>
 <li>$\mathrm V$中所有的向量都可以按唯一的方式表达为 $\mathfrak {B}$ 中向量的线性组合。</li>
 </ol>
 <p>第三点尤其重要，感性的理解，基就是向量空间中的一个子集，它可以通过唯一的线性组合，来张成向量空间中所有的向量，这样就可以大大的缩小我们向量空间的大小。</p>
@@ -164,7 +164,7 @@ a_1\mathbf{v}_1 + \ldots + a_m\mathbf{v}_m = \mathbf{0}</script><p>$a_2, a_3, \l
 <p>按照以下的方法得到这个线性空间的一个基 $\mathfrak B = (\mathbf a_1,\dots,\mathbf a_n)$ ：</p>
 <p><strong>第 $1$ 步：</strong>如果 $\mathbf a_1 = \mathbf 0$，则从 $\mathfrak B$ 中去除 $\mathbf a_1$，否则保持 $\mathfrak B$ 不变。</p>
 <p><strong>第 $j$ 步：</strong>如果 $\mathbf a_j \in \mathrm{span}(\mathbf a_1, \dots ,\mathbf a_{j - 1})$ ，则从 $\mathfrak B$ 中去掉 $\mathbf a_j$，否则保持 $\mathfrak B$ 不变。</p>
-<p>经过 $n$ 步后终止程序，得到一个向量组 $\mathfrak B$。由于每一次去掉的项包含于前面诸向量的张成，到最后这个组 $\mathfrak B$ 仍然可以张成 $\mathrm V$。而且这一程序确保了 $\mathfrak B$ 中的任何向量都不包含于它前面诸向量的张成，根据线性相关性引理可知 $\mathfrak B$ 是==线性无关==的。于是 $\mathfrak B$ 是 $\mathrm V$ 的一个基。</p>
+<p>经过 $n$ 步后终止程序，得到一个向量组 $\mathfrak B$。由于每一次去掉的项包含于前面诸向量的张成，到最后这个组 $\mathfrak B$ 仍然可以张成 $\mathrm V$。而且这一程序确保了 $\mathfrak B$ 中的任何向量都不包含于它前面诸向量的张成，根据线性相关性引理可知 $\mathfrak B$ 是<strong>线性无关</strong>的。于是 $\mathfrak B$ 是 $\mathrm V$ 的一个基。</p>
 <p>利用高斯消元来判断向量能否被前面的向量张成，就可以写出下面的程序</p>
 <pre><code class="lang-c++">#define MAX_BASE 63 // 当数据为long long型时，int型为31
 void cal(){

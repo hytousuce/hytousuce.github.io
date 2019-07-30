@@ -150,7 +150,7 @@ void init(int n)
 </code></pre>
 <ul>
 <li><code>1 &lt;&lt; j</code> 相当于求出$2^j$的值</li>
-<li>$\text{st}[x][y] = max/min(\text{st}[i,j-1],\text{st}[i+2^{j-1},j-1])$：将$[x,x+2^y-1]$~（指序号大小，下同）~分为$[x,x+2^{y-1}-1]$与$[x+2^{y-1},x+2^y-1]$两部分</li>
+<li>$\text{st}[x][y] = max/min(\text{st}[i,j-1],\text{st}[i+2^{j-1},j-1])$：将$[x,x+2^y-1]$（指序号大小，下同）分为$[x,x+2^{y-1}-1]$与$[x+2^{y-1},x+2^y-1]$两部分</li>
 <li>因为<code>j</code>是从小到大遍历的，所以在得到<code>st[i][j]</code>的值之前，一定会得到<code>st[i + (1 &lt;&lt; (j-1))][j - 1]</code>的值</li>
 </ul>
 <h3 id="查找（实例为查找最小值）"><a href="#查找（实例为查找最小值）" class="headerlink" title="查找（实例为查找最小值）"></a>查找（实例为查找最小值）</h3><p>查找区间$[l,r]$内的最小值：</p>
@@ -165,9 +165,9 @@ void init(int n)
 </ul>
 <h2 id="LCA"><a href="#LCA" class="headerlink" title="LCA"></a>LCA</h2><ul>
 <li><em>LCA</em>：最近公共祖先。</li>
-<li>从 <em>LCA</em> 的定义可以得到：两点的 <em>LCA</em> 一定是两个点的祖先中深度最大的。那么也就是说==两个点如果深度相同的话==，他们沿着树向上走<code>x</code>步就可以同时到达 <em>LCA</em> 。<ul>
+<li>从 <em>LCA</em> 的定义可以得到：两点的 <em>LCA</em> 一定是两个点的祖先中深度最大的。那么也就是说<strong>两个点如果深度相同的话</strong>，他们沿着树向上走<code>x</code>步就可以同时到达 <em>LCA</em> 。<ul>
 <li>如果深度不同，则深度较大的向上跳到深度相同的地方。</li>
-<li>如果深度相同，则一同向上跳到找到 <em>LCA</em>l。</li>
+<li>如果深度相同，则一同向上跳到找到 <em>LCA</em>。</li>
 </ul>
 </li>
 </ul>

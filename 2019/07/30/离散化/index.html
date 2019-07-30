@@ -19,7 +19,7 @@
     <meta name="description" content>
     <meta name="author" content="kongjune">
     <meta name="keywords" content>
-    <title>蒟蒻的ACM初体验——后缀数组 ~ KONGJUNE&#39;s BLOG</title>
+    <title>蒟蒻的ACM初体验——离散化 ~ KONGJUNE&#39;s BLOG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
@@ -67,14 +67,14 @@
 
 
 </nav>
-    <div class="view intro-2" style='background: url("/img/后缀数组/banner.jpeg")no-repeat center center;background-size: cover;'>
+    <div class="view intro-2" style='background: url("/img/离散化/banner.jpeg")no-repeat center center;background-size: cover;'>
     <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
         <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">蒟蒻的ACM初体验——后缀数组</p>
+            <p class="h2">蒟蒻的ACM初体验——离散化</p>
             <br>
             
-            <p>星期日, 七月 28日 2019, 2:03 下午</p>
+            <p>星期二, 七月 30日 2019, 2:14 下午</p>
             
         </div>
         </div>
@@ -90,45 +90,53 @@
         <div class="col-md-8 offset-md-2 ">
             <div class="post-content py-5 z-depth-3 main">
                 <blockquote>
-<p>学习自：</p>
-<ul>
-<li><a href="https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0" target="_blank" rel="noopener">https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0</a></li>
-<li><a href="https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=提醒填坑&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=" target="_blank" rel="noopener">https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=</a></li>
-</ul>
+<p>Banner 图源网络，侵删。</p>
 </blockquote>
-<h2 id="后缀数组简介"><a href="#后缀数组简介" class="headerlink" title="后缀数组简介"></a>后缀数组简介</h2><p><strong>后缀</strong>：从字符串某个位置 $i$ 到字符串末尾的子串，我们定义以字符串 $str$ 的第 $i$ 位为第一个元素的后缀为<code>suff[i]</code>。（后缀的英文：<em>suffix</em>）</p>
-<p><strong>后缀数组</strong>：把字符串 $str$ 的每一个后缀按照字典序排序后所形成的数组。</p>
-<h2 id="后缀数组的实现"><a href="#后缀数组的实现" class="headerlink" title="后缀数组的实现"></a>后缀数组的实现</h2><h3 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h3><ul>
-<li><code>suff[]</code>数组，用来记录从第 $i$ 位开始的后缀</li>
-<li><code>sa[]</code>数组（<em>suffix array</em>），存储的是字典第 $i$ 小的后缀的<strong>下标</strong>。比如<code>sa[0] = 8</code>代表的是<code>suff[]</code>数组中第 $8$ 位后缀在字典序中最小。而<code>suff(sa[0])</code>才真正存储这最小的那个后缀的内容。</li>
-<li><code>rank[]</code>数组，与<code>sa[]</code>相反，存储的是下标为 $i$ 的后缀为第几小。一定存在关系 $\text{rank}[\text{sa}[i]] = i$。</li>
-</ul>
-<h3 id="倍增算法"><a href="#倍增算法" class="headerlink" title="倍增算法"></a>倍增算法</h3><p>问题在于我们怎么给这个后缀数组排序，如果强硬 sort 的话，sort 算法复杂度本来就有 $O(n\log_2n)$ 字符串排序还不用于一般数字的排序，每个字符串对比还有 $O(n)$ 复杂度。也就是说用 sort 的话，复杂度会达到 $O(n^2\log_2n)$。这就很伤不是么，所以我们要想出来一个复杂度更低的算法。</p>
-<p>我们知道，两个字符串的比较，如果前半部分相同则比较结果取决于后半部分的比较结果，否则只需要看前半部分的比较结果。基于这个事实，我们考虑以下方法：</p>
-<p>对于字符串 $str$，定义<strong>k-前缀</strong>为：</p>
-<script type="math/tex; mode=display">
-str_k=\begin{cases}
-str[0\dots k - 1] = str.\mathrm{substr}(0, k) & (k\leq str.\mathrm{length}()) \\
-str & (k > str.\mathrm{length}())
-\end{cases}</script><p>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
+<h1 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h1><p><strong>离散化</strong>：将无限空间中的有限个体映射到有限的空间中。</p>
+<p>比如说我有一个无尽的坐标轴，上面有 $10^4$ 个点，每个点的坐标值可以很大很大接近无限。如果我想知道比其中一个点小的点有多少个，暴力比较每个点的坐标值则会因为数据过大而 Boom。而我们通过点与点相对关系，将点的值进行重新赋值，则可以大大减小算法的复杂度。</p>
+<p>比如，我现在的数轴上只有6个点， 他们的坐标分别为 $0$、$610$、$10^5+2$、$99$、$5$、$10^9+45$，如果我只是按照他们原有的值进行比较，最大要比较到 $10^9+45$。而如果我们用他们的相对大小来进行比较，即转换为 $0$、$3$、$4$、$2$、$1$、$5$ 则会方便很多。这就是离散化的思想，<strong>就是将离散的事物进行重新分配</strong>。</p>
+<h2 id="离散化方法：排序-二分"><a href="#离散化方法：排序-二分" class="headerlink" title="离散化方法：排序+二分"></a>离散化方法：排序+二分</h2><p>（推荐使用本方法）</p>
+<p>基本原理就是排序后使用STL中的<code>unque()</code>函数来获取整体数据不同元素的个数，然后在已排序序列二分查找 $num[i]$ 的值，从而得到对 $num[i]$ 对应的值，然后进行重新赋值。</p>
+<pre><code class="lang-C++">for(int i = 0; i &lt; n; i++){
+    scanf(&quot;%d&quot;, &amp;num[i]);
+    disc[i] = num[i]; // num:原数据数组，disc:离散化后的数组
+}
+sort(disc, disc + n);
+cnt = unique(disc, disc + n) - disc; // STL中的unique函数，具体内容见👇
+for(int i = 0; i &lt; n; i++)
+    num[i] = lower_bound(disc, disc + n, num[i]) - disc;
+</code></pre>
 <ul>
-<li><p>容易求出 $rank_1$ 的值与 $sa_1$ 的值，只需要进行 sort 对第一个字母排序就可以了。</p>
-</li>
-<li><p>得到了 $rank_k$，则定义二元组 $(rank_k[i],rank_k[i + k])$，按照“如果 $rank_k[i]$ 相同则比较$rank_k[i +k]$，否则则比较 $rank_k[i]$ ”的方法来进行sort，即可求出 $sa_{2k}$。</p>
-</li>
-<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：</p>
-<script type="math/tex; mode=display">
-rank_k[i] = \begin{cases}
-rank_k[i - 1] & suff[sa[i]]_k = suff[sa[i - 1]]_k \\
-rank_k[i - 1] + 1 & suff[sa[i]] _ k \neq suff[sa[i - 1]]_k
-\end{cases}</script></li>
+<li><code>unique(a, b)</code>函数：STL中比较常见的函数，他的功能是“删除”序列中所有<strong>相邻的</strong>重复元素（只保留一个），因为只是处理相邻的重复元素所以在使用这个函数之前要进行排序。（此处略去更具体的<del>都能再写一页博客的</del>内容）。其中参数<code>a</code>,<code>b</code>为指针，类似<code>sort()</code>函数中的参数。</li>
+<li><code>lower_bound(a, b, v)</code>函数：二分查找返回<code>a</code>、<code>b</code>指针之间空间中大于等于 $v$ 的第一个迭代器。</li>
 </ul>
-<p>这样的话我们求解的顺序就是：</p>
-<script type="math/tex; mode=display">
-sa_1\  \& \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4\rightarrow \cdots \rightarrow sa_n \rightarrow rank_n</script><p>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
-<p><img src="/img/后缀数组/1564227558972.png" alt="1564227558972"></p>
-<p>每一次排序需要进行 $n\log_2n$ 次比较，每一次比较需要 $O(1)$ 复杂度，总共进行 $\log_2n$ 次比较，因此总时间复杂度为$O(n\log_2^2n)$。</p>
-<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>这一部分我们要试图探索比 $O(n\log _2^2n)$ 更优的排序算法。</p>
+<h2 id="离散化方法：排序-暴力"><a href="#离散化方法：排序-暴力" class="headerlink" title="离散化方法：排序+暴力"></a>离散化方法：排序+暴力</h2><pre><code class="lang-C++">#include &lt;bits/stdc++.h&gt;
+#define MAX_N 1e5+5  // 根据实际问题调整
+struct Node{
+    int data;
+    int index;
+}num[MAX_N];
+bool cmp(Node a, Node b){
+    return a.data &lt; b.data;
+}
+int rank[MAX_N], n;
+int main(){
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i = 0;i &lt; n; i++){
+        scanf(&quot;%d&quot;, &amp;num[i].data);
+        num[i].index = i;
+    }
+    sort(num, num + n, cmp);
+    for(int i = 1; i &lt;= n; i++){
+        rank[num[i].id] = i;
+    }
+    return 0;
+}
+</code></pre>
+<p>排序之后按照原顺序进行赋值，相同元素就会出现离散化不成同一元素的情况，所以不推荐这种方法。</p>
+<hr>
+<p>听大佬说<a href="https://www.luogu.org/problem/P1955" target="_blank" rel="noopener">洛谷P1955</a>是一道有关离散化的题，我这个蒟蒻还没有做。🙃</p>
+<p>有时间做了再搞题解什么的。🙃</p>
 
                 <hr>
                 <div>
