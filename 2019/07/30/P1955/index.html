@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="kongjune">
+    <meta name="keywords" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>题解：洛谷P1955：[NOI2015]程序自动分析  ~  KONGJUNE&#39;s BLOG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/github-markdown.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/github.min.css">
+    
+    <link rel="stylesheet" href="/css/custom/main.css">
+    
+        <link rel="stylesheet" href="/css/custom/post-header-label.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">归档</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/Minecraft/">MINECRAFT</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("/img/P1955/banner.png")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2">题解：洛谷P1955：[NOI2015]程序自动分析</p>
+            <br>
+            
+            <p>星期二, 七月 30日 2019, 8:26 晚上</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content markdown-body py-5 z-depth-3 main">
+                <p>算法：并查基、离散化、文件读入与写出。</p>
+<a id="more"></a>
+<blockquote>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。</p>
+<p>考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个问题中的约束条件为：$x_1=x_2,x_2=x_3,x_3=x_4,x_4\neq x_1$，这些约束条件显然是不可能同时被满足的，因此这个问题应判定为不可被满足。</p>
+<p>现在给出一些约束满足问题，请分别对它们进行判定。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>从文件<code>prog.in</code>中读入数据。</p>
+<p>输入文件的第 $1$ 行包含 $1$ 个正整数 $t$，表示需要判定的问题个数。注意这些问题之间是相互独立的。</p>
+<p>对于每个问题，包含若干行：</p>
+<p>第 $1$ 行包含 $1$ 个正整数 $n$ ，表示该问题中需要被满足的约束条件个数。接下来 $n$ 行，每行包括 $3$ 个整数 $i,j,e$，描述 $1$ 个相等/不等的约束条件，相邻整数之间用单个空格隔开。若 $e=1$，则该约束条件为 $xi=xj$；若 $e=0$，则该约束条件为 $xi\neq xj$；</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出到文件 <code>prog.out</code> 中。</p>
+<p>输出文件包括 $t$ 行。</p>
+<p>输出文件的第 $k$ 行输出一个字符串“ YES” 或者“NO”（不包含引号，字母全部大写），“YES” 表示输入中的第 $k$ 个问题判定为可以被满足，“NO” 表示不可被满足。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p><strong>输入 #1</strong> </p>
+<pre><code>2
+2
+1 2 1
+1 2 0
+2
+1 2 1
+2 1 1
+</code></pre><p><strong>输出 #1</strong> </p>
+<pre><code>NO
+YES
+</code></pre><p><strong>输入 #2</strong> </p>
+<pre><code>2
+3
+1 2 1
+2 3 1
+3 1 1
+4
+1 2 1
+2 3 1
+3 4 1
+1 4 0
+</code></pre><p><strong>输出 #2</strong> </p>
+<pre><code>YES
+NO
+</code></pre><h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p>【样例解释1】</p>
+<p>在第一个问题中，约束条件为：$x1=x2,x1\neq x2$。这两个约束条件互相矛盾，因此不可被同时满足。</p>
+<p>在第二个问题中，约束条件为：$x1=x2,x1=x2$。这两个约束条件是等价的，可以被同时满足。</p>
+<p>【样例说明2】</p>
+<p>在第一个问题中，约束条件有三个：$x1=x2,x2=x3,x3=x1$。只需赋值使得$x1=x1=x1$，即可同时满足所有的约束条件。</p>
+<p>在第二个问题中，约束条件有四个：$x1=x2,x2=x3,x3=x4,x4\neq x1$。由前三个约束条件可以推出$x1=x2=x3=x4$，然而最后一个约束条件却要求$x1\neq x4$，因此不可被满足。</p>
+<p>【数据范围】</p>
+<p><img src="https://cdn.luogu.org/upload/pic/1503.png" alt="img"></p>
+<p>【时限2s，内存512M】</p>
+</blockquote>
+<p>题目传送门：<a href="https://www.luogu.org/problem/P1955" target="_blank" rel="noopener">🚪</a></p>
+<h2 id="文件读入与写出"><a href="#文件读入与写出" class="headerlink" title="文件读入与写出"></a>文件读入与写出</h2><p>虽说题干写着从文件读入，写出到文件，但其实这个题完全不需要……直接标准读入读出就可以……可怜我太实诚……酿造了如下惨状：</p>
+<p><img src="/img/P1955/1564486633365.png" alt="1564486633365"></p>
+<p>既然提到了就说说这个……</p>
+<h3 id="C的方法"><a href="#C的方法" class="headerlink" title="C的方法"></a>C的方法</h3><ul>
+<li><p><code>fopen()</code>函数</p>
+<p>使用方式：<code>fp = fopen(&quot;input.in&quot;, &quot;r&quot;)</code>：</p>
+<ul>
+<li>第一个参数为打开文件的文件名；</li>
+<li>第二个参数为文件方式，是文件的类型和操作要求，有如下几种（组合）：<ul>
+<li><code>r</code>：只读（read），要求文件必须已经存在；</li>
+<li><code>w</code>：只写（Write），若文件不存在则自动创建，如果已存在则删除原文件后新建；</li>
+<li><code>a</code>：追加（Append），保留文件中已有内容，从文件尾开始写；</li>
+<li><code>t</code>：文本文件（Text），可忽略；</li>
+<li><code>b</code>：二进制文件（Binary）；</li>
+<li><code>+</code>：读写。</li>
+</ul>
+</li>
+<li>返回值为文件指针，为FILE类型的指针变量。</li>
+</ul>
+<p>在具体使用此方法写入时，使用<code>fscanf(fp, &quot;%d&quot;, &amp;n)</code>来读取：</p>
+<ul>
+<li>第一个参数为文件指针名，即使用<code>fopen</code>返回的指针；</li>
+<li>第二个参数为格式控制符，同<code>scanf()</code>的使用方式；</li>
+<li>第三及以后的参数为传入变量的指针。</li>
+</ul>
+<p>使用<code>fprintf(fp, &quot;%d\n&quot;, n)</code>来写入文件：</p>
+<ul>
+<li>第一个参数为文件指针名，即使用fopen返回的指针；</li>
+<li>第二个参数为格式控制符，同<code>printf()</code>的使用方式；</li>
+<li>第三及以后的参数为输出变量。</li>
+</ul>
+<p>结束使用该函数使用：<code>fclose(fp)</code></p>
+</li>
+<li><p><code>freopen()</code>函数</p>
+<p>使用方式：<code>freopen(&quot;input.in&quot;, &quot;r&quot;, stdin);freopen(&quot;output.out&quot;, &quot;w&quot;, stdout);</code>：</p>
+<ul>
+<li>第一个参数为打开文件的文件名；</li>
+<li>第二个参数为文件方式，同<code>fopen()</code>函数；</li>
+<li>第三个参数为文件指针，通常使用标准流文件（<code>stdin</code>/<code>stdout</code>/<code>stderr</code>）。</li>
+</ul>
+<p>使用<code>freopen()</code>函数，并使用了标准流文件后，就可以直接使用<code>scanf()</code>与<code>printf()</code>来读入和写出。</p>
+<p>结束使用<code>fclose(stdin);fclose(stdout)</code>。</p>
+</li>
+</ul>
+<h3 id="C-的方法"><a href="#C-的方法" class="headerlink" title="C++的方法"></a>C++的方法</h3><pre><code class="lang-C++">ifstream inputFL(&quot;input.in&quot;);
+ofstream outputFL(&quot;putput.out&quot;);
+inputFL &gt;&gt; n;
+outputFL &lt;&lt; n &lt;&lt; endl;
+inputFL.close();
+outputFL.close();
+</code></pre>
+<h2 id="正式题解"><a href="#正式题解" class="headerlink" title="正式题解"></a>正式题解</h2><p>基本题意就是给你几个约束条件看他们能不能共存成立。而相等关系的约束条件我们可以很容易地想到将其转换为一个图，出现相等关系就说明它们在一个个图上 $\Rightarrow$ 两个值的最终祖先节点相同。而出现不等关系就说明它们没在一个图上，所以这个问题就可以转换成一个并查集问题。在这里贴上并查基常用的板子：</p>
+<ul>
+<li><p>得到最终祖先：</p>
+<pre><code class="lang-C++">int get(int x){
+    if(x == fa[x]){
+        return x;
+    }else return fa[x] = get(fa[x]);
+}
+</code></pre>
+</li>
+<li><p>合并两棵树：</p>
+<pre><code class="lang-C++">void merge(int a, int b){
+    int faOa = get(a);
+    int faOb = get(b);
+    if(faOa != faOb){
+        fa[b] = a;
+    }
+}
+</code></pre>
+</li>
+</ul>
+<p>而注意到题目数据量很大，$i$、$j$ 的范围到了 $10^9$，无法开那么大的数组，所以我们使用到了离散化。我的离散化的博文的传送门：<a href="https://www.kongjune.com/2019/07/30/%E7%A6%BB%E6%95%A3%E5%8C%96/" target="_blank" rel="noopener">🚪</a></p>
+<p>基本思想就是看输入的两个值是否相同，如果相同就保留到一棵树上。如果不相同的话检查两个点的根结点是否相同，如果相同则说明这两个值已经相同，出现矛盾，则输出“NO”。为了实现这个思想，我们首先要对输入进行排序，将相等关系放在前面预先判断。</p>
+<p>AC代码如下：</p>
+<pre><code class="lang-C++">#include &lt;bits/stdc++.h&gt;
+#define inputFL cin
+#define outputFL cout
+using namespace std;
+struct Node{
+    int x;
+    int y;
+    bool e;
+}Nodes[100005];
+bool cmp(Node a, Node b){
+    return a.e &gt; b.e;
+}
+int dict[1000005];
+int fa[1000005];
+int cnt, uqcnt;
+int n;
+int get(int x){
+    if (x == fa[x]) {
+        return x;
+    }else return fa[x] = get(fa[x]);
+}
+// void merge(int x, int y){
+//     fa[get(x)] = get(y);
+// }
+int main(){
+    // ifstream inputFL(&quot;prog.in&quot;); // C++方式， C使用freopen()
+    // ofstream outputFL(&quot;prog.out&quot;);
+    int T;
+    inputFL &gt;&gt; T;
+    while(T--){
+        inputFL &gt;&gt; n;
+        memset(dict, 0, sizeof(dict));
+        memset(fa, 0, sizeof(fa));
+        uqcnt = cnt = 0;
+        for (int i = 0; i &lt; n; i++) {
+            inputFL &gt;&gt; Nodes[i].x &gt;&gt; Nodes[i].y &gt;&gt; Nodes[i].e;
+            dict[cnt++] = Nodes[i].x;
+            dict[cnt++] = Nodes[i].y;
+        }
+        sort(dict, dict + cnt);
+        uqcnt = unique(dict, dict + cnt) - dict;
+        for (int i = 0; i &lt; n; i++) {
+            Nodes[i].x = lower_bound(dict, dict + uqcnt, Nodes[i].x) - dict;
+            Nodes[i].y = lower_bound(dict, dict + uqcnt, Nodes[i].y) - dict;
+        }
+        for (int i = 0; i &lt; uqcnt; i++) {
+            fa[i] = i;
+        }
+        bool check = 1;
+        sort(Nodes, Nodes + n, cmp);
+        for (int i = 0; i &lt; n; i++) {
+            int a = get(Nodes[i].x);
+            int b = get(Nodes[i].y);
+            if (Nodes[i].e) {
+                fa[a] = b;
+            }else{
+                if (a == b) {
+                    check = 0;
+                    outputFL &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+                    break;
+                }
+            }
+        }
+        if (check)
+            outputFL &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+    }
+}
+</code></pre>
+<p><strong>特别提醒</strong>：一定要分清离散化中各个变量的具体含义与用处，否则就会出现以下的状况而无从下手：</p>
+<p><img src="/img/P1955/1564489428381.png" alt="1564489428381"></p>
+
+                <hr>
+                <div>
+                    <p>
+                         
+                        <span class="badge badge-light">#&nbsp;ACM</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;Programming</span>
+                        &nbsp;
+                         
+                        <span class="badge badge-light">#&nbsp;题解</span>
+                        &nbsp;
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+			<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+			</script>
+		<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+<div class="comments" id="comments">
+ 
+</div>
+
+  
+  </main>
+
+<footer>
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

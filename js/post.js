@@ -7,13 +7,13 @@ $(document).ready(function(){
     var tocLimMax = $("#comments").offset().top - navHeight;
     $(window).scroll(function(){
         var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-        if(tocLimMin <= scroH && scroH <= tocLimMax){  
+        if(tocLimMin <= scroH && scroH <= tocLimMax){
             toc.css({
                 "display": "block",
                 "position": "fixed",
                 "top": tocT
             })
-        }else if(scroH <= tocLimMin){  
+        }else if(scroH <= tocLimMin){
             toc.css({
                 "position": "",
                 "top": ''
@@ -21,7 +21,7 @@ $(document).ready(function(){
         } else if(scroH > tocLimMax){
             toc.css("display","none")
         }
-    }) 
+    })
     tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -36,4 +36,4 @@ $(document).ready(function(){
 
     // add Materia-T's class to hexo
     $("blockquote").addClass("blockquote");
-}) 
+})
