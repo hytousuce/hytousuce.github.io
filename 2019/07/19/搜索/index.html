@@ -104,8 +104,8 @@
 <p>一个劫匪带着一个可装 $m$ 重量的超大背包去抢银行，银行有 $n$ 个大箱子，第 $i$ 个箱子里有 $i$ 个重量为 $w_i$ ，价值为 $c_i$ 的大钻石，问该劫匪抢走钻石的最大价值。（一共有 $T$ 组数据）</p>
 <h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>$1\leq T \leq 74$；</p>
 <p>$1 \leq n \leq 15$；</p>
-<p>$1 \leq m \leq 1000000000\ (10^9)$；</p>
-<p>$1 \leq w_i, c_i \leq 1000000000 \ (10^9)$。</p>
+<p>$1 \leq m \leq 1000000000 (10^9)$；</p>
+<p>$1 \leq w_i, c_i \leq 1000000000  (10^9)$。</p>
 </blockquote>
 <p>这道题看上去是一个01背包问题，但由于数据量巨大，无法开那么大的数组，所以只能使用DFS搜索。所以能够得到下面这段DFS代码：</p>
 <pre><code class="lang-C++">void dfs(int pos, long long nowcost, long long lastw){
@@ -511,6 +511,7 @@ int main(){
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

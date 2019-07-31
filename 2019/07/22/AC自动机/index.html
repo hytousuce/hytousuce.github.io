@@ -104,8 +104,8 @@
 <li>字典树使用边表示字符；（也可以理解为每个节点上保存字符，因为这个边的信息是使用<code>j</code>节点来标识的）</li>
 <li>有相同的前缀的单词共用前缀节点；</li>
 <li>根结点不包含有字符；</li>
-<li>每个单词结束的时候都用一个特殊字符表示，如图中使用的是一个 $$$ 符号；（或者使用数字表示存在该字符串的个数）</li>
-<li>从根结点道到一个 $$$ 所经过的所有边的字母就是一个字符串。</li>
+<li>每个单词结束的时候都用一个特殊字符表示，如图中使用的是一个 $\$$ 符号；（或者使用数字表示存在该字符串的个数）</li>
+<li>从根结点道到一个 $\$$ 所经过的所有边的字母就是一个字符串。</li>
 </ul>
 <p>字典树常用于<strong>统计、排序和保存大量的字符串</strong>（不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。</p>
 <p>优点：利用字符串的公众前缀来节约存储空间，最大限度地减少无用字符串的比较。</p>
@@ -558,6 +558,7 @@ int find(string str){
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

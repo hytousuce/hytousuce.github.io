@@ -106,9 +106,9 @@
 <li><code>&gt;&gt;</code>：右移运算符，右移 $i$ 位相当于将该数乘以了 $2^i$。</li>
 <li><code>&lt;&lt;</code>：左移运算符，左移 $i$ 位相当于将该数除以了 $2^i$。</li>
 <li><code>&amp;</code>：按位与运算，如 $5\&amp;3$ 相当于即为$(0101)_2\&amp;(0011)_2 = (0001)_2$，所以结果为$1$。</li>
-<li><code>|</code>：按位或运算 ，如 $5 \ | \ 3$ 相当于 $(0101)_2\ |\ (0011)_2 = (0111)_2$，所以结果为$7$。</li>
+<li><code>|</code>：按位或运算 ，如 $5  |  3$ 相当于 $(0101)_2 | (0011)_2 = (0111)_2$，所以结果为$7$。</li>
 <li><code>~</code>：按位取反。</li>
-<li><code>^</code>：异或运算符，如 $5 \ \text{^} \ 3$ 相当于 $(0101)_2\ \text{^} \ (0011)_2 = (0110)_2$，所以结果为$6$。<ul>
+<li><code>^</code>：异或运算符，如 $5  \text{^}  3$ 相当于 $(0101)_2 \text{^}  (0011)_2 = (0110)_2$，所以结果为$6$。<ul>
 <li>异或交换律：$a\otimes b = b\otimes a$</li>
 <li>异或结合律：$(a\otimes b)\otimes c= a\otimes(b\otimes c)$</li>
 <li>异或自反性：$a\otimes b\otimes b=a\otimes 0=a$</li>
@@ -413,6 +413,7 @@ void dfs(int u, int Fa){
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>
