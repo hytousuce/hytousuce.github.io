@@ -302,6 +302,13 @@
                         </span>
                     
                     
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/题解/">题解</a>
+                            
+                        </span>
+                    
                 </div>
             
         </header>
@@ -332,77 +339,19 @@
 <p>输出文件包括 $t$ 行。</p>
 <p>输出文件的第 $k$ 行输出一个字符串“ YES” 或者“NO”（不包含引号，字母全部大写），“YES” 表示输入中的第 $k$ 个问题判定为可以被满足，“NO” 表示不可被满足。</p>
 <h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p><strong>输入 #1</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2</span><br><span class="line">1 2 1</span><br><span class="line">1 2 0</span><br><span class="line">2</span><br><span class="line">1 2 1</span><br><span class="line">2 1 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; 2</span><br><span class="line">&gt; 2</span><br><span class="line">&gt; 1 2 1</span><br><span class="line">&gt; 1 2 0</span><br><span class="line">&gt; 2</span><br><span class="line">&gt; 1 2 1</span><br><span class="line">&gt; 2 1 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; **输出 #1** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>NO<br>YES</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt;**输入 #2** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><strong>输出 #1</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
+<p>2<br>3<br>1 2 1<br>2 3 1<br>3 1 1<br>4<br>1 2 1<br>2 3 1<br>3 4 1<br>1 4 0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">&gt;</span><br><span class="line">&gt; **输出 #2** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<blockquote>
-<p><strong>输入 #2</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line">3 1 1</span><br><span class="line">4</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line">3 4 1</span><br><span class="line">1 4 0</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p><strong>输出 #2</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p>【样例解释1】</p>
-<p>在第一个问题中，约束条件为：$x1=x2,x1\neq x2$。这两个约束条件互相矛盾，因此不可被同时满足。</p>
-<p>在第二个问题中，约束条件为：$x1=x2,x1=x2$。这两个约束条件是等价的，可以被同时满足。</p>
-<p>【样例说明2】</p>
-<p>在第一个问题中，约束条件有三个：$x1=x2,x2=x3,x3=x1$。只需赋值使得$x1=x1=x1$，即可同时满足所有的约束条件。</p>
-<p>在第二个问题中，约束条件有四个：$x1=x2,x2=x3,x3=x4,x4\neq x1$。由前三个约束条件可以推出$x1=x2=x3=x4$，然而最后一个约束条件却要求$x1\neq x4$，因此不可被满足。</p>
-<p>【数据范围】</p>
-<p><img src="/img/P1955/1503.png" alt="img"></p>
-<p>【时限2s，内存512M】</p>
-</blockquote>
-<p>题目传送门：<a href="https://www.luogu.org/problem/P1955" target="_blank" rel="noopener">🚪</a></p>
-<h2 id="文件读入与写出"><a href="#文件读入与写出" class="headerlink" title="文件读入与写出"></a>文件读入与写出</h2><p>虽说题干写着从文件读入，写出到文件，但其实这个题完全不需要……直接标准读入读出就可以……可怜我太实诚……酿造了如下惨状：</p>
-<p><img src="/img/P1955/1564486633365.png" alt="1564486633365"></p>
-<p>既然提到了就说说这个……</p>
-<h3 id="C的方法"><a href="#C的方法" class="headerlink" title="C的方法"></a>C的方法</h3><ul>
-<li><p><code>fopen()</code>函数</p>
-<p>使用方式：<code>fp = fopen(&quot;input.in&quot;, &quot;r&quot;)</code>：</p>
-<ul>
-<li>第一个参数为打开文件的文件名；</li>
-<li>第二个参数为文件方式，是文件的类型和操作要求，有如下几种（组合）：<ul>
-<li><code>r</code>：只读（read），要求文件必须已经存在；</li>
-<li><code>w</code>：只写（Write），若文件不存在则自动创建，如果已存在则删除原文件后新建；</li>
-<li><code>a</code>：追加（Append），保留文件中已有内容，从文件尾开始写；</li>
-<li><code>t</code>：文本文件（Text），可忽略；</li>
-<li><code>b</code>：二进制文件（Binary）；</li>
-<li><code>+</code>：读写。</li>
-</ul>
-</li>
-<li>返回值为文件指针，为FILE类型的指针变量。</li>
-</ul>
-<p>在具体使用此方法写入时，使用<code>fscanf(fp, &quot;%d&quot;, &amp;n)</code>来读取：</p>
-<ul>
-<li>第一个参数为文件指针名，即使用<code>fopen</code>返回的指针；</li>
-<li>第二个参数为格式控制符，同<code>scanf()</code>的使用方式；</li>
-<li>第三及以后的参数为传入变量的指针。</li>
-</ul>
-<p>使用<code>fprintf(fp, &quot;%d\n&quot;, n)</code>来写入文件：</p>
-<ul>
-<li>第一个参数为文件指针名，即使用fopen返回的指针；</li>
-<li>第二个参数为格式控制符，同<code>printf()</code>的使用方式；</li>
-<li>第三及以后的参数为输出变量。</li>
-</ul>
-<p>结束使用该函数使用：<code>fclose(fp)</code></p>
-</li>
-<li><p><code>freopen()</code>函数</p>
-<p>使用方式：<code>freopen(&quot;input.in&quot;, &quot;r&quot;, stdin);freopen(&quot;output.out&quot;, &quot;w&quot;, stdout);</code>：</p>
-<ul>
-<li>第一个参数为打开文件的文件名；</li>
-<li>第二个参数为文件方式，同<code>fopen()</code>函数；</li>
-<li>第三个参数为文件指针，通常使用标准流文件（<code>stdin</code>/<code>stdout</code>/<code>stderr</code>）。</li>
-</ul>
-<p>使用<code>freopen()</code>函数，并使用了标准流文件后，就可以直接使用<code>scanf()</code>与<code>printf()</code>来读入和写出。</p>
-<p>结束使用<code>fclose(stdin);fclose(stdout)</code>。</p>
-</li>
-</ul>
-<h3 id="C-的方法"><a href="#C-的方法" class="headerlink" title="C++的方法"></a>C++的方法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ifstream <span class="title">inputFL</span><span class="params">(<span class="string">"input.in"</span>)</span></span>;</span><br><span class="line"><span class="function">ofstream <span class="title">outputFL</span><span class="params">(<span class="string">"putput.out"</span>)</span></span>;</span><br><span class="line">inputFL &gt;&gt; n;</span><br><span class="line">outputFL &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">inputFL.close();</span><br><span class="line">outputFL.close();</span><br></pre></td></tr></table></figure>
+<p>YES<br>NO</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; ### 说明/提示</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【样例解释1】</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第一个问题中，约束条件为：$x1=x2,x1\neq x2$。这两个约束条件互相矛盾，因此不可被同时满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第二个问题中，约束条件为：$x1=x2,x1=x2$。这两个约束条件是等价的，可以被同时满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【样例说明2】</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第一个问题中，约束条件有三个：$x1=x2,x2=x3,x3=x1$。只需赋值使得$x1=x1=x1$，即可同时满足所有的约束条件。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第二个问题中，约束条件有四个：$x1=x2,x2=x3,x3=x4,x4\neq x1$。由前三个约束条件可以推出$x1=x2=x3=x4$，然而最后一个约束条件却要求$x1\neq x4$，因此不可被满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【数据范围】</span><br><span class="line">&gt;</span><br><span class="line">&gt; ![img](/img/P1955/1503.png)</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【时限2s，内存512M】</span><br><span class="line"></span><br><span class="line">题目传送门：[🚪](https://www.luogu.org/problem/P1955)</span><br><span class="line"></span><br><span class="line">## 文件读入与写出</span><br><span class="line"></span><br><span class="line">虽说题干写着从文件读入，写出到文件，但其实这个题完全不需要……直接标准读入读出就可以……可怜我太实诚……酿造了如下惨状：</span><br><span class="line"></span><br><span class="line">![1564486633365](/img/P1955/1564486633365.png)</span><br><span class="line"></span><br><span class="line">既然提到了就说说这个……</span><br><span class="line"></span><br><span class="line">### C的方法</span><br><span class="line"></span><br><span class="line">* `fopen()`函数</span><br><span class="line"></span><br><span class="line">  使用方式：`fp = fopen(&quot;input.in&quot;, &quot;r&quot;)`：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为打开文件的文件名；</span><br><span class="line">  * 第二个参数为文件方式，是文件的类型和操作要求，有如下几种（组合）：</span><br><span class="line">    * `r`：只读（read），要求文件必须已经存在；</span><br><span class="line">    * `w`：只写（Write），若文件不存在则自动创建，如果已存在则删除原文件后新建；</span><br><span class="line">    * `a`：追加（Append），保留文件中已有内容，从文件尾开始写；</span><br><span class="line">    * `t`：文本文件（Text），可忽略；</span><br><span class="line">    * `b`：二进制文件（Binary）；</span><br><span class="line">    * `+`：读写。</span><br><span class="line">  * 返回值为文件指针，为FILE类型的指针变量。</span><br><span class="line"></span><br><span class="line">  在具体使用此方法写入时，使用`fscanf(fp, &quot;%d&quot;, &amp;n)`来读取：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为文件指针名，即使用`fopen`返回的指针；</span><br><span class="line">  * 第二个参数为格式控制符，同`scanf()`的使用方式；</span><br><span class="line">  * 第三及以后的参数为传入变量的指针。</span><br><span class="line"></span><br><span class="line">  使用`fprintf(fp, &quot;%d\n&quot;, n)`来写入文件：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为文件指针名，即使用fopen返回的指针；</span><br><span class="line">  * 第二个参数为格式控制符，同`printf()`的使用方式；</span><br><span class="line">  * 第三及以后的参数为输出变量。</span><br><span class="line"></span><br><span class="line">  结束使用该函数使用：`fclose(fp)`</span><br><span class="line"></span><br><span class="line">* `freopen()`函数</span><br><span class="line"></span><br><span class="line">  使用方式：`freopen(&quot;input.in&quot;, &quot;r&quot;, stdin);freopen(&quot;output.out&quot;, &quot;w&quot;, stdout);`：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为打开文件的文件名；</span><br><span class="line">  * 第二个参数为文件方式，同`fopen()`函数；</span><br><span class="line">  * 第三个参数为文件指针，通常使用标准流文件（`stdin`/`stdout`/`stderr`）。</span><br><span class="line"></span><br><span class="line">  使用`freopen()`函数，并使用了标准流文件后，就可以直接使用`scanf()`与`printf()`来读入和写出。</span><br><span class="line"></span><br><span class="line">  结束使用`fclose(stdin);fclose(stdout)`。</span><br><span class="line"></span><br><span class="line">### C++的方法</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">ifstream inputFL(&quot;input.in&quot;);</span><br><span class="line">ofstream outputFL(&quot;putput.out&quot;);</span><br><span class="line">inputFL &gt;&gt; n;</span><br><span class="line">outputFL &lt;&lt; n &lt;&lt; endl;</span><br><span class="line">inputFL.close();</span><br><span class="line">outputFL.close();</span><br></pre></td></tr></table></figure>
 
 <h2 id="正式题解"><a href="#正式题解" class="headerlink" title="正式题解"></a>正式题解</h2><p>基本题意就是给你几个约束条件看他们能不能共存成立。而相等关系的约束条件我们可以很容易地想到将其转换为一个图，出现相等关系就说明它们在一个个图上 $\Rightarrow$ 两个值的最终祖先节点相同。而出现不等关系就说明它们没在一个图上，所以这个问题就可以转换成一个并查集问题。在这里贴上并查基常用的板子：</p>
 <ul>
