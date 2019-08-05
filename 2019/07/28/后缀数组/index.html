@@ -1,105 +1,329 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>蒟蒻的ACM初体验——后缀数组 | KONGJUNE&#39;s BLOG</title>
+
+
+
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content>
-    <meta name="author" content="kongjune">
-    <meta name="keywords" content>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>蒟蒻的ACM初体验——后缀数组  ~  KONGJUNE&#39;s BLOG</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/Prettify/github.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     
-    <link rel="stylesheet" href="/css/custom/main.css">
+
+
+
+    <!-- scripts list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/custom/post-header-label.css">
+    <script src="/js/script.js"></script>
     
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 </head>
+<body>
+    <div class="wrapper">
+        <script>
+    $("#toTop").attr("style", "display:none;");
+    $(function() {
+        $(window).scroll(function() {
+            var scroll_top = $(window).scrollTop();
+            if (scroll_top >= 100) {
+                $("#toTop").fadeIn();
+            } else {
+                $("#toTop").fadeOut();
+            }
+        })
+    })
+</script>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+<style>
+    .box {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        height: 30px;
+        width: 50px;
+        text-align: center;
+        padding-top: 20px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0px 3px 5px #666666;
+        transition: background-color .5s;
+        -moz-transition: background-color .5s;
+        -webkit-transition: background-color .5s;
+        -o-transition: background-color .5s;
+    }
+
+    .box:hover:before {
+        top: 50%
+    }
+
+    .box:hover {
+        background-color: #292a2d;
+    }
+
+    .box:hover .box-in {
+        border-color: #FFFFFF transparent transparent #FFFFFF;
+    }
+
+    .box:before {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        border: 3px solid black;
+        border-color: black transparent transparent white;
+        font-weight: bold;
+    }
+
+    .box-in {
+        visibility: visible;
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border: 3px solid black;
+        border-color: #777777 transparent transparent #777777;
+        transform: rotate(45deg);
+        transition: border-color .5s;
+        -moz-transition: border-color .5s;
+        -webkit-transition: border-color .5s;
+        -o-transition: border-color .5s;
+    }
+</style>
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+    <div id="toTop" class="box" style="z-index:9999;">
+        <div class="box-in"></div>
+    </div>
+</body>
+<script>
+    var timer = null;
+    toTop.onclick = function() {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn() {
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop > 0) {
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                timer = requestAnimationFrame(fn);
+            } else {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">主页</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">归档</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/Minecraft/">MINECRAFT</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">关于</a>
-            </li>
-            
-        </ul>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
     </div>
 </div>
 
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
 
-</nav>
-    <div class="view intro-2" style='background: url("/img/后缀数组/banner.jpeg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">蒟蒻的ACM初体验——后缀数组</p>
-            <br>
-            
-            <p>星期日, 七月 28日 2019, 2:03 下午</p>
-            
-	    
-        </div>
-        </div>
-    </div>
-    </div>
-  </header>
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录次项"
+    }
 
-  <main>
-  
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content markdown-body py-5 z-depth-3 main">
-                <blockquote>
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开全部目录"
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">蒟蒻的ACM初体验——后缀数组</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-07-28&nbsp;&nbsp;14:03:08</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+        
+        <div style="
+            background-image: url(/img/后缀数组/banner.jpeg);
+            height: 300px;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            -moz-background-size:100% 100%;
+            background-size:cover;
+        ">
+        <p> </p>
+        </div>
+        
+        <div class="post-content">
+            <blockquote>
 <p>学习自：</p>
 <ul>
 <li><a href="https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0" target="_blank" rel="noopener">https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0</a></li>
-<li><a href="https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=提醒填坑&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=" target="_blank" rel="noopener">https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=</a></li>
+<li><a href="https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=提醒填坑&comment_replyId=&article_id=81275953&comment_userId=&commentId=" target="_blank" rel="noopener">https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;comment_replyId=&amp;article_id=81275953&amp;comment_userId=&amp;commentId=</a></li>
 </ul>
 </blockquote>
 <h2 id="后缀数组简介"><a href="#后缀数组简介" class="headerlink" title="后缀数组简介"></a>后缀数组简介</h2><p><strong>后缀</strong>：从字符串某个位置 $i$ 到字符串末尾的子串，我们定义以字符串 $str$ 的第 $i$ 位为第一个元素的后缀为<code>suff[i]</code>。（后缀的英文：<em>suffix</em>）</p>
@@ -112,176 +336,102 @@
 <h3 id="倍增算法"><a href="#倍增算法" class="headerlink" title="倍增算法"></a>倍增算法</h3><p>问题在于我们怎么给这个后缀数组排序，如果强硬 sort 的话，sort 算法复杂度本来就有 $O(n\log_2n)$ 字符串排序还不用于一般数字的排序，每个字符串对比还有 $O(n)$ 复杂度。也就是说用 sort 的话，复杂度会达到 $O(n^2\log_2n)$。这就很伤不是么，所以我们要想出来一个复杂度更低的算法。</p>
 <p>我们知道，两个字符串的比较，如果前半部分相同则比较结果取决于后半部分的比较结果，否则只需要看前半部分的比较结果。基于这个事实，我们考虑以下方法：</p>
 <p>对于字符串 $str$，定义<strong>k-前缀</strong>为：</p>
-<script type="math/tex; mode=display">
-str_k=\begin{cases}
-str[0\dots k - 1] = str.\mathrm{substr}(0, k) & (k\leq str.\mathrm{length}()) \\
-str & (k > str.\mathrm{length}())
-\end{cases}</script><p>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
+<p>$$<br>str_k=\begin{cases}<br>str[0\dots k - 1] = str.\mathrm{substr}(0, k) &amp; (k\leq str.\mathrm{length}()) \<br>str &amp; (k &gt; str.\mathrm{length}())<br>\end{cases}<br>$$<br>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
 <ul>
 <li><p>容易求出 $rank_1$ 的值与 $sa_1$ 的值，只需要进行 sort 对第一个字母排序就可以了。</p>
 </li>
 <li><p>得到了 $rank_k$，则定义二元组 $(rank_k[i],rank_k[i + k])$，按照“如果 $rank_k[i]$ 相同则比较$rank_k[i +k]$，否则则比较 $rank_k[i]$ ”的方法来进行sort，即可求出 $sa_{2k}$。</p>
 </li>
-<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：</p>
-<script type="math/tex; mode=display">
-rank_k[i] = \begin{cases}
-rank_k[i - 1] & suff[sa[i]]_k = suff[sa[i - 1]]_k \\
-rank_k[i - 1] + 1 & suff[sa[i]] _ k \neq suff[sa[i - 1]]_k
-\end{cases}</script></li>
+<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：<br>$$<br>rank_k[i] = \begin{cases}<br>rank_k[i - 1] &amp; suff[sa[i]]_k = suff[sa[i - 1]]_k \<br>rank_k[i - 1] + 1 &amp; suff[sa[i]] _ k \neq suff[sa[i - 1]]_k<br>\end{cases}<br>$$</p>
+</li>
 </ul>
-<p>这样的话我们求解的顺序就是：</p>
-<script type="math/tex; mode=display">
-sa_1\  \& \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4\rightarrow \cdots \rightarrow sa_n \rightarrow rank_n</script><p>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
-<p><img src="/img/后缀数组/1564227558972.png" alt="1564227558972"></p>
+<p>这样的话我们求解的顺序就是：<br>$$<br>sa_1\  &amp; \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4\rightarrow \cdots \rightarrow sa_n \rightarrow rank_n<br>$$<br>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
+<p><img src="/img/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/1564227558972.png" alt="1564227558972"></p>
 <p>每一次排序需要进行 $n\log_2n$ 次比较，每一次比较需要 $O(1)$ 复杂度，总共进行 $\log_2n$ 次比较，因此总时间复杂度为$O(n\log_2^2n)$。</p>
 <h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>这一部分我们要试图探索比 $O(n\log _2^2n)$ 更优的排序算法。</p>
 
-                <hr>
+        </div>
+        
+            <section class="post-copyright">
                 
-                <div>
-                    <p>
-                         
-                        <span class="badge badge-light">#&nbsp;ACM</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Programming</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Learning Note</span>
-                        &nbsp;
-                        
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>KONGJUNE</span>
                     </p>
-                </div>
-                <br>
                 
                 
-                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://kongjune.com/2019/07/28/后缀数组/">http://kongjune.com/2019/07/28/后缀数组/</a></span>
+                    </p>
                 
                 
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
-			<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-			</script>
-		<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/ACM/"># ACM</a>
+                    
+                        <a href="/tags/Programming/"># Programming</a>
+                    
+                        <a href="/tags/Learning-Note/"># Learning Note</a>
+                    
+                        
+                </span>
             </div>
-        </div>
-        
-        <div class="d-none d-md-block col-md-2">
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
             
-  <div id="toc" class="py-5">
-    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
-    <div id="tocbot"></div>
-  </div>
+                <a class="prev" rel="prev" href="/2019/07/30/离散化/">蒟蒻的ACM初体验——离散化</a>
+            
+            
+            <a class="next" rel="next" href="/2019/07/27/线性基（异或和求最大值）/">蒟蒻的ACM初体验——线性基</a>
+            
+        </section>
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+        	<script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
+
+               if (typeof LivereTower === 'function') { return; }
+
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
+
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        	</script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+    </article>
+</div>
 
         </div>
-	
-    </div>        
-</div>
-
-<br><br><br>
-
-<!-- Comments -->
-<div class="comments" id="comments">
- 
-</div>
-
-  
-  </main>
-
-<footer>
-  <br>
-  
-    <div class="text-center py-3">
-      <p>
-          友情 <i class="fas fa-user-friends"></i> 链接
-      </p>
-      <div>
-      <ul style="display: flex; flex-direction: row; flex-direction: row; padding-left: 0; list-style: none; justify-content: center;">
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://cardiffle.github.io/"><i class="fas fa-link"></i> Vicente's BLOG</a></li>
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://zzy991212.github.io/"><i class="fas fa-link"></i> ZZY's BLOG</a></li>
-        
-        </ul>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© KONGJUNE | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    </div>
-    <hr>
-  
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
-    <br>
-    
-  </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    
-    <script src="/js/post.js"></script>
-    
-      <script src="/js/plugins/prettify.js"></script>
-      <script>
-          $(document).ready(function(){
-              $('pre').addClass('prettyprint linenums');
-              prettyPrint();
-          })
-      </script>
-    
-  
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
+    </div>
 </body>
 </html>

@@ -9,7 +9,7 @@
 
 
 
-<title>KONGJUNE&#39;s BLOG</title>
+<title>Alia-Craft 服务器 Chang-Log | KONGJUNE&#39;s BLOG</title>
 
 
 
@@ -230,69 +230,155 @@
 </script>
 
         <div class="main">
-            
-    <style type="text/css">
-  .friends a{
-    background-color: #EEEEEE;
-    border: 1px transparent;
-    padding: 2px 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    border-radius: 50px;
-  }
-  .friends a:hover{
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 1);
-  }
-</style>
-<div class="container">
-    <div class="intro">
-        <div class="avatar">
-            <a href="/"><img src="/image/avatar.jpg"></a>
-        </div>
-        <div class="nickname">KONGJUNE</div>
-        <div class="description"><p>絶望してる暇あったら、うまいもの食べて寝るかな。</p>
- TJUer👨‍🎓 / 虚假的程序员⌨️ / Minecraft ❤️</div>
-        <br>
-        <div class="links">
-            
-                
-                    <a class="link-item" title="Blog" href="/">
-                        
-                        
-                            <i class="iconfont icon-blog"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="ZhiHu" href="https://www.zhihu.com/people/kongjune-44">
-                        
-                        
-                            <i class="iconfont icon-zhihu"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Github" href="https://github.com/kongjune">
-                        
-                        
-                            <i class="iconfont icon-github"></i>
-                        
-                    </a>
-                
-            
-        </div>
-	<hr style="max-width: 90%; width: 450px">
-        <div style="max-width: 90%; width: 450px; margin:0 auto;">
-            <p>友情链接</p>
-            <div class="friends" style="max-width: 90%; width: 450px; display: flex; flex-direction: row; flex-wrap: wrap; justify-content:center; margin: auto;">
-	      <a href="https://cardiffle.github.io/">🔗 Vicente's BLOG</a>
-              <a href="https://zzy991212.github.io/">🔗 ZZY's BLOG</a>
-            </div>
-        </div>
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
     </div>
 </div>
 
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录次项"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开全部目录"
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Alia-Craft 服务器 Chang-Log</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-08-02&nbsp;&nbsp;19:29:08</a>
+                        </span>
+                    
+                </div>
+            
+        </header>
+        <div class="post-content">
+            <h1 id="2019-8-2"><a href="#2019-8-2" class="headerlink" title="2019-8-2"></a>2019-8-2</h1><ul>
+<li>更新了服务器头像；  <div style="display: flex;  justify-content: center; flex-wrap: wrap; flex-direction: row; margin: 10px 10px; ">
+      <div style="padding-right: 20px; padding-left: 20px;">
+          <div class="col-12 col-md-4 mb-3">
+              <img src="/img/mc/minecraft-changelog/Alia-Craft.png" style="max-width: 200px; box-shadow: 0px 0px 5px #888888">
+          </div>
+          <p style="text-align:center">
+              <font size="2" color="gray">方形渲染版本</font>
+          </p>
+      </div>
+      <div style="padding-right: 20px; padding-left: 20px;">
+          <div class="col-12 col-md-4 mb-3">
+              <img src="/img/mc/minecraft-changelog/Alia-Craft-Circle.png" style="width :auto;  max-width: 200px; border-radius: 50%; box-shadow: 0px 0px 5px #888888">
+          </div>
+          <p style="text-align:center">
+              <font size="2" color="gray">圆形渲染版本</font>
+          </p>
+      </div>
+  </div></li>
+<li>开启服务器版本化定义，并设置当前服务器版本为 0.1；</li>
+<li>更改QQ群信息，如群头像、群名等内容。</li>
+</ul>
+<h1 id="2019-8-1"><a href="#2019-8-1" class="headerlink" title="2019-8-1"></a>2019-8-1</h1><ul>
+<li>$Alia-Craft$ 主页部分基本建成；</li>
+<li>生成 $Alia-Craft$ 的 Change-log 界面。</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>KONGJUNE</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://kongjune.com/mc/minecraft-changelog/index.html">http://kongjune.com/mc/minecraft-changelog/index.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+            </section>
+        
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+            <script type="text/javascript">
+                (function(d, s) {
+                    var j, e = d.getElementsByTagName(s)[0];
+
+                    if (typeof LivereTower === 'function') {
+                        return;
+                    }
+
+                    j = d.createElement(s);
+                    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                    j.async = true;
+
+                    e.parentNode.insertBefore(j, e);
+                })(document, 'script');
+            </script>
+            <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+    </article>
+</div>
 
         </div>
         <footer id="footer" class="footer">

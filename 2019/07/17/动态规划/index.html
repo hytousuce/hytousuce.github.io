@@ -1,180 +1,397 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>蒟蒻的ACM初体验——动态规划 | KONGJUNE&#39;s BLOG</title>
+
+
+
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content>
-    <meta name="author" content="kongjune">
-    <meta name="keywords" content>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>蒟蒻的ACM初体验——动态规划  ~  KONGJUNE&#39;s BLOG</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/Prettify/github.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     
-    <link rel="stylesheet" href="/css/custom/main.css">
+
+
+
+    <!-- scripts list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/custom/post-header-label.css">
+    <script src="/js/script.js"></script>
     
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 </head>
+<body>
+    <div class="wrapper">
+        <script>
+    $("#toTop").attr("style", "display:none;");
+    $(function() {
+        $(window).scroll(function() {
+            var scroll_top = $(window).scrollTop();
+            if (scroll_top >= 100) {
+                $("#toTop").fadeIn();
+            } else {
+                $("#toTop").fadeOut();
+            }
+        })
+    })
+</script>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+<style>
+    .box {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        height: 30px;
+        width: 50px;
+        text-align: center;
+        padding-top: 20px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0px 3px 5px #666666;
+        transition: background-color .5s;
+        -moz-transition: background-color .5s;
+        -webkit-transition: background-color .5s;
+        -o-transition: background-color .5s;
+    }
+
+    .box:hover:before {
+        top: 50%
+    }
+
+    .box:hover {
+        background-color: #292a2d;
+    }
+
+    .box:hover .box-in {
+        border-color: #FFFFFF transparent transparent #FFFFFF;
+    }
+
+    .box:before {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        border: 3px solid black;
+        border-color: black transparent transparent white;
+        font-weight: bold;
+    }
+
+    .box-in {
+        visibility: visible;
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border: 3px solid black;
+        border-color: #777777 transparent transparent #777777;
+        transform: rotate(45deg);
+        transition: border-color .5s;
+        -moz-transition: border-color .5s;
+        -webkit-transition: border-color .5s;
+        -o-transition: border-color .5s;
+    }
+</style>
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+    <div id="toTop" class="box" style="z-index:9999;">
+        <div class="box-in"></div>
+    </div>
+</body>
+<script>
+    var timer = null;
+    toTop.onclick = function() {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn() {
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop > 0) {
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                timer = requestAnimationFrame(fn);
+            } else {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">主页</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">归档</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/Minecraft/">MINECRAFT</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">关于</a>
-            </li>
-            
-        </ul>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
     </div>
 </div>
 
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
 
-</nav>
-    <div class="view intro-2" style='background: url("/img/动态规划/banner.jpeg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">蒟蒻的ACM初体验——动态规划</p>
-            <br>
-            
-            <p>星期三, 七月 17日 2019, 1:49 下午</p>
-            
-	    
-        </div>
-        </div>
-    </div>
-    </div>
-  </header>
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录次项"
+    }
 
-  <main>
-  
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content markdown-body py-5 z-depth-3 main">
-                <h1 id="基本动态规划"><a href="#基本动态规划" class="headerlink" title="基本动态规划"></a>基本动态规划</h1><blockquote>
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开全部目录"
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">蒟蒻的ACM初体验——动态规划</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-07-17&nbsp;&nbsp;13:49:34</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+        
+        <div style="
+            background-image: url(/img/动态规划/banner.jpeg);
+            height: 300px;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            -moz-background-size:100% 100%;
+            background-size:cover;
+        ">
+        <p> </p>
+        </div>
+        
+        <div class="post-content">
+            <h1 id="基本动态规划"><a href="#基本动态规划" class="headerlink" title="基本动态规划"></a>基本动态规划</h1><blockquote>
 <p><strong>动态规划</strong> <em>(Dynamic Programming)</em> 是运筹学的一个分支，是求解决策过程最优化的数学方法。</p>
 <div align="right"><font size="3">——摘自百度百科</font></div>
-
+</blockquote>
+<blockquote>
 <p>以下内容学习自《算法图解》</p>
 </blockquote>
 <p><strong>实例背景：</strong></p>
 <p>假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：</p>
-<p><img src="/img/动态规划/1563255604617.png" alt="1563255604617"></p>
-<div class="table-container">
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255604617.png" alt="1563255604617"></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">音响(S)</th>
-<th style="text-align:center">笔记本电脑(L)</th>
-<th style="text-align:center">吉他(G)</th>
+<th align="center">音响(S)</th>
+<th align="center">笔记本电脑(L)</th>
+<th align="center">吉他(G)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">3000美元</td>
-<td style="text-align:center">2000美元</td>
-<td style="text-align:center">1500美元</td>
+<tbody><tr>
+<td align="center">3000美元</td>
+<td align="center">2000美元</td>
+<td align="center">1500美元</td>
 </tr>
 <tr>
-<td style="text-align:center">4磅</td>
-<td style="text-align:center">3磅</td>
-<td style="text-align:center">1磅</td>
+<td align="center">4磅</td>
+<td align="center">3磅</td>
+<td align="center">1磅</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>为了让偷窃价值最高，他该偷窃哪些内容呢？</p>
 <ul>
 <li><p><strong>方法一</strong>：枚举出每一种情况，然后比较每一种情况所能得到的货物的总价值。具体如下图所示：</p>
-<p><img src="/img/动态规划/1563255813206.png" alt="1563255813206"></p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255813206.png" alt="1563255813206"></p>
 <p>当有3件物品时，我们需要罗列出8种情况。而当4件物品时就需要罗列16种情况；5件物品就需要32种情况，也就是说这样的求解方法的时间复杂度达到了$O(2^n)$。</p>
 </li>
 <li><p><strong>方法二</strong>：动态规划</p>
 <p>对于大的背包，我们可以先将其分解为一个个小的背包来考虑，最后用小的背包的情况来推知大的背包的最佳情况。</p>
-<p><img src="/img/动态规划/1563257702433.png" alt="1563257702433"></p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563257702433.png" alt="1563257702433"></p>
 <p>那么我们就会得到如下的一个表格：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>  从左到右分别为<strong>1磅背包</strong>、<strong>2磅背包</strong>、<strong>3磅背包</strong>、<strong>4磅背包</strong>的情况，然后我们从第一行开始对表格进行填充：</p>
 <ul>
 <li><p><strong>吉他行</strong></p>
@@ -182,603 +399,436 @@
 <p>对于第一个格，它的背包容量为1磅，所以我可以将吉他装下，所以他肯定是要偷的啦～ 于是表格就会更新成下面的这个样子：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>而对于之后的每个格，因为现在只有吉他可以偷，而这些包都可以放下吉他，所以我们就将这些格的内容更新如下：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>那这小偷既然可以直接推知四磅的情况，为什么还要记录1磅、2磅、3磅的情况呢？因为这些小问题将为解决后面的大问题作铺垫！😀</p>
 <ul>
-<li><p><strong>音响行 </strong></p>
+<li><p>*<em>音响行 *</em></p>
 <p>在第二行，我们可以偷的东西变成了吉他和音响，其上面一行记录了我们是否应该偷吉他以及已经获得了的价值最大值。那么我们结合它的上一行来判断是否需要偷音响。</p>
 <p>对于第一格，无论怎样都装不下音响，所以继承了上一行的吉他的总价值，列表变成如下：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>相同的，2磅与3磅时也装不下音响（<del>这音响居然这么大🌚</del>），所以表格变成了：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $\$3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $\$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
-<div class="table-container">
+</tbody></table>
+<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $$3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$3000 <em>(S)</em></td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <ul>
 <li><p><strong>笔记本电脑行</strong>：</p>
-<p>从音响一行已经可以了解到，有以下式子的成立：（$h[x]$ 指的是第 $x$ 可被偷物的质量/体积）</p>
-<script type="math/tex; mode=display">
-dp[i][j] = \max(dp[i - 1][j - h[x]]+v[x]\ ,\ dp[i - 1][j])</script><p>所以根据这个公式，我们可以轻而易举的来填写笔记本电脑这一行，得到如下的列表：</p>
+<p>从音响一行已经可以了解到，有以下式子的成立：（$h[x]$ 指的是第 $x$ 可被偷物的质量/体积）<br>$$<br>dp[i][j] = \max(dp[i - 1][j - h[x]]+v[x]\ ,\ dp[i - 1][j])<br>$$<br>所以根据这个公式，我们可以轻而易举的来填写笔记本电脑这一行，得到如下的列表：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$3000 <em>(S)</em></td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$2000 <em>(L)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;L)</em></td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $\$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $\$3500$。取更大的，我们就可以知道这一格应为 $\$3500$。</p>
-<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$\$3500$。</p>
+</tbody></table>
+<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $$3500$。取更大的，我们就可以知道这一格应为 $$3500$。</p>
+<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$$3500$。</p>
 <ul>
 <li><p><strong>再加一件商品又是如何呢？</strong></p>
 <p>假如小偷现在又发现了一个新鲜玩意儿：iPhone！(I)（<del>这东西这么贵肯定要偷的啊🤪</del>）</p>
-<p><img src="/img/动态规划/1563261773092.png" alt="1563261773092"></p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563261773092.png" alt="1563261773092"></p>
 <p>那我们需要重新计算整个表格么？<strong>不需要！</strong>这也是动态规划的一大优点，我逐步计算出了前面的最大价值，那么再有新的元素出现，前面的数据依旧是可以用的！</p>
 <p>那么我们的列表多出一行，成为以下的样子：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$3000 <em>(S)</em></td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$2000 <em>(L)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;L)</em></td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>iPhone</strong></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $\$1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $\$2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
-<div class="table-container">
+</tbody></table>
+<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $$1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $$2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$3000 <em>(S)</em></td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$2000 <em>(L)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;L)</em></td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>iPhone</strong></td>
-<td style="text-align:center">$2000 <em>(I)</em></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>依次以上面的方法对表格进行填充，最终表格成为：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>吉他</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>音响</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$3000 <em>(S)</em></td>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>笔记本电脑</strong></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$1500 <em>(G)</em></td>
-<td style="text-align:center">$2000 <em>(L)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;L)</em></td>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>iPhone</strong></td>
-<td style="text-align:center">$2000 <em>(I)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;I)</em></td>
-<td style="text-align:center">$3500 <em>(G&amp;I)</em></td>
-<td style="text-align:center">$4000 <em>(L&amp;I)</em></td>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$4000 <em>(L&amp;I)</em></td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>所以此时的最大值就变成了 $\$4000$，更多了呢！🤑</p>
+</tbody></table>
+<p>所以此时的最大值就变成了 $$4000$，更多了呢！🤑</p>
 <p>从以上内容可以看出，动态规划真的是一个神奇好用的算法呢！</p>
 <p>那么怎么敲它的代码呢？</p>
 <p><strong>C++</strong>：</p>
-<pre><code class="lang-C++">int w[5] = {0, 1, 4, 3, 1}; // 每个物品的重量，w[0]无用
-int p[5] = {0, 1500, 3000, 2000, 2000}; // 每个物品的价值，p[0]无用
-int n = 4; // 物品的个数
-int m = 4; // 背包的载重量
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> w[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>&#125;; <span class="comment">// 每个物品的重量，w[0]无用</span></span><br><span class="line"><span class="keyword">int</span> p[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">1500</span>, <span class="number">3000</span>, <span class="number">2000</span>, <span class="number">2000</span>&#125;; <span class="comment">// 每个物品的价值，p[0]无用</span></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">4</span>; <span class="comment">// 物品的个数</span></span><br><span class="line"><span class="keyword">int</span> m = <span class="number">4</span>; <span class="comment">// 背包的载重量</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; x; <span class="comment">// 用以记录所有的被装入背包的物品</span></span><br><span class="line"><span class="keyword">int</span> v = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">5</span>][<span class="number">5</span>]; <span class="comment">// 注意多出一行一列</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp_funtion</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n + <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m + <span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= w[i])</span><br><span class="line">                dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - w[i]] + p[i]);</span><br><span class="line">            <span class="keyword">else</span> dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> j = m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; j &gt; <span class="number">0</span>; j++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[i][j] &gt; dp[i - <span class="number">1</span>][j])&#123;</span><br><span class="line">            x.push_back(i);</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n][m];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-vector&lt;int&gt; x; // 用以记录所有的被装入背包的物品
-int v = 0;
-int dp[5][5]; // 注意多出一行一列
-int dp_funtion(){
-    for (int i = 0; i &lt; n + 1; i++){
-        for (int j = 0; j &lt; m + 1; j++){
-            if(j &gt;= w[i])
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - w[i]] + p[i]);
-            else dp[i][j] = dp[i - 1][j];
-        }
-    }
-    int j = m;
-    for (int i = n; j &gt; 0; j++){
-        if (dp[i][j] &gt; dp[i - 1][j]){
-            x.push_back(i);
-            j = j - w[i];
-        }
-    }
-    return dp[n][m];
-}
-</code></pre>
 <p><strong>Python</strong>：</p>
-<pre><code class="lang-python"># 这里使用了图解中的吉他，音箱，电脑，手机做的测试，数据保持一致
-w = [0, 1, 4, 3, 1]   #n个物体的重量(w[0]无用)
-p = [0, 1500, 3000, 2000, 2000]   #n个物体的价值(p[0]无用)
-n = len(w) - 1   #计算n的个数
-m = 4   #背包的载重量
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里使用了图解中的吉他，音箱，电脑，手机做的测试，数据保持一致</span></span><br><span class="line">w = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]   <span class="comment">#n个物体的重量(w[0]无用)</span></span><br><span class="line">p = [<span class="number">0</span>, <span class="number">1500</span>, <span class="number">3000</span>, <span class="number">2000</span>, <span class="number">2000</span>]   <span class="comment">#n个物体的价值(p[0]无用)</span></span><br><span class="line">n = len(w) - <span class="number">1</span>   <span class="comment">#计算n的个数</span></span><br><span class="line">m = <span class="number">4</span>   <span class="comment">#背包的载重量</span></span><br><span class="line"></span><br><span class="line">x = []   <span class="comment">#装入背包的物体，元素为True时，对应物体被装入(x[0]无用)</span></span><br><span class="line">v = <span class="number">0</span></span><br><span class="line"><span class="comment">#optp[i][j]表示在前i个物体中，能够装入载重量为j的背包中的物体的最大价值</span></span><br><span class="line">optp = [[<span class="number">0</span> <span class="keyword">for</span> col <span class="keyword">in</span> range(m + <span class="number">1</span>)] <span class="keyword">for</span> raw <span class="keyword">in</span> range(n + <span class="number">1</span>)]</span><br><span class="line"><span class="comment">#optp 相当于做了一个n*m的全零矩阵的赶脚，n行为物件，m列为自背包载重量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knapsack_dynamic</span><span class="params">(w, p, n, m, x)</span>:</span></span><br><span class="line">    <span class="comment">#计算optp[i][j]</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n + <span class="number">1</span>):       <span class="comment"># 物品一件件来</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, m + <span class="number">1</span>):   <span class="comment"># j为子背包的载重量，寻找能够承载物品的子背包</span></span><br><span class="line">            <span class="keyword">if</span> (j &gt;= w[i]):    <span class="comment"># 当物品的重量小于背包能够承受的载重量的时候，才考虑能不能放进去</span></span><br><span class="line">                optp[i][j] = max(optp[i - <span class="number">1</span>][j], optp[i - <span class="number">1</span>][j - w[i]] + p[i])</span><br><span class="line">                <span class="comment"># optp[i - 1][j]是上一个单元的值， optp[i - 1][j - w[i]]为剩余空间的价值</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                optp[i][j] = optp[i - <span class="number">1</span>][j]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#递推装入背包的物体,寻找跳变的地方，从最后结果开始逆推</span></span><br><span class="line">    j = m</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">if</span> optp[i][j] &gt; optp[i - <span class="number">1</span>][j]:</span><br><span class="line">            x.append(i)</span><br><span class="line">            j = j - w[i]  </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#返回最大价值，即表格中最后一行最后一列的值</span></span><br><span class="line">    v = optp[n][m]</span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
 
-x = []   #装入背包的物体，元素为True时，对应物体被装入(x[0]无用)
-v = 0
-#optp[i][j]表示在前i个物体中，能够装入载重量为j的背包中的物体的最大价值
-optp = [[0 for col in range(m + 1)] for raw in range(n + 1)]
-#optp 相当于做了一个n*m的全零矩阵的赶脚，n行为物件，m列为自背包载重量
-
-def knapsack_dynamic(w, p, n, m, x):
-    #计算optp[i][j]
-    for i in range(1, n + 1):       # 物品一件件来
-        for j in range(1, m + 1):   # j为子背包的载重量，寻找能够承载物品的子背包
-            if (j &gt;= w[i]):    # 当物品的重量小于背包能够承受的载重量的时候，才考虑能不能放进去
-                optp[i][j] = max(optp[i - 1][j], optp[i - 1][j - w[i]] + p[i])
-                # optp[i - 1][j]是上一个单元的值， optp[i - 1][j - w[i]]为剩余空间的价值
-            else:
-                optp[i][j] = optp[i - 1][j]
-
-    #递推装入背包的物体,寻找跳变的地方，从最后结果开始逆推
-    j = m
-    for i in range(n, 0, -1):
-        if optp[i][j] &gt; optp[i - 1][j]:
-            x.append(i)
-            j = j - w[i]  
-
-    #返回最大价值，即表格中最后一行最后一列的值
-    v = optp[n][m]
-    return v
-</code></pre>
 <h1 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h1><p>区间DP就是在区间上进行动态规划，求解一段区间上的最优解。主要是通过合并小区间的最优解进而得出整个大区间上的最优解的DP算法。</p>
 <p>首先枚举区间长度<code>len</code>为每次分割成的小区间长度（由长到短不断合并），内层枚举该长度下的起点。然后在这个起点与中点之间枚举分割殿，求解这段小区间在某个分割点下的最优解。</p>
-<pre><code class="lang-C++">for(int len = 1; len &lt;= n; len++){//枚举长度
-    for(int j = 1; j + len &lt;= n+1; j++){//枚举起点，ends&lt;=n
-        int ends = j + len - 1;
-        for(int i = j; i &lt; ends; i++){//枚举分割点，更新小区间最优解
-            dp[j][ends] = min(dp[j][ends], dp[j][i] + dp[i+1][ends] + something); 
-            // something替换
-        }
-    }
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">1</span>; len &lt;= n; len++)&#123;<span class="comment">//枚举长度</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j + len &lt;= n+<span class="number">1</span>; j++)&#123;<span class="comment">//枚举起点，ends&lt;=n</span></span><br><span class="line">        <span class="keyword">int</span> ends = j + len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = j; i &lt; ends; i++)&#123;<span class="comment">//枚举分割点，更新小区间最优解</span></span><br><span class="line">            dp[j][ends] = min(dp[j][ends], dp[j][i] + dp[i+<span class="number">1</span>][ends] + something); </span><br><span class="line">            <span class="comment">// something替换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-                <hr>
+
+        </div>
+        
+            <section class="post-copyright">
                 
-                <div>
-                    <p>
-                         
-                        <span class="badge badge-light">#&nbsp;ACM</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Programming</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Learning Note</span>
-                        &nbsp;
-                        
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>KONGJUNE</span>
                     </p>
-                </div>
-                <br>
                 
                 
-                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://kongjune.com/2019/07/17/动态规划/">http://kongjune.com/2019/07/17/动态规划/</a></span>
+                    </p>
                 
                 
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
-			<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-			</script>
-		<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/ACM/"># ACM</a>
+                    
+                        <a href="/tags/Programming/"># Programming</a>
+                    
+                        <a href="/tags/Learning-Note/"># Learning Note</a>
+                    
+                        
+                </span>
             </div>
-        </div>
-        
-        <div class="d-none d-md-block col-md-2">
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
             
-  <div id="toc" class="py-5">
-    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
-    <div id="tocbot"></div>
-  </div>
+                <a class="prev" rel="prev" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">蒟蒻的ACM初体验——基础数据结构</a>
+            
+            
+        </section>
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+        	<script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
+
+               if (typeof LivereTower === 'function') { return; }
+
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
+
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        	</script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+    </article>
+</div>
 
         </div>
-	
-    </div>        
-</div>
-
-<br><br><br>
-
-<!-- Comments -->
-<div class="comments" id="comments">
- 
-</div>
-
-  
-  </main>
-
-<footer>
-  <br>
-  
-    <div class="text-center py-3">
-      <p>
-          友情 <i class="fas fa-user-friends"></i> 链接
-      </p>
-      <div>
-      <ul style="display: flex; flex-direction: row; flex-direction: row; padding-left: 0; list-style: none; justify-content: center;">
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://cardiffle.github.io/"><i class="fas fa-link"></i> Vicente's BLOG</a></li>
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://zzy991212.github.io/"><i class="fas fa-link"></i> ZZY's BLOG</a></li>
-        
-        </ul>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© KONGJUNE | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    </div>
-    <hr>
-  
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
-    <br>
-    
-  </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    
-    <script src="/js/post.js"></script>
-    
-      <script src="/js/plugins/prettify.js"></script>
-      <script>
-          $(document).ready(function(){
-              $('pre').addClass('prettyprint linenums');
-              prettyPrint();
-          })
-      </script>
-    
-  
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
+    </div>
 </body>
 </html>

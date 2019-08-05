@@ -1,103 +1,327 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>蒟蒻的ACM初体验——搜索 | KONGJUNE&#39;s BLOG</title>
+
+
+
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content>
-    <meta name="author" content="kongjune">
-    <meta name="keywords" content>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>蒟蒻的ACM初体验——搜索  ~  KONGJUNE&#39;s BLOG</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/Prettify/github.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     
-    <link rel="stylesheet" href="/css/custom/main.css">
+
+
+
+    <!-- scripts list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/custom/post-header-label.css">
+    <script src="/js/script.js"></script>
     
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 </head>
+<body>
+    <div class="wrapper">
+        <script>
+    $("#toTop").attr("style", "display:none;");
+    $(function() {
+        $(window).scroll(function() {
+            var scroll_top = $(window).scrollTop();
+            if (scroll_top >= 100) {
+                $("#toTop").fadeIn();
+            } else {
+                $("#toTop").fadeOut();
+            }
+        })
+    })
+</script>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+<style>
+    .box {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        height: 30px;
+        width: 50px;
+        text-align: center;
+        padding-top: 20px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0px 3px 5px #666666;
+        transition: background-color .5s;
+        -moz-transition: background-color .5s;
+        -webkit-transition: background-color .5s;
+        -o-transition: background-color .5s;
+    }
+
+    .box:hover:before {
+        top: 50%
+    }
+
+    .box:hover {
+        background-color: #292a2d;
+    }
+
+    .box:hover .box-in {
+        border-color: #FFFFFF transparent transparent #FFFFFF;
+    }
+
+    .box:before {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        border: 3px solid black;
+        border-color: black transparent transparent white;
+        font-weight: bold;
+    }
+
+    .box-in {
+        visibility: visible;
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border: 3px solid black;
+        border-color: #777777 transparent transparent #777777;
+        transform: rotate(45deg);
+        transition: border-color .5s;
+        -moz-transition: border-color .5s;
+        -webkit-transition: border-color .5s;
+        -o-transition: border-color .5s;
+    }
+</style>
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+    <div id="toTop" class="box" style="z-index:9999;">
+        <div class="box-in"></div>
+    </div>
+</body>
+<script>
+    var timer = null;
+    toTop.onclick = function() {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn() {
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop > 0) {
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                timer = requestAnimationFrame(fn);
+            } else {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">主页</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">归档</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/Minecraft/">MINECRAFT</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">关于</a>
-            </li>
-            
-        </ul>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
     </div>
 </div>
 
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
 
-</nav>
-    <div class="view intro-2" style='background: url("/img/搜索/banner.jpeg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">蒟蒻的ACM初体验——搜索</p>
-            <br>
-            
-            <p>星期五, 七月 19日 2019, 4:24 下午</p>
-            
-	    
-        </div>
-        </div>
-    </div>
-    </div>
-  </header>
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录次项"
+    }
 
-  <main>
-  
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content markdown-body py-5 z-depth-3 main">
-                <h1 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h1><p>DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。</p>
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开全部目录"
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">蒟蒻的ACM初体验——搜索</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-07-19&nbsp;&nbsp;16:24:53</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+        
+        <div style="
+            background-image: url(/img/搜索/banner.jpeg);
+            height: 300px;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            -moz-background-size:100% 100%;
+            background-size:cover;
+        ">
+        <p> </p>
+        </div>
+        
+        <div class="post-content">
+            <h1 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h1><p>DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。</p>
 <p>如下图所示的图：</p>
-<p><img src="/img/搜索/1563515220039.png" alt="1563515220039"></p>
+<p><img src="/img/%E6%90%9C%E7%B4%A2/1563515220039.png" alt="1563515220039"></p>
 <p>它的DFS遍历顺序为：$1 \rightarrow 2 \rightarrow 3\rightarrow 4 \rightarrow 5 \rightarrow 6 \rightarrow 7 \rightarrow 8 \rightarrow 9$（这个真的只是巧了）。</p>
 <p>有的时候还需要得到带有回溯的DFS序，如图就为：$1\rightarrow 2\rightarrow 3 \rightarrow 4\rightarrow 5\rightarrow 4\rightarrow 6\rightarrow 7\rightarrow 6\rightarrow 8\rightarrow 9\rightarrow 8\rightarrow 6\rightarrow 4\rightarrow 3\rightarrow 2\rightarrow 1$</p>
 <p>但DFS不仅仅只有搜索图那么简单还可以解决一些实际问题。如下题目（POJ 3900）：</p>
@@ -105,20 +329,12 @@
 <p>一个劫匪带着一个可装 $m$ 重量的超大背包去抢银行，银行有 $n$ 个大箱子，第 $i$ 个箱子里有 $i$ 个重量为 $w_i$ ，价值为 $c_i$ 的大钻石，问该劫匪抢走钻石的最大价值。（一共有 $T$ 组数据）</p>
 <h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>$1\leq T \leq 74$；</p>
 <p>$1 \leq n \leq 15$；</p>
-<p>$1 \leq m \leq 1000000000 (10^9)$；</p>
-<p>$1 \leq w_i, c_i \leq 1000000000  (10^9)$。</p>
+<p>$1 \leq m \leq 1000000000\ (10^9)$；</p>
+<p>$1 \leq w_i, c_i \leq 1000000000 \ (10^9)$。</p>
 </blockquote>
 <p>这道题看上去是一个01背包问题，但由于数据量巨大，无法开那么大的数组，所以只能使用DFS搜索。所以能够得到下面这段DFS代码：</p>
-<pre><code class="lang-C++">void dfs(int pos, long long nowcost, long long lastw){
-    // pos:搜索的位置 nowcost:当前抢走的总价值 lastw:背包剩余的空间
-    if (pos == n || lastw &lt;= 0) // 如果搜到了最后一个箱子或者没空间了
-        return;
-    ans = max(ans, nowcost);
-    for (int i = a[pos].num; i &gt;= 0; i--){ // 对每个箱子一个一个钻石的查
-        dfs(pos + 1, nowcost + i * a[pos].c, lastw - i * a[pos].w);
-    }
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">long</span> <span class="keyword">long</span> nowcost, <span class="keyword">long</span> <span class="keyword">long</span> lastw)</span></span>&#123;</span><br><span class="line">    <span class="comment">// pos:搜索的位置 nowcost:当前抢走的总价值 lastw:背包剩余的空间</span></span><br><span class="line">    <span class="keyword">if</span> (pos == n || lastw &lt;= <span class="number">0</span>) <span class="comment">// 如果搜到了最后一个箱子或者没空间了</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    ans = max(ans, nowcost);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = a[pos].num; i &gt;= <span class="number">0</span>; i--)&#123; <span class="comment">// 对每个箱子一个一个钻石的查</span></span><br><span class="line">        dfs(pos + <span class="number">1</span>, nowcost + i * a[pos].c, lastw - i * a[pos].w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>但这样太暴力了！TLE预定系列。所以我们要对我们的DFS进行一定的优化。</p>
 <h1 id="深度优先搜索的优化"><a href="#深度优先搜索的优化" class="headerlink" title="深度优先搜索的优化"></a>深度优先搜索的优化</h1><p><strong>剪枝</strong>：对不满足条件的情况进行清除，减少算法所需要的时间，分为以下两种：</p>
 <ul>
@@ -128,86 +344,34 @@
 <p>以上一个题目为示例，我们考虑它可能出现的剪枝方法：</p>
 <ol>
 <li><p>在枚举时，如果出现了$w_{\text{当前要去取的}} &gt; w_{\text{背包剩余的}}$，则直接跳过：</p>
-<pre><code class="lang-c++">if (i * a[pos].w &gt; lastw) continue;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i * a[pos].w &gt; lastw) <span class="keyword">continue</span>;</span><br></pre></td></tr></table></figure>
+
 <p>这是一种<strong>可行性剪枝</strong>。</p>
 </li>
 <li><p>在枚举时，如果$c_\text{已经拿了的} + c_\text{还没有拿的箱子的全部钻石} &lt; ans$，则不可能会出现更优解，所以回溯：</p>
-<pre><code class="lang-C++">if (nowcost + sum[pos] &lt; ans) return;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (nowcost + sum[pos] &lt; ans) <span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
 <p>这是一种<strong>最优性剪枝</strong>。</p>
 </li>
 <li><p>在枚举时，设矿物的性价比为 $s$ ，$s_i = \displaystyle\frac{c_i}{w_i}$。如果 $w_\text{背包剩余的} * s_\text{还未偷的最大的} &lt; ans$，则不可能出现最优解，所以回溯。如果要石用这个剪枝的话，则要求在开始时就将这 $n$ 个箱子按照性价比从高到低进行排序，而 $n$ 的最大值也就只有 $15$ ，所以时间复杂度不高，完全可以满足要求。</p>
-<pre><code class="lang-c++">if (nowcost + (long long)ceil(a[pos].s * lastw) &lt; ans) return;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (nowcost + (<span class="keyword">long</span> <span class="keyword">long</span>)<span class="built_in">ceil</span>(a[pos].s * lastw) &lt; ans) <span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
 <p>这是一种<strong>最优性剪枝</strong>。</p>
 </li>
 </ol>
 <p>另一个可以优化的搜索题目（POJ 1088）：</p>
 <blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
-& 1 & 2 & 3 & 4 & 5 \\
-& 16 & 17 & 18 & 19 & 6 \\
-& 15 & 24 & 25 & 20 & 7\\
-& 14 & 23 & 22 & 21 & 8 \\
-& 13 & 12 & 11 & 10 & 9
-\end{eqnarray}</script><p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：<br>$$<br>\begin{eqnarray}<br>&amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \<br>&amp; 16 &amp; 17 &amp; 18 &amp; 19 &amp; 6 \<br>&amp; 15 &amp; 24 &amp; 25 &amp; 20 &amp; 7\<br>&amp; 14 &amp; 23 &amp; 22 &amp; 21 &amp; 8 \<br>&amp; 13 &amp; 12 &amp; 11 &amp; 10 &amp; 9<br>\end{eqnarray}<br>$$<br>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
 </blockquote>
 <p><strong>记忆化搜索</strong>：记录以前搜索所得到的结果，当我搜索其他位置而需要这个位置的值时，我就可以直接使用这个值而减少搜索时间。</p>
 <p>如在这个题目中，每个点到最低点的最优解是一定的，所以我在遍历的过程中可以记住已经遍历出结果的点，这样就可以节省很多的时间。</p>
-<pre><code class="lang-C++">int dfs(int x, int y){
-    if (f[x][y] != 0) // 已经记录了这个点的结果
-        return f[x][y];
-    int maxt = 1; 用以计数
-    int t; // test 用以记录中间结果
-    for    (int i = 0; i &lt; 4; i++){ // 上下左右四个点
-        int tx = x + dx[i], ty = y + dy[i]; // dx[] 与 dy[] 是用来记录得到四个点坐标的操作数组
-        if(tx &gt; 0 &amp;&amp; ty &gt; 0 &amp;&amp; tx &lt;= r &amp;&amp; ty &lt;= c &amp;&amp; hill[tx][ty] &gt; hill[x][y]){
-            t = dfs(tx, ty) + 1;
-            maxt = max(t, maxt);
-        }
-    }
-    f[x][y] = maxt; // 记忆化
-    return maxt;
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (f[x][y] != <span class="number">0</span>) <span class="comment">// 已经记录了这个点的结果</span></span><br><span class="line">        <span class="keyword">return</span> f[x][y];</span><br><span class="line">    <span class="keyword">int</span> maxt = <span class="number">1</span>; 用以计数</span><br><span class="line">    <span class="keyword">int</span> t; <span class="comment">// test 用以记录中间结果</span></span><br><span class="line">    <span class="keyword">for</span>	(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123; <span class="comment">// 上下左右四个点</span></span><br><span class="line">        <span class="keyword">int</span> tx = x + dx[i], ty = y + dy[i]; <span class="comment">// dx[] 与 dy[] 是用来记录得到四个点坐标的操作数组</span></span><br><span class="line">        <span class="keyword">if</span>(tx &gt; <span class="number">0</span> &amp;&amp; ty &gt; <span class="number">0</span> &amp;&amp; tx &lt;= r &amp;&amp; ty &lt;= c &amp;&amp; hill[tx][ty] &gt; hill[x][y])&#123;</span><br><span class="line">            t = dfs(tx, ty) + <span class="number">1</span>;</span><br><span class="line">            maxt = max(t, maxt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f[x][y] = maxt; <span class="comment">// 记忆化</span></span><br><span class="line">    <span class="keyword">return</span> maxt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h1><p>BFS是一种使用队列实现的搜索算法，每次搜索对一层的节点进行搜索，所以最后呈现出来的结果是一圈一圈地扩大，具体过程如下图所示（其中Q为当前的队列信息，标有阴影的边为BFS算法所走过的边）：</p>
-<p><img src="/img/搜索/1563521989690.png" alt="1563521989690"></p>
+<p><img src="/img/%E6%90%9C%E7%B4%A2/1563521989690.png" alt="1563521989690"></p>
 <p>由于BFS是一层一层地进行搜索，所以BFS很适合进行搜索到一个点最少步数类型的搜索。</p>
-<pre><code class="lang-C++">const int stepArr[4][2] = {{-1, 1, 0, 0}, {0, 0, -1, 0}}; // 方向数组：分别为上下左右移动
-int visited[x][y]; // 标记是否已经被访问
-struct Node{
-    int x;
-    int y;
-    int step;
-    Node(int x1,int y1,int step1):x(x1),y(y1),step(step1){} // 生成节点的函数
-};
-Node node(0,0,0); // 生成一个节点
-queue&lt;Node&gt; q;
-int BFS(){
-    q.push(node);
-    while(!q.empty()){
-        node = q.front();
-        q.pop();
-        if(node.x == n-1 &amp;&amp; node.y == n-1){
-            return node.step;
-        }
-        visit[node.x][node.y] = 1;
-        for(int i=0; i &lt; 4; i++){
-            int x = node.x + stepArr[i][0];
-            int y = node.y + stepArr[i][1];
-            if (x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp; x &lt; n &amp;&amp; y &lt; n &amp;&amp; visit[x][y] == 0 &amp;&amp; 其它条件 ){
-                visit[x][y] = 1;
-                Node next(x,y,node.step+1);
-                q.push(next);
-            }
-        }
-    }
-    return-1;
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> stepArr[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;&#125;; <span class="comment">// 方向数组：分别为上下左右移动</span></span><br><span class="line"><span class="keyword">int</span> visited[x][y]; <span class="comment">// 标记是否已经被访问</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">int</span> step;</span><br><span class="line">    Node(<span class="keyword">int</span> x1,<span class="keyword">int</span> y1,<span class="keyword">int</span> step1):x(x1),y(y1),step(step1)&#123;&#125; <span class="comment">// 生成节点的函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">Node <span class="title">node</span><span class="params">(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>; <span class="comment">// 生成一个节点</span></span><br><span class="line"><span class="built_in">queue</span>&lt;Node&gt; q;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BFS</span><span class="params">()</span></span>&#123;</span><br><span class="line">    q.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        node = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">if</span>(node.x == n<span class="number">-1</span> &amp;&amp; node.y == n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> node.step;</span><br><span class="line">        &#125;</span><br><span class="line">        visit[node.x][node.y] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> x = node.x + stepArr[i][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> y = node.y + stepArr[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &lt; n &amp;&amp; visit[x][y] == <span class="number">0</span> &amp;&amp; 其它条件 )&#123;</span><br><span class="line">                visit[x][y] = <span class="number">1</span>;</span><br><span class="line">                <span class="function">Node <span class="title">next</span><span class="params">(x,y,node.step+<span class="number">1</span>)</span></span>;</span><br><span class="line">                q.push(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span><span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="广度优先搜索的优化"><a href="#广度优先搜索的优化" class="headerlink" title="广度优先搜索的优化"></a>广度优先搜索的优化</h1><ul>
 <li><p>双向广搜：从初状态和末状态两端进行广搜，直到两区域开始重叠或者有公众节点结束</p>
 <p>如果一个节点产生的系统呈二叉树式增长，那么对于扩展 $n$ 次的代价， 单向为 $2^n$，而双向则是 $2 * 2^\frac{n}{2} = 2 ^{\frac{n}{2} + 1}$</p>
@@ -217,307 +381,104 @@ int BFS(){
 </ul>
 <p>如以下题目（洛谷P2730）：</p>
 <blockquote>
-<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：</p>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
-&1&2&3&4 \\
-&8&7&6&5
-\end{eqnarray}</script><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们知道魔板的每一个方格都有一种颜色。这8种颜色用前8个正整数来表示。可以用颜色的序列来表示一种魔板状态，规定从魔板的左上角开始，沿顺时针方向依次取出整数，构成一个颜色序列。对于上图的魔板状态，我们用序列（1，2，3，4，5，6，7，8）来表示。这是基本状态。</p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;2&amp;3&amp;4 \<br>&amp;8&amp;7&amp;6&amp;5<br>\end{eqnarray}<br>$$</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们知道魔板的每一个方格都有一种颜色。这8种颜色用前8个正整数来表示。可以用颜色的序列来表示一种魔板状态，规定从魔板的左上角开始，沿顺时针方向依次取出整数，构成一个颜色序列。对于上图的魔板状态，我们用序列（1，2，3，4，5，6，7，8）来表示。这是基本状态。</p>
 <p>这里提供三种基本操作，分别用大写字母“A”，“B”，“C”来表示（可以通过这些操作改变魔板的状态）：</p>
 <p>“A”：交换上下两行；</p>
 <p>“B”：将最右边的一列插入最左边；</p>
 <p>“C”：魔板中央四格作顺时针旋转。</p>
 <p>下面是对基本状态进行操作的示范：</p>
-<p><strong>A</strong>: </p>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
-&8&7&6&5 \\
-&1&2&3&4
-\end{eqnarray}</script><p><strong>B</strong>:</p>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
-&4&1&2&3 \\
-&5&8&7&6
-\end{eqnarray}</script><p><strong>C</strong>: </p>
-<script type="math/tex; mode=display">
-\begin{eqnarray}
-&1&7&2&4 \\
-&8&6&3&5
-\end{eqnarray}</script><p>对于每种可能的状态，这三种基本操作都可以使用。</p>
+<p><strong>A</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;8&amp;7&amp;6&amp;5 \<br>&amp;1&amp;2&amp;3&amp;4<br>\end{eqnarray}<br>$$<br><strong>B</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;4&amp;1&amp;2&amp;3 \<br>&amp;5&amp;8&amp;7&amp;6<br>\end{eqnarray}<br>$$<br><strong>C</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;7&amp;2&amp;4 \<br>&amp;8&amp;6&amp;3&amp;5<br>\end{eqnarray}<br>$$<br>对于每种可能的状态，这三种基本操作都可以使用。</p>
 <p>你要编程计算用最少的基本操作完成基本状态到目标状态的转换，输出基本操作序列。</p>
 </blockquote>
 <p>A、B、C三种操作我们可以找到规则，写为函数来进行模拟，于是这样进行BFS。重点在于我们如何记录每一个状态。如果我们保留这8位数存储，使用一个8位的bool数组存储，判重时需要接近 $10^8$ 的布尔数组，空间接近200M，肯定超过限制。而我们最终需要的结果是操作的序列，所以我们不如使用操作序列来记录所有的状态。</p>
 <p>所以有以下的AC代码（摘自洛谷巨佬<a href="https://www.luogu.org/blog/getchar123/solution-p2730" target="_blank" rel="noopener">getchar123</a>）：</p>
-<pre><code class="lang-C++">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-string a;#include&lt;bits/stdc++.h&gt;
-using namespace std;
-string a;
-map&lt;string,string&gt;m;
-queue&lt;string&gt;q;
-void A(string x){
-    string xx=x;
-    for(int i=0;i&lt;4;i++){
-        char x1=x[i];
-        x[i]=x[7-i];
-        x[7-i]=x1;
-    }
-    if(m.count(x)==0){//没有出现过
-        q.push(x);
-        m[x]=m[xx]+&#39;A&#39;;
-    }
-    return;
-}
-void B(string x){
-    string xx=x;
-    x[0]=xx[3],x[1]=xx[0],x[2]=xx[1],x[3]=xx[2],x[4]=xx[5],x[5]=xx[6],x[6]=xx[7],x[7]=xx[4];
-    if(m.count(x)==0){
-        q.push(x);
-        m[x]=m[xx]+&#39;B&#39;;
-    }
-    return;
-}
-void C(string x){
-    string xx=x;
-    x[1]=xx[6],x[2]=xx[1],x[5]=xx[2],x[6]=xx[5];
-    if(m.count(x)==0){
-        q.push(x);
-        m[x]=m[xx]+&#39;C&#39;;
-    }
-    return;
-}
-void bfs(){
-    q.push(&quot;12345678&quot;);
-    m[&quot;12345678&quot;]=&quot;&quot;;
-    while(q.empty()==false){
-        A(q.front());
-        B(q.front());
-        C(q.front());
-        if(m.count(a)!=0){//当出现目标序列
-            cout&lt;&lt;m[a].size()&lt;&lt;endl&lt;&lt;m[a];
-            return;
-        }
-        q.pop();
-    }
-    return;
-}
-int main(){
-    for(int i=0;i&lt;8;i++){
-        char a1;
-        cin&gt;&gt;a1;
-        a+=a1;
-        getchar();
-    }
-    bfs();
-    return 0;
-}
-map&lt;string,string&gt;m;
-queue&lt;string&gt;q;
-void A(string x){
-    string xx=x;
-    for(int i=0;i&lt;4;i++){
-        char x1=x[i];
-        x[i]=x[7-i];
-        x[7-i]=x1;
-    }
-    if(m.count(x)==0){//没有出现过
-        q.push(x);
-        m[x]=m[xx]+&#39;A&#39;;
-    }
-    return;
-}
-void B(string x){
-    string xx=x;
-    x[0]=xx[3],x[1]=xx[0],x[2]=xx[1],x[3]=xx[2],x[4]=xx[5],x[5]=xx[6],x[6]=xx[7],x[7]=xx[4];
-    if(m.count(x)==0){
-        q.push(x);
-        m[x]=m[xx]+&#39;B&#39;;
-    }
-    return;
-}
-void C(string x){
-    string xx=x;
-    x[1]=xx[6],x[2]=xx[1],x[5]=xx[2],x[6]=xx[5];
-    if(m.count(x)==0){
-        q.push(x);
-        m[x]=m[xx]+&#39;C&#39;;
-    }
-    return;
-}
-void bfs(){
-    q.push(&quot;12345678&quot;);
-    m[&quot;12345678&quot;]=&quot;&quot;;
-    while(q.empty()==false){
-        A(q.front());
-        B(q.front());
-        C(q.front());
-        if(m.count(a)!=0){//当出现目标序列
-            cout&lt;&lt;m[a].size()&lt;&lt;endl&lt;&lt;m[a];
-            return;
-        }
-        q.pop();
-    }
-    return;
-}
-int main(){
-    for(int i=0;i&lt;8;i++){
-        char a1;
-        cin&gt;&gt;a1;
-        a+=a1;
-        getchar();
-    }
-    bfs();
-    return 0;
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> a;<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> a;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;m;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt;q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> x1=x[i];</span><br><span class="line">        x[i]=x[<span class="number">7</span>-i];</span><br><span class="line">        x[<span class="number">7</span>-i]=x1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;<span class="comment">//没有出现过</span></span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'A'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">B</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="number">0</span>]=xx[<span class="number">3</span>],x[<span class="number">1</span>]=xx[<span class="number">0</span>],x[<span class="number">2</span>]=xx[<span class="number">1</span>],x[<span class="number">3</span>]=xx[<span class="number">2</span>],x[<span class="number">4</span>]=xx[<span class="number">5</span>],x[<span class="number">5</span>]=xx[<span class="number">6</span>],x[<span class="number">6</span>]=xx[<span class="number">7</span>],x[<span class="number">7</span>]=xx[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'B'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">C</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="number">1</span>]=xx[<span class="number">6</span>],x[<span class="number">2</span>]=xx[<span class="number">1</span>],x[<span class="number">5</span>]=xx[<span class="number">2</span>],x[<span class="number">6</span>]=xx[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'C'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    q.push(<span class="string">"12345678"</span>);</span><br><span class="line">    m[<span class="string">"12345678"</span>]=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.empty()==<span class="literal">false</span>)&#123;</span><br><span class="line">        A(q.front());</span><br><span class="line">        B(q.front());</span><br><span class="line">        C(q.front());</span><br><span class="line">        <span class="keyword">if</span>(m.count(a)!=<span class="number">0</span>)&#123;<span class="comment">//当出现目标序列</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;m[a].size()&lt;&lt;<span class="built_in">endl</span>&lt;&lt;m[a];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> a1;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a1;</span><br><span class="line">        a+=a1;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    bfs();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;m;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt;q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">A</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> x1=x[i];</span><br><span class="line">        x[i]=x[<span class="number">7</span>-i];</span><br><span class="line">        x[<span class="number">7</span>-i]=x1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;<span class="comment">//没有出现过</span></span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'A'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">B</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="number">0</span>]=xx[<span class="number">3</span>],x[<span class="number">1</span>]=xx[<span class="number">0</span>],x[<span class="number">2</span>]=xx[<span class="number">1</span>],x[<span class="number">3</span>]=xx[<span class="number">2</span>],x[<span class="number">4</span>]=xx[<span class="number">5</span>],x[<span class="number">5</span>]=xx[<span class="number">6</span>],x[<span class="number">6</span>]=xx[<span class="number">7</span>],x[<span class="number">7</span>]=xx[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'B'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">C</span><span class="params">(<span class="built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="number">1</span>]=xx[<span class="number">6</span>],x[<span class="number">2</span>]=xx[<span class="number">1</span>],x[<span class="number">5</span>]=xx[<span class="number">2</span>],x[<span class="number">6</span>]=xx[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">if</span>(m.count(x)==<span class="number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="string">'C'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    q.push(<span class="string">"12345678"</span>);</span><br><span class="line">    m[<span class="string">"12345678"</span>]=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.empty()==<span class="literal">false</span>)&#123;</span><br><span class="line">        A(q.front());</span><br><span class="line">        B(q.front());</span><br><span class="line">        C(q.front());</span><br><span class="line">        <span class="keyword">if</span>(m.count(a)!=<span class="number">0</span>)&#123;<span class="comment">//当出现目标序列</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;m[a].size()&lt;&lt;<span class="built_in">endl</span>&lt;&lt;m[a];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> a1;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a1;</span><br><span class="line">        a+=a1;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    bfs();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>（看到这里请提醒博主填完这里<del>或者删掉</del>）</p>
 
-                <hr>
+        </div>
+        
+            <section class="post-copyright">
                 
-                <div>
-                    <p>
-                         
-                        <span class="badge badge-light">#&nbsp;ACM</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Programming</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Learning Note</span>
-                        &nbsp;
-                        
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>KONGJUNE</span>
                     </p>
-                </div>
-                <br>
                 
                 
-                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://kongjune.com/2019/07/19/搜索/">http://kongjune.com/2019/07/19/搜索/</a></span>
+                    </p>
                 
                 
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
-			<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-			</script>
-		<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/ACM/"># ACM</a>
+                    
+                        <a href="/tags/Programming/"># Programming</a>
+                    
+                        <a href="/tags/Learning-Note/"># Learning Note</a>
+                    
+                        
+                </span>
             </div>
-        </div>
-        
-        <div class="d-none d-md-block col-md-2">
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
             
-  <div id="toc" class="py-5">
-    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
-    <div id="tocbot"></div>
-  </div>
+                <a class="prev" rel="prev" href="/2019/07/22/AC自动机/">蒟蒻的ACM初体验——字典树、KMP、AC自动机</a>
+            
+            
+            <a class="next" rel="next" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">蒟蒻的ACM初体验——基础数据结构</a>
+            
+        </section>
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+        	<script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
+
+               if (typeof LivereTower === 'function') { return; }
+
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
+
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        	</script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+    </article>
+</div>
 
         </div>
-	
-    </div>        
-</div>
-
-<br><br><br>
-
-<!-- Comments -->
-<div class="comments" id="comments">
- 
-</div>
-
-  
-  </main>
-
-<footer>
-  <br>
-  
-    <div class="text-center py-3">
-      <p>
-          友情 <i class="fas fa-user-friends"></i> 链接
-      </p>
-      <div>
-      <ul style="display: flex; flex-direction: row; flex-direction: row; padding-left: 0; list-style: none; justify-content: center;">
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://cardiffle.github.io/"><i class="fas fa-link"></i> Vicente's BLOG</a></li>
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://zzy991212.github.io/"><i class="fas fa-link"></i> ZZY's BLOG</a></li>
-        
-        </ul>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© KONGJUNE | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    </div>
-    <hr>
-  
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
-    <br>
-    
-  </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    
-    <script src="/js/post.js"></script>
-    
-      <script src="/js/plugins/prettify.js"></script>
-      <script>
-          $(document).ready(function(){
-              $('pre').addClass('prettyprint linenums');
-              prettyPrint();
-          })
-      </script>
-    
-  
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
+    </div>
 </body>
 </html>

@@ -1,108 +1,332 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>蒟蒻的ACM初体验——线性基 | KONGJUNE&#39;s BLOG</title>
+
+
+
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content>
-    <meta name="author" content="kongjune">
-    <meta name="keywords" content>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>蒟蒻的ACM初体验——线性基  ~  KONGJUNE&#39;s BLOG</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/Prettify/github.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     
-    <link rel="stylesheet" href="/css/custom/main.css">
+
+
+
+    <!-- scripts list from _config.yml -->
     
-        <link rel="stylesheet" href="/css/custom/post-header-label.css">
+    <script src="/js/script.js"></script>
     
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
 </head>
+<body>
+    <div class="wrapper">
+        <script>
+    $("#toTop").attr("style", "display:none;");
+    $(function() {
+        $(window).scroll(function() {
+            var scroll_top = $(window).scrollTop();
+            if (scroll_top >= 100) {
+                $("#toTop").fadeIn();
+            } else {
+                $("#toTop").fadeOut();
+            }
+        })
+    })
+</script>
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">归档</a>
+                
+                <a class="menu-item" href="/category">类别</a>
+                
+                <a class="menu-item" href="/tag">标签</a>
+                
+                <a class="menu-item" href="/mc">Minecraft</a>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+<style>
+    .box {
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        height: 30px;
+        width: 50px;
+        text-align: center;
+        padding-top: 20px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0px 3px 5px #666666;
+        transition: background-color .5s;
+        -moz-transition: background-color .5s;
+        -webkit-transition: background-color .5s;
+        -o-transition: background-color .5s;
+    }
+
+    .box:hover:before {
+        top: 50%
+    }
+
+    .box:hover {
+        background-color: #292a2d;
+    }
+
+    .box:hover .box-in {
+        border-color: #FFFFFF transparent transparent #FFFFFF;
+    }
+
+    .box:before {
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        border: 3px solid black;
+        border-color: black transparent transparent white;
+        font-weight: bold;
+    }
+
+    .box-in {
+        visibility: visible;
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border: 3px solid black;
+        border-color: #777777 transparent transparent #777777;
+        transform: rotate(45deg);
+        transition: border-color .5s;
+        -moz-transition: border-color .5s;
+        -webkit-transition: border-color .5s;
+        -o-transition: border-color .5s;
+    }
+</style>
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-<div class="container">
-    <a class="navbar-brand" href="/"><strong>KONGJUNE&#39;s BLOG</strong></a>
+    <div id="toTop" class="box" style="z-index:9999;">
+        <div class="box-in"></div>
+    </div>
+</body>
+<script>
+    var timer = null;
+    toTop.onclick = function() {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn() {
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop > 0) {
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                timer = requestAnimationFrame(fn);
+            } else {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto text-center">
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/">主页</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/archives/">归档</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/Minecraft/">MINECRAFT</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="/about/">关于</a>
-            </li>
-            
-        </ul>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
     </div>
 </div>
 
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
 
-</nav>
-    <div class="view intro-2" style='background: url("/img/线性基（异或和求最大值）/banner.jpeg")no-repeat center center;background-size: cover;'>
-    <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text wow fadeInUp">
-            <p class="h2">蒟蒻的ACM初体验——线性基</p>
-            <br>
-            
-            <p>星期六, 七月 27日 2019, 3:16 下午</p>
-            
-	    
-        </div>
-        </div>
-    </div>
-    </div>
-  </header>
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "收起目录次项"
+    }
 
-  <main>
-  
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 ">
-            <div class="post-content markdown-body py-5 z-depth-3 main">
-                <h1 id="线性基-——异或和求最大值"><a href="#线性基-——异或和求最大值" class="headerlink" title="线性基   ——异或和求最大值"></a>线性基   <font size="5">——异或和求最大值</font></h1><blockquote>
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "展开全部目录"
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">蒟蒻的ACM初体验——线性基</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-07-27&nbsp;&nbsp;15:16:16</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+        
+        <div style="
+            background-image: url(/img/线性基（异或和求最大值）/banner.jpeg);
+            height: 300px;
+            background-position-x: center;
+            background-position-y: center;
+            background-repeat: no-repeat;
+            -moz-background-size:100% 100%;
+            background-size:cover;
+        ">
+        <p> </p>
+        </div>
+        
+        <div class="post-content">
+            <h1 id="线性基-——异或和求最大值"><a href="#线性基-——异或和求最大值" class="headerlink" title="线性基   ——异或和求最大值"></a>线性基   <font size="5">——异或和求最大值</font></h1><blockquote>
 <p>学习自博客：<a href="https://blog.sengxian.com/algorithms/linear-basis" target="_blank" rel="noopener">https://blog.sengxian.com/algorithms/linear-basis</a></p>
 </blockquote>
 <p><strong>基（basis）</strong>是线性代数中的一个概念，他是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素被称为基向量。向量空间中的任意一个元素，都可以唯一地被表示成基向量的线性组合。异或空间基向量，被称为线性基。</p>
 <h2 id="从线性代数开始的异或世界"><a href="#从线性代数开始的异或世界" class="headerlink" title="从线性代数开始的异或世界"></a>从线性代数开始的异或世界</h2><h3 id="线性空间（向量空间）"><a href="#线性空间（向量空间）" class="headerlink" title="线性空间（向量空间）"></a>线性空间（向量空间）</h3><p>定义$({\Bbb F},\mathrm V,+,\cdot)$为线性空间（<em>Vector Space</em>）。其中 $\Bbb F$ 为域，其中的元素为标量；$\mathrm V$ 为集合，其中的元素称为向量，有以下两个运算：</p>
 <ol>
 <li>向量加法：$\mathrm V+\mathrm V\rightarrow \mathrm V$，记作 ${\bf v}+{\bf w},\exists {\bf v},{\bf m} \in \mathrm V$；</li>
-<li>标量乘法：${\Bbb F}\cdot \mathrm V\rightarrow \mathrm V$，记作 $a \cdot {\bf v},  \exists {\bf a} \in {\Bbb F},{\bf v}\in \mit \mathrm V$</li>
+<li>标量乘法：${\Bbb F}\cdot \mathrm V\rightarrow \mathrm V$，记作 $a \cdot {\bf v}, \ \exists {\bf a} \in {\Bbb F},{\bf v}\in \mit \mathrm V$</li>
 </ol>
 <p>且运算满足以下公理：</p>
 <ol>
@@ -128,19 +352,15 @@
 <p><strong>其他扩展内容</strong>：</p>
 <p>最为常见的向量空间的例子是给定了直角坐标系的平面：平面上的每一点 $P$ 都有一个坐标 $P(x,y)$ ，并对应着一个向量 $(x,y)$。所有普通意义上的平面向量组成了一个空间，记作 $\Bbb R^2$（因为每个向量都可以表示为两个实数构成的有序数组$(x,y)$。可以验证，对于普通意义上的向量加法和标量乘法，$\Bbb R^2$ 满足向量空间的所有公理。设所有普通意义上的平面向量记作 $\mathrm V$ ，则 ${\Bbb R}^2 = ({\Bbb R}, \mathrm V,+,\cdot)$。实际上，向量空间是 $\Bbb R^2$ 的推广。</p>
 <p>对于通常意义上的多项式加法和标量乘法，所有系数为实数的多项式的集合 $\Bbb R[\bf X]$ 也构成一个向量空间。更广泛的，所有从实数域射到实数域的连续函数的集合 $\mathcal C(\mathbb R,\mathbb R)$也是向量空间</p>
-<h3 id="线性无关"><a href="#线性无关" class="headerlink" title="线性无关"></a>线性无关</h3><p>对向量空间中 $\mathrm V$ 上的 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，若存在不全为 $0$ 的数 $a_i\in \mathbb F$，满足：</p>
-<script type="math/tex; mode=display">
-a_1{\bf v}_1 + a_2{\bf v_2} + \dots + a_n{\bf v} _ n = 0</script><p>则称 $n$ 个向量<strong>线性相关</strong>（<em>Linearly Dependent</em>），否则称为<strong>线性无关</strong>（<em>Linearly Independent</em>）。</p>
-<h3 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h3><p>对于向量空间中 $\mathrm V$ 上 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，其<strong>线性组合</strong>（<em>Linear Combination</em>）是如下形式的向量：</p>
-<script type="math/tex; mode=display">
-a_1{\bf v_1} + a_2{\bf v}_2 + \dots+a_n{\bf v}_n</script><p>其中 $a_1,\dots,a_n\in \mathbb F$。</p>
+<h3 id="线性无关"><a href="#线性无关" class="headerlink" title="线性无关"></a>线性无关</h3><p>对向量空间中 $\mathrm V$ 上的 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，若存在不全为 $0$ 的数 $a_i\in \mathbb F$，满足：<br>$$<br>a_1{\bf v}_1 + a_2{\bf v_2} + \dots + a_n{\bf v} _ n = 0<br>$$<br>则称 $n$ 个向量<strong>线性相关</strong>（<em>Linearly Dependent</em>），否则称为<strong>线性无关</strong>（<em>Linearly Independent</em>）。</p>
+<h3 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h3><p>对于向量空间中 $\mathrm V$ 上 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，其<strong>线性组合</strong>（<em>Linear Combination</em>）是如下形式的向量：<br>$$<br>a_1{\bf v_1} + a_2{\bf v}_2 + \dots+a_n{\bf v}_n<br>$$<br>其中 $a_1,\dots,a_n\in \mathbb F$。</p>
 <h3 id="张成（Span）"><a href="#张成（Span）" class="headerlink" title="张成（Span）"></a>张成（<em>Span</em>）</h3><p>对于相连空间中 $V$ 上 $n$ 个元素的向量组 $({\bf v}_1,\dots,{\bf v}_n)$，其所有线性组合所构成的集合称为 $({\bf v}_1,\dots,{\bf v}_n)$ 的<strong>张成</strong>（<em>Span</em>），记作$\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_n)$。</p>
 <h3 id="基（Basis"><a href="#基（Basis" class="headerlink" title="基（Basis)"></a>基（<em>Basis</em>)</h3><p><strong>基</strong>（<em>Basis</em>）（也称为<strong>基底</strong>）是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素称为<strong>基向量</strong>。向量空间中任意一个元素，都可以唯一地表示成基向量的线性组合。如果基中元素个数有限，就称向量空间为有限维向量空间，将元素的个数称作向量空间的<strong>维数</strong>。</p>
 <p>给定一个向量空间 ${\displaystyle \mathrm {V}}$。${\displaystyle \mathrm {V}}$ 的一组<strong>基</strong> ${\displaystyle {\mathfrak {B}}}$ 是指 ${\displaystyle \mathrm {V} }$ 里面的可线性生成 ${\displaystyle \mathrm {V} }$ 的一个线性无关子集。${\displaystyle {\mathfrak {B}}}$ 的元素称为<strong>基向量</strong>。</p>
-<p>更详细来说，设 ${\displaystyle {\mathfrak {B}}=\{\mathbf e_{1},\mathbf e_{2},\cdots ,\mathbf e_{n}\}}$ 是在系数域 ${\displaystyle \mathbb {F}}$（比如实数域 ${\displaystyle \mathbb {R}}$ 或复数域${\displaystyle \mathbb {C}}$）上的向量空间 ${\displaystyle \mathrm {V}}$ 的有限子集。如果 ${\displaystyle {\mathfrak {B}}}$ 满足下列条件：</p>
+<p>更详细来说，设 ${\displaystyle {\mathfrak {B}}={\mathbf e_{1},\mathbf e_{2},\cdots ,\mathbf e_{n}}}$ 是在系数域 ${\displaystyle \mathbb {F}}$（比如实数域 ${\displaystyle \mathbb {R}}$ 或复数域${\displaystyle \mathbb {C}}$）上的向量空间 ${\displaystyle \mathrm {V}}$ 的有限子集。如果 ${\displaystyle {\mathfrak {B}}}$ 满足下列条件：</p>
 <ol>
-<li>对任意 ${\displaystyle (\lambda _{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$ ，如果 ${\displaystyle \lambda _{1}\mathbf e_{1}+\lambda _{2}\mathbf e_{2}+\cdots +\lambda _{n}\mathbf e_{n}=0}$ 则必然 ${\displaystyle \lambda _{1}=\lambda _{2}=\cdots =\lambda _{n}=0}$；</li>
-<li>对任意 ${\displaystyle \mathbf v\in \mathrm {V} }$，可以选择 ${\displaystyle (\lambda _{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$，使得 ${\displaystyle v=\lambda _{1}\mathbf e _{1}+\lambda _{2}\mathbf e_{2}+\cdots +\lambda _{n}\mathbf e_{n}}$。</li>
+<li>对任意 ${\displaystyle (\lambda <em>{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$ ，如果 ${\displaystyle \lambda _{1}\mathbf e</em>{1}+\lambda <em>{2}\mathbf e</em>{2}+\cdots +\lambda <em>{n}\mathbf e</em>{n}=0}$ 则必然 ${\displaystyle \lambda _{1}=\lambda _{2}=\cdots =\lambda _{n}=0}$；</li>
+<li>对任意 ${\displaystyle \mathbf v\in \mathrm {V} }$，可以选择 ${\displaystyle (\lambda <em>{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$，使得 ${\displaystyle v=\lambda _{1}\mathbf e _{1}+\lambda _{2}\mathbf e</em>{2}+\cdots +\lambda <em>{n}\mathbf e</em>{n}}$。</li>
 </ol>
 <p>就说 ${\displaystyle {\mathfrak {B}}}$ 是向量空间 ${\displaystyle \mathrm {V} }$ 的一组<strong>基</strong>。</p>
 <p><strong>性质</strong>：</p>
@@ -151,51 +371,23 @@ a_1{\bf v_1} + a_2{\bf v}_2 + \dots+a_n{\bf v}_n</script><p>其中 $a_1,\dots,a_
 <li>$\mathrm V$中所有的向量都可以按唯一的方式表达为 $\mathfrak {B}$ 中向量的线性组合。</li>
 </ol>
 <p>第三点尤其重要，感性的理解，基就是向量空间中的一个子集，它可以通过唯一的线性组合，来张成向量空间中所有的向量，这样就可以大大的缩小我们向量空间的大小。</p>
-<h3 id="线性相关性引理（Linear-Dependent-Lemma）"><a href="#线性相关性引理（Linear-Dependent-Lemma）" class="headerlink" title="线性相关性引理（Linear Dependent Lemma）"></a>线性相关性引理（<em>Linear Dependent Lemma</em>）</h3><p>如果 $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ 在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq 0$，则有至少一个 $j \in \{2, \ldots, m\}$使得下列成立：</p>
+<h3 id="线性相关性引理（Linear-Dependent-Lemma）"><a href="#线性相关性引理（Linear-Dependent-Lemma）" class="headerlink" title="线性相关性引理（Linear Dependent Lemma）"></a>线性相关性引理（<em>Linear Dependent Lemma</em>）</h3><p>如果 $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ 在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq 0$，则有至少一个 $j \in {2, \ldots, m}$使得下列成立：</p>
 <ol>
-<li>$\mathbf{v}_j \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{j - 1})$；</li>
+<li>$\mathbf{v}<em>j \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}</em>{j - 1})$；</li>
 <li>如果从$ (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ 去掉第 $j$ 项，则剩余向量组的张成仍然等于 $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v_n})$。</li>
 </ol>
 <p><strong>证明：</strong></p>
-<p>设 $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq \mathbf{0}$，则有不全为 $0$ 的 $a_1, \ldots, a_n \in \mathbb F$，使得</p>
-<script type="math/tex; mode=display">
-a_1\mathbf{v}_1 + \ldots + a_m\mathbf{v}_m = \mathbf{0}</script><p>$a_2, a_3, \ldots, a_n$不会全为 $0$（因为 $\mathbf{v}_1 \neq \mathbf{0}$）。设 $j$ 是 $\{2, \ldots, m\}$ 中使得 $a_j \neq 0$ 的最大者，那么 </p>
-<script type="math/tex; mode=display">
-\mathbf{v}_j = -\frac {a_1} {a_j}\mathbf{v}_1 - \ldots - \frac {a_{j - 1}} {a_j}\mathbf{v}_{j - 1}</script><p>这就有 $(1)$ 成立。</p>
-<p>为了证明 $(2)$，设 $\mathbf{u} \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_n)$，则存在 $c_1, \ldots, c_n \in F$，使得</p>
-<script type="math/tex; mode=display">
-\mathbf{u} = c_1\mathbf{v}_1 + \ldots + c_n\mathbf{v}_n</script><p>在上面的等式中，可以用之前的等式右边来代替$ \mathbf{v}_j$。这样 $\mathbf{u} $包含于从 $(\mathbf{v}_0, \ldots, \mathbf{v}_n)$ 去掉第 $j$ 项的张成，因而 $(2)$ 成立。</p>
-<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><p> 对于一个十进制数 $a$，我们将其转换为二进制得到 $(b_m\dots b_0)_2$。然后将转换后的二进制看作是一个向量，则得到$\mathbf a = (b_m,b_{m-1},\dots,b_0)$。方便起见，我们称向量 $\mathbf a$ 的第 $i$ 位为 $b_i$。</p>
-<p>向量组 $\mathbf a_1,\dots\mathbf a_n$ 可以张成一个向量集合 $\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n)$，则可以得到一个线性空间 $\mathrm V = (\{0,1\},\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n),\oplus,\cdot)$。</p>
+<p>设 $(\mathbf{v}<em>1, \ldots, \mathbf{v}_n)$在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq \mathbf{0}$，则有不全为 $0$ 的 $a_1, \ldots, a_n \in \mathbb F$，使得<br>$$<br>a_1\mathbf{v}_1 + \ldots + a_m\mathbf{v}_m = \mathbf{0}<br>$$<br>$a_2, a_3, \ldots, a_n$不会全为 $0$（因为 $\mathbf{v}_1 \neq \mathbf{0}$）。设 $j$ 是 ${2, \ldots, m}$ 中使得 $a_j \neq 0$ 的最大者，那么<br>$$<br>\mathbf{v}_j = -\frac {a_1} {a_j}\mathbf{v}_1 - \ldots - \frac {a</em>{j - 1}} {a_j}\mathbf{v}_{j - 1}<br>$$<br>这就有 $(1)$ 成立。</p>
+<p>为了证明 $(2)$，设 $\mathbf{u} \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_n)$，则存在 $c_1, \ldots, c_n \in F$，使得<br>$$<br>\mathbf{u} = c_1\mathbf{v}_1 + \ldots + c_n\mathbf{v}_n<br>$$<br>在上面的等式中，可以用之前的等式右边来代替$ \mathbf{v}_j$。这样 $\mathbf{u} $包含于从 $(\mathbf{v}_0, \ldots, \mathbf{v}_n)$ 去掉第 $j$ 项的张成，因而 $(2)$ 成立。</p>
+<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><p> 对于一个十进制数 $a$，我们将其转换为二进制得到 $(b_m\dots b_0)<em>2$。然后将转换后的二进制看作是一个向量，则得到$\mathbf a = (b_m,b</em>{m-1},\dots,b_0)$。方便起见，我们称向量 $\mathbf a$ 的第 $i$ 位为 $b_i$。</p>
+<p>向量组 $\mathbf a_1,\dots\mathbf a_n$ 可以张成一个向量集合 $\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n)$，则可以得到一个线性空间 $\mathrm V = ({0,1},\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n),\oplus,\cdot)$。</p>
 <p>按照以下的方法得到这个线性空间的一个基 $\mathfrak B = (\mathbf a_1,\dots,\mathbf a_n)$ ：</p>
 <p><strong>第 $1$ 步：</strong>如果 $\mathbf a_1 = \mathbf 0$，则从 $\mathfrak B$ 中去除 $\mathbf a_1$，否则保持 $\mathfrak B$ 不变。</p>
 <p><strong>第 $j$ 步：</strong>如果 $\mathbf a_j \in \mathrm{span}(\mathbf a_1, \dots ,\mathbf a_{j - 1})$ ，则从 $\mathfrak B$ 中去掉 $\mathbf a_j$，否则保持 $\mathfrak B$ 不变。</p>
 <p>经过 $n$ 步后终止程序，得到一个向量组 $\mathfrak B$。由于每一次去掉的项包含于前面诸向量的张成，到最后这个组 $\mathfrak B$ 仍然可以张成 $\mathrm V$。而且这一程序确保了 $\mathfrak B$ 中的任何向量都不包含于它前面诸向量的张成，根据线性相关性引理可知 $\mathfrak B$ 是<strong>线性无关</strong>的。于是 $\mathfrak B$ 是 $\mathrm V$ 的一个基。</p>
 <p>利用高斯消元来判断向量能否被前面的向量张成，就可以写出下面的程序</p>
-<pre><code class="lang-c++">#define MAX_BASE 63 // 当数据为long long型时，int型为31
-void cal(){
-    for(int i = 0; i &lt; n; i++){
-        for(int j = MAX_BASE; j &gt;= 0; j--){
-            if(a[i] &gt;&gt; j &amp; 1){
-                if(b[j])
-                    a[i] ^= b[j];
-                else{
-                    b[j] = a[i];
-                    for (int k = j - 1; k &gt;= 0; k--){
-                        if (b[k] &amp;&amp; (b[j] &gt;&gt; k &amp; 1))
-                            b[j] ^= b[k];
-                    }
-                    for (int k = j + 1; k &lt;= MAX_BASE; k++){
-                        if (b[k] &gt;&gt; j &amp; 1)
-                            b[k] ^= b[j];
-                    }
-                    break;
-                }
-            }
-        }
-    }4
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_BASE 63 <span class="comment">// 当数据为long long型时，int型为31</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cal</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = MAX_BASE; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt;&gt; j &amp; <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(b[j])</span><br><span class="line">                    a[i] ^= b[j];</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    b[j] = a[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = j - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (b[k] &amp;&amp; (b[j] &gt;&gt; k &amp; <span class="number">1</span>))</span><br><span class="line">                            b[j] ^= b[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = j + <span class="number">1</span>; k &lt;= MAX_BASE; k++)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (b[k] &gt;&gt; j &amp; <span class="number">1</span>)</span><br><span class="line">                            b[k] ^= b[j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>b[]</code>数组用来记录最后得到的基 $\mathfrak B$ ；<code>a[]</code>数组为起初的每一个数字，即 $\mathbf a_1,\mathbf a_2,\dots,\mathbf a_n$。</li>
 <li>虽然数组每一个位置存储的是一个<code>int</code>型数字，但实际上表示的是一个二进制向量，为了表述方便，我们称<code>b[i]</code>为数组<code>b[]</code>的第 $i$ 行。</li>
@@ -203,53 +395,8 @@ void cal(){
 <li>如果数组<code>b[]</code>中的第 $j$ 行不存在内容（内容为 $0$），则我们可以将（已经被前面步骤处理好的）数 $a_i$ 加入到这一行。此后为了维护对角矩阵，先用下面的行消自己，再用自己消上面的行。</li>
 <li>上面代码中，<code>b[j] &gt;&gt; k &amp; 1</code>可以用来判断 $b_j$ 二进制的第 $k$ 位是否为 $1$。为什么需要<code>&amp; 1</code>？如果没有这个操作，我得到的不仅仅是第 $k$ 的信息，<code>&amp; 1</code>可以让结果只保留第 $k$ 位的信息。</li>
 </ul>
-<p>我们来模拟一下这个过程。设 $n = 5$，$a = \{7, 1, 4, 3, 5\}$。矩阵 $\mathfrak B$ 一开始长这样：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-0  &0 &0 \\
-0 &0 &0 \\
-0 &0 &0
-\end{bmatrix}</script><p>我们从 $a_1$ 开始，$a_1 = 7 = (111)_2 = \mathbf a_1$，而 $\mathfrak B$ 目前为空。所以我就可以直接把他放进去了，因为$j = \text{\$MAX_BASE} = 2$，所以我就把他放在了第二行（因为是上三角矩阵，所以最下面的为第 $0$ 行）。</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &1 &1 \\
-0 &0 &0 \\
-0 &0 &0
-\end{bmatrix}</script><p>然后考虑放$a_2$，$a_2 = 1 = (001)_2 = \mathbf a_2$，在 $j = 2$ 与 $j = 1$ 时都不满足<code>a[i] &gt;&gt; j &amp; 1</code>的条件，所以不进行操作。$j = 0$ 时，第 $0$ 行没内容，所以就直接放在了第 $0$ 行上，于是矩阵就成了：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &1 &1 \\
-0 &0 &0 \\
-0 &0 &1
-\end{bmatrix}</script><p>然后用下面的行消自己，好的不存在下面的行。再用自己消上面的行，所以第 $2$ 行会消去最后一个 $1$，矩阵变成：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &1 &0 \\
-0 &0 &0 \\
-0 &0 &1
-\end{bmatrix}</script><p>接下来就轮到了 $a_3$ 了，$a_3 = 4 = (100)_2 = \mathbf a_3$，在 $j = 2$ 时符合条件，但第 $2$ 行已经有内容了，所以我们进行 $a_3 = a_3 \oplus b_2$ 的操作，于是 $a_3$ 成了 $(010)_2$ 。$j = 1$ 时有一次满足条件，所以将他放在了第 $1$ 行上，于是矩阵成了：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &1 &0 \\
-0 &1 &0 \\
-0 &0 &1
-\end{bmatrix}</script><p>然后用下面的行消自己，好的什么都消不了。然后用自己消上面的行，所以第 $2$ 行中间的 $1$ 被消掉了，矩阵变成了：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &0 &0 \\
-0 &1 &0 \\
-0 &0 &1
-\end{bmatrix}</script><p>接下来谁也进不去了，结束。</p>
-<p><strong>那既然已经知道了结果会是一个上三角矩阵为啥我不直接生成一个呢？</strong>因为最终生成的 $\mathfrak B$ 很有可能不是一个满的上三角矩阵，比如这个样子的：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-1 &0 &1&0 \\
-0 &1 &0 &0 \\
-0 &0 &0 &0 \\
-0 &0 &0 &1
-\end{bmatrix}</script><p>这样所有被选上的 $\mathbf a_i$ 构成了一个向量空间 $\mathrm V$ 的一个基 $\mathfrak B$，同样矩阵 $b$ 的每一个非 $\mathbf 0$ 向量 $\mathbf b_i$ 组成的基也是向量空间 $\mathrm V$ 的基。我们所指的<strong>线性基</strong>，特指==高斯消元解出的==对角矩阵的非零行构成的向量组。如果矩阵的主对角线上第 $i$ 行的元素为 $1$，此时我们称第 $i$ 位存在于线性基中。对于存在于线性基的二进制位，有一个重要的性质：</p>
-<script type="math/tex; mode=display">
-对于任意存在于线性基的二进制位\ i ，至多只有一个\ \mathbf b_j\ 满足第\ i\ 位为\ 1。</script><p>因为我们已经在得到线性基的过程中，不断地使用每一个向量来对上下进行消除，所以 $\mathbf b_j$ 一定消去了别的向量第 $i$ 位上的 $1$，所以二进制位 $i$ 只存在于 $\mathbf b_j$ 上。而对于不再线性基中的二进制位 $i$，那么主对角线第 $i$ 行位以下的全部为 $0$， 而上方就可能会有若干个 $1$。</p>
+<p>我们来模拟一下这个过程。设 $n = 5$，$a = {7, 1, 4, 3, 5}$。矩阵 $\mathfrak B$ 一开始长这样：<br>$$<br>\begin{bmatrix}<br>0  &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>我们从 $a_1$ 开始，$a_1 = 7 = (111)_2 = \mathbf a_1$，而 $\mathfrak B$ 目前为空。所以我就可以直接把他放进去了，因为$j = \text{$MAX_BASE} = 2$，所以我就把他放在了第二行（因为是上三角矩阵，所以最下面的为第 $0$ 行）。<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>然后考虑放$a_2$，$a_2 = 1 = (001)_2 = \mathbf a_2$，在 $j = 2$ 与 $j = 1$ 时都不满足<code>a[i] &gt;&gt; j &amp; 1</code>的条件，所以不进行操作。$j = 0$ 时，第 $0$ 行没内容，所以就直接放在了第 $0$ 行上，于是矩阵就成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的不存在下面的行。再用自己消上面的行，所以第 $2$ 行会消去最后一个 $1$，矩阵变成：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来就轮到了 $a_3$ 了，$a_3 = 4 = (100)_2 = \mathbf a_3$，在 $j = 2$ 时符合条件，但第 $2$ 行已经有内容了，所以我们进行 $a_3 = a_3 \oplus b_2$ 的操作，于是 $a_3$ 成了 $(010)_2$ 。$j = 1$ 时有一次满足条件，所以将他放在了第 $1$ 行上，于是矩阵成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \<br>0 &amp;1 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的什么都消不了。然后用自己消上面的行，所以第 $2$ 行中间的 $1$ 被消掉了，矩阵变成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;0 \<br>0 &amp;1 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来谁也进不去了，结束。</p>
+<p><strong>那既然已经知道了结果会是一个上三角矩阵为啥我不直接生成一个呢？</strong>因为最终生成的 $\mathfrak B$ 很有可能不是一个满的上三角矩阵，比如这个样子的：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;1&amp;0 \<br>0 &amp;1 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>这样所有被选上的 $\mathbf a_i$ 构成了一个向量空间 $\mathrm V$ 的一个基 $\mathfrak B$，同样矩阵 $b$ 的每一个非 $\mathbf 0$ 向量 $\mathbf b_i$ 组成的基也是向量空间 $\mathrm V$ 的基。我们所指的<strong>线性基</strong>，特指==高斯消元解出的==对角矩阵的非零行构成的向量组。如果矩阵的主对角线上第 $i$ 行的元素为 $1$，此时我们称第 $i$ 位存在于线性基中。对于存在于线性基的二进制位，有一个重要的性质：<br>$$<br>对于任意存在于线性基的二进制位\ i ，至多只有一个\ \mathbf b_j\ 满足第\ i\ 位为\ 1。<br>$$<br>因为我们已经在得到线性基的过程中，不断地使用每一个向量来对上下进行消除，所以 $\mathbf b_j$ 一定消去了别的向量第 $i$ 位上的 $1$，所以二进制位 $i$ 只存在于 $\mathbf b_j$ 上。而对于不再线性基中的二进制位 $i$，那么主对角线第 $i$ 行位以下的全部为 $0$， 而上方就可能会有若干个 $1$。</p>
 <h2 id="线性基的应用"><a href="#线性基的应用" class="headerlink" title="线性基的应用"></a>线性基的应用</h2><p>线性基的题型相对比较固定，以下几类基本就是线性基了：</p>
 <ul>
 <li>最大异或和</li>
@@ -260,206 +407,100 @@ void cal(){
 <blockquote>
 <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>The sequence of non-negative integers $A_1$, $A_2$, …, $A_n$ is given. You are to find some subsequence $Ai_1$, $Ai_2$, …, $Ai_k$ $(1 \leq i_1 &lt; i_2 &lt; … &lt; i_k \leq  N)$ such, that $Ai_1 \oplus Ai_2 \oplus \dots  \oplus Ai_k$ has a maximum value.</p>
 <h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The first line of the input file contains the integer number $N$ $(1 \leq N \leq 100)$. The second line contains the sequence $A_1, A_2, \dots , A_n (0 \leq Ai \leq 10^{18})$. </p>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>Write to the output file a single integer number — the maximum possible value of  $Ai_1 \oplus Ai_2 \oplus \dots  \oplus Ai_k$ . </p>
-<h4 id="Sample-test-s"><a href="#Sample-test-s" class="headerlink" title="Sample test(s)"></a>Sample test(s)</h4><h5 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h5><pre><code>3 
-11 9 5
-</code></pre><h5 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h5><pre><code>14
-</code></pre></blockquote>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>Write to the output file a single integer number – the maximum possible value of  $Ai_1 \oplus Ai_2 \oplus \dots  \oplus Ai_k$ . </p>
+<h4 id="Sample-test-s"><a href="#Sample-test-s" class="headerlink" title="Sample test(s)"></a>Sample test(s)</h4><h5 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 3 </span><br><span class="line">&gt; 11 9 5 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h5 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 14 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>很单纯的求最大异或和。根据以上的内容，我们可以求出这个向量空间的一组线性基 $\mathfrak B$，则<strong>最大的异或和就是将线性基中所有的向量异或起来得到的向量所对应的数</strong>。证明如下：</p>
 <p>最高的二进制位只存在于数值最大的基向量上，所以最大的基向量肯定要被选。运用归纳法，假设前 $i$ 大的都需要选，考虑第 $i + 1$ 大的向量选不选。显然第 $i + 1$ 大的基向量能对异或和贡献它的最高的二进制位 $j$，因为二进制位 $j$ 在之前的异或和中必然为零（因为二进制位 $j$ 只存在于第 $i + 1$ 大的基向量中）。如果不选，之后的所有数对答案的贡献都只能在小于这个二进制位的地方做贡献，总是比选 $i + 1$ 得到的答案小，所以这个数必须选。</p>
 <p>AC代码：</p>
-<pre><code class="lang-C++">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-#define MAX_BASE 63
-long long a[101];
-long long b[MAX_BASE];
-int n;
-void cal(){
-    for(int i = 0; i &lt; n; i++){
-        for(int j = MAX_BASE; j &gt;= 0; j--){
-            if(a[i] &gt;&gt; j &amp; 1){
-                if(b[j])
-                    a[i] ^= b[j];
-                else{
-                    b[j] = a[i];
-                    for (int k = j - 1; k &gt;= 0; k--){
-                        if (b[k] &amp;&amp; (b[j] &gt;&gt; k &amp; 1))
-                            b[j] ^= b[k];
-                    }
-                    for (int k = j + 1; k &lt;= MAX_BASE; k++){
-                        if (b[k] &gt;&gt; j &amp; 1)
-                            b[k] ^= b[j];
-                    }
-                    break;
-                }
-            }
-        }
-    }
-}
-int main(){
-    scanf(&quot;%d&quot; ,&amp;n);
-    memset(b, 0, sizeof(b));
-    memset(choice, 0, sizeof(choice));
-    for (int i = 0; i &lt; n; i++) {
-        scanf(&quot;%lld&quot;, &amp;a[i]);
-    }
-    cal();
-    long long ans = 0;
-    for (int i = 0; i &lt;= MAX_BASE; i++) {
-        if(b[i]){
-            ans ^= b[i];
-        }
-    }
-    printf(&quot;%lld\n&quot;, ans);
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_BASE 63</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">101</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> b[MAX_BASE];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cal</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = MAX_BASE; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt;&gt; j &amp; <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(b[j])</span><br><span class="line">                    a[i] ^= b[j];</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    b[j] = a[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = j - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (b[k] &amp;&amp; (b[j] &gt;&gt; k &amp; <span class="number">1</span>))</span><br><span class="line">                            b[j] ^= b[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = j + <span class="number">1</span>; k &lt;= MAX_BASE; k++)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (b[k] &gt;&gt; j &amp; <span class="number">1</span>)</span><br><span class="line">                            b[k] ^= b[j];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span> ,&amp;n);</span><br><span class="line">    <span class="built_in">memset</span>(b, <span class="number">0</span>, <span class="keyword">sizeof</span>(b));</span><br><span class="line">    <span class="built_in">memset</span>(choice, <span class="number">0</span>, <span class="keyword">sizeof</span>(choice));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cal();</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= MAX_BASE; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b[i])&#123;</span><br><span class="line">            ans ^= b[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-                <hr>
+
+        </div>
+        
+            <section class="post-copyright">
                 
-                <div>
-                    <p>
-                         
-                        <span class="badge badge-light">#&nbsp;ACM</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Programming</span>
-                        &nbsp;
-                         
-                        <span class="badge badge-light">#&nbsp;Learning Note</span>
-                        &nbsp;
-                        
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>KONGJUNE</span>
                     </p>
-                </div>
-                <br>
                 
                 
-                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://kongjune.com/2019/07/27/线性基（异或和求最大值）/">http://kongjune.com/2019/07/27/线性基（异或和求最大值）/</a></span>
+                    </p>
                 
                 
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
-			<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-			</script>
-		<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/ACM/"># ACM</a>
+                    
+                        <a href="/tags/Programming/"># Programming</a>
+                    
+                        <a href="/tags/Learning-Note/"># Learning Note</a>
+                    
+                        
+                </span>
             </div>
-        </div>
-        
-        <div class="d-none d-md-block col-md-2">
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
             
-  <div id="toc" class="py-5">
-    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
-    <div id="tocbot"></div>
-  </div>
+                <a class="prev" rel="prev" href="/2019/07/28/后缀数组/">蒟蒻的ACM初体验——后缀数组</a>
+            
+            
+            <a class="next" rel="next" href="/2019/07/27/尺取法/">蒟蒻的ACM初体验——尺取法</a>
+            
+        </section>
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+        	<script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
+
+               if (typeof LivereTower === 'function') { return; }
+
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
+
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        	</script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+    </article>
+</div>
 
         </div>
-	
-    </div>        
-</div>
-
-<br><br><br>
-
-<!-- Comments -->
-<div class="comments" id="comments">
- 
-</div>
-
-  
-  </main>
-
-<footer>
-  <br>
-  
-    <div class="text-center py-3">
-      <p>
-          友情 <i class="fas fa-user-friends"></i> 链接
-      </p>
-      <div>
-      <ul style="display: flex; flex-direction: row; flex-direction: row; padding-left: 0; list-style: none; justify-content: center;">
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://cardiffle.github.io/"><i class="fas fa-link"></i> Vicente's BLOG</a></li>
-        
-            <li><a target="_blank" style="
-
-                display: block;
-                color: #FFFFFF;
-                background-color: #007bff !important;
-                border-radius: 0.25rem;
-                padding: .5rem 1rem;
-                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-            " class ="mr-2" href="https://zzy991212.github.io/"><i class="fas fa-link"></i> ZZY's BLOG</a></li>
-        
-        </ul>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© KONGJUNE | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    </div>
-    <hr>
-  
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>HEXO</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
-    <br>
-    
-  </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
-  <script src="/js/main.js"></script>
-  
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    
-    <script src="/js/post.js"></script>
-    
-      <script src="/js/plugins/prettify.js"></script>
-      <script>
-          $(document).ready(function(){
-              $('pre').addClass('prettyprint linenums');
-              prettyPrint();
-          })
-      </script>
-    
-  
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
+    </div>
 </body>
 </html>
