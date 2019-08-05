@@ -293,17 +293,17 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                        编者: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2019-07-28&nbsp;&nbsp;14:03:08</a>
+                        日期: <a href="#">2019-07-28&nbsp;&nbsp;14:03:08</a>
                         </span>
                     
                     
                         <span class="post-category">
-                    Category:
+                    类别:
                             
                                 <a href="/categories/算法学习/">算法学习</a>
                             
@@ -343,16 +343,16 @@
 <h3 id="倍增算法"><a href="#倍增算法" class="headerlink" title="倍增算法"></a>倍增算法</h3><p>问题在于我们怎么给这个后缀数组排序，如果强硬 sort 的话，sort 算法复杂度本来就有 $O(n\log_2n)$ 字符串排序还不用于一般数字的排序，每个字符串对比还有 $O(n)$ 复杂度。也就是说用 sort 的话，复杂度会达到 $O(n^2\log_2n)$。这就很伤不是么，所以我们要想出来一个复杂度更低的算法。</p>
 <p>我们知道，两个字符串的比较，如果前半部分相同则比较结果取决于后半部分的比较结果，否则只需要看前半部分的比较结果。基于这个事实，我们考虑以下方法：</p>
 <p>对于字符串 $str$，定义<strong>k-前缀</strong>为：</p>
-<p>$$<br>str_k=\begin{cases}<br>str[0\dots k - 1] = str.\mathrm{substr}(0, k) &amp; (k\leq str.\mathrm{length}()) \<br>str &amp; (k &gt; str.\mathrm{length}())<br>\end{cases}<br>$$<br>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
+<p>$$<br>str_k=\begin{cases}<br>str[0\dots k - 1] = str.\mathrm{substr}(0, k) &amp; (k\leq str.\mathrm{length}()) \\<br>str &amp; (k &gt; str.\mathrm{length}())<br>\end{cases}<br>$$<br>然后类似的，我们定义出基于<strong>k-前缀</strong>意义下的<code>sa[]</code>数组和<code>rank[]</code>数组，在这里我们记作 $sa_k$ 与 $rank_k$ 数组。其中 $sa_k$ 为k-前缀意义下的后缀数组，$rank_k$ 为k-前缀意义下的名次数组。则有以下计算方式：</p>
 <ul>
 <li><p>容易求出 $rank_1$ 的值与 $sa_1$ 的值，只需要进行 sort 对第一个字母排序就可以了。</p>
 </li>
 <li><p>得到了 $rank_k$，则定义二元组 $(rank_k[i],rank_k[i + k])$，按照“如果 $rank_k[i]$ 相同则比较$rank_k[i +k]$，否则则比较 $rank_k[i]$ ”的方法来进行sort，即可求出 $sa_{2k}$。</p>
 </li>
-<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：<br>$$<br>rank_k[i] = \begin{cases}<br>rank_k[i - 1] &amp; suff[sa[i]]_k = suff[sa[i - 1]]_k \<br>rank_k[i - 1] + 1 &amp; suff[sa[i]] _ k \neq suff[sa[i - 1]]_k<br>\end{cases}<br>$$</p>
+<li><p>求出了 $sa_k$ 则可以很快求出 $rank_k$，有以下关系：<br>$$<br>rank_k[i] = \begin{cases}<br>rank_k[i - 1] &amp; suff[sa[i]]_k = suff[sa[i - 1]]_k \\<br>rank_k[i - 1] + 1 &amp; suff[sa[i]] _ k \neq suff[sa[i - 1]]_k<br>\end{cases}<br>$$</p>
 </li>
 </ul>
-<p>这样的话我们求解的顺序就是：<br>$$<br>sa_1\  &amp; \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4\rightarrow \cdots \rightarrow sa_n \rightarrow rank_n<br>$$<br>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
+<p>这样的话我们求解的顺序就是：<br>$$<br>sa_1 \  \&amp;  \ rank_1 \rightarrow sa_2 \rightarrow rank_2 \rightarrow sa_4 \rightarrow rank_4 \rightarrow \cdots \rightarrow sa_n \rightarrow rank_n<br>$$<br>当不再出现并列的 $rank$ 的时候就可以结束循环。整个过程如下图所示：</p>
 <p><img src="/img/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/1564227558972.png" alt="1564227558972"></p>
 <p>每一次排序需要进行 $n\log_2n$ 次比较，每一次比较需要 $O(1)$ 复杂度，总共进行 $\log_2n$ 次比较，因此总时间复杂度为$O(n\log_2^2n)$。</p>
 <h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>这一部分我们要试图探索比 $O(n\log _2^2n)$ 更优的排序算法。</p>
@@ -362,19 +362,19 @@
             <section class="post-copyright">
                 
                     <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>KONGJUNE</span>
+                        <span>本文作者:</span>
+                        <a itemprop="author" rel="author" href="/"><span>KONGJUNE</span></a>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>Permalink:</span>
+                        <span>本文链接:</span>
                         <span><a href="http://kongjune.com/2019/07/28/后缀数组/">http://kongjune.com/2019/07/28/后缀数组/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>License:</span>
+                        <span>版权声明:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
@@ -384,7 +384,7 @@
         
         <section class="post-tags">
             <div>
-                <span>Tag(s):</span>
+                <span>本文标签:</span>
                 <span class="tag">
                     
                     
@@ -398,9 +398,9 @@
                 </span>
             </div>
             <div>
-                <a href="javascript:window.history.back();">back</a>
+                <a href="javascript:window.history.back();">返回上一页</a>
                 <span>· </span>
-                <a href="/">home</a>
+                <a href="/">返回主页</a>
             </div>
         </section>
         <section class="post-nav">

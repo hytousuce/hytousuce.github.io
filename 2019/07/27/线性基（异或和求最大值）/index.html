@@ -293,17 +293,17 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                        编者: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2019-07-27&nbsp;&nbsp;15:16:16</a>
+                        日期: <a href="#">2019-07-27&nbsp;&nbsp;15:16:16</a>
                         </span>
                     
                     
                         <span class="post-category">
-                    Category:
+                    类别:
                             
                                 <a href="/categories/算法学习/">算法学习</a>
                             
@@ -366,8 +366,8 @@
 <p>给定一个向量空间 ${\displaystyle \mathrm {V}}$。${\displaystyle \mathrm {V}}$ 的一组<strong>基</strong> ${\displaystyle {\mathfrak {B}}}$ 是指 ${\displaystyle \mathrm {V} }$ 里面的可线性生成 ${\displaystyle \mathrm {V} }$ 的一个线性无关子集。${\displaystyle {\mathfrak {B}}}$ 的元素称为<strong>基向量</strong>。</p>
 <p>更详细来说，设 ${\displaystyle {\mathfrak {B}}={\mathbf e_{1},\mathbf e_{2},\cdots ,\mathbf e_{n}}}$ 是在系数域 ${\displaystyle \mathbb {F}}$（比如实数域 ${\displaystyle \mathbb {R}}$ 或复数域${\displaystyle \mathbb {C}}$）上的向量空间 ${\displaystyle \mathrm {V}}$ 的有限子集。如果 ${\displaystyle {\mathfrak {B}}}$ 满足下列条件：</p>
 <ol>
-<li>对任意 ${\displaystyle (\lambda <em>{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$ ，如果 ${\displaystyle \lambda _{1}\mathbf e</em>{1}+\lambda <em>{2}\mathbf e</em>{2}+\cdots +\lambda <em>{n}\mathbf e</em>{n}=0}$ 则必然 ${\displaystyle \lambda _{1}=\lambda _{2}=\cdots =\lambda _{n}=0}$；</li>
-<li>对任意 ${\displaystyle \mathbf v\in \mathrm {V} }$，可以选择 ${\displaystyle (\lambda <em>{1},\lambda _{2},\cdots ,\lambda _{n})\in \mathbb {F} ^{n}}$，使得 ${\displaystyle v=\lambda _{1}\mathbf e _{1}+\lambda _{2}\mathbf e</em>{2}+\cdots +\lambda <em>{n}\mathbf e</em>{n}}$。</li>
+<li>对任意 ${\displaystyle (\lambda_{1},\lambda_{2},\cdots ,\lambda_{n})\in \mathbb {F} ^{n}}$ ，如果 ${\displaystyle \lambda_{1}\mathbf e_{1}+\lambda_{2}\mathbf e_{2}+\cdots +\lambda_{n}\mathbf e_{n}=0}$ 则必然 ${\displaystyle \lambda _{1}=\lambda _{2}=\cdots =\lambda _{n}=0}$；</li>
+<li>对任意 ${\displaystyle \mathbf v\in \mathrm {V} }$，可以选择 ${\displaystyle (\lambda_{1},\lambda_{2},\cdots ,\lambda_{n})\in \mathbb {F} ^{n}}$，使得 ${\displaystyle v=\lambda_{1}\mathbf e_{1}+\lambda_{2}\mathbf e_{2}+\cdots +\lambda_{n}\mathbf e_{n}}$。</li>
 </ol>
 <p>就说 ${\displaystyle {\mathfrak {B}}}$ 是向量空间 ${\displaystyle \mathrm {V} }$ 的一组<strong>基</strong>。</p>
 <p><strong>性质</strong>：</p>
@@ -380,13 +380,13 @@
 <p>第三点尤其重要，感性的理解，基就是向量空间中的一个子集，它可以通过唯一的线性组合，来张成向量空间中所有的向量，这样就可以大大的缩小我们向量空间的大小。</p>
 <h3 id="线性相关性引理（Linear-Dependent-Lemma）"><a href="#线性相关性引理（Linear-Dependent-Lemma）" class="headerlink" title="线性相关性引理（Linear Dependent Lemma）"></a>线性相关性引理（<em>Linear Dependent Lemma</em>）</h3><p>如果 $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$ 在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq 0$，则有至少一个 $j \in {2, \ldots, m}$使得下列成立：</p>
 <ol>
-<li>$\mathbf{v}<em>j \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}</em>{j - 1})$；</li>
+<li>$\mathbf{v}_j \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{j - 1})$；</li>
 <li>如果从$ (\mathbf{v}_1, \ldots, \mathbf{v}_n)$ 去掉第 $j$ 项，则剩余向量组的张成仍然等于 $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v_n})$。</li>
 </ol>
 <p><strong>证明：</strong></p>
-<p>设 $(\mathbf{v}<em>1, \ldots, \mathbf{v}_n)$在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq \mathbf{0}$，则有不全为 $0$ 的 $a_1, \ldots, a_n \in \mathbb F$，使得<br>$$<br>a_1\mathbf{v}_1 + \ldots + a_m\mathbf{v}_m = \mathbf{0}<br>$$<br>$a_2, a_3, \ldots, a_n$不会全为 $0$（因为 $\mathbf{v}_1 \neq \mathbf{0}$）。设 $j$ 是 ${2, \ldots, m}$ 中使得 $a_j \neq 0$ 的最大者，那么<br>$$<br>\mathbf{v}_j = -\frac {a_1} {a_j}\mathbf{v}_1 - \ldots - \frac {a</em>{j - 1}} {a_j}\mathbf{v}_{j - 1}<br>$$<br>这就有 $(1)$ 成立。</p>
+<p>设 $(\mathbf{v}_1, \ldots, \mathbf{v}_n)$在 $\mathrm V$ 中是线性相关的，并且 $\mathbf{v}_1 \neq \mathbf{0}$，则有不全为 $0$ 的 $a_1, \ldots, a_n \in \mathbb F$，使得<br>$$<br>a_1\mathbf{v}_1 + \ldots + a_m\mathbf{v}_m = \mathbf{0}<br>$$<br>$a_2, a_3, \ldots, a_n$不会全为 $0$（因为 $\mathbf{v}_1 \neq \mathbf{0}$）。设 $j$ 是 ${2, \ldots, m}$ 中使得 $a_j \neq 0$ 的最大者，那么<br>$$<br>\mathbf{v}_j = -\frac {a_1} {a_j}\mathbf{v}_1 - \ldots - \frac {a_{j - 1}} {a_j}\mathbf{v}_{j - 1}<br>$$<br>这就有 $(1)$ 成立。</p>
 <p>为了证明 $(2)$，设 $\mathbf{u} \in \mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_n)$，则存在 $c_1, \ldots, c_n \in F$，使得<br>$$<br>\mathbf{u} = c_1\mathbf{v}_1 + \ldots + c_n\mathbf{v}_n<br>$$<br>在上面的等式中，可以用之前的等式右边来代替$ \mathbf{v}_j$。这样 $\mathbf{u} $包含于从 $(\mathbf{v}_0, \ldots, \mathbf{v}_n)$ 去掉第 $j$ 项的张成，因而 $(2)$ 成立。</p>
-<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><p> 对于一个十进制数 $a$，我们将其转换为二进制得到 $(b_m\dots b_0)<em>2$。然后将转换后的二进制看作是一个向量，则得到$\mathbf a = (b_m,b</em>{m-1},\dots,b_0)$。方便起见，我们称向量 $\mathbf a$ 的第 $i$ 位为 $b_i$。</p>
+<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><p> 对于一个十进制数 $a$，我们将其转换为二进制得到 $(b_m\dots b_0)_2$。然后将转换后的二进制看作是一个向量，则得到$\mathbf a = (b_m,b_{m-1},\dots,b_0)$。方便起见，我们称向量 $\mathbf a$ 的第 $i$ 位为 $b_i$。</p>
 <p>向量组 $\mathbf a_1,\dots\mathbf a_n$ 可以张成一个向量集合 $\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n)$，则可以得到一个线性空间 $\mathrm V = ({0,1},\mathrm{span}(\mathbf a_1,\dots,\mathbf a_n),\oplus,\cdot)$。</p>
 <p>按照以下的方法得到这个线性空间的一个基 $\mathfrak B = (\mathbf a_1,\dots,\mathbf a_n)$ ：</p>
 <p><strong>第 $1$ 步：</strong>如果 $\mathbf a_1 = \mathbf 0$，则从 $\mathfrak B$ 中去除 $\mathbf a_1$，否则保持 $\mathfrak B$ 不变。</p>
@@ -402,8 +402,8 @@
 <li>如果数组<code>b[]</code>中的第 $j$ 行不存在内容（内容为 $0$），则我们可以将（已经被前面步骤处理好的）数 $a_i$ 加入到这一行。此后为了维护对角矩阵，先用下面的行消自己，再用自己消上面的行。</li>
 <li>上面代码中，<code>b[j] &gt;&gt; k &amp; 1</code>可以用来判断 $b_j$ 二进制的第 $k$ 位是否为 $1$。为什么需要<code>&amp; 1</code>？如果没有这个操作，我得到的不仅仅是第 $k$ 的信息，<code>&amp; 1</code>可以让结果只保留第 $k$ 位的信息。</li>
 </ul>
-<p>我们来模拟一下这个过程。设 $n = 5$，$a = {7, 1, 4, 3, 5}$。矩阵 $\mathfrak B$ 一开始长这样：<br>$$<br>\begin{bmatrix}<br>0  &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>我们从 $a_1$ 开始，$a_1 = 7 = (111)_2 = \mathbf a_1$，而 $\mathfrak B$ 目前为空。所以我就可以直接把他放进去了，因为$j = \text{$MAX_BASE} = 2$，所以我就把他放在了第二行（因为是上三角矩阵，所以最下面的为第 $0$ 行）。<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>然后考虑放$a_2$，$a_2 = 1 = (001)_2 = \mathbf a_2$，在 $j = 2$ 与 $j = 1$ 时都不满足<code>a[i] &gt;&gt; j &amp; 1</code>的条件，所以不进行操作。$j = 0$ 时，第 $0$ 行没内容，所以就直接放在了第 $0$ 行上，于是矩阵就成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的不存在下面的行。再用自己消上面的行，所以第 $2$ 行会消去最后一个 $1$，矩阵变成：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \<br>0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来就轮到了 $a_3$ 了，$a_3 = 4 = (100)_2 = \mathbf a_3$，在 $j = 2$ 时符合条件，但第 $2$ 行已经有内容了，所以我们进行 $a_3 = a_3 \oplus b_2$ 的操作，于是 $a_3$ 成了 $(010)_2$ 。$j = 1$ 时有一次满足条件，所以将他放在了第 $1$ 行上，于是矩阵成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \<br>0 &amp;1 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的什么都消不了。然后用自己消上面的行，所以第 $2$ 行中间的 $1$ 被消掉了，矩阵变成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;0 \<br>0 &amp;1 &amp;0 \<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来谁也进不去了，结束。</p>
-<p><strong>那既然已经知道了结果会是一个上三角矩阵为啥我不直接生成一个呢？</strong>因为最终生成的 $\mathfrak B$ 很有可能不是一个满的上三角矩阵，比如这个样子的：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;1&amp;0 \<br>0 &amp;1 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 &amp;0 \<br>0 &amp;0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>这样所有被选上的 $\mathbf a_i$ 构成了一个向量空间 $\mathrm V$ 的一个基 $\mathfrak B$，同样矩阵 $b$ 的每一个非 $\mathbf 0$ 向量 $\mathbf b_i$ 组成的基也是向量空间 $\mathrm V$ 的基。我们所指的<strong>线性基</strong>，特指==高斯消元解出的==对角矩阵的非零行构成的向量组。如果矩阵的主对角线上第 $i$ 行的元素为 $1$，此时我们称第 $i$ 位存在于线性基中。对于存在于线性基的二进制位，有一个重要的性质：<br>$$<br>对于任意存在于线性基的二进制位\ i ，至多只有一个\ \mathbf b_j\ 满足第\ i\ 位为\ 1。<br>$$<br>因为我们已经在得到线性基的过程中，不断地使用每一个向量来对上下进行消除，所以 $\mathbf b_j$ 一定消去了别的向量第 $i$ 位上的 $1$，所以二进制位 $i$ 只存在于 $\mathbf b_j$ 上。而对于不再线性基中的二进制位 $i$，那么主对角线第 $i$ 行位以下的全部为 $0$， 而上方就可能会有若干个 $1$。</p>
+<p>我们来模拟一下这个过程。设 $n = 5$，$a = {7, 1, 4, 3, 5}$。矩阵 $\mathfrak B$ 一开始长这样：<br>$$<br>\begin{bmatrix}<br>0  &amp;0 &amp;0 \\<br>0 &amp;0 &amp;0  \\<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>我们从 $a_1$ 开始，$a_1 = 7 = (111)_2 = \mathbf a_1$，而 $\mathfrak B$ 目前为空。所以我就可以直接把他放进去了，因为$j = \mathrm{$MAX\_BASE} = 2$，所以我就把他放在了第二行（因为是上三角矩阵，所以最下面的为第 $0$ 行）。<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \\<br>0 &amp;0 &amp;0 \\<br>0 &amp;0 &amp;0<br>\end{bmatrix}<br>$$<br>然后考虑放$a_2$，$a_2 = 1 = (001)_2 = \mathbf a_2$，在 $j = 2$ 与 $j = 1$ 时都不满足<code>a[i] &gt;&gt; j &amp; 1</code>的条件，所以不进行操作。$j = 0$ 时，第 $0$ 行没内容，所以就直接放在了第 $0$ 行上，于是矩阵就成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;1 \\<br>0 &amp;0 &amp;0 \\<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的不存在下面的行。再用自己消上面的行，所以第 $2$ 行会消去最后一个 $1$，矩阵变成：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \\<br>0 &amp;0 &amp;0 \\<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来就轮到了 $a_3$ 了，$a_3 = 4 = (100)_2 = \mathbf a_3$，在 $j = 2$ 时符合条件，但第 $2$ 行已经有内容了，所以我们进行 $a_3 = a_3 \oplus b_2$ 的操作，于是 $a_3$ 成了 $(010)_2$ 。$j = 1$ 时有一次满足条件，所以将他放在了第 $1$ 行上，于是矩阵成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;1 &amp;0 \\<br>0 &amp;1 &amp;0 \\<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>然后用下面的行消自己，好的什么都消不了。然后用自己消上面的行，所以第 $2$ 行中间的 $1$ 被消掉了，矩阵变成了：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;0 \\<br>0 &amp;1 &amp;0 \\<br>0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>接下来谁也进不去了，结束。</p>
+<p><strong>那既然已经知道了结果会是一个上三角矩阵为啥我不直接生成一个呢？</strong>因为最终生成的 $\mathfrak B$ 很有可能不是一个满的上三角矩阵，比如这个样子的：<br>$$<br>\begin{bmatrix}<br>1 &amp;0 &amp;1&amp;0 \\<br>0 &amp;1 &amp;0 &amp;0 \\<br>0 &amp;0 &amp;0 &amp;0 \\<br>0 &amp;0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$<br>这样所有被选上的 $\mathbf a_i$ 构成了一个向量空间 $\mathrm V$ 的一个基 $\mathfrak B$，同样矩阵 $b$ 的每一个非 $\mathbf 0$ 向量 $\mathbf b_i$ 组成的基也是向量空间 $\mathrm V$ 的基。我们所指的<strong>线性基</strong>，特指高斯消元解出的对角矩阵的非零行构成的向量组。如果矩阵的主对角线上第 $i$ 行的元素为 $1$，此时我们称第 $i$ 位存在于线性基中。对于存在于线性基的二进制位，有一个重要的性质：<br>$$<br>对于任意存在于线性基的二进制位\ i ，至多只有一个\ \mathbf b_j\ 满足第\ i\ 位为\ 1。<br>$$<br>因为我们已经在得到线性基的过程中，不断地使用每一个向量来对上下进行消除，所以 $\mathbf b_j$ 一定消去了别的向量第 $i$ 位上的 $1$，所以二进制位 $i$ 只存在于 $\mathbf b_j$ 上。而对于不再线性基中的二进制位 $i$，那么主对角线第 $i$ 行位以下的全部为 $0$， 而上方就可能会有若干个 $1$。</p>
 <h2 id="线性基的应用"><a href="#线性基的应用" class="headerlink" title="线性基的应用"></a>线性基的应用</h2><p>线性基的题型相对比较固定，以下几类基本就是线性基了：</p>
 <ul>
 <li>最大异或和</li>
@@ -431,19 +431,19 @@
             <section class="post-copyright">
                 
                     <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>KONGJUNE</span>
+                        <span>本文作者:</span>
+                        <a itemprop="author" rel="author" href="/"><span>KONGJUNE</span></a>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>Permalink:</span>
+                        <span>本文链接:</span>
                         <span><a href="http://kongjune.com/2019/07/27/线性基（异或和求最大值）/">http://kongjune.com/2019/07/27/线性基（异或和求最大值）/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>License:</span>
+                        <span>版权声明:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
@@ -453,7 +453,7 @@
         
         <section class="post-tags">
             <div>
-                <span>Tag(s):</span>
+                <span>本文标签:</span>
                 <span class="tag">
                     
                     
@@ -467,9 +467,9 @@
                 </span>
             </div>
             <div>
-                <a href="javascript:window.history.back();">back</a>
+                <a href="javascript:window.history.back();">返回上一页</a>
                 <span>· </span>
-                <a href="/">home</a>
+                <a href="/">返回主页</a>
             </div>
         </section>
         <section class="post-nav">

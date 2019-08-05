@@ -293,17 +293,17 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                        编者: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2019-07-19&nbsp;&nbsp;16:24:53</a>
+                        日期: <a href="#">2019-07-19&nbsp;&nbsp;16:24:53</a>
                         </span>
                     
                     
                         <span class="post-category">
-                    Category:
+                    类别:
                             
                                 <a href="/categories/算法学习/">算法学习</a>
                             
@@ -368,7 +368,7 @@
 </ol>
 <p>另一个可以优化的搜索题目（POJ 1088）：</p>
 <blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：<br>$$<br>\begin{eqnarray}<br>&amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \<br>&amp; 16 &amp; 17 &amp; 18 &amp; 19 &amp; 6 \<br>&amp; 15 &amp; 24 &amp; 25 &amp; 20 &amp; 7\<br>&amp; 14 &amp; 23 &amp; 22 &amp; 21 &amp; 8 \<br>&amp; 13 &amp; 12 &amp; 11 &amp; 10 &amp; 9<br>\end{eqnarray}<br>$$<br>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：<br>$$<br>\begin{eqnarray}<br>&amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\<br>&amp; 16 &amp; 17 &amp; 18 &amp; 19 &amp; 6 \\<br>&amp; 15 &amp; 24 &amp; 25 &amp; 20 &amp; 7\\<br>&amp; 14 &amp; 23 &amp; 22 &amp; 21 &amp; 8 \\<br>&amp; 13 &amp; 12 &amp; 11 &amp; 10 &amp; 9<br>\end{eqnarray}<br>$$<br>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
 </blockquote>
 <p><strong>记忆化搜索</strong>：记录以前搜索所得到的结果，当我搜索其他位置而需要这个位置的值时，我就可以直接使用这个值而减少搜索时间。</p>
 <p>如在这个题目中，每个点到最低点的最优解是一定的，所以我在遍历的过程中可以记住已经遍历出结果的点，这样就可以节省很多的时间。</p>
@@ -388,14 +388,14 @@
 </ul>
 <p>如以下题目（洛谷P2730）：</p>
 <blockquote>
-<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;2&amp;3&amp;4 \<br>&amp;8&amp;7&amp;6&amp;5<br>\end{eqnarray}<br>$$</p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;2&amp;3&amp;4 \\<br>&amp;8&amp;7&amp;6&amp;5<br>\end{eqnarray}<br>$$</p>
 <h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们知道魔板的每一个方格都有一种颜色。这8种颜色用前8个正整数来表示。可以用颜色的序列来表示一种魔板状态，规定从魔板的左上角开始，沿顺时针方向依次取出整数，构成一个颜色序列。对于上图的魔板状态，我们用序列（1，2，3，4，5，6，7，8）来表示。这是基本状态。</p>
 <p>这里提供三种基本操作，分别用大写字母“A”，“B”，“C”来表示（可以通过这些操作改变魔板的状态）：</p>
 <p>“A”：交换上下两行；</p>
 <p>“B”：将最右边的一列插入最左边；</p>
 <p>“C”：魔板中央四格作顺时针旋转。</p>
 <p>下面是对基本状态进行操作的示范：</p>
-<p><strong>A</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;8&amp;7&amp;6&amp;5 \<br>&amp;1&amp;2&amp;3&amp;4<br>\end{eqnarray}<br>$$<br><strong>B</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;4&amp;1&amp;2&amp;3 \<br>&amp;5&amp;8&amp;7&amp;6<br>\end{eqnarray}<br>$$<br><strong>C</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;7&amp;2&amp;4 \<br>&amp;8&amp;6&amp;3&amp;5<br>\end{eqnarray}<br>$$<br>对于每种可能的状态，这三种基本操作都可以使用。</p>
+<p><strong>A</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;8&amp;7&amp;6&amp;5 \\<br>&amp;1&amp;2&amp;3&amp;4<br>\end{eqnarray}<br>$$<br><strong>B</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;4&amp;1&amp;2&amp;3 \\<br>&amp;5&amp;8&amp;7&amp;6<br>\end{eqnarray}<br>$$<br><strong>C</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;7&amp;2&amp;4 \\<br>&amp;8&amp;6&amp;3&amp;5<br>\end{eqnarray}<br>$$<br>对于每种可能的状态，这三种基本操作都可以使用。</p>
 <p>你要编程计算用最少的基本操作完成基本状态到目标状态的转换，输出基本操作序列。</p>
 </blockquote>
 <p>A、B、C三种操作我们可以找到规则，写为函数来进行模拟，于是这样进行BFS。重点在于我们如何记录每一个状态。如果我们保留这8位数存储，使用一个8位的bool数组存储，判重时需要接近 $10^8$ 的布尔数组，空间接近200M，肯定超过限制。而我们最终需要的结果是操作的序列，所以我们不如使用操作序列来记录所有的状态。</p>
@@ -409,19 +409,19 @@
             <section class="post-copyright">
                 
                     <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>KONGJUNE</span>
+                        <span>本文作者:</span>
+                        <a itemprop="author" rel="author" href="/"><span>KONGJUNE</span></a>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>Permalink:</span>
+                        <span>本文链接:</span>
                         <span><a href="http://kongjune.com/2019/07/19/搜索/">http://kongjune.com/2019/07/19/搜索/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>License:</span>
+                        <span>版权声明:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
@@ -431,7 +431,7 @@
         
         <section class="post-tags">
             <div>
-                <span>Tag(s):</span>
+                <span>本文标签:</span>
                 <span class="tag">
                     
                     
@@ -445,9 +445,9 @@
                 </span>
             </div>
             <div>
-                <a href="javascript:window.history.back();">back</a>
+                <a href="javascript:window.history.back();">返回上一页</a>
                 <span>· </span>
-                <a href="/">home</a>
+                <a href="/">返回主页</a>
             </div>
         </section>
         <section class="post-nav">

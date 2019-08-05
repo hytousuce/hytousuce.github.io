@@ -293,17 +293,17 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
+                        编者: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2019-07-17&nbsp;&nbsp;13:49:34</a>
+                        日期: <a href="#">2019-07-17&nbsp;&nbsp;13:49:34</a>
                         </span>
                     
                     
                         <span class="post-category">
-                    Category:
+                    类别:
                             
                                 <a href="/categories/算法学习/">算法学习</a>
                             
@@ -329,9 +329,7 @@
             <h1 id="基本动态规划"><a href="#基本动态规划" class="headerlink" title="基本动态规划"></a>基本动态规划</h1><blockquote>
 <p><strong>动态规划</strong> <em>(Dynamic Programming)</em> 是运筹学的一个分支，是求解决策过程最优化的数学方法。</p>
 <div align="right"><font size="3">——摘自百度百科</font></div>
-</blockquote>
-<blockquote>
-<p>以下内容学习自《算法图解》</p>
+以下内容学习自《算法图解》
 </blockquote>
 <p><strong>实例背景：</strong></p>
 <p>假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：</p>
@@ -473,7 +471,7 @@
 </tbody></table>
 <p>那这小偷既然可以直接推知四磅的情况，为什么还要记录1磅、2磅、3磅的情况呢？因为这些小问题将为解决后面的大问题作铺垫！😀</p>
 <ul>
-<li><p>*<em>音响行 *</em></p>
+<li><p><strong>音响行</strong></p>
 <p>在第二行，我们可以偷的东西变成了吉他和音响，其上面一行记录了我们是否应该偷吉他以及已经获得了的价值最大值。那么我们结合它的上一行来判断是否需要偷音响。</p>
 <p>对于第一格，无论怎样都装不下音响，所以继承了上一行的吉他的总价值，列表变成如下：</p>
 </li>
@@ -543,7 +541,7 @@
 <td align="center">-</td>
 </tr>
 </tbody></table>
-<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $$3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
+<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $ \$ 3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $\$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
 <table>
 <thead>
 <tr>
@@ -613,8 +611,8 @@
 <td align="center">$3500 <em>(G&amp;L)</em></td>
 </tr>
 </tbody></table>
-<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $$3500$。取更大的，我们就可以知道这一格应为 $$3500$。</p>
-<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$$3500$。</p>
+<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $ \$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $ \$ 3500$。取更大的，我们就可以知道这一格应为 $ \$ 3500$。</p>
+<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$ \$ 3500$。</p>
 <ul>
 <li><p><strong>再加一件商品又是如何呢？</strong></p>
 <p>假如小偷现在又发现了一个新鲜玩意儿：iPhone！(I)（<del>这东西这么贵肯定要偷的啊🤪</del>）</p>
@@ -662,7 +660,7 @@
 <td align="center">-</td>
 </tr>
 </tbody></table>
-<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $$1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $$2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
+<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $ \$ 1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $ \$ 2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
 <table>
 <thead>
 <tr>
@@ -742,7 +740,7 @@
 <td align="center">$4000 <em>(L&amp;I)</em></td>
 </tr>
 </tbody></table>
-<p>所以此时的最大值就变成了 $$4000$，更多了呢！🤑</p>
+<p>所以此时的最大值就变成了 $ \$ 4000$，更多了呢！🤑</p>
 <p>从以上内容可以看出，动态规划真的是一个神奇好用的算法呢！</p>
 <p>那么怎么敲它的代码呢？</p>
 <p><strong>C++</strong>：</p>
@@ -761,19 +759,19 @@
             <section class="post-copyright">
                 
                     <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>KONGJUNE</span>
+                        <span>本文作者:</span>
+                        <a itemprop="author" rel="author" href="/"><span>KONGJUNE</span></a>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>Permalink:</span>
+                        <span>本文链接:</span>
                         <span><a href="http://kongjune.com/2019/07/17/动态规划/">http://kongjune.com/2019/07/17/动态规划/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>License:</span>
+                        <span>版权声明:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
@@ -783,7 +781,7 @@
         
         <section class="post-tags">
             <div>
-                <span>Tag(s):</span>
+                <span>本文标签:</span>
                 <span class="tag">
                     
                     
@@ -797,9 +795,9 @@
                 </span>
             </div>
             <div>
-                <a href="javascript:window.history.back();">back</a>
+                <a href="javascript:window.history.back();">返回上一页</a>
                 <span>· </span>
-                <a href="/">home</a>
+                <a href="/">返回主页</a>
             </div>
         </section>
         <section class="post-nav">
