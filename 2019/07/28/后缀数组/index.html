@@ -9,7 +9,7 @@
 
 
 
-<title>蒟蒻的ACM初体验——后缀数组 | KONGJUNE&#39;s BLOG</title>
+<title>算法学习：后缀数组 | KONGJUNE&#39;s BLOG</title>
 
 
 
@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -289,7 +290,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">蒟蒻的ACM初体验——后缀数组</h1>
+            <h1 class="post-title">算法学习：后缀数组</h1>
             
                 <div class="post-meta">
                     
@@ -405,10 +406,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/07/30/离散化/">蒟蒻的ACM初体验——离散化</a>
+                <a class="prev" rel="prev" href="/2019/07/30/离散化/">算法学习：离散化</a>
             
             
-            <a class="next" rel="next" href="/2019/07/27/线性基（异或和求最大值）/">蒟蒻的ACM初体验——线性基</a>
+            <a class="next" rel="next" href="/2019/07/27/线性基（异或和求最大值）/">算法学习：线性基</a>
             
         </section>
         <!-- 来必力City版安装代码 -->

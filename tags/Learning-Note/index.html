@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -265,9 +266,39 @@
     <article class="archive-item">
         
         <div id="archive-box">
+        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/扩展KMP/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/06/扩展KMP/">
+            <p style="word-wrap: break-word; word-break: break-all;">
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：扩展KMP</font>
+            </p>
+            <hr style="color: #BBBBBB;">
+            <p>
+                
+                <font color="#CCCCCC" size="1px">🏷️</font>
+                
+                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
+                
+                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
+                
+                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
+                
+                
+                <span class="archive-item-date">2019-08-06</span>
+            </p>
+        </a>
+        </div>
+        
+    </article>
+    
+    
+
+    
+
+    <article class="archive-item">
+        
+        <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/离散化/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/30/离散化/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——离散化</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：离散化</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -297,7 +328,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/后缀数组/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/28/后缀数组/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——后缀数组</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：后缀数组</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -327,7 +358,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/线性基（异或和求最大值）/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/27/线性基（异或和求最大值）/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——线性基</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：线性基</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -357,7 +388,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/尺取法/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/27/尺取法/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——尺取法</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：尺取法</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -387,7 +418,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/倍增思想/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/26/倍增/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——倍增思想</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：倍增思想</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -417,7 +448,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/AC自动机/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/22/AC自动机/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——字典树、KMP、AC自动机</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：字典树、KMP与AC自动机</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -447,7 +478,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/搜索/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/19/搜索/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——搜索</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：搜索</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -477,7 +508,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/某些数据结构（树状数组、差分对列、线段树）/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——基础数据结构</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：基础数据结构</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>
@@ -507,7 +538,7 @@
         <div id="archive-box">
         <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/动态规划/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/17/动态规划/">
             <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">蒟蒻的ACM初体验——动态规划</font>
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：动态规划</font>
             </p>
             <hr style="color: #BBBBBB;">
             <p>

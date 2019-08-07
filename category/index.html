@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -242,6 +243,34 @@
                     
                     <div class="card-item">
                         <div class="categories">
+                            <a href="/categories/题解/">
+                                <h3>
+                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
+                                    题解
+                                </h3>
+                            </a>
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="/2019/08/07/HDU6629/">题解：HDU6629 String Mathching</a>
+                                    </article>
+                                
+                            
+                                
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="/2019/07/30/P1955/">题解：洛谷P1955：[NOI2015]程序自动分析</a>
+                                    </article>
+                                
+                            
+                            
+                        </div>
+                    </div>
+                
+                    
+                    <div class="card-item">
+                        <div class="categories">
                             <a href="/categories/算法学习/">
                                 <h3>
                                     <i class="iconfont icon-category" style="padding-right:3px"></i>
@@ -252,36 +281,39 @@
                                 
                                 
                                     <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/28/后缀数组/">蒟蒻的ACM初体验——后缀数组</a>
+                                        <a class="archive-item-link" href="/2019/07/28/后缀数组/">算法学习：后缀数组</a>
                                     </article>
                                 
                             
                                 
                                 
                                     <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/26/倍增/">蒟蒻的ACM初体验——倍增思想</a>
+                                        <a class="archive-item-link" href="/2019/07/27/尺取法/">算法学习：尺取法</a>
                                     </article>
                                 
                             
                                 
                                 
                                     <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/27/尺取法/">蒟蒻的ACM初体验——尺取法</a>
+                                        <a class="archive-item-link" href="/2019/07/26/倍增/">算法学习：倍增思想</a>
                                     </article>
                                 
                             
                                 
                                 
                                     <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">蒟蒻的ACM初体验——基础数据结构</a>
+                                        <a class="archive-item-link" href="/2019/07/30/离散化/">算法学习：离散化</a>
                                     </article>
                                 
                             
                                 
                                 
                                     <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/30/离散化/">蒟蒻的ACM初体验——离散化</a>
+                                        <a class="archive-item-link" href="/2019/08/06/扩展KMP/">算法学习：扩展KMP</a>
                                     </article>
+                                
+                            
+                                
                                 
                             
                                 
@@ -298,27 +330,6 @@
                             
                             
                                 <a class="more-post-link" href="/categories/算法学习/">More >></a>
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/题解/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    题解
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link" href="/2019/07/30/P1955/">题解：洛谷P1955：[NOI2015]程序自动分析</a>
-                                    </article>
-                                
-                            
                             
                         </div>
                     </div>

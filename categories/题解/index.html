@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -261,6 +262,36 @@
     <h1>
         <font size="5">📅</font> 2019
     </h1>
+    
+
+    <article class="archive-item">
+        
+        <div id="archive-box">
+        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/HDU6629/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/07/HDU6629/">
+            <p style="word-wrap: break-word; word-break: break-all;">
+                <font class="archive-item-link" style="color: #FFFFFF;" size="4">题解：HDU6629 String Mathching</font>
+            </p>
+            <hr style="color: #BBBBBB;">
+            <p>
+                
+                <font color="#CCCCCC" size="1px">🏷️</font>
+                
+                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
+                
+                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
+                
+                <font color="#CCCCCC" size="1px">题解&nbsp;</font>
+                
+                
+                <span class="archive-item-date">2019-08-07</span>
+            </p>
+        </a>
+        </div>
+        
+    </article>
+    
+    
+
     
 
     <article class="archive-item">

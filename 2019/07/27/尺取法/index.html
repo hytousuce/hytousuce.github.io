@@ -9,7 +9,7 @@
 
 
 
-<title>蒟蒻的ACM初体验——尺取法 | KONGJUNE&#39;s BLOG</title>
+<title>算法学习：尺取法 | KONGJUNE&#39;s BLOG</title>
 
 
 
@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -289,7 +290,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">蒟蒻的ACM初体验——尺取法</h1>
+            <h1 class="post-title">算法学习：尺取法</h1>
             
                 <div class="post-meta">
                     
@@ -336,13 +337,12 @@
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A sequence  of $N$ positive integers $(10 &lt; N &lt; 100 000)$, each of them less than  or equal $10000$, and a positive integer $S$ $(S &lt; 100 000 000)$ are given.  Write a program to find the minimal length of the subsequence of  consecutive elements of the sequence, the sum of which is greater than  or equal to $S$.</p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The  first line is the number of test cases. For each test case the program  has to read the numbers $N$ and $S$, separated by an interval, from the  first line. The numbers of the sequence are given in the second line of  the test case, separated by intervals. The input will finish with the  end of file.</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each the case the program has to print the result on separate line of the output file. if no answer, print $0$.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">10 15</span><br><span class="line">5 1 3 5 10 7 4 9 2 8</span><br><span class="line">5 11</span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;2</span><br><span class="line">&gt;10 15</span><br><span class="line">&gt;5 1 3 5 10 7 4 9 2 8</span><br><span class="line">&gt;5 11</span><br><span class="line">&gt;1 2 3 4 5</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>AC代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> lis[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> sum;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> N, S;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;N, &amp;S);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">size_t</span>)N; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;lis[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        sum = lis[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right &amp;&amp; right &lt; N)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sum &lt; S)&#123;</span><br><span class="line">                right++;</span><br><span class="line">                sum += lis[right];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(sum &gt;= S)&#123;</span><br><span class="line">                ans = min(ans, right - left + <span class="number">1</span>);</span><br><span class="line">                sum -= lis[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;&gt;</span><br><span class="line">        <span class="keyword">if</span>(ans != INT_MAX)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"0\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;## Sample Output</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2<br>3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">AC代码：</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;climits&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int lis[100005];</span><br><span class="line">long long sum;</span><br><span class="line">int min(int a, int b)&#123;</span><br><span class="line">    if(a &gt; b)</span><br><span class="line">        return b;</span><br><span class="line">    else return a;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int T;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;T);</span><br><span class="line">    while(T--)&#123;</span><br><span class="line">        int N, S;</span><br><span class="line">        scanf(&quot;%d %d&quot;, &amp;N, &amp;S);</span><br><span class="line">        for (size_t i = 0; i &lt; (size_t)N; i++) &#123;</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;lis[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        int left = 0, right = 0;</span><br><span class="line">        sum = lis[0];</span><br><span class="line">        int ans = INT_MAX;</span><br><span class="line">        while(left &lt;= right &amp;&amp; right &lt; N)&#123;</span><br><span class="line">            if(sum &lt; S)&#123;</span><br><span class="line">                right++;</span><br><span class="line">                sum += lis[right];</span><br><span class="line">            &#125;else if(sum &gt;= S)&#123;</span><br><span class="line">                ans = min(ans, right - left + 1);</span><br><span class="line">                sum -= lis[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;&gt;</span><br><span class="line">        if(ans != INT_MAX)</span><br><span class="line">            printf(&quot;%d\n&quot;, ans);</span><br><span class="line">        else printf(&quot;0\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -393,10 +393,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/07/27/线性基（异或和求最大值）/">蒟蒻的ACM初体验——线性基</a>
+                <a class="prev" rel="prev" href="/2019/07/27/线性基（异或和求最大值）/">算法学习：线性基</a>
             
             
-            <a class="next" rel="next" href="/2019/07/26/倍增/">蒟蒻的ACM初体验——倍增思想</a>
+            <a class="next" rel="next" href="/2019/07/26/倍增/">算法学习：倍增思想</a>
             
         </section>
         <!-- 来必力City版安装代码 -->

@@ -159,7 +159,7 @@
         width: 50px;
         text-align: center;
         padding-top: 20px;
-        background-color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.7);
         color: #000000;
         border-radius: 50%;
         overflow: hidden;
@@ -175,7 +175,7 @@
     }
 
     .box:hover {
-        background-color: #292a2d;
+        background-color: rgba(41, 42, 45, 0.7);
     }
 
     .box:hover .box-in {
@@ -219,8 +219,9 @@
         cancelAnimationFrame(timer);
         timer = requestAnimationFrame(function fn() {
             var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var sPeed = oTop / 10;
             if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
                 timer = requestAnimationFrame(fn);
             } else {
                 cancelAnimationFrame(timer);
@@ -238,13 +239,13 @@
 
             <div class="tag-cloud-tags">
                 
-                    <a href="/tags/ACM/">ACM<small>(10)</small></a>
+                    <a href="/tags/ACM/">ACM<small>(12)</small></a>
                 
-                    <a href="/tags/Programming/">Programming<small>(10)</small></a>
+                    <a href="/tags/Programming/">Programming<small>(12)</small></a>
                 
-                    <a href="/tags/Learning-Note/">Learning Note<small>(9)</small></a>
+                    <a href="/tags/题解/">题解<small>(2)</small></a>
                 
-                    <a href="/tags/题解/">题解<small>(1)</small></a>
+                    <a href="/tags/Learning-Note/">Learning Note<small>(10)</small></a>
                 
             </div>
         </div>

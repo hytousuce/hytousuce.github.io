@@ -1281,3 +1281,8 @@ header label {
 .highlight .code .strong {
   font-weight: bold;
 }
+::selection {
+  background: #1abc9c;
+  color: #fff;
+  text-shadow: none;
+}
