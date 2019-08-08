@@ -143,7 +143,7 @@ template {
   display: none;
 }
 html {
-  font-family: WenQuanYi Zen Hei, Hiragino Sans GB, Microsoft Yahei, "Noto Sans CJK SC", "Source Han Sans CN", Lantinghei SC, PingFang SC, Seguo UI, 'Microsoft Jhenghei', Arial;
+  font-family: Ubuntu, Arial, "Noto Sans CJK SC", "Source Han Sans CN", PingFang SC, Microsoft Yahei, WenQuanYi Zen Hei, Hiragino Sans GB, Seguo UI, 'Microsoft Jhenghei', sans-serif;
 }
 html::-webkit-scrollbar {
   width: 8px;
