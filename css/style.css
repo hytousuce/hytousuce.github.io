@@ -837,7 +837,7 @@ header label {
   padding-left: 2em;
 }
 .post-content table {
-  max-width: 100%;
+  width: 100%;
   margin: 10px 0;
   border-spacing: 0;
 }
