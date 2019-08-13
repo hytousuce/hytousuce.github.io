@@ -232,10 +232,9 @@ a:hover {
   padding-right: 1em;
 }
 .footer {
-  height: 4rem;
   width: 100%;
   text-align: center;
-  line-height: 4rem;
+  line-height: 1.5rem;
   padding-top: 2em;
 }
 @charset "utf-8";
@@ -1180,7 +1179,6 @@ header label {
     display: none !important;
   }
   .footer {
-    height: 3rem;
     width: 100%;
     text-align: center;
     line-height: 1.5rem;
