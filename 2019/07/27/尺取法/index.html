@@ -328,6 +328,12 @@
             <p> </p>
         </div>
         
+        
+            <p class="copyright-item">
+                <span><i style="color: gray;">本文最后修改于:</i></span>
+                <span><i style="color: gray;">2019-08-06&nbsp;&nbsp;14:16:56</i></span>
+            </p>
+        
         <div class="post-content">
             <p>假设给你一个数组与一个整数，要求你的到这个数组中的一个子区间使其的区间和等于这个整数，你会怎么做呢。可能首先想到的就是开一个双重循环，然后每一次都求一次和，然后和给定的数进行比较：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum;</span><br><span class="line"><span class="keyword">int</span> ansi, ansj;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)&#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = i; k &lt;= j; k++)&#123;</span><br><span class="line">            sum += ls[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sum == x)&#123;</span><br><span class="line">            ansi = i; ansj = j;</span><br><span class="line">            <span class="keyword">goto</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">ans:</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, ansi, ansj);</span><br></pre></td></tr></table></figure>
@@ -357,11 +363,11 @@
             </p>
             
             
+            
             <p class="copyright-item">
                 <span>本文链接:</span>
                 <span><a href="http://kongjune.com/2019/07/27/尺取法/">http://kongjune.com/2019/07/27/尺取法/</a></span>
             </p>
-            
             
             <p class="copyright-item">
                 <span>版权声明:</span>
