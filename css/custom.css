@@ -3,3 +3,68 @@
   color: #fff;
   text-shadow: none;
 }
+.box {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  padding-top: 20px;
+  background-color: rgba(255,255,255,0.7);
+  color: #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 3px 5px #666;
+  transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+}
+.dark-theme .box {
+  background-color: rgba(83,88,97,0.7);
+  box-shadow: 0px 3px 5px #131111;
+}
+.box:hover:before {
+  top: 50%;
+}
+.box:hover {
+  background-color: rgba(41,42,45,0.7);
+}
+.dark-theme .box:hover {
+  background-color: #fff;
+}
+.box:hover .box-in {
+  border-color: #fff transparent transparent #fff;
+}
+.dark-theme .box:hover .box-in {
+  border-color: #000 transparent transparent #000;
+}
+.box:before {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  border: 3px solid #000;
+  border-color: #000 transparent transparent #fff;
+  font-weight: bold;
+}
+.box-in {
+  visibility: visible;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 3px solid #000;
+  border-color: #777 transparent transparent #777;
+  transform: rotate(45deg);
+  transition: border-color 0.5s;
+  -moz-transition: border-color 0.5s;
+  -webkit-transition: border-color 0.5s;
+  -o-transition: border-color 0.5s;
+}
+.dark-theme .box-in {
+  border: 3px solid #fff;
+  border-color: #fff transparent transparent #fff;
+}

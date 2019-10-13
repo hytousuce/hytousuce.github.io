@@ -151,65 +151,6 @@
         }
     }
 </script>
-<style>
-    .box {
-        display: none;
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        height: 30px;
-        width: 50px;
-        text-align: center;
-        padding-top: 20px;
-        background-color: rgba(255, 255, 255, 0.7);
-        color: #000000;
-        border-radius: 50%;
-        overflow: hidden;
-        box-shadow: 0px 3px 5px #666666;
-        transition: background-color .5s;
-        -moz-transition: background-color .5s;
-        -webkit-transition: background-color .5s;
-        -o-transition: background-color .5s;
-    }
-
-    .box:hover:before {
-        top: 50%
-    }
-
-    .box:hover {
-        background-color: rgba(41, 42, 45, 0.7);
-    }
-
-    .box:hover .box-in {
-        border-color: #FFFFFF transparent transparent #FFFFFF;
-    }
-
-    .box:before {
-        position: absolute;
-        top: -50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 40px;
-        border: 3px solid black;
-        border-color: black transparent transparent white;
-        font-weight: bold;
-    }
-
-    .box-in {
-        visibility: visible;
-        display: inline-block;
-        height: 15px;
-        width: 15px;
-        border: 3px solid black;
-        border-color: #777777 transparent transparent #777777;
-        transform: rotate(45deg);
-        transition: border-color .5s;
-        -moz-transition: border-color .5s;
-        -webkit-transition: border-color .5s;
-        -o-transition: border-color .5s;
-    }
-</style>
-
 <body>
     <div id="toTop" class="box" style="z-index:9999;">
         <div class="box-in"></div>
