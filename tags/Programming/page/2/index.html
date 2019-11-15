@@ -1,380 +1,2026 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>标签: Programming - KONGJUNE&#39;s BLOG</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="KONGJUNE&#39;s BLOG">
+<meta property="og:url" content="http://kongjune.com/tags/Programming/page/2/index.html">
+<meta property="og:site_name" content="KONGJUNE&#39;s BLOG">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kongjune.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KONGJUNE&#39;s BLOG">
+<meta name="twitter:image" content="http://kongjune.com/images/og_image.png">
 
 
 
-<title>Tag: Programming | KONGJUNE&#39;s BLOG</title>
-
-
-
-    <link rel="icon" type="image/png" href="/favicon.png">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="icon" href="/images/favicon.svg">
 
 
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-    <script src="/js/timeCount.js"></script>
-    
-
-
-
-    
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
     
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <script>
-    $("#toTop").attr("style", "display:none;");
-    $(function() {
-        $(window).scroll(function() {
-            var scroll_top = $(window).scrollTop();
-            if (scroll_top >= 100) {
-                $("#toTop").fadeIn();
-            } else {
-                $("#toTop").fadeOut();
-            }
-        })
-    })
-</script>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
-            <div class="menu navbar-right">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-            </div>
-        </div>
-    </nav>
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        } else {
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-<body>
-    <div id="toTop" class="box" style="z-index:9999;">
-        <div class="box-in"></div>
-    </div>
-</body>
-<script>
-    var timer = null;
-    toTop.onclick = function() {
-        cancelAnimationFrame(timer);
-        timer = requestAnimationFrame(function fn() {
-            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var sPeed = oTop / 10;
-            if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
-                timer = requestAnimationFrame(fn);
-            } else {
-                cancelAnimationFrame(timer);
-            }
-        });
-    }
-</script>
-
-        <div class="main">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-
-    
-<div class="container">
-    <div class="post-wrap tags">
-        <h2 class="post-title">-&nbsp;标签&nbsp;·&nbsp;Programming-</h2>
+                <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">档案</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于 &amp; 友链</a>
+                
+                <a class="navbar-item"
+                href="/mc">Minecraft</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-    <style>
-<!--
-#archive-box a{
-  transition: box-shadow .3s;
-  -moz-transition: box-shadow .3s;	/* Firefox 4 */
-  -webkit-transition: box-shadow .3s;	/* Safari 和 Chrome */
-  -o-transition: box-shadow .3s;	/* Opera */
-}
-
-#archive-box a:hover{
-  box-shadow: 0px 0px 10px #2c2c2c;
-}
--->
-</style>
-<div class="post-wrap archive">
+</nav>
     
-    
-    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Programming</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
 
     
-    <h1>
-        <font size="5">📅</font> 2019
-    </h1>
+<div class="card">
     
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/倍增思想/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/26/倍增/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：倍增思想</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-26</span>
-            </p>
+    <div class="card-image">
+        <a href="/2019/07/26/倍增/" class="image is-7by1">
+            <img class="thumbnail" src="/img/倍增思想/banner.jpeg" alt="算法学习：倍增思想">
         </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-26T02:33:52.000Z">2019-07-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1733 个字)
+                </span>
+                
+                
+            </div>
         </div>
         
-    </article>
-    
-    
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/26/倍增/">算法学习：倍增思想</a>
+            
+        </h1>
+        <div class="content">
+            <p>个人认为来源于二进制的思想。</p>
+<p><img src="/img/%E5%80%8D%E5%A2%9E%E6%80%9D%E6%83%B3/1352815365_3021.jpg" alt="img"></p>
+<p>对于如图式的一系列区域。</p>
+<p>以往的记录方式，都是从A出发，走一步到了A右面一格，走两步到了A右面两格位置，……，走11步，走到了B位置。这样记录的话，每个节点都需要记录 $n - i$ 条内容，全部也就是需要 $\frac{n(n-1)}{2}$条，也就是 $O(n^2)$ 的空间复杂度。而由于每个数都可以写为2进制，那么每个点我只需要记录走一步、走两步、走四步、走八步……的位置，比如从A点，我可以走 $1+2+8=11$ 步到达B，也就是读取A走1步后在读取目前这个格子走两步再读取目前这个格子走八步的位置就可以到达B点。</p>
+<p>而对于每一个点，走4步的位置就相当于走两步后的位置再走两步，走八步的位置就相当于走两步的位置再走两步再走两步……以此类推。</p>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><blockquote>
+<p>位运算符为二进制运算符，所以是将参与运算的数据转换为二进制后进行运算。按右对齐，左补符号位运算。</p>
+</blockquote>
+<ul>
+<li><code>&gt;&gt;</code>：右移运算符，右移 $i$ 位相当于将该数乘以了 $2^i$。</li>
+<li><code>&lt;&lt;</code>：左移运算符，左移 $i$ 位相当于将该数除以了 $2^i$。</li>
+<li><code>&amp;</code>：按位与运算，如 $5 &amp; 3$ 相当于即为$(0101)_2 &amp; (0011)_2 = (0001)_2$，所以结果为$1$。</li>
+<li><code>|</code>：按位或运算 ，如 $5 \ | \ 3$ 相当于 $(0101)_2\ |\ (0011)_2 = (0111)_2$，所以结果为$7$。</li>
+<li><code>~</code>：按位取反。</li>
+<li><code>^</code>：异或运算符，如 $5 \ \text{^} \ 3$ 相当于 $(0101)_2\ \text{^} \ (0011)_2 = (0110)_2$，所以结果为$6$。<ul>
+<li>异或交换律：$a\otimes b = b\otimes a$</li>
+<li>异或结合律：$(a\otimes b)\otimes c= a\otimes(b\otimes c)$</li>
+<li>异或自反性：$a\otimes b\otimes b=a\otimes 0=a$</li>
+<li>对于任何数都有：$x\otimes x =0$、$x\otimes 0=x$</li>
+</ul>
+</li>
+<li><code>&amp;=</code>、<code>|=</code>、<code>&gt;&gt;=</code>、<code>&lt;&lt;=</code>、<code>^=</code>：位运算的复合赋值运算符</li>
+</ul>
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">template</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>&gt;</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-title">T</span> <span class="hljs-title">quick_power</span>(<span class="hljs-title">T</span> <span class="hljs-title">x</span>,<span class="hljs-title">T</span> <span class="hljs-title">y</span>)&#123;</span>  <span class="hljs-comment">// 求x^y</span></span><br><span class="line">    <span class="hljs-keyword">int</span> p = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = y; i; i &gt;&gt;= <span class="hljs-number">1</span>, x = x * x)</span><br><span class="line">        <span class="hljs-keyword">if</span>(i &amp; <span class="hljs-number">1</span>) p = p * x;</span><br><span class="line">    <span class="hljs-keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
+<ul>
+<li><p><code>i &gt;&gt;= 1</code>：即<code>i /= 2</code>，用于不断地向右取幂次数的二进制位。</p>
+</li>
+<li><p><code>i &amp; 1</code>：用以判断对应这一二进制是否需要进行$\times x^{2^{cnt}}$（$cnt$ 为要进行的幂次方数，由 <code>x = x * x</code> 语句决定）处理。</p>
+</li>
+<li><p>原理即为对于任意的被幂次数都可以写为2进制形式。如$13$可写为$1101$，那么$5^{13} = 5^{2^3\times1+2^2\times1+2^1\times0+2^0\times1}=5^{2^3} \times 5^{2^2}\times 5^{2^0}$</p>
+</li>
+<li><p>设最开始<code>x</code>值为 $x$，第<code>i</code>次循环<code>x</code>值为 $x_i$，则可以得到 $x_i = x^{2^i}$。</p>
+</li>
+</ul>
+<h2 id="ST表"><a href="#ST表" class="headerlink" title="ST表"></a>ST表</h2><p>ST表是一种离线查询表，用以查找特定区间内的最大（最小）值。预处理的时间复杂度为$\text O(n\log n)$，查找时间复杂度为$\text O(1)$，优于线段树（线段树的预处理与查找的复杂度均为$\text O(n\log n)$）。</p>
+<ul>
+<li><code>st[x][y]</code> 用以查询区间$[x,x+2^y-1]$内数的最大（最小）值，也就是从 $x$ 开始的 $2^y$ 个数的最大（最小）值。</li>
+<li><code>st[x][y]</code> 是<code>a[x]</code>本身。</li>
+</ul>
+<h3 id="预处理（实例中为查找最小值的ST表）"><a href="#预处理（实例中为查找最小值的ST表）" class="headerlink" title="预处理（实例中为查找最小值的ST表）"></a>预处理（实例中为查找最小值的ST表）</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> a[<span class="hljs-number">1010</span>];<span class="hljs-comment">//原始输入数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> st[<span class="hljs-number">1010</span>][<span class="hljs-number">20</span>];<span class="hljs-comment">//st表</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)</span><br><span class="line">        st[i][<span class="hljs-number">0</span>] = a[i];</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; (<span class="hljs-number">1</span> &lt;&lt; j) &lt;= n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i + (<span class="hljs-number">1</span> &lt;&lt; j) - <span class="hljs-number">1</span> &lt; n; i++)</span><br><span class="line">            st[i][j] = min(st[i][j - <span class="hljs-number">1</span>],st[i + (<span class="hljs-number">1</span> &lt;&lt; (j - <span class="hljs-number">1</span>))][j - <span class="hljs-number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/AC自动机/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/22/AC自动机/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：字典树、KMP与AC自动机</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-22</span>
-            </p>
-        </a>
+<ul>
+<li><code>1 &lt;&lt; j</code> 相当于求出$2^j$的值</li>
+<li>$\text{st}[x][y] = max/min(\text{st}[i,j-1],\text{st}[i+2^{j-1},j-1])$：将$[x,x+2^y-1]$（指序号大小，下同）分为$[x,x+2^{y-1}-1]$与$[x+2^{y-1},x+2^y-1]$两部分</li>
+<li>因为<code>j</code>是从小到大遍历的，所以在得到<code>st[i][j]</code>的值之前，一定会得到<code>st[i + (1 &lt;&lt; (j-1))][j - 1]</code>的值</li>
+</ul>
+<h3 id="查找（实例为查找最小值）"><a href="#查找（实例为查找最小值）" class="headerlink" title="查找（实例为查找最小值）"></a>查找（实例为查找最小值）</h3><p>查找区间$[l,r]$内的最小值：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> k = (<span class="hljs-keyword">int</span>)(<span class="hljs-built_in">log</span>((<span class="hljs-keyword">double</span>)(r - l + <span class="hljs-number">1</span>)) / <span class="hljs-built_in">log</span>(<span class="hljs-number">2.0</span>));</span><br><span class="line">    <span class="hljs-keyword">return</span> min(st[l][k],st[r - (<span class="hljs-number">1</span> &lt;&lt; k) + <span class="hljs-number">1</span>][k]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>有定理： $2^{\log_2 a}&gt;\frac{a}{2}$ 成立。如果设 $t = \log_2{len}$，其中 $len$ 为从 $l$ 到 $r$ 的长度（$len = r-l+1$），则有$2^{\log_2len} &gt; \frac{len}{2} \Rightarrow 2^t &gt; \frac{len}{2}$ 成立，所以 $l+2^t$ 跨过了区间的中间位置，那么我们可以得到 $l$ 到 $r$ 的最小值是 $l$向前 $2^k$ 长度区间与 $r$ 向前 $2^k$ 长度区间的最小值的最小值。所以区间 $[l,r]$ 内的最小值为<code>min(st[l][k], st[r - (1 &lt;&lt; k) + 1][k])</code>。</li>
+</ul>
+<h2 id="LCA"><a href="#LCA" class="headerlink" title="LCA"></a>LCA</h2><ul>
+<li><em>LCA</em>：最近公共祖先。</li>
+<li>从 <em>LCA</em> 的定义可以得到：两点的 <em>LCA</em> 一定是两个点的祖先中深度最大的。那么也就是说<strong>两个点如果深度相同的话</strong>，他们沿着树向上走<code>x</code>步就可以同时到达 <em>LCA</em> 。<ul>
+<li>如果深度不同，则深度较大的向上跳到深度相同的地方。</li>
+<li>如果深度相同，则一同向上跳到找到 <em>LCA</em>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="倍增法求LCA"><a href="#倍增法求LCA" class="headerlink" title="倍增法求LCA"></a>倍增法求LCA</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lca</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(depth[a] &lt; depth[b])</span><br><span class="line">        swap(a, b);</span><br><span class="line">    <span class="hljs-keyword">int</span> c = depth[a] - depth[b];</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">20</span>; i &gt;= <span class="hljs-number">0</span>;i--)</span><br><span class="line">        <span class="hljs-keyword">if</span>(c &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) a = fa[a][i];</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">// if(u == v) return u;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">20</span>;i &gt;= <span class="hljs-number">0</span>;i--)</span><br><span class="line">        <span class="hljs-keyword">if</span>(fa[a][i]!=fa[b][i])</span><br><span class="line">            a = fa[a][i], b = fa[b][i];</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">return</span> fa[a][<span class="hljs-number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其中数组<code>fa[a][x]</code>表示的是对于节点<code>a</code>，向上跳$2^x$次后的父节点。这体现了倍增二分的思想。</li>
+<li><code>i</code>从大到小遍历，遍历到了父节点不同就将<code>a</code>,<code>b</code>转移到这个不同的节点，然后继续向上遍历。通过二分法来降低算法复杂度。</li>
+</ul>
+<h3 id="ST表求LCA"><a href="#ST表求LCA" class="headerlink" title="ST表求LCA"></a>ST表求LCA</h3><p><img src="/img/%E5%80%8D%E5%A2%9E%E6%80%9D%E6%83%B3/1563251878821.png" alt="1563251878821"></p>
+<p>如上图所示的树，使用DFS遍历$^*$，并对每个点进行编号，得到一下序列：</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">D</th>
+<th align="center">B</th>
+<th align="center">E</th>
+<th align="center">F</th>
+<th align="center">E</th>
+<th align="center">G</th>
+<th align="center">E</th>
+<th align="center">B</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">A</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>$^*$ 不同于一般的DFS遍历，这里的DFS遍历需要记录回溯走过的顶点信息。</p>
+<p>则可以得到以下性质：两个点<strong>首次</strong>出现位置中间这一段中深度最小（也就是值最小）的即为两点的LCA。</p>
+<p>所以我们就可以把求LCA转换为求一段序列中的最小值 → 转换为使用ST表求一段的最小值。</p>
+<p>所使用的DFS算法如下：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> q[<span class="hljs-number">1000000</span>];</span><br><span class="line">top = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> Fa)</span></span>&#123;</span><br><span class="line">    q[++top] = u, sta[u] = top;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">30</span>;i++)</span><br><span class="line">        fa[u][i] = fa[fa[u][i - <span class="hljs-number">1</span>]][i - <span class="hljs-number">1</span>];</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = head[u];i;i = e[i].next)&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> to = e[i].to;</span><br><span class="line">        <span class="hljs-keyword">if</span>(to == Fa)</span><br><span class="line">            <span class="hljs-keyword">continue</span>;</span><br><span class="line">        fa[to][<span class="hljs-number">0</span>] = u;</span><br><span class="line">        dfs(to, u);</span><br><span class="line">    &#125;</span><br><span class="line">    q[++top] = u,end[u] = top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>求LCA的具体算法如下：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lca</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> ans = INT_MAX;</span><br><span class="line">    begin = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; top; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (q[i] == a || q[i] == b)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(!begin)</span><br><span class="line">                begin = <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (begin)</span><br><span class="line">           ans = min(ans, q[i]); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
         </div>
         
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
         
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/搜索/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/19/搜索/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：搜索</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-19</span>
-            </p>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/07/22/AC自动机/" class="image is-7by1">
+            <img class="thumbnail" src="/img/AC自动机/banner.jpeg" alt="算法学习：字典树、KMP与AC自动机">
         </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-22T08:13:15.000Z">2019-07-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    26 分钟 读完 (大约 3898 个字)
+                </span>
+                
+                
+            </div>
         </div>
         
-    </article>
-    
-    
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/22/AC自动机/">算法学习：字典树、KMP与AC自动机</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><blockquote>
+<p>学习自博客：<a href="https://blog.csdn.net/qq_42815188/article/details/88677836" target="_blank" rel="noopener">https://blog.csdn.net/qq_42815188/article/details/88677836</a></p>
+</blockquote>
+<p><strong>字典树</strong>（又称为单词查找树，Tire 树）是一种树形结构。它与字典相似，当要查找的一个单词是否在字典树中，首先看单词的第一个字母是否在字典树的第一层。如果不在，说明字典树中没有该单词；如果在，就在该单词的子节点中找是否有单词的第二个字母，如果没有，则说明没有此单词，有的话就继续查找，以此类推。</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563343331926.png" alt="字典树"></p>
+<p>字典树有以下的基本性质：</p>
+<ul>
+<li>字典树使用边表示字符；（也可以理解为每个节点上保存字符，因为这个边的信息是使用<code>j</code>节点来标识的）</li>
+<li>有相同的前缀的单词共用前缀节点；</li>
+<li>根结点不包含有字符；</li>
+<li>每个单词结束的时候都用一个特殊字符表示，如图中使用的是一个 $ \$ $ 符号；（或者使用数字表示存在该字符串的个数）</li>
+<li>从根结点道到一个 $ \$ $ 所经过的所有边的字母就是一个字符串。</li>
+</ul>
+<p>字典树常用于<strong>统计、排序和保存大量的字符串</strong>（不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。</p>
+<p>优点：利用字符串的公众前缀来节约存储空间，最大限度地减少无用字符串的比较。</p>
+<h2 id="构建字典树"><a href="#构建字典树" class="headerlink" title="构建字典树"></a>构建字典树</h2><h3 id="编号方案"><a href="#编号方案" class="headerlink" title="编号方案"></a>编号方案</h3><p>引入数组<code>tire[][]</code>。<code>tire[i][j] = k</code>表示：<strong><code>tire</code>树中编号为<code>i</code>的节点的边上为字母<code>(char)( &#39;a&#39; + j )</code>的儿子为编号为<code>j</code>的节点</strong>（这里不用于一般的树的储存方式）。而这个节点应存储的信息（如这个单词出现了多少次）则<strong>单独开一个以编号为下标的数组</strong>来记录。</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563346974092.png" alt="数组编号信息"></p>
+<p>以此种方式标记好的字典树将如下图所示：（图中的数字指的是这条边结尾处的节点的编号，其中根结点编号为 $0$）。</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563347129754.png" alt="建树"></p>
+<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>当有新的需要插入的词语（字符串）出现时，我们就依次对比每一个字母在对应层中是否已经出现来判断新进入的词语是否与已经存在的词相同或语有相同的前缀。当出现差异时，我们就标记激活这个节点（标记这个节点为单词词尾节点并将其值（指另一个存储该节点信息的值）加一）。相同词语则直接使词尾节点的值（指另一个存储该节点信息的值）递增。具体操作如下代码：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 实例为字符串中只有'a'~'b'26个字母的字典树</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIGMA_SIZE 26</span></span><br><span class="line"><span class="hljs-comment">// MAXN_NODE根据题意进行赋值</span></span><br><span class="line"><span class="hljs-keyword">int</span> tire[MAXN_NODE][SIGMA_SIZE] = &#123;<span class="hljs-number">0</span>&#125;; </span><br><span class="line"><span class="hljs-keyword">int</span> tag[MAXN_NODE] = &#123;<span class="hljs-number">0</span>&#125;;                      <span class="hljs-comment">// 标记编号为i的节点是否为单词节点</span></span><br><span class="line"><span class="hljs-keyword">int</span> cnt[MAXN_NODE] = &#123;<span class="hljs-number">0</span>&#125;;                      <span class="hljs-comment">// 记录编号为i的单词节点所对应的单词出现次数</span></span><br><span class="line"><span class="hljs-keyword">int</span> node = <span class="hljs-number">0</span>;                                  <span class="hljs-comment">// Trie树的节点个数</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span><span class="hljs-params">(<span class="hljs-built_in">string</span> str)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> now = <span class="hljs-number">0</span>;                               <span class="hljs-comment">// 用以记录目前遍历到的节点编号</span></span><br><span class="line">    <span class="hljs-keyword">int</span> len = str.length();</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(!tire[now][str[i] - <span class="hljs-string">'a'</span>])&#123;          <span class="hljs-comment">// 如果这个节点未曾有子节点（前缀出现偏差）</span></span><br><span class="line">            tire[now][str[i] - <span class="hljs-string">'a'</span>] = ++node;</span><br><span class="line">        &#125;</span><br><span class="line">        now = ch[now][str[i] - <span class="hljs-string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    tag[now] = <span class="hljs-literal">true</span>;</span><br><span class="line">    cnt[now] ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
+<h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><p>只要建树搞得好，这就莫的问题。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 如果找到则返回词的个数，如果没有找到或无该词则返回-1</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-built_in">string</span> str)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> len = str.length();</span><br><span class="line">    <span class="hljs-keyword">int</span> now = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> c = str[i] - <span class="hljs-string">'a'</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(tire[now][c] == <span class="hljs-number">0</span>)&#123; <span class="hljs-comment">// 没有子节点了，也就是这个单词不存在实锤</span></span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        now = trir[now][x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(tag[now])</span><br><span class="line">        <span class="hljs-keyword">return</span> cnt[now];</span><br><span class="line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/某些数据结构（树状数组、差分对列、线段树）/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：基础数据结构</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-17</span>
-            </p>
-        </a>
+<h1 id="KMP-算法"><a href="#KMP-算法" class="headerlink" title="KMP 算法"></a>KMP 算法</h1><blockquote>
+<p>学习自博客：<a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/7041827</a></p>
+</blockquote>
+<p>Knuth-Morris-Pratt 字符串查找算法，简称 KMP 算法，常用在于一个文本串S内查找一个模式串P的出现位置，这个算法由<em>Donald Knuth</em>、<em>Vaughan Pratt</em>、<em>James H. Morris</em>三人联合发表，故取这三个人的姓氏命名此算法。</p>
+<p>传统的模式串匹配使用的是纯暴力匹配算法。</p>
+<h2 id="纯暴力匹配"><a href="#纯暴力匹配" class="headerlink" title="纯暴力匹配"></a>纯暴力匹配</h2><ul>
+<li>如果当前字符匹配成功（<code>S[i] == P[j]</code>），则<code>i++</code>、<code>j++</code>，继续匹配下一个字符；</li>
+<li>如果没有匹配成果（<code>S[i] != P[j]</code>），则令<code>i = i - (j - i)</code>（回溯到开始匹配的字符的下一个字符）、<code>j = 0</code>，重新匹配模式串。</li>
+</ul>
+<p>如以下的图解（假设文本串<code>S = &quot;BBC ABCDAB ABCDABCDABDE&quot;</code>，模式串<code>P = &quot;ABCDABD&quot;</code>）：</p>
+<ul>
+<li><p>首先从第0位开始匹配：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140723224710203" alt="匹配第0位"></p>
+<p>发现匹配不成功，则匹配串右移。  </p>
+</li>
+<li><p>匹配文本串的第1位：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213551553" alt="匹配第1位"></p>
+<p>发现依旧不匹配，继续将匹配串右移。</p>
+</li>
+<li><p>直到出现了一次匹配（匹配串移动到了第4位）：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213602848" alt="第1位匹配成功"></p>
+<p>发现匹配成功，则<code>i++</code>、<code>j++</code>。对下一位进行匹配。</p>
+</li>
+<li><p>将文本串的第5位与匹配串的第1位匹配：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213343578" alt="第2位匹配成功"></p>
+<p>发现匹配成功，继续<code>i++</code>、<code>j++</code>。对下一位匹配，直到出现不能匹配的项。</p>
+</li>
+<li><p>再次出现不能匹配的项：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213353687" alt="出现失配"></p>
+<p>发现匹配不成功，则匹配串右移，重新从匹配串的第一位开始进行匹配。</p>
+</li>
+<li><p>じゃ、もう一度！</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213631208" alt="重新匹配"></p>
+</li>
+</ul>
+<p>从示例可以看出，这种匹配模式下，每次出现错误的匹配都需要回溯到词头再进行匹配，十分的低效，算法复杂度也到了$O(m\cdot n)$。如果我们在进行匹配的时候，能基本做到不进行回溯而只移动模式串的话，算法复杂度将极大地提升。</p>
+<h3 id="KMP算法匹配字符串"><a href="#KMP算法匹配字符串" class="headerlink" title="KMP算法匹配字符串"></a>KMP算法匹配字符串</h3><p>让我们回到起点重新进行模式串匹配：</p>
+<ul>
+<li><p>首先匹配文本串的第0位：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140723224710203" alt="KMP匹配第0位"></p>
+<p>发现匹配不成功，则匹配串右移。</p>
+</li>
+<li><p>匹配文本串的第1位：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213551553" alt="KMP匹配第1位"></p>
+<p>发现依旧不匹配，继续将匹配串右移。</p>
+</li>
+<li><p>直到出现了一次匹配（匹配串移动到了第4位）：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213602848" alt="KMP第1位匹配成功"></p>
+<p>发现匹配成功，则<code>i++</code>、<code>j++</code>。对下一位进行匹配。</p>
+</li>
+<li><p>将文本串的第5位与匹配串的第1位匹配：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213343578" alt="KMP第2位匹配成功"></p>
+<p>发现匹配成功，继续<code>i++</code>、<code>j++</code>。对下一位匹配，直到出现不能匹配的项。</p>
+</li>
+<li><p>再次出现不能匹配的项：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140726213353687" alt="KMP失配"></p>
+<p>发现匹配不成功，则匹配串右移，重新从匹配串的第一位开始进行匹配。</p>
+</li>
+</ul>
+<p>这时我们考虑，真的要回溯到文本串的第5位然后重新开始与模式串的第一位进行比较么？我们可以发现我们已经匹配了的部分中有一段字符串<code>&quot;AB&quot;</code>，而模式串的前缀中也有<code>&quot;AB&quot;</code>。也就是说，<strong>其实我们可以认为已经将模式串的前两位匹配成功了</strong>，我们只需要继续匹配模式串的第2位（从0开始编号）就可以了。</p>
+<ul>
+<li><p>不进行回溯而将模式串右移一定的位：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140721223539765" alt="KMP回溯"></p>
+<p>发现匹配错误，将模式串继续移位。</p>
+</li>
+<li><p>移位将字符串的第10位与模式串第0位进行匹配：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140721223823548" alt="KMP回溯"></p>
+</li>
+<li><p>发现匹配错误，移位对字符串的下一位进行匹配。</p>
+</li>
+<li><p>移位将字符串第11位与模式串第0位进行匹配：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563430728158.png" alt="KMP再次回配"></p>
+<p>发现匹配成功。则<code>i++</code>、<code>j++</code>，进行下一位匹配。以此类推，直到再次发生不能匹配。</p>
+</li>
+<li><p>直到再一次发生匹配失败：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140721223558140" alt="KMP失配"></p>
+<p>情况与上一次相似，都是出现在了<code>&#39;D&#39;</code>位，所以模式串向右移动。</p>
+</li>
+<li><p>模式串向右移动四位：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563431095901.png" alt="KMP回溯&amp;再再回配"></p>
+<p>发现匹配成功，则不断的<code>i++</code>、<code>j++</code>。</p>
+</li>
+<li><p>匹配完成：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/20140721223611515" alt="KMP最终匹配成功"></p>
+</li>
+</ul>
+<p>这种匹配方式下，字符串完全不需要进行回溯，只需要将模式串进行一定量的右移就可以得到最终结果。这是一种高效的模式串匹配方法。算法的时间复杂度仅为 $O(m + n)$。</p>
+<p>那么这个算法的重点就是在于：模式串应该如何的右移，也就是当发生匹配失败时，<strong>我应该去匹配模式串的哪一位</strong>？所以我们引进了<code>next[]</code>数组。</p>
+<p>从我们过程的分析中可以发现，我们判断需要将模式串向右移动几位是依据我们的模式串的开头部分与结尾部分中是否有重复出现的一部分，如果存在，我们就可以移动模式串使着相同的部分重合，从而节省了前面一段部分的匹配。所以我们要找出这一位以前（包括这一位）前缀与后缀的数量的这个子串中出现的最长的具有相同元素的前缀与后缀。我们可以得到如下表格：</p>
+<table>
+<thead>
+<tr>
+<th align="center">模式串的各个子串</th>
+<th align="center">前缀</th>
+<th align="center">后缀</th>
+<th align="center">最大公共元素长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>A</code></td>
+<td align="center">空</td>
+<td align="center">空</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center"><code>AB</code></td>
+<td align="center"><code>A</code></td>
+<td align="center"><code>B</code></td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center"><code>ABC</code></td>
+<td align="center"><code>A</code>, <code>AB</code></td>
+<td align="center"><code>C</code>, <code>BC</code></td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center"><code>ABCD</code></td>
+<td align="center"><code>A</code>, <code>AB</code>, <code>ABC</code></td>
+<td align="center"><code>D</code>, <code>CD</code>, <code>BCD</code></td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center"><code>ABCDA</code></td>
+<td align="center"><code>A</code>, <code>AB</code>, <code>ABC</code>, <code>ABCD</code></td>
+<td align="center"><code>A</code>, <code>DA</code>, <code>CDA</code>, <code>BCDA</code></td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center"><code>ABCDAB</code></td>
+<td align="center"><code>A</code>, <code>AB</code>, <code>ABC</code>, <code>ABCD</code>, <code>ABCDA</code></td>
+<td align="center"><code>B</code>, <code>AB</code>, <code>DAB</code>, <code>CDAB</code>, <code>BCDAB</code></td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center"><code>ABCDABD</code></td>
+<td align="center"><code>A</code>, <code>AB</code>, <code>ABC</code>, <code>ABCD</code>, <code>ABCDA</code>, <code>ABCDAB</code></td>
+<td align="center"><code>D</code>, <code>BD</code>, <code>ABD</code>, <code>DABD</code>, <code>CDABD</code>, <code>BCDABD</code></td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center"><code>A</code></th>
+<th align="center"><code>B</code></th>
+<th align="center"><code>C</code></th>
+<th align="center"><code>D</code></th>
+<th align="center"><code>A</code>$_1$</th>
+<th align="center"><code>B</code>$_2$</th>
+<th align="center"><code>D</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">最大前缀后缀公共元素长度</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p>而<code>nect[]</code>数组的作用是，重复到拥有相同前缀的位置。所以我这一位要回到哪里要看的是这一位之前的字符串中最长长度的拥有的相同的前后缀的长度为多少。而对于第一位，他之前没有字符串，所以我需要做的是将字符串右移一位然后进行重新匹配，所以<code>next[0]</code>的值应为 $-1$ 。所以<code>next[]</code>数组的值即为将最大前缀后缀公共元素长度表的内容全体后移一位然后将第0位赋值成 $ -1$ 即可！示例的<code>next[]</code>数组如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center"><code>A</code></th>
+<th align="center"><code>B</code></th>
+<th align="center"><code>C</code></th>
+<th align="center"><code>D</code></th>
+<th align="center"><code>A</code>$_1$</th>
+<th align="center"><code>B</code>$_1$</th>
+<th align="center"><code>D</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>next[]</code>对应位的值</td>
+<td align="center">-1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<p>而在求模式串的<code>next[]</code>数组的过程中，我需要找到模式串子串的前后缀，即比对模式串子串与模式串是否有相同部分的内容，同样可以使用KMP算法，所以我们在求后面几位的<code>next[]</code>时完全可以用到前面几位的<code>next[]</code>的值。</p>
+<p>求得<code>next[]</code>数组的代码如下：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">GetNext</span><span class="hljs-params">(<span class="hljs-built_in">string</span> p,<span class="hljs-keyword">int</span> next[])</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> p_len = p.length();</span><br><span class="line">    next[<span class="hljs-number">0</span>] = <span class="hljs-number">-1</span>;</span><br><span class="line">    <span class="hljs-keyword">int</span> k = <span class="hljs-number">-1</span>;</span><br><span class="line">    <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; <span class="hljs-comment">// 标记目前在计算第几位的next值</span></span><br><span class="line">    <span class="hljs-keyword">while</span> (j &lt; p_len - <span class="hljs-number">1</span>)&#123;</span><br><span class="line">        <span class="hljs-comment">//p[k]表示前缀，p[j]表示后缀</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (k == <span class="hljs-number">-1</span> || p[j] == p[k]) &#123; <span class="hljs-comment">// 初始状态或者需要右移或者匹配成功</span></span><br><span class="line">            ++k;</span><br><span class="line">            ++j;</span><br><span class="line">            next[j] = k;</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            k = next[k]; <span class="hljs-comment">// 匹配失败</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在使用KMP算法匹配字符串的算法如下：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">KMPSearch</span><span class="hljs-params">(<span class="hljs-built_in">string</span> str, <span class="hljs-built_in">string</span> p)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">int</span> str_len = str.length();</span><br><span class="line">    <span class="hljs-keyword">int</span> p_len = p.length();</span><br><span class="line">    <span class="hljs-keyword">while</span> (i &lt; str_len &amp;&amp; j &lt; p_len)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (j == <span class="hljs-number">-1</span> || s[i] == p[j])&#123; <span class="hljs-comment">// 如果需要后移或者匹配成功</span></span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;<span class="hljs-keyword">else</span>&#123; <span class="hljs-comment">// 如果匹配失败</span></span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(j == p_len) <span class="hljs-comment">// 匹配成功</span></span><br><span class="line">        <span class="hljs-keyword">return</span> i - j;</span><br><span class="line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 匹配失败</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="AC-自动机"><a href="#AC-自动机" class="headerlink" title="AC 自动机"></a>AC 自动机</h1><blockquote>
+<p>学习自博客：<a href="https://blog.csdn.net/bestsort/article/details/82947639" target="_blank" rel="noopener">https://blog.csdn.net/bestsort/article/details/82947639</a></p>
+</blockquote>
+<p>AC自动机是以字典树作为搜索数据结构，利用KMP原理减少回溯的操作，以实现多模式串匹配。算法复杂度优化到了 $O(n)$。</p>
+<p>AC自动机就是在字典树的基础上，增加上一个<code>fail</code>指针，如果当前点处匹配失败的话，<strong>就将指针转移到<code>fail</code>指针所指的位置</strong>，来减少没有必要的回溯。（类似KMP中的<code>next[]</code>的作用）</p>
+<p>如我现在有待匹配的串，为<code>&quot;shershisher&quot;</code>。我现在有模式串<code>&quot;hers&quot;</code>、<code>&quot;hrs&quot;</code>、<code>&quot;she&quot;</code>，形成如图所示的字典树：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563438486510.png" alt="形成字典树"></p>
+<p><code>fail</code>指针的作用就是在我出现匹配失败的时候，我能立刻转移到相近的能继续匹配下去的串而不需要重新再来。所以我们需要找出在不同模式串中前缀匹配的部分。<code>fail</code>指针的构建都是用BFS来实现的，基本的操作就是指向节点的父节点<code>fail</code>指针所指向的节点的子节点中与其相同的节点，如果没有，则指向它父亲节点的<code>fail</code>指针指向的节点。以如图所示的字典树，我对他进行<code>fail</code>指针构建：</p>
+<ul>
+<li><p>第一层遍历，每个串的首字母肯定是指向根节点：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563438931192.png" alt="第一层遍历"></p>
+</li>
+<li><p>第二层遍历，我们瞄准最左面的子树的第一个节点（被<code>e</code>指向的<font color="green">绿色</font>节点）：</p>
+<p>应指向他的父节点（<code>h</code>指向的<font color="#F18C55">橙色</font>节点）的<code>fail</code>指针指向的节点（<font color="#66ccff">蓝色</font>的根结点）的子节点中指向边为<code>e</code>的节点，不存在，所以指向他父节点的<code>fail</code>指针指向的节点（根结点）</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563439549760.png" alt="第二层第一节点"></p>
+</li>
+<li><p>第二层的第二个节点，相同。接下来看第三个节点（被<code>h</code>指向的<font color="green">绿色</font>节点）：</p>
+<p>应指向他的父节点（<code>s</code>指向的<font color="#F18C55">橙色</font>节点）的<code>fail</code>指针指向的节点（<font color="#66ccff">蓝色</font>的根结点）的子节点中指向边为<code>h</code>的节点（<code>h</code>指向的<font color="#F18C55">橙色</font>节点）。所以得到如下图：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563439906059.png" alt="第二层二三节点"></p>
+</li>
+<li><p>依次如此作图，最终得到如下图（有点乱）：</p>
+<p><img src="/img/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/1563440084731.png" alt="AC自动机"></p>
+</li>
+</ul>
+<p>在我进行字符串<code>&quot;shershisher&quot;</code>匹配时，首先匹配<code>&quot;she&quot;</code>成功，<code>ans++</code>。<code>e</code>之后没有字符继续匹配，所以指向<code>fail</code>指针指向的另一个<code>e</code>即开始匹配<code>&quot;hers&quot;</code>，匹配成功，<code>ans++</code>。后<code>s</code>指向最右侧树的<code>s</code>，开始匹配<code>&quot;she&quot;</code>，匹配到<code>h</code>后失配，所以指向<code>fail</code>开始匹配<code>&quot;hers&quot;</code>，到<code>s</code>匹配失败。所以最终结果为 $2$。</p>
+
         </div>
         
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
         
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/动态规划/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/17/动态规划/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：动态规划</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-17</span>
-            </p>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/07/19/搜索/" class="image is-7by1">
+            <img class="thumbnail" src="/img/搜索/banner.jpeg" alt="算法学习：搜索">
         </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-19T08:24:53.000Z">2019-07-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2694 个字)
+                </span>
+                
+                
+            </div>
         </div>
         
-    </article>
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/19/搜索/">算法学习：搜索</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h1><p>DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。</p>
+<p>如下图所示的图：</p>
+<p><img src="/img/%E6%90%9C%E7%B4%A2/1563515220039.png" alt="1563515220039"></p>
+<p>它的DFS遍历顺序为：$1 \rightarrow 2 \rightarrow 3\rightarrow 4 \rightarrow 5 \rightarrow 6 \rightarrow 7 \rightarrow 8 \rightarrow 9$（这个真的只是巧了）。</p>
+<p>有的时候还需要得到带有回溯的DFS序，如图就为：$1\rightarrow 2\rightarrow 3 \rightarrow 4\rightarrow 5\rightarrow 4\rightarrow 6\rightarrow 7\rightarrow 6\rightarrow 8\rightarrow 9\rightarrow 8\rightarrow 6\rightarrow 4\rightarrow 3\rightarrow 2\rightarrow 1$</p>
+<p>但DFS不仅仅只有搜索图那么简单还可以解决一些实际问题。如下题目（POJ 3900）：</p>
+<blockquote>
+<p>一个劫匪带着一个可装 $m$ 重量的超大背包去抢银行，银行有 $n$ 个大箱子，第 $i$ 个箱子里有 $i$ 个重量为 $w_i$ ，价值为 $c_i$ 的大钻石，问该劫匪抢走钻石的最大价值。（一共有 $T$ 组数据）</p>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>$1\leq T \leq 74$；</p>
+<p>$1 \leq n \leq 15$；</p>
+<p>$1 \leq m \leq 1000000000\ (10^9)$；</p>
+<p>$1 \leq w_i, c_i \leq 1000000000 \ (10^9)$。</p>
+</blockquote>
+<p>这道题看上去是一个01背包问题，但由于数据量巨大，无法开那么大的数组，所以只能使用DFS搜索。所以能够得到下面这段DFS代码：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> pos, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> nowcost, <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> lastw)</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">// pos:搜索的位置 nowcost:当前抢走的总价值 lastw:背包剩余的空间</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (pos == n || lastw &lt;= <span class="hljs-number">0</span>) <span class="hljs-comment">// 如果搜到了最后一个箱子或者没空间了</span></span><br><span class="line">        <span class="hljs-keyword">return</span>;</span><br><span class="line">    ans = max(ans, nowcost);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = a[pos].num; i &gt;= <span class="hljs-number">0</span>; i--)&#123; <span class="hljs-comment">// 对每个箱子一个一个钻石的查</span></span><br><span class="line">        dfs(pos + <span class="hljs-number">1</span>, nowcost + i * a[pos].c, lastw - i * a[pos].w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但这样太暴力了！TLE预定系列。所以我们要对我们的DFS进行一定的优化。</p>
+<h1 id="深度优先搜索的优化"><a href="#深度优先搜索的优化" class="headerlink" title="深度优先搜索的优化"></a>深度优先搜索的优化</h1><p><strong>剪枝</strong>：对不满足条件的情况进行清除，减少算法所需要的时间，分为以下两种：</p>
+<ul>
+<li>可行性剪枝：判断搜索能否得出答案，如果不能的话直接回溯。</li>
+<li>最优性剪枝：又称为上下界剪枝，是一种重要的剪枝策略。它记录当前得到的最优值，如果当前节点已经无法产生比当前最优解更优的解时，可以提前回溯。</li>
+</ul>
+<p>以上一个题目为示例，我们考虑它可能出现的剪枝方法：</p>
+<ol>
+<li><p>在枚举时，如果出现了$w_{\text{当前要去取的}} &gt; w_{\text{背包剩余的}}$，则直接跳过：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (i * a[pos].w &gt; lastw) <span class="hljs-keyword">continue</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是一种<strong>可行性剪枝</strong>。</p>
+</li>
+<li><p>在枚举时，如果$c_\text{已经拿了的} + c_\text{还没有拿的箱子的全部钻石} &lt; ans$，则不可能会出现更优解，所以回溯：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (nowcost + sum[pos] &lt; ans) <span class="hljs-keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是一种<strong>最优性剪枝</strong>。</p>
+</li>
+<li><p>在枚举时，设矿物的性价比为 $s$ ，$s_i = \displaystyle\frac{c_i}{w_i}$。如果 $w_\text{背包剩余的} * s_\text{还未偷的最大的} &lt; ans$，则不可能出现最优解，所以回溯。如果要石用这个剪枝的话，则要求在开始时就将这 $n$ 个箱子按照性价比从高到低进行排序，而 $n$ 的最大值也就只有 $15$ ，所以时间复杂度不高，完全可以满足要求。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (nowcost + (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)<span class="hljs-built_in">ceil</span>(a[pos].s * lastw) &lt; ans) <span class="hljs-keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这是一种<strong>最优性剪枝</strong>。</p>
+</li>
+</ol>
+<p>另一个可以优化的搜索题目（POJ 1088）：</p>
+<blockquote>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Michael 喜欢滑雪百这并不奇怪， 因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长底滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：<br>$$<br>\begin{eqnarray}<br>&amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\<br>&amp; 16 &amp; 17 &amp; 18 &amp; 19 &amp; 6 \\<br>&amp; 15 &amp; 24 &amp; 25 &amp; 20 &amp; 7\\<br>&amp; 14 &amp; 23 &amp; 22 &amp; 21 &amp; 8 \\<br>&amp; 13 &amp; 12 &amp; 11 &amp; 10 &amp; 9<br>\end{eqnarray}<br>$$<br>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度减小。在上面的例子中，一条可滑行的滑坡为24-17-16-1。当然25-24-23-…-3-2-1更长。事实上，这是最长的一条。</p>
+</blockquote>
+<p><strong>记忆化搜索</strong>：记录以前搜索所得到的结果，当我搜索其他位置而需要这个位置的值时，我就可以直接使用这个值而减少搜索时间。</p>
+<p>如在这个题目中，每个点到最低点的最优解是一定的，所以我在遍历的过程中可以记住已经遍历出结果的点，这样就可以节省很多的时间。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (f[x][y] != <span class="hljs-number">0</span>) <span class="hljs-comment">// 已经记录了这个点的结果</span></span><br><span class="line">        <span class="hljs-keyword">return</span> f[x][y];</span><br><span class="line">    <span class="hljs-keyword">int</span> maxt = <span class="hljs-number">1</span>; 用以计数</span><br><span class="line">    <span class="hljs-keyword">int</span> t; <span class="hljs-comment">// test 用以记录中间结果</span></span><br><span class="line">    <span class="hljs-keyword">for</span>	(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)&#123; <span class="hljs-comment">// 上下左右四个点</span></span><br><span class="line">        <span class="hljs-keyword">int</span> tx = x + dx[i], ty = y + dy[i]; <span class="hljs-comment">// dx[] 与 dy[] 是用来记录得到四个点坐标的操作数组</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(tx &gt; <span class="hljs-number">0</span> &amp;&amp; ty &gt; <span class="hljs-number">0</span> &amp;&amp; tx &lt;= r &amp;&amp; ty &lt;= c &amp;&amp; hill[tx][ty] &gt; hill[x][y])&#123;</span><br><span class="line">            t = dfs(tx, ty) + <span class="hljs-number">1</span>;</span><br><span class="line">            maxt = max(t, maxt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f[x][y] = maxt; <span class="hljs-comment">// 记忆化</span></span><br><span class="line">    <span class="hljs-keyword">return</span> maxt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h1><p>BFS是一种使用队列实现的搜索算法，每次搜索对一层的节点进行搜索，所以最后呈现出来的结果是一圈一圈地扩大，具体过程如下图所示（其中Q为当前的队列信息，标有阴影的边为BFS算法所走过的边）：</p>
+<p><img src="/img/%E6%90%9C%E7%B4%A2/1563521989690.png" alt="1563521989690"></p>
+<p>由于BFS是一层一层地进行搜索，所以BFS很适合进行搜索到一个点最少步数类型的搜索。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> stepArr[<span class="hljs-number">4</span>][<span class="hljs-number">2</span>] = &#123;&#123;<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;, &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>&#125;&#125;; <span class="hljs-comment">// 方向数组：分别为上下左右移动</span></span><br><span class="line"><span class="hljs-keyword">int</span> visited[x][y]; <span class="hljs-comment">// 标记是否已经被访问</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> x;</span><br><span class="line">    <span class="hljs-keyword">int</span> y;</span><br><span class="line">    <span class="hljs-keyword">int</span> step;</span><br><span class="line">    Node(<span class="hljs-keyword">int</span> x1,<span class="hljs-keyword">int</span> y1,<span class="hljs-keyword">int</span> step1):x(x1),y(y1),step(step1)&#123;&#125; <span class="hljs-comment">// 生成节点的函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-function">Node <span class="hljs-title">node</span><span class="hljs-params">(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)</span></span>; <span class="hljs-comment">// 生成一个节点</span></span><br><span class="line"><span class="hljs-built_in">queue</span>&lt;Node&gt; q;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">BFS</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    q.push(node);</span><br><span class="line">    <span class="hljs-keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        node = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="hljs-keyword">if</span>(node.x == n<span class="hljs-number">-1</span> &amp;&amp; node.y == n<span class="hljs-number">-1</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> node.step;</span><br><span class="line">        &#125;</span><br><span class="line">        visit[node.x][node.y] = <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)&#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> x = node.x + stepArr[i][<span class="hljs-number">0</span>];</span><br><span class="line">            <span class="hljs-keyword">int</span> y = node.y + stepArr[i][<span class="hljs-number">1</span>];</span><br><span class="line">            <span class="hljs-keyword">if</span> (x &gt;= <span class="hljs-number">0</span> &amp;&amp; y &gt;= <span class="hljs-number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &lt; n &amp;&amp; visit[x][y] == <span class="hljs-number">0</span> &amp;&amp; 其它条件 )&#123;</span><br><span class="line">                visit[x][y] = <span class="hljs-number">1</span>;</span><br><span class="line">                <span class="hljs-function">Node <span class="hljs-title">next</span><span class="hljs-params">(x,y,node.step+<span class="hljs-number">1</span>)</span></span>;</span><br><span class="line">                q.push(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span><span class="hljs-number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="广度优先搜索的优化"><a href="#广度优先搜索的优化" class="headerlink" title="广度优先搜索的优化"></a>广度优先搜索的优化</h1><ul>
+<li><p>双向广搜：从初状态和末状态两端进行广搜，直到两区域开始重叠或者有公众节点结束</p>
+<p>如果一个节点产生的系统呈二叉树式增长，那么对于扩展 $n$ 次的代价， 单向为 $2^n$，而双向则是 $2 * 2^\frac{n}{2} = 2 ^{\frac{n}{2} + 1}$</p>
+</li>
+<li><p>利用散列表（Hash表）记录状态，避免遇到相同状态而增加搜索时间 </p>
+</li>
+</ul>
+<p>如以下题目（洛谷P2730）：</p>
+<blockquote>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>在成功地发明了魔方之后，鲁比克先生发明了它的二维版本，称作魔板。这是一张有8个大小相同的格子的魔板：<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;2&amp;3&amp;4 \\<br>&amp;8&amp;7&amp;6&amp;5<br>\end{eqnarray}<br>$$</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们知道魔板的每一个方格都有一种颜色。这8种颜色用前8个正整数来表示。可以用颜色的序列来表示一种魔板状态，规定从魔板的左上角开始，沿顺时针方向依次取出整数，构成一个颜色序列。对于上图的魔板状态，我们用序列（1，2，3，4，5，6，7，8）来表示。这是基本状态。</p>
+<p>这里提供三种基本操作，分别用大写字母“A”，“B”，“C”来表示（可以通过这些操作改变魔板的状态）：</p>
+<p>“A”：交换上下两行；</p>
+<p>“B”：将最右边的一列插入最左边；</p>
+<p>“C”：魔板中央四格作顺时针旋转。</p>
+<p>下面是对基本状态进行操作的示范：</p>
+<p><strong>A</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;8&amp;7&amp;6&amp;5 \\<br>&amp;1&amp;2&amp;3&amp;4<br>\end{eqnarray}<br>$$<br><strong>B</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;4&amp;1&amp;2&amp;3 \\<br>&amp;5&amp;8&amp;7&amp;6<br>\end{eqnarray}<br>$$<br><strong>C</strong>:<br>$$<br>\begin{eqnarray}<br>&amp;1&amp;7&amp;2&amp;4 \\<br>&amp;8&amp;6&amp;3&amp;5<br>\end{eqnarray}<br>$$<br>对于每种可能的状态，这三种基本操作都可以使用。</p>
+<p>你要编程计算用最少的基本操作完成基本状态到目标状态的转换，输出基本操作序列。</p>
+</blockquote>
+<p>A、B、C三种操作我们可以找到规则，写为函数来进行模拟，于是这样进行BFS。重点在于我们如何记录每一个状态。如果我们保留这8位数存储，使用一个8位的bool数组存储，判重时需要接近 $10^8$ 的布尔数组，空间接近200M，肯定超过限制。而我们最终需要的结果是操作的序列，所以我们不如使用操作序列来记录所有的状态。</p>
+<p>所以有以下的AC代码（摘自洛谷巨佬<a href="https://www.luogu.org/blog/getchar123/solution-p2730" target="_blank" rel="noopener">getchar123</a>）：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-built_in">string</span> a;<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-built_in">string</span> a;</span><br><span class="line"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">string</span>&gt;m;</span><br><span class="line"><span class="hljs-built_in">queue</span>&lt;<span class="hljs-built_in">string</span>&gt;q;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">A</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span> x1=x[i];</span><br><span class="line">        x[i]=x[<span class="hljs-number">7</span>-i];</span><br><span class="line">        x[<span class="hljs-number">7</span>-i]=x1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//没有出现过</span></span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'A'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">B</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="hljs-number">0</span>]=xx[<span class="hljs-number">3</span>],x[<span class="hljs-number">1</span>]=xx[<span class="hljs-number">0</span>],x[<span class="hljs-number">2</span>]=xx[<span class="hljs-number">1</span>],x[<span class="hljs-number">3</span>]=xx[<span class="hljs-number">2</span>],x[<span class="hljs-number">4</span>]=xx[<span class="hljs-number">5</span>],x[<span class="hljs-number">5</span>]=xx[<span class="hljs-number">6</span>],x[<span class="hljs-number">6</span>]=xx[<span class="hljs-number">7</span>],x[<span class="hljs-number">7</span>]=xx[<span class="hljs-number">4</span>];</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'B'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="hljs-number">1</span>]=xx[<span class="hljs-number">6</span>],x[<span class="hljs-number">2</span>]=xx[<span class="hljs-number">1</span>],x[<span class="hljs-number">5</span>]=xx[<span class="hljs-number">2</span>],x[<span class="hljs-number">6</span>]=xx[<span class="hljs-number">5</span>];</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'C'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    q.push(<span class="hljs-string">"12345678"</span>);</span><br><span class="line">    m[<span class="hljs-string">"12345678"</span>]=<span class="hljs-string">""</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(q.empty()==<span class="hljs-literal">false</span>)&#123;</span><br><span class="line">        A(q.front());</span><br><span class="line">        B(q.front());</span><br><span class="line">        C(q.front());</span><br><span class="line">        <span class="hljs-keyword">if</span>(m.count(a)!=<span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//当出现目标序列</span></span><br><span class="line">            <span class="hljs-built_in">cout</span>&lt;&lt;m[a].size()&lt;&lt;<span class="hljs-built_in">endl</span>&lt;&lt;m[a];</span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span> a1;</span><br><span class="line">        <span class="hljs-built_in">cin</span>&gt;&gt;a1;</span><br><span class="line">        a+=a1;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    bfs();</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">string</span>&gt;m;</span><br><span class="line"><span class="hljs-built_in">queue</span>&lt;<span class="hljs-built_in">string</span>&gt;q;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">A</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span> x1=x[i];</span><br><span class="line">        x[i]=x[<span class="hljs-number">7</span>-i];</span><br><span class="line">        x[<span class="hljs-number">7</span>-i]=x1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//没有出现过</span></span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'A'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">B</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="hljs-number">0</span>]=xx[<span class="hljs-number">3</span>],x[<span class="hljs-number">1</span>]=xx[<span class="hljs-number">0</span>],x[<span class="hljs-number">2</span>]=xx[<span class="hljs-number">1</span>],x[<span class="hljs-number">3</span>]=xx[<span class="hljs-number">2</span>],x[<span class="hljs-number">4</span>]=xx[<span class="hljs-number">5</span>],x[<span class="hljs-number">5</span>]=xx[<span class="hljs-number">6</span>],x[<span class="hljs-number">6</span>]=xx[<span class="hljs-number">7</span>],x[<span class="hljs-number">7</span>]=xx[<span class="hljs-number">4</span>];</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'B'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-built_in">string</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> xx=x;</span><br><span class="line">    x[<span class="hljs-number">1</span>]=xx[<span class="hljs-number">6</span>],x[<span class="hljs-number">2</span>]=xx[<span class="hljs-number">1</span>],x[<span class="hljs-number">5</span>]=xx[<span class="hljs-number">2</span>],x[<span class="hljs-number">6</span>]=xx[<span class="hljs-number">5</span>];</span><br><span class="line">    <span class="hljs-keyword">if</span>(m.count(x)==<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        q.push(x);</span><br><span class="line">        m[x]=m[xx]+<span class="hljs-string">'C'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    q.push(<span class="hljs-string">"12345678"</span>);</span><br><span class="line">    m[<span class="hljs-string">"12345678"</span>]=<span class="hljs-string">""</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span>(q.empty()==<span class="hljs-literal">false</span>)&#123;</span><br><span class="line">        A(q.front());</span><br><span class="line">        B(q.front());</span><br><span class="line">        C(q.front());</span><br><span class="line">        <span class="hljs-keyword">if</span>(m.count(a)!=<span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//当出现目标序列</span></span><br><span class="line">            <span class="hljs-built_in">cout</span>&lt;&lt;m[a].size()&lt;&lt;<span class="hljs-built_in">endl</span>&lt;&lt;m[a];</span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        q.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">8</span>;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">char</span> a1;</span><br><span class="line">        <span class="hljs-built_in">cin</span>&gt;&gt;a1;</span><br><span class="line">        a+=a1;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    bfs();</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>（看到这里请提醒博主填完这里<del>或者删掉</del>）</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
     
+<div class="card">
     
-    <nav class="pagination">
-        <a class="page-number" href="/tags/Programming/">1</a><span class="page-number current">2</span>
+    <div class="card-image">
+        <a href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/" class="image is-7by1">
+            <img class="thumbnail" src="/img/某些数据结构（树状数组、差分对列、线段树）/banner.jpeg" alt="算法学习：基础数据结构">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-17T05:49:51.000Z">2019-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1773 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/">算法学习：基础数据结构</a>
+            
+        </h1>
+        <div class="content">
+            <p>单调队列、树状数组、差分队列与线段树。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/17/某些数据结构（树状数组、差分对列、线段树）/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/07/17/动态规划/" class="image is-7by1">
+            <img class="thumbnail" src="/img/动态规划/banner.jpeg" alt="算法学习：动态规划">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-17T05:49:34.000Z">2019-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16 分钟 读完 (大约 2374 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/17/动态规划/">算法学习：动态规划</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="基本动态规划"><a href="#基本动态规划" class="headerlink" title="基本动态规划"></a>基本动态规划</h1><blockquote>
+<p><strong>动态规划</strong> <em>(Dynamic Programming)</em> 是运筹学的一个分支，是求解决策过程最优化的数学方法。</p>
+<div align="right"><font size="3">——摘自百度百科</font></div>
+以下内容学习自《算法图解》
+</blockquote>
+<p><strong>实例背景：</strong></p>
+<p>假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255604617.png" alt="1563255604617"></p>
+<table>
+<thead>
+<tr>
+<th align="center">音响(S)</th>
+<th align="center">笔记本电脑(L)</th>
+<th align="center">吉他(G)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">3000美元</td>
+<td align="center">2000美元</td>
+<td align="center">1500美元</td>
+</tr>
+<tr>
+<td align="center">4磅</td>
+<td align="center">3磅</td>
+<td align="center">1磅</td>
+</tr>
+</tbody></table>
+<p>  为了让偷窃价值最高，他该偷窃哪些内容呢？</p>
+<ul>
+<li><p><strong>方法一</strong>：枚举出每一种情况，然后比较每一种情况所能得到的货物的总价值。具体如下图所示：</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255813206.png" alt="1563255813206"></p>
+<p>当有3件物品时，我们需要罗列出8种情况。而当4件物品时就需要罗列16种情况；5件物品就需要32种情况，也就是说这样的求解方法的时间复杂度达到了$O(2^n)$。</p>
+</li>
+<li><p><strong>方法二</strong>：动态规划</p>
+<p>对于大的背包，我们可以先将其分解为一个个小的背包来考虑，最后用小的背包的情况来推知大的背包的最佳情况。</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563257702433.png" alt="1563257702433"></p>
+<p>那么我们就会得到如下的一个表格：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>  从左到右分别为<strong>1磅背包</strong>、<strong>2磅背包</strong>、<strong>3磅背包</strong>、<strong>4磅背包</strong>的情况，然后我们从第一行开始对表格进行填充：</p>
+<ul>
+<li><p><strong>吉他行</strong></p>
+<p>对于每一格，这个小偷都要考虑一个问题：“我到底要不要偷这个东西？”</p>
+<p>对于第一个格，它的背包容量为1磅，所以我可以将吉他装下，所以他肯定是要偷的啦～ 于是表格就会更新成下面的这个样子：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>而对于之后的每个格，因为现在只有吉他可以偷，而这些包都可以放下吉他，所以我们就将这些格的内容更新如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>那这小偷既然可以直接推知四磅的情况，为什么还要记录1磅、2磅、3磅的情况呢？因为这些小问题将为解决后面的大问题作铺垫！😀</p>
+</li>
+<li><p><strong>音响行</strong></p>
+<p>在第二行，我们可以偷的东西变成了吉他和音响，其上面一行记录了我们是否应该偷吉他以及已经获得了的价值最大值。那么我们结合它的上一行来判断是否需要偷音响。</p>
+<p>对于第一格，无论怎样都装不下音响，所以继承了上一行的吉他的总价值，列表变成如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>相同的，2磅与3磅时也装不下音响（<del>这音响居然这么大🌚</del>），所以表格变成了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $ \$ 3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $\$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>笔记本电脑行</strong>：</p>
+<p>从音响一行已经可以了解到，有以下式子的成立：（$h[x]$ 指的是第 $x$ 可被偷物的质量/体积）<br>$$<br>dp[i][j] = \max(dp[i - 1][j - h[x]]+v[x]\ ,\ dp[i - 1][j])<br>$$<br>所以根据这个公式，我们可以轻而易举的来填写笔记本电脑这一行，得到如下的列表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+</tbody></table>
+<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $ \$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $ \$ 3500$。取更大的，我们就可以知道这一格应为 $ \$ 3500$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$ \$ 3500$。</p>
+<ul>
+<li><p><strong>再加一件商品又是如何呢？</strong></p>
+<p>假如小偷现在又发现了一个新鲜玩意儿：iPhone！(I)（<del>这东西这么贵肯定要偷的啊🤪</del>）</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563261773092.png" alt="1563261773092"></p>
+<p>那我们需要重新计算整个表格么？<strong>不需要！</strong>这也是动态规划的一大优点，我逐步计算出了前面的最大价值，那么再有新的元素出现，前面的数据依旧是可以用的！</p>
+<p>那么我们的列表多出一行，成为以下的样子：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $ \$ 1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $ \$ 2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>依次以上面的方法对表格进行填充，最终表格成为：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$4000 <em>(L&amp;I)</em></td>
+</tr>
+</tbody></table>
+<p>所以此时的最大值就变成了 $ \$ 4000$，更多了呢！🤑</p>
+</li>
+</ul>
+<p>从以上内容可以看出，动态规划真的是一个神奇好用的算法呢！</p>
+<p>那么怎么敲它的代码呢？</p>
+<p><strong>C++</strong>：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> w[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;; <span class="hljs-comment">// 每个物品的重量，w[0]无用</span></span><br><span class="line"><span class="hljs-keyword">int</span> p[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1500</span>, <span class="hljs-number">3000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">2000</span>&#125;; <span class="hljs-comment">// 每个物品的价值，p[0]无用</span></span><br><span class="line"><span class="hljs-keyword">int</span> n = <span class="hljs-number">4</span>; <span class="hljs-comment">// 物品的个数</span></span><br><span class="line"><span class="hljs-keyword">int</span> m = <span class="hljs-number">4</span>; <span class="hljs-comment">// 背包的载重量</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; x; <span class="hljs-comment">// 用以记录所有的被装入背包的物品</span></span><br><span class="line"><span class="hljs-keyword">int</span> v = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> dp[<span class="hljs-number">5</span>][<span class="hljs-number">5</span>]; <span class="hljs-comment">// 注意多出一行一列</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dp_funtion</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">1</span>; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; m + <span class="hljs-number">1</span>; j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(j &gt;= w[i])</span><br><span class="line">                dp[i][j] = max(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - w[i]] + p[i]);</span><br><span class="line">            <span class="hljs-keyword">else</span> dp[i][j] = dp[i - <span class="hljs-number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">int</span> j = m;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n; j &gt; <span class="hljs-number">0</span>; j++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (dp[i][j] &gt; dp[i - <span class="hljs-number">1</span>][j])&#123;</span><br><span class="line">            x.push_back(i);</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> dp[n][m];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Python</strong>：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 这里使用了图解中的吉他，音箱，电脑，手机做的测试，数据保持一致</span></span><br><span class="line">w = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>]   <span class="hljs-comment">#n个物体的重量(w[0]无用)</span></span><br><span class="line">p = [<span class="hljs-number">0</span>, <span class="hljs-number">1500</span>, <span class="hljs-number">3000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">2000</span>]   <span class="hljs-comment">#n个物体的价值(p[0]无用)</span></span><br><span class="line">n = len(w) - <span class="hljs-number">1</span>   <span class="hljs-comment">#计算n的个数</span></span><br><span class="line">m = <span class="hljs-number">4</span>   <span class="hljs-comment">#背包的载重量</span></span><br><span class="line"></span><br><span class="line">x = []   <span class="hljs-comment">#装入背包的物体，元素为True时，对应物体被装入(x[0]无用)</span></span><br><span class="line">v = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-comment">#optp[i][j]表示在前i个物体中，能够装入载重量为j的背包中的物体的最大价值</span></span><br><span class="line">optp = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> range(m + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> raw <span class="hljs-keyword">in</span> range(n + <span class="hljs-number">1</span>)]</span><br><span class="line"><span class="hljs-comment">#optp 相当于做了一个n*m的全零矩阵的赶脚，n行为物件，m列为自背包载重量</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">knapsack_dynamic</span><span class="hljs-params">(w, p, n, m, x)</span>:</span></span><br><span class="line">    <span class="hljs-comment">#计算optp[i][j]</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):       <span class="hljs-comment"># 物品一件件来</span></span><br><span class="line">        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>):   <span class="hljs-comment"># j为子背包的载重量，寻找能够承载物品的子背包</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (j &gt;= w[i]):    <span class="hljs-comment"># 当物品的重量小于背包能够承受的载重量的时候，才考虑能不能放进去</span></span><br><span class="line">                optp[i][j] = max(optp[i - <span class="hljs-number">1</span>][j], optp[i - <span class="hljs-number">1</span>][j - w[i]] + p[i])</span><br><span class="line">                <span class="hljs-comment"># optp[i - 1][j]是上一个单元的值， optp[i - 1][j - w[i]]为剩余空间的价值</span></span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                optp[i][j] = optp[i - <span class="hljs-number">1</span>][j]</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">#递推装入背包的物体,寻找跳变的地方，从最后结果开始逆推</span></span><br><span class="line">    j = m</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> optp[i][j] &gt; optp[i - <span class="hljs-number">1</span>][j]:</span><br><span class="line">            x.append(i)</span><br><span class="line">            j = j - w[i]  </span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">#返回最大价值，即表格中最后一行最后一列的值</span></span><br><span class="line">    v = optp[n][m]</span><br><span class="line">    <span class="hljs-keyword">return</span> v</span><br></pre></td></tr></table></figure>
+
+<h1 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h1><p>区间DP就是在区间上进行动态规划，求解一段区间上的最优解。主要是通过合并小区间的最优解进而得出整个大区间上的最优解的DP算法。</p>
+<p>首先枚举区间长度<code>len</code>为每次分割成的小区间长度（由长到短不断合并），内层枚举该长度下的起点。然后在这个起点与中点之间枚举分割殿，求解这段小区间在某个分割点下的最优解。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> len = <span class="hljs-number">1</span>; len &lt;= n; len++)&#123;<span class="hljs-comment">//枚举长度</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j + len &lt;= n+<span class="hljs-number">1</span>; j++)&#123;<span class="hljs-comment">//枚举起点，ends&lt;=n</span></span><br><span class="line">        <span class="hljs-keyword">int</span> ends = j + len - <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = j; i &lt; ends; i++)&#123;<span class="hljs-comment">//枚举分割点，更新小区间最优解</span></span><br><span class="line">            dp[j][ends] = min(dp[j][ends], dp[j][i] + dp[i+<span class="hljs-number">1</span>][ends] + something); </span><br><span class="line">            <span class="hljs-comment">// something替换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/tags/Programming/">上一页</a>
+        </div>
+        <div class="pagination-next is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/tags/Programming/page/3/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/tags/Programming/">1</a></li>
+            
+            <li><a class="pagination-link is-current" href="/tags/Programming/page/2/">2</a></li>
+            
+        </ul>
     </nav>
-
-
 </div>
-
 </div>
+                
 
 
 
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="KONGJUNE">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        KONGJUNE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        💭️ Learning &amp; Looking...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Tianjin, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kongjune" target="_blank">
+                关注我</a>
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright" style="padding-bottom: 15px;">
-        <span><font color="#657786">© 2019 · </font><font color="#2d96bd">KONGJUNE</font> </span>
-        <br>
-        <span id="sitetime"></span>
-        <br>
-        <span><font color="#657786">由</font><a href="https://hexo.io" target="_blank"><font color="#2d96bd"> Hexo </font></a><font color="#657786">强力驱动 | 使用主题</font><a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank"><font color="#2d96bd"> Chic </font></a></span>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/kongjune">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="微博" href="https://weibo.com/2111639114">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm-study/">
+            <span class="level-start">
+                <span class="level-item">Algorithm study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a> <a href="/tags/Learning-Note/" style="font-size: 15px;">Learning Note</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Solution/" style="font-size: 12.5px;">Solution</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KONGJUNE&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
     </div>
 </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

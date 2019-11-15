@@ -1,281 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>题解：洛谷P1955：[NOI2015]程序自动分析 - KONGJUNE&#39;s BLOG</title>
+
+
+    <meta name="description" content="算法：并查基、离散化、文件读入与写出。  题目描述在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。 考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个">
+<meta name="keywords" content="ACM,Programming,Solution">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解：洛谷P1955：[NOI2015]程序自动分析">
+<meta property="og:url" content="http://kongjune.com/2019/07/30/P1955/index.html">
+<meta property="og:site_name" content="KONGJUNE&#39;s BLOG">
+<meta property="og:description" content="算法：并查基、离散化、文件读入与写出。  题目描述在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。 考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kongjune.com/img/P1955/banner.png">
+<meta property="og:updated_time" content="2019-11-15T16:11:39.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="题解：洛谷P1955：[NOI2015]程序自动分析">
+<meta name="twitter:description" content="算法：并查基、离散化、文件读入与写出。  题目描述在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。 考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个">
+<meta name="twitter:image" content="http://kongjune.com/img/P1955/banner.png">
 
 
 
-<title>题解：洛谷P1955：[NOI2015]程序自动分析 | KONGJUNE&#39;s BLOG</title>
-
-
-
-    <link rel="icon" type="image/png" href="/favicon.png">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="icon" href="/images/favicon.svg">
 
 
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-    <script src="/js/timeCount.js"></script>
-    
-
-
-
-    
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
     
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <script>
-    $("#toTop").attr("style", "display:none;");
-    $(function() {
-        $(window).scroll(function() {
-            var scroll_top = $(window).scrollTop();
-            if (scroll_top >= 100) {
-                $("#toTop").fadeIn();
-            } else {
-                $("#toTop").fadeOut();
-            }
-        })
-    })
-</script>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
-            <div class="menu navbar-right">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="题解：洛谷P1955：[NOI2015]程序自动分析" height="28">
+            
+            </a>
         </div>
-    </nav>
-
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">档案</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于 &amp; 友链</a>
+                
+                <a class="navbar-item"
+                href="/mc">Minecraft</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
-    <nav class="navbar-mobile" id="nav-mobile">
+    <section class="section">
         <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/img/P1955/banner.png" alt="题解：洛谷P1955：[NOI2015]程序自动分析">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-30T12:26:09.000Z">2019-07-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
                 
-                <a class="menu-item" href="/archives">归档</a>
                 
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-            </div>
-        </div>
-    </nav>
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        } else {
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-<body>
-    <div id="toTop" class="box" style="z-index:9999;">
-        <div class="box-in"></div>
-    </div>
-</body>
-<script>
-    var timer = null;
-    toTop.onclick = function() {
-        cancelAnimationFrame(timer);
-        timer = requestAnimationFrame(function fn() {
-            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var sPeed = oTop / 10;
-            if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
-                timer = requestAnimationFrame(fn);
-            } else {
-                cancelAnimationFrame(timer);
-            }
-        });
-    }
-</script>
-
-        <div class="main">
-            <div class="container">
-    
-    
-    <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部目录</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "收起目录次项"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "展开全部目录"
-    }
-</script>
-
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">题解：洛谷P1955：[NOI2015]程序自动分析</h1>
-            
-            <div class="post-meta">
-                
-                编者: <a itemprop="author" rel="author" href="/">KONGJUNE</a>
-                
-
-                
-                <span class="post-time">
-                    日期: <a href="#">2019-07-30&nbsp;&nbsp;20:26:09</a>
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 2007 个字)
                 </span>
                 
                 
-                <span class="post-category">
-                    类别:
-                    
-                    <a href="/categories/Solution/">Solution</a>
-                    
-                </span>
-                
             </div>
-            
-        </header>
-        
-        <div style="
-            background-image: url(/img/P1955/banner.png);
-            height: 300px;
-            background-position-x: center;
-            background-position-y: center;
-            background-repeat: no-repeat;
-            -moz-background-size:100% 100%;
-            background-size:cover;
-        ">
-            <p> </p>
         </div>
         
-        
-            <p class="copyright-item">
-                <span><i style="color: gray;">本文最后修改于:</i></span>
-                <span><i style="color: gray;">2019-10-13&nbsp;&nbsp;13:52:47</i></span>
-            </p>
-        
-        <div class="post-content">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                题解：洛谷P1955：[NOI2015]程序自动分析
+            
+        </h1>
+        <div class="content">
             <p>算法：并查基、离散化、文件读入与写出。</p>
 <blockquote>
 <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。</p>
@@ -289,126 +174,940 @@
 <p>输出文件包括 $t$ 行。</p>
 <p>输出文件的第 $k$ 行输出一个字符串“ YES” 或者“NO”（不包含引号，字母全部大写），“YES” 表示输入中的第 $k$ 个问题判定为可以被满足，“NO” 表示不可被满足。</p>
 <h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p><strong>输入 #1</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; 2</span><br><span class="line">&gt; 2</span><br><span class="line">&gt; 1 2 1</span><br><span class="line">&gt; 1 2 0</span><br><span class="line">&gt; 2</span><br><span class="line">&gt; 1 2 1</span><br><span class="line">&gt; 2 1 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2</span><br><span class="line">1 2 1</span><br><span class="line">1 2 0</span><br><span class="line">2</span><br><span class="line">1 2 1</span><br><span class="line">2 1 1</span><br></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; **输出 #1** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-
-<p>NO<br>YES</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;**输入 #2** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p>2<br>3<br>1 2 1<br>2 3 1<br>3 1 1<br>4<br>1 2 1<br>2 3 1<br>3 4 1<br>1 4 0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">&gt; **输出 #2** </span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>输出 #1</strong> </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>YES<br>NO</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&gt; ### 说明/提示</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【样例解释1】</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第一个问题中，约束条件为：$x1=x2,x1\neq x2$。这两个约束条件互相矛盾，因此不可被同时满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第二个问题中，约束条件为：$x1=x2,x1=x2$。这两个约束条件是等价的，可以被同时满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【样例说明2】</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第一个问题中，约束条件有三个：$x1=x2,x2=x3,x3=x1$。只需赋值使得$x1=x1=x1$，即可同时满足所有的约束条件。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在第二个问题中，约束条件有四个：$x1=x2,x2=x3,x3=x4,x4\neq x1$。由前三个约束条件可以推出$x1=x2=x3=x4$，然而最后一个约束条件却要求$x1\neq x4$，因此不可被满足。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【数据范围】</span><br><span class="line">&gt;</span><br><span class="line">&gt; ![img](/img/P1955/1503.png)</span><br><span class="line">&gt;</span><br><span class="line">&gt; 【时限2s，内存512M】</span><br><span class="line"></span><br><span class="line">题目传送门：[🚪](https://www.luogu.org/problem/P1955)</span><br><span class="line"></span><br><span class="line">## 文件读入与写出</span><br><span class="line"></span><br><span class="line">虽说题干写着从文件读入，写出到文件，但其实这个题完全不需要……直接标准读入读出就可以……可怜我太实诚……酿造了如下惨状：</span><br><span class="line"></span><br><span class="line">![1564486633365](/img/P1955/1564486633365.png)</span><br><span class="line"></span><br><span class="line">既然提到了就说说这个……</span><br><span class="line"></span><br><span class="line">### C的方法</span><br><span class="line"></span><br><span class="line">* `fopen()`函数</span><br><span class="line"></span><br><span class="line">  使用方式：`fp = fopen(&quot;input.in&quot;, &quot;r&quot;)`：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为打开文件的文件名；</span><br><span class="line">  * 第二个参数为文件方式，是文件的类型和操作要求，有如下几种（组合）：</span><br><span class="line">    * `r`：只读（read），要求文件必须已经存在；</span><br><span class="line">    * `w`：只写（Write），若文件不存在则自动创建，如果已存在则删除原文件后新建；</span><br><span class="line">    * `a`：追加（Append），保留文件中已有内容，从文件尾开始写；</span><br><span class="line">    * `t`：文本文件（Text），可忽略；</span><br><span class="line">    * `b`：二进制文件（Binary）；</span><br><span class="line">    * `+`：读写。</span><br><span class="line">  * 返回值为文件指针，为FILE类型的指针变量。</span><br><span class="line"></span><br><span class="line">  在具体使用此方法写入时，使用`fscanf(fp, &quot;%d&quot;, &amp;n)`来读取：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为文件指针名，即使用`fopen`返回的指针；</span><br><span class="line">  * 第二个参数为格式控制符，同`scanf()`的使用方式；</span><br><span class="line">  * 第三及以后的参数为传入变量的指针。</span><br><span class="line"></span><br><span class="line">  使用`fprintf(fp, &quot;%d\n&quot;, n)`来写入文件：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为文件指针名，即使用fopen返回的指针；</span><br><span class="line">  * 第二个参数为格式控制符，同`printf()`的使用方式；</span><br><span class="line">  * 第三及以后的参数为输出变量。</span><br><span class="line"></span><br><span class="line">  结束使用该函数使用：`fclose(fp)`</span><br><span class="line"></span><br><span class="line">* `freopen()`函数</span><br><span class="line"></span><br><span class="line">  使用方式：`freopen(&quot;input.in&quot;, &quot;r&quot;, stdin);freopen(&quot;output.out&quot;, &quot;w&quot;, stdout);`：</span><br><span class="line"></span><br><span class="line">  * 第一个参数为打开文件的文件名；</span><br><span class="line">  * 第二个参数为文件方式，同`fopen()`函数；</span><br><span class="line">  * 第三个参数为文件指针，通常使用标准流文件（`stdin`/`stdout`/`stderr`）。</span><br><span class="line"></span><br><span class="line">  使用`freopen()`函数，并使用了标准流文件后，就可以直接使用`scanf()`与`printf()`来读入和写出。</span><br><span class="line"></span><br><span class="line">  结束使用`fclose(stdin);fclose(stdout)`。</span><br><span class="line"></span><br><span class="line">### C++的方法</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">ifstream inputFL(&quot;input.in&quot;);</span><br><span class="line">ofstream outputFL(&quot;putput.out&quot;);</span><br><span class="line">inputFL &gt;&gt; n;</span><br><span class="line">outputFL &lt;&lt; n &lt;&lt; endl;</span><br><span class="line">inputFL.close();</span><br><span class="line">outputFL.close();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>输入 #2</strong> </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line">3 1 1</span><br><span class="line">4</span><br><span class="line">1 2 1</span><br><span class="line">2 3 1</span><br><span class="line">3 4 1</span><br><span class="line">1 4 0</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>输出 #2</strong> </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p>【样例解释1】</p>
+<p>在第一个问题中，约束条件为：$x1=x2,x1\neq x2$。这两个约束条件互相矛盾，因此不可被同时满足。</p>
+<p>在第二个问题中，约束条件为：$x1=x2,x1=x2$。这两个约束条件是等价的，可以被同时满足。</p>
+<p>【样例说明2】</p>
+<p>在第一个问题中，约束条件有三个：$x1=x2,x2=x3,x3=x1$。只需赋值使得$x1=x1=x1$，即可同时满足所有的约束条件。</p>
+<p>在第二个问题中，约束条件有四个：$x1=x2,x2=x3,x3=x4,x4\neq x1$。由前三个约束条件可以推出$x1=x2=x3=x4$，然而最后一个约束条件却要求$x1\neq x4$，因此不可被满足。</p>
+<p>【数据范围】</p>
+<p><img src="/img/P1955/1503.png" alt="img"></p>
+<p>【时限2s，内存512M】</p>
+</blockquote>
+<p>题目传送门：<a href="https://www.luogu.org/problem/P1955" target="_blank" rel="noopener">🚪</a></p>
+<h2 id="文件读入与写出"><a href="#文件读入与写出" class="headerlink" title="文件读入与写出"></a>文件读入与写出</h2><p>虽说题干写着从文件读入，写出到文件，但其实这个题完全不需要……直接标准读入读出就可以……可怜我太实诚……酿造了如下惨状：</p>
+<p><img src="/img/P1955/1564486633365.png" alt="1564486633365"></p>
+<p>既然提到了就说说这个……</p>
+<h3 id="C的方法"><a href="#C的方法" class="headerlink" title="C的方法"></a>C的方法</h3><ul>
+<li><p><code>fopen()</code>函数</p>
+<p>使用方式：<code>fp = fopen(&quot;input.in&quot;, &quot;r&quot;)</code>：</p>
+<ul>
+<li>第一个参数为打开文件的文件名；</li>
+<li>第二个参数为文件方式，是文件的类型和操作要求，有如下几种（组合）：<ul>
+<li><code>r</code>：只读（read），要求文件必须已经存在；</li>
+<li><code>w</code>：只写（Write），若文件不存在则自动创建，如果已存在则删除原文件后新建；</li>
+<li><code>a</code>：追加（Append），保留文件中已有内容，从文件尾开始写；</li>
+<li><code>t</code>：文本文件（Text），可忽略；</li>
+<li><code>b</code>：二进制文件（Binary）；</li>
+<li><code>+</code>：读写。</li>
+</ul>
+</li>
+<li>返回值为文件指针，为FILE类型的指针变量。</li>
+</ul>
+<p>在具体使用此方法写入时，使用<code>fscanf(fp, &quot;%d&quot;, &amp;n)</code>来读取：</p>
+<ul>
+<li>第一个参数为文件指针名，即使用<code>fopen</code>返回的指针；</li>
+<li>第二个参数为格式控制符，同<code>scanf()</code>的使用方式；</li>
+<li>第三及以后的参数为传入变量的指针。</li>
+</ul>
+<p>使用<code>fprintf(fp, &quot;%d\n&quot;, n)</code>来写入文件：</p>
+<ul>
+<li>第一个参数为文件指针名，即使用fopen返回的指针；</li>
+<li>第二个参数为格式控制符，同<code>printf()</code>的使用方式；</li>
+<li>第三及以后的参数为输出变量。</li>
+</ul>
+<p>结束使用该函数使用：<code>fclose(fp)</code></p>
+</li>
+<li><p><code>freopen()</code>函数</p>
+<p>使用方式：<code>freopen(&quot;input.in&quot;, &quot;r&quot;, stdin);freopen(&quot;output.out&quot;, &quot;w&quot;, stdout);</code>：</p>
+<ul>
+<li>第一个参数为打开文件的文件名；</li>
+<li>第二个参数为文件方式，同<code>fopen()</code>函数；</li>
+<li>第三个参数为文件指针，通常使用标准流文件（<code>stdin</code>/<code>stdout</code>/<code>stderr</code>）。</li>
+</ul>
+<p>使用<code>freopen()</code>函数，并使用了标准流文件后，就可以直接使用<code>scanf()</code>与<code>printf()</code>来读入和写出。</p>
+<p>结束使用<code>fclose(stdin);fclose(stdout)</code>。</p>
+</li>
+</ul>
+<h3 id="C-的方法"><a href="#C-的方法" class="headerlink" title="C++的方法"></a>C++的方法</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function">ifstream <span class="hljs-title">inputFL</span><span class="hljs-params">(<span class="hljs-string">"input.in"</span>)</span></span>;</span><br><span class="line"><span class="hljs-function">ofstream <span class="hljs-title">outputFL</span><span class="hljs-params">(<span class="hljs-string">"putput.out"</span>)</span></span>;</span><br><span class="line">inputFL &gt;&gt; n;</span><br><span class="line">outputFL &lt;&lt; n &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">inputFL.close();</span><br><span class="line">outputFL.close();</span><br></pre></td></tr></table></figure>
 
 <h2 id="正式题解"><a href="#正式题解" class="headerlink" title="正式题解"></a>正式题解</h2><p>基本题意就是给你几个约束条件看他们能不能共存成立。而相等关系的约束条件我们可以很容易地想到将其转换为一个图，出现相等关系就说明它们在一个个图上 $\Rightarrow$ 两个值的最终祖先节点相同。而出现不等关系就说明它们没在一个图上，所以这个问题就可以转换成一个并查集问题。在这里贴上并查基常用的板子：</p>
 <ul>
 <li><p>得到最终祖先：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x == fa[x])&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">return</span> fa[x] = get(fa[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(x == fa[x])&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> x;</span><br><span class="line">    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> fa[x] = get(fa[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>合并两棵树：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> faOa = get(a);</span><br><span class="line">    <span class="keyword">int</span> faOb = get(b);</span><br><span class="line">    <span class="keyword">if</span>(faOa != faOb)&#123;</span><br><span class="line">        fa[b] = a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> faOa = get(a);</span><br><span class="line">    <span class="hljs-keyword">int</span> faOb = get(b);</span><br><span class="line">    <span class="hljs-keyword">if</span>(faOa != faOb)&#123;</span><br><span class="line">        fa[b] = a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <p>而注意到题目数据量很大，$i$、$j$ 的范围到了 $10^9$，无法开那么大的数组，所以我们使用到了离散化。我的离散化的博文的传送门：<a href="https://www.kongjune.com/2019/07/30/%E7%A6%BB%E6%95%A3%E5%8C%96/" target="_blank" rel="noopener">🚪</a></p>
 <p>基本思想就是看输入的两个值是否相同，如果相同就保留到一棵树上。如果不相同的话检查两个点的根结点是否相同，如果相同则说明这两个值已经相同，出现矛盾，则输出“NO”。为了实现这个思想，我们首先要对输入进行排序，将相等关系放在前面预先判断。</p>
 <p>AC代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inputFL cin</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> outputFL cout</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">bool</span> e;</span><br><span class="line">&#125;Nodes[<span class="number">100005</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node a, Node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.e &gt; b.e;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> dict[<span class="number">1000005</span>];</span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">1000005</span>];</span><br><span class="line"><span class="keyword">int</span> cnt, uqcnt;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == fa[x]) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">return</span> fa[x] = get(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// void merge(int x, int y)&#123;</span></span><br><span class="line"><span class="comment">//     fa[get(x)] = get(y);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// ifstream inputFL("prog.in"); // C++方式， C使用freopen()</span></span><br><span class="line">    <span class="comment">// ofstream outputFL("prog.out");</span></span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    inputFL &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        inputFL &gt;&gt; n;</span><br><span class="line">        <span class="built_in">memset</span>(dict, <span class="number">0</span>, <span class="keyword">sizeof</span>(dict));</span><br><span class="line">        <span class="built_in">memset</span>(fa, <span class="number">0</span>, <span class="keyword">sizeof</span>(fa));</span><br><span class="line">        uqcnt = cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            inputFL &gt;&gt; Nodes[i].x &gt;&gt; Nodes[i].y &gt;&gt; Nodes[i].e;</span><br><span class="line">            dict[cnt++] = Nodes[i].x;</span><br><span class="line">            dict[cnt++] = Nodes[i].y;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(dict, dict + cnt);</span><br><span class="line">        uqcnt = unique(dict, dict + cnt) - dict;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Nodes[i].x = lower_bound(dict, dict + uqcnt, Nodes[i].x) - dict;</span><br><span class="line">            Nodes[i].y = lower_bound(dict, dict + uqcnt, Nodes[i].y) - dict;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; uqcnt; i++) &#123;</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">bool</span> check = <span class="number">1</span>;</span><br><span class="line">        sort(Nodes, Nodes + n, cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = get(Nodes[i].x);</span><br><span class="line">            <span class="keyword">int</span> b = get(Nodes[i].y);</span><br><span class="line">            <span class="keyword">if</span> (Nodes[i].e) &#123;</span><br><span class="line">                fa[a] = b;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">                    check = <span class="number">0</span>;</span><br><span class="line">                    outputFL &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (check)</span><br><span class="line">            outputFL &lt;&lt; <span class="string">"YES"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> inputFL cin</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> outputFL cout</span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> x;</span><br><span class="line">    <span class="hljs-keyword">int</span> y;</span><br><span class="line">    <span class="hljs-keyword">bool</span> e;</span><br><span class="line">&#125;Nodes[<span class="hljs-number">100005</span>];</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(Node a, Node b)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a.e &gt; b.e;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">int</span> dict[<span class="hljs-number">1000005</span>];</span><br><span class="line"><span class="hljs-keyword">int</span> fa[<span class="hljs-number">1000005</span>];</span><br><span class="line"><span class="hljs-keyword">int</span> cnt, uqcnt;</span><br><span class="line"><span class="hljs-keyword">int</span> n;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (x == fa[x]) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> x;</span><br><span class="line">    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> fa[x] = get(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// void merge(int x, int y)&#123;</span></span><br><span class="line"><span class="hljs-comment">//     fa[get(x)] = get(y);</span></span><br><span class="line"><span class="hljs-comment">// &#125;</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">// ifstream inputFL("prog.in"); // C++方式， C使用freopen()</span></span><br><span class="line">    <span class="hljs-comment">// ofstream outputFL("prog.out");</span></span><br><span class="line">    <span class="hljs-keyword">int</span> T;</span><br><span class="line">    inputFL &gt;&gt; T;</span><br><span class="line">    <span class="hljs-keyword">while</span>(T--)&#123;</span><br><span class="line">        inputFL &gt;&gt; n;</span><br><span class="line">        <span class="hljs-built_in">memset</span>(dict, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(dict));</span><br><span class="line">        <span class="hljs-built_in">memset</span>(fa, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(fa));</span><br><span class="line">        uqcnt = cnt = <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            inputFL &gt;&gt; Nodes[i].x &gt;&gt; Nodes[i].y &gt;&gt; Nodes[i].e;</span><br><span class="line">            dict[cnt++] = Nodes[i].x;</span><br><span class="line">            dict[cnt++] = Nodes[i].y;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(dict, dict + cnt);</span><br><span class="line">        uqcnt = unique(dict, dict + cnt) - dict;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            Nodes[i].x = lower_bound(dict, dict + uqcnt, Nodes[i].x) - dict;</span><br><span class="line">            Nodes[i].y = lower_bound(dict, dict + uqcnt, Nodes[i].y) - dict;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; uqcnt; i++) &#123;</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">bool</span> check = <span class="hljs-number">1</span>;</span><br><span class="line">        sort(Nodes, Nodes + n, cmp);</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> a = get(Nodes[i].x);</span><br><span class="line">            <span class="hljs-keyword">int</span> b = get(Nodes[i].y);</span><br><span class="line">            <span class="hljs-keyword">if</span> (Nodes[i].e) &#123;</span><br><span class="line">                fa[a] = b;</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span> (a == b) &#123;</span><br><span class="line">                    check = <span class="hljs-number">0</span>;</span><br><span class="line">                    outputFL &lt;&lt; <span class="hljs-string">"NO"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (check)</span><br><span class="line">            outputFL &lt;&lt; <span class="hljs-string">"YES"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>特别提醒</strong>：一定要分清离散化中各个变量的具体含义与用处，否则就会出现以下的状况而无从下手：</p>
 <p><img src="/img/P1955/1564489428381.png" alt="1564489428381"></p>
 
         </div>
         
-        <section class="post-copyright">
-            
-            <p class="copyright-item">
-                <span>本文作者:</span>
-                <a itemprop="author" rel="author" href="/"><span>KONGJUNE</span></a>
-            </p>
-            
-            
-            
-            <p class="copyright-item">
-                <span>本文链接:</span>
-                <span><a href="http://kongjune.com/2019/07/30/P1955/">http://kongjune.com/2019/07/30/P1955/</a></span>
-            </p>
-            
-            <p class="copyright-item">
-                <span>版权声明:</span>
-                <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-            </p>
-            
-            
-
-        </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>本文标签:</span>
-                <span class="tag">
-                    
-                    
-                    <a href="/tags/ACM/"># ACM</a>
-                    
-                    <a href="/tags/Programming/"># Programming</a>
-                    
-                    <a href="/tags/Solution/"># Solution</a>
-                    
-                    
-                </span>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/ACM/">ACM</a>, <a class="has-link-grey -link" href="/tags/Programming/">Programming</a>, <a class="has-link-grey -link" href="/tags/Solution/">Solution</a>
+                </div>
             </div>
-            <div>
-                <a href="javascript:window.history.back();">返回上一页</a>
-                <span>· </span>
-                <a href="/">返回主页</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-            <a class="prev" rel="prev" href="/2019/08/06/扩展KMP/">算法学习：扩展KMP</a>
-            
-            
-            <a class="next" rel="next" href="/2019/07/30/离散化/">算法学习：离散化</a>
-            
-        </section>
-        <!-- 来必力City版安装代码 -->
-        <div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
-            <script type="text/javascript">
-                (function(d, s) {
-                    var j, e = d.getElementsByTagName(s)[0];
-
-                    if (typeof LivereTower === 'function') {
-                        return;
-                    }
-
-                    j = d.createElement(s);
-                    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                    j.async = true;
-
-                    e.parentNode.insertBefore(j, e);
-                })(document, 'script');
-            </script>
-            <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
         </div>
-        <!-- City版安装代码已完成 -->
-    </article>
+        
+        
+        
+    </div>
 </div>
 
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat.png" alt="微信"></div>
+</a>
+
+                
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright" style="padding-bottom: 15px;">
-        <span><font color="#657786">© 2019 · </font><font color="#2d96bd">KONGJUNE</font> </span>
-        <br>
-        <span id="sitetime"></span>
-        <br>
-        <span><font color="#657786">由</font><a href="https://hexo.io" target="_blank"><font color="#2d96bd"> Hexo </font></a><font color="#657786">强力驱动 | 使用主题</font><a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank"><font color="#2d96bd"> Chic </font></a></span>
     </div>
-</footer>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/06/扩展KMP/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">算法学习：扩展KMP</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/30/离散化/">
+                <span class="level-item">算法学习：离散化</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTY1NC8yMjE2NQ==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
 
     </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="KONGJUNE">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        KONGJUNE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        💭️ Learning &amp; Looking...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Tianjin, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kongjune" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/kongjune">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="微博" href="https://weibo.com/2111639114">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm-study/">
+            <span class="level-start">
+                <span class="level-item">Algorithm study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a> <a href="/tags/Learning-Note/" style="font-size: 15px;">Learning Note</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Solution/" style="font-size: 12.5px;">Solution</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="题解：洛谷P1955：[NOI2015]程序自动分析" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KONGJUNE&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

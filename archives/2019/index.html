@@ -1,517 +1,1157 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>归档: 2019 - KONGJUNE&#39;s BLOG</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="KONGJUNE&#39;s BLOG">
+<meta property="og:url" content="http://kongjune.com/archives/2019/index.html">
+<meta property="og:site_name" content="KONGJUNE&#39;s BLOG">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kongjune.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KONGJUNE&#39;s BLOG">
+<meta name="twitter:image" content="http://kongjune.com/images/og_image.png">
 
 
 
-<title>归档: 2019 | KONGJUNE&#39;s BLOG</title>
-
-
-
-    <link rel="icon" type="image/png" href="/favicon.png">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="icon" href="/images/favicon.svg">
 
 
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-    <script src="/js/timeCount.js"></script>
-    
-
-
-
-    
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
     
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <script>
-    $("#toTop").attr("style", "display:none;");
-    $(function() {
-        $(window).scroll(function() {
-            var scroll_top = $(window).scrollTop();
-            if (scroll_top >= 100) {
-                $("#toTop").fadeIn();
-            } else {
-                $("#toTop").fadeOut();
-            }
-        })
-    })
-</script>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
-            <div class="menu navbar-right">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+            
+            </a>
         </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">档案</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于 &amp; 友链</a>
+                
+                <a class="navbar-item"
+                href="/mc">Minecraft</a>
+                
             </div>
-            <div class="menu" id="mobile-menu">
+            
+            <div class="navbar-end">
                 
-                <a class="menu-item" href="/archives">归档</a>
                 
-                <a class="menu-item" href="/category">类别</a>
                 
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
                 
             </div>
         </div>
-    </nav>
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        } else {
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-<body>
-    <div id="toTop" class="box" style="z-index:9999;">
-        <div class="box-in"></div>
     </div>
-</body>
-<script>
-    var timer = null;
-    toTop.onclick = function() {
-        cancelAnimationFrame(timer);
-        timer = requestAnimationFrame(function fn() {
-            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var sPeed = oTop / 10;
-            if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
-                timer = requestAnimationFrame(fn);
-            } else {
-                cancelAnimationFrame(timer);
-            }
-        });
-    }
-</script>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 
-        <div class="main">
-            <style>
-<!--
-#archive-box a{
-  transition: box-shadow .3s;
-  -moz-transition: box-shadow .3s;	/* Firefox 4 */
-  -webkit-transition: box-shadow .3s;	/* Safari 和 Chrome */
-  -o-transition: box-shadow .3s;	/* Opera */
-}
-
-#archive-box a:hover{
-  box-shadow: 0px 0px 10px #2c2c2c;
-}
--->
-</style>
-<div class="post-wrap archive">
-    
-    
-    
-
-    
-    <h1>
-        <font size="5">📅</font> 2019
-    </h1>
-    
-
-    <article class="archive-item">
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="tag is-link">
+        2019
+        </h3>
+        <div class="timeline">
         
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/Hexo/banner.png); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/10/13/Hexo/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">使用Hexo搭建个人博客并部署到Github</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
+            <article class="media">
                 
-                <font color="#CCCCCC" size="1px">🏷️</font>
+                <a href="/2019/10/13/Hexo/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                    </p>
+                </a>
                 
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time>
+                        <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
                 
-                <font color="#CCCCCC" size="1px">Front-end&nbsp;</font>
+                <a href="/2019/08/14/马拉车算法/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                    </p>
+                </a>
                 
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time>
+                        <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
                 
-                <span class="archive-item-date">2019-10-13</span>
-            </p>
-        </a>
+                <a href="/2019/08/08/HDU6641/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time>
+                        <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/08/07/HDU6629/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time>
+                        <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/08/06/扩展KMP/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time>
+                        <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/07/30/P1955/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/P1955/banner.png" alt="题解：洛谷P1955：[NOI2015]程序自动分析">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-30T12:26:09.000Z">2019-07-30</time>
+                        <a href="/2019/07/30/P1955/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：洛谷P1955：[NOI2015]程序自动分析</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/07/30/离散化/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/离散化/banner.jpeg" alt="算法学习：离散化">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-30T06:14:49.000Z">2019-07-30</time>
+                        <a href="/2019/07/30/离散化/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：离散化</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/07/28/后缀数组/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/后缀数组/banner.jpeg" alt="算法学习：后缀数组">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-28T06:03:08.000Z">2019-07-28</time>
+                        <a href="/2019/07/28/后缀数组/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：后缀数组</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/07/27/线性基（异或和求最大值）/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/线性基（异或和求最大值）/banner.jpeg" alt="算法学习：线性基">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-27T07:16:16.000Z">2019-07-27</time>
+                        <a href="/2019/07/27/线性基（异或和求最大值）/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：线性基</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+            <article class="media">
+                
+                <a href="/2019/07/27/尺取法/" class="media-left">
+                    <p class="image is-64x64">
+                        <img class="thumbnail" src="/img/尺取法/banner.jpeg" alt="算法学习：尺取法">
+                    </p>
+                </a>
+                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-27T07:10:40.000Z">2019-07-27</time>
+                        <a href="/2019/07/27/尺取法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：尺取法</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
         </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/马拉车算法/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/14/马拉车算法/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：马拉车算法</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-08-14</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/HDU6641/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/08/HDU6641/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">题解：HDU6641 TDL</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Solution&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-08-08</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/HDU6629/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/07/HDU6629/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">题解：HDU6629 String Mathching</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Solution&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-08-07</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/扩展KMP/banner.jpg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/08/06/扩展KMP/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：扩展KMP</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-08-06</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/P1955/banner.png); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/30/P1955/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">题解：洛谷P1955：[NOI2015]程序自动分析</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Solution&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-30</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/离散化/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/30/离散化/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：离散化</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-30</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/后缀数组/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/28/后缀数组/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：后缀数组</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-28</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/线性基（异或和求最大值）/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/27/线性基（异或和求最大值）/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：线性基</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-27</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-
-    
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/尺取法/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/27/尺取法/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：尺取法</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-27</span>
-            </p>
-        </a>
-        </div>
-        
-    </article>
-    
-    
-    <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a>
-    </nav>
-
-
+    </div>
 </div>
 
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/page/0/">上一页</a>
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright" style="padding-bottom: 15px;">
-        <span><font color="#657786">© 2019 · </font><font color="#2d96bd">KONGJUNE</font> </span>
-        <br>
-        <span id="sitetime"></span>
-        <br>
-        <span><font color="#657786">由</font><a href="https://hexo.io" target="_blank"><font color="#2d96bd"> Hexo </font></a><font color="#657786">强力驱动 | 使用主题</font><a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank"><font color="#2d96bd"> Chic </font></a></span>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/page/2/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link is-current" href="/archives/2019/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/page/2/">2</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="KONGJUNE">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        KONGJUNE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        💭️ Learning &amp; Looking...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Tianjin, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kongjune" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/kongjune">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="微博" href="https://weibo.com/2111639114">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm-study/">
+            <span class="level-start">
+                <span class="level-item">Algorithm study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a> <a href="/tags/Learning-Note/" style="font-size: 15px;">Learning Note</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Solution/" style="font-size: 12.5px;">Solution</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KONGJUNE&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
     </div>
 </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

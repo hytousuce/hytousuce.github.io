@@ -1,255 +1,1161 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>分类: Blog - KONGJUNE&#39;s BLOG</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="KONGJUNE&#39;s BLOG">
+<meta property="og:url" content="http://kongjune.com/categories/Blog/index.html">
+<meta property="og:site_name" content="KONGJUNE&#39;s BLOG">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kongjune.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KONGJUNE&#39;s BLOG">
+<meta name="twitter:image" content="http://kongjune.com/images/og_image.png">
 
 
 
-<title>Category: Blog | KONGJUNE&#39;s BLOG</title>
-
-
-
-    <link rel="icon" type="image/png" href="/favicon.png">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="icon" href="/images/favicon.svg">
 
 
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-    <script src="/js/timeCount.js"></script>
-    
-
-
-
-    
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
     
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <script>
-    $("#toTop").attr("style", "display:none;");
-    $(function() {
-        $(window).scroll(function() {
-            var scroll_top = $(window).scrollTop();
-            if (scroll_top >= 100) {
-                $("#toTop").fadeIn();
-            } else {
-                $("#toTop").fadeOut();
-            }
-        })
-    })
-</script>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
-            <div class="menu navbar-right">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-            </div>
-        </div>
-    </nav>
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        } else {
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-<body>
-    <div id="toTop" class="box" style="z-index:9999;">
-        <div class="box-in"></div>
-    </div>
-</body>
-<script>
-    var timer = null;
-    toTop.onclick = function() {
-        cancelAnimationFrame(timer);
-        timer = requestAnimationFrame(function fn() {
-            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var sPeed = oTop / 10;
-            if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
-                timer = requestAnimationFrame(fn);
-            } else {
-                cancelAnimationFrame(timer);
-            }
-        });
-    }
-</script>
-
-        <div class="main">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-
-
-    
-<div class="container">
-    <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;分类&nbsp;·&nbsp;Blog-</h2>
+                <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">档案</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于 &amp; 友链</a>
+                
+                <a class="navbar-item"
+                href="/mc">Minecraft</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-    <style>
-<!--
-#archive-box a{
-  transition: box-shadow .3s;
-  -moz-transition: box-shadow .3s;	/* Firefox 4 */
-  -webkit-transition: box-shadow .3s;	/* Safari 和 Chrome */
-  -o-transition: box-shadow .3s;	/* Opera */
-}
-
-#archive-box a:hover{
-  box-shadow: 0px 0px 10px #2c2c2c;
-}
--->
-</style>
-<div class="post-wrap archive">
+</nav>
     
-    
-    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Blog</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
 
     
-    <h1>
-        <font size="5">📅</font> 2019
-    </h1>
+<div class="card">
     
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/Hexo/banner.png); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/10/13/Hexo/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">使用Hexo搭建个人博客并部署到Github</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Front-end&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-10-13</span>
-            </p>
+    <div class="card-image">
+        <a href="/2019/10/13/Hexo/" class="image is-7by1">
+            <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
         </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2685 个字)
+                </span>
+                
+                
+            </div>
         </div>
         
-    </article>
-    
-    
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/10/13/Hexo/">使用Hexo搭建个人博客并部署到Github</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>操作系统环境：Ubuntu 19.04</p>
+<p>Git版本：2.20.1</p>
+<p>Node.js版本：10.15.2</p>
+<p>npm版本：5.8.0</p>
+</blockquote>
+<h1 id="前置环境安装"><a href="#前置环境安装" class="headerlink" title="前置环境安装"></a>前置环境安装</h1><h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><p>在你的电脑上安装 Git、Node.js 以及 npm：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git nodejs npm</span><br></pre></td></tr></table></figure>
 
-</div>
+<p>在某些发行版，源中的 nodejs 与 npm 版本过低，不能完成 Hexo 的正常使用，如果出现这种问题，请到 <a href="https://nodejs.org/" target="_blank" rel="noopener">Nodejs 官网</a>以及 <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm 官网</a>下载较新版本。</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cil</span><br></pre></td></tr></table></figure>
 
-</div>
+<h1 id="初始化你的博客"><a href="#初始化你的博客" class="headerlink" title="初始化你的博客"></a>初始化你的博客</h1><p>在你希望创建博客的目录下运行指令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>由于 npm 的问题，我在运行本命令的时候出现了错误，如下图：</p>
+<p><img src="/img/Hexo/1570935913884.png" alt="1570935913884"></p>
+<p>只需要再手动运行 <code>npm install</code> 命令就可以了。</p>
+</blockquote>
+<p>执行本命令后，我们会发现在当前目录下多出了以下文件：</p>
+<p><img src="/img/Hexo/1570936230837.png" alt="1570936230837"></p>
+<p>其中：</p>
+<ul>
+<li><p><code>node_modules</code>：nodejs的依赖包，各种插件会被安装在里面；</p>
+</li>
+<li><p><code>scaffolds</code>：页面模板；</p>
+</li>
+<li><p><code>source</code>：资源，这里面的内容将会按照页面分别，未来也将会呈现在生成的静态页面中；</p>
+<p>如我在这个目录中创建了 img 文件夹并在其中放置了 index.jpg 文件，预览或者发布后在浏览器中输入<code>页面地址/img/index.jpg</code>即可访问这个文件。而以 markdown 编写的博客文件将会被转换成 html 文件并按照配置中的设置来保存到静态页面结构中。</p>
+</li>
+<li><p><code>theme</code>：存放主题的文件夹，默认安装 landscape 主题；</p>
+</li>
+<li><p><code>_config.yml</code>：配置文件，具体内容将会在后面的内容中提及。</p>
+</li>
+</ul>
+<p>此时输入以下命令（实时预览博客）：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
+<p>并在浏览器中输入：<code>http://localhost:4000</code>，你就可以看到你的博客最开始的样子了。</p>
+<h1 id="增加你的第一篇博客"><a href="#增加你的第一篇博客" class="headerlink" title="增加你的第一篇博客"></a>增加你的第一篇博客</h1><p>使用如下命令创建一篇博客：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="hljs-string">'文章名'</span></span><br></pre></td></tr></table></figure>
+
+<p>比如我想创建一篇叫做 test 的博客，我就需要输入 <code>hexo new &#39;text&#39;</code>（去掉引号也是可以的）。接下来我们就可以在<code>/source/_posts</code>文件夹下看到我刚刚创建的<code>text.md</code>文件。打开我们会发现上面已经有一部分内容：</p>
+<p><img src="/img/Hexo/1570938154144.png" alt="1570938154144"></p>
+<p>这一部分灰色背景框住的部分叫做 Font-matter，用于指定个别文件的变量。它具体的markdown代码为：</p>
+<figure class="highlight markdown hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: test</span><br><span class="line">date: 2019-10-13 11:38:55</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>Hexo 预先定义了一些参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>layout</code></td>
+<td>布局</td>
+<td></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>标题</td>
+<td></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>建立日期</td>
+<td>文件建立日期与时间</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td><code>comments</code></td>
+<td>开启文章的评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>标签（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td><code>categories</code></td>
+<td>分类（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>覆盖文章地址</td>
+<td></td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>仅用于 meta 标签和 Open Graph 的关键词（不推荐使用）</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>除了使用 YAML 你也可以使用 JSON 来编写 Front-matter，例如：</p>
+<figure class="highlight markdown hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"title": "Hello World",</span><br><span class="line">"date": "2013/7/13 20:46:25"</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
+
+<p>Font-matter以下，你就可以使用熟悉的 markdown 来编写你的博文了。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>你的博客的一些基础配置可以在<code>_config.yaml</code>中来修改，具体内容如下：</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Hexo Configuration</span></span><br><span class="line"><span class="hljs-comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="hljs-comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Site</span></span><br><span class="line"><span class="hljs-attr">title:</span> <span class="hljs-string">Hexo</span>                    <span class="hljs-comment"># 博客标题，会显示在你的页面标题中</span></span><br><span class="line"><span class="hljs-attr">subtitle:</span>                      <span class="hljs-comment"># 副标题</span></span><br><span class="line"><span class="hljs-attr">description:</span>                   <span class="hljs-comment"># 描述，用于告诉搜索引擎</span></span><br><span class="line"><span class="hljs-attr">keywords:</span>                      <span class="hljs-comment"># 关键词</span></span><br><span class="line"><span class="hljs-attr">author:</span> <span class="hljs-string">John</span> <span class="hljs-string">Doe</span>               <span class="hljs-comment"># 作者，你的名字</span></span><br><span class="line"><span class="hljs-attr">language:</span> <span class="hljs-string">en</span>                   <span class="hljs-comment"># 语言，简体中文设置为 zh-CN</span></span><br><span class="line"><span class="hljs-attr">timezone:</span>                      <span class="hljs-comment"># 时区，东八区设置为 Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># URL</span></span><br><span class="line"><span class="hljs-comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="hljs-attr">url:</span> <span class="hljs-attr">http://yoursite.com</span>							  <span class="hljs-comment"># 网址，具体见下文描述</span></span><br><span class="line"><span class="hljs-attr">root:</span> <span class="hljs-string">/</span>                                <span class="hljs-comment"># 网站根目录</span></span><br><span class="line"><span class="hljs-attr">permalink:</span> <span class="hljs-string">:year/:month/:day/:title/</span>   <span class="hljs-comment"># 网站的永久连接格式，具体见下文描述</span></span><br><span class="line"><span class="hljs-attr">permalink_defaults:</span>                    <span class="hljs-comment"># 永久连接中各部分的默认值</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Directory                     # 这些目录将会与你的主题设置等有关</span></span><br><span class="line"><span class="hljs-attr">source_dir:</span> <span class="hljs-string">source</span>              <span class="hljs-comment"># 资源文件夹名称</span></span><br><span class="line"><span class="hljs-attr">public_dir:</span> <span class="hljs-string">public</span>              <span class="hljs-comment"># 发布文件夹名称，这个文件夹用于存放生成的站点文件</span></span><br><span class="line"><span class="hljs-attr">tag_dir:</span> <span class="hljs-string">tags</span>                   <span class="hljs-comment"># 标签文件夹名称 </span></span><br><span class="line"><span class="hljs-attr">archive_dir:</span> <span class="hljs-string">archives</span>           <span class="hljs-comment"># 归档文件夹名称</span></span><br><span class="line"><span class="hljs-attr">category_dir:</span> <span class="hljs-string">categories</span>        <span class="hljs-comment"># 分类文件夹名称</span></span><br><span class="line"><span class="hljs-attr">code_dir:</span> <span class="hljs-string">downloads/code</span>        <span class="hljs-comment"># Include code文件夹，是source_dir下的子目录</span></span><br><span class="line"><span class="hljs-attr">i18n_dir:</span> <span class="hljs-string">:lang</span>                 <span class="hljs-comment"># 国际文件夹</span></span><br><span class="line"><span class="hljs-attr">skip_render:</span>                    <span class="hljs-comment"># 跳过指定文件的渲染，发布时不会生成这些文件</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Writing</span></span><br><span class="line"><span class="hljs-attr">new_post_name:</span> <span class="hljs-string">:title.md</span>        <span class="hljs-comment"># 新文章的文件名称</span></span><br><span class="line"><span class="hljs-attr">default_layout:</span> <span class="hljs-string">post</span>            <span class="hljs-comment"># 预设布局，post即按照主题中layout文件夹下的post.ejs来布局</span></span><br><span class="line"><span class="hljs-attr">auto_spacing:</span> <span class="hljs-literal">false</span>             <span class="hljs-comment"># 在中英文之间自动加入空格</span></span><br><span class="line"><span class="hljs-attr">titlecase:</span> <span class="hljs-literal">false</span>                <span class="hljs-comment"># 把标题转换为title case</span></span><br><span class="line"><span class="hljs-attr">external_link:</span> <span class="hljs-literal">true</span>             <span class="hljs-comment"># 在新标签页中打开连接</span></span><br><span class="line"><span class="hljs-attr">filename_case:</span> <span class="hljs-number">0</span>                <span class="hljs-comment"># 把文件名称转换为 (1)小写 或 (2)大写 (0)不转换</span></span><br><span class="line"><span class="hljs-attr">render_drafts:</span> <span class="hljs-literal">false</span>            <span class="hljs-comment"># 显示草稿(?)</span></span><br><span class="line"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">false</span>        <span class="hljs-comment"># 启动 Asset 文件夹(?)</span></span><br><span class="line"><span class="hljs-attr">relative_link:</span> <span class="hljs-literal">false</span>            <span class="hljs-comment"># 把链接改为与根目录的相对位址</span></span><br><span class="line"><span class="hljs-attr">future:</span> <span class="hljs-literal">true</span>                    <span class="hljs-comment"># 显示未来的文章（按照Front-matter中的data属性判断）</span></span><br><span class="line"><span class="hljs-attr">highlight:</span>                      <span class="hljs-comment"># 代码块高亮</span></span><br><span class="line"><span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>                      <span class="hljs-comment"># 启用高亮</span></span><br><span class="line"><span class="hljs-attr">  line_number:</span> <span class="hljs-literal">true</span>                 <span class="hljs-comment"># 显示行号</span></span><br><span class="line"><span class="hljs-attr">  auto_detect:</span> <span class="hljs-literal">false</span></span><br><span class="line"><span class="hljs-attr">  tab_replace:</span></span><br><span class="line">  </span><br><span class="line"><span class="hljs-comment"># Home page setting</span></span><br><span class="line"><span class="hljs-comment"># path: Root path for your blogs index page. (default = '')</span></span><br><span class="line"><span class="hljs-comment"># per_page: Posts displayed per page. (0 = disable pagination)</span></span><br><span class="line"><span class="hljs-comment"># order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line"><span class="hljs-attr">index_generator:</span>                <span class="hljs-comment"># 主页设置</span></span><br><span class="line"><span class="hljs-attr">  path:</span> <span class="hljs-string">''</span>                          <span class="hljs-comment"># 路径</span></span><br><span class="line"><span class="hljs-attr">  per_page:</span> <span class="hljs-number">10</span>                      <span class="hljs-comment"># 每页显示的文章个数</span></span><br><span class="line"><span class="hljs-attr">  order_by:</span> <span class="hljs-bullet">-date</span>                   <span class="hljs-comment"># 按照日期排序</span></span><br><span class="line">  </span><br><span class="line"><span class="hljs-comment"># Category &amp; Tag</span></span><br><span class="line"><span class="hljs-attr">default_category:</span> <span class="hljs-string">uncategorized</span> <span class="hljs-comment"># 默认的分类</span></span><br><span class="line"><span class="hljs-attr">category_map:</span></span><br><span class="line"><span class="hljs-attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Date / Time format</span></span><br><span class="line"><span class="hljs-comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="hljs-comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="hljs-comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="hljs-attr">date_format:</span> <span class="hljs-string">YYYY-MM-DD</span>        <span class="hljs-comment"># 日期格式</span></span><br><span class="line"><span class="hljs-attr">time_format:</span> <span class="hljs-attr">HH:mm:ss</span>          <span class="hljs-comment"># 时间格式</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Pagination</span></span><br><span class="line"><span class="hljs-comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="hljs-attr">per_page:</span> <span class="hljs-number">10</span>                   <span class="hljs-comment"># 分页：每页现实的文章量</span></span><br><span class="line"><span class="hljs-attr">pagination_dir:</span> <span class="hljs-string">page</span>           <span class="hljs-comment"># 分页目录</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Extensions</span></span><br><span class="line"><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="hljs-comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="hljs-attr">theme:</span> <span class="hljs-string">landscape</span>                <span class="hljs-comment"># 设置主题</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Deployment</span></span><br><span class="line"><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="hljs-attr">deploy:</span>                         <span class="hljs-comment"># 部署设置</span></span><br><span class="line"><span class="hljs-attr">  type:</span></span><br></pre></td></tr></table></figure>
+
+<p>特殊的：</p>
+<ul>
+<li>如果您的网站存放在子目录中，例如 <code>http://yoursite.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://yoursite.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</li>
+<li>当<code>permalink</code>设置为<code>:year/:month/:day/:title/</code>时，你的生成于2019年10月1日的名为Hello的博客将以<code>http://你博客的网址/2019/10/01/Hello/</code>来访问。</li>
+</ul>
+<h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>在 <a href="https://hexo.io/themes" target="_blank" rel="noopener">Hexo 主题商店</a> 来找到你的想要的主题。</p>
+<p>一个主题文件夹中主要有以下文件/文件夹：</p>
+<ul>
+<li><code>_config.yml</code>：主题的配置文件；</li>
+<li><code>languages</code>：主题的语言文件；</li>
+<li><code>layout</code>：页面布局方案；</li>
+<li><code>scripts</code>：脚本文件；</li>
+<li><code>source</code>：资源文件。</li>
+</ul>
+<p>由于不同主题的具体内容不同，所以在此不再对主题的配置进行讨论。</p>
+<h1 id="部署到-Github"><a href="#部署到-Github" class="headerlink" title="部署到 Github"></a>部署到 Github</h1><blockquote>
+<p>Github Pages 是 Github 提供的免费的静态网站解决方案，用以方便用户发布自己的项目。Github Pages 为每一个用户提供一个静态网站，域名为 &lt;username&gt;.github.io。用之搭建静态的个人博客是很好的选择的</p>
+</blockquote>
+<h2 id="在Github的设置"><a href="#在Github的设置" class="headerlink" title="在Github的设置"></a>在Github的设置</h2><p>创建一个名为 &lt;username&gt;.github.io 的仓库，注意 &lt;username&gt; 部分一定要替换成你的用户名:</p>
+<p><img src="/img/Hexo/1570940939271.png" alt="1570940939271"></p>
+<h2 id="在本地Git中配置你的Github账户信息"><a href="#在本地Git中配置你的Github账户信息" class="headerlink" title="在本地Git中配置你的Github账户信息"></a>在本地Git中配置你的Github账户信息</h2><p>在终端中输入以下命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="hljs-string">"YourName"</span></span><br><span class="line">git config --global user.email <span class="hljs-string">"YourEmail"</span></span><br></pre></td></tr></table></figure>
+
+<p>将其中的<code>YourName</code>与<code>YourEmail</code>修改成你的用户名和账户邮箱。</p>
+<p>再输入以下命令创建SSH:</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="hljs-string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/Hexo/1570942286216.png" alt="1570942286216"></p>
+<p>按照图片中的内容找到生成的<code>id_rsa.pub</code>，并将内容复制到 Github 设置中的 SSH keys 中。</p>
+<p><img src="/img/Hexo/1570942588589.png" alt="1570942588589"></p>
+<p><img src="/img/Hexo/1570942725229.png" alt="1570942725229"></p>
+<p>再输入以下命令来确认 SSH 连接：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/Hexo/1570942877965.png" alt="1570942877965"></p>
+<h2 id="在Hexo中配置上你的-Github-信息"><a href="#在Hexo中配置上你的-Github-信息" class="headerlink" title="在Hexo中配置上你的 Github 信息"></a>在Hexo中配置上你的 Github 信息</h2><p>修改博客的<code>_config.yml</code>中关于 deploy（部署）的配置（将其中的<code>&lt;username&gt;</code>改成你的 github 用户名，内容不保留尖括号）：</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">deploy:</span></span><br><span class="line"><span class="hljs-attr">  type:</span> <span class="hljs-string">git</span></span><br><span class="line"><span class="hljs-attr">  repo:</span> <span class="hljs-string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="hljs-attr">  branch:</span> <span class="hljs-string">master</span></span><br><span class="line"><span class="hljs-attr">  message:</span></span><br></pre></td></tr></table></figure>
+
+<p>在你的博客目录下打开终端，输入以下命令：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>hexo clean</code>/<code>hexo c</code>：清除本地以前生成的静态页面文件。</li>
+<li><code>hexo generate</code>/<code>hexo g</code>：在本地生成静态页面文件，并保存到<code>public</code>文件夹下。</li>
+<li><code>hexo deploy/hexo d</code>：上传部署到 Github。</li>
+</ul>
+<p>部署完成后，就可以在浏览器中访问<code>http://username.github.io</code>（username替换为你的Github用户名）来访问你的博客了。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><ol>
+<li><p>购买域名，国内的话可以购买的地方很多，推荐阿里云万网。</p>
+<p>个人认为还是.com与.net的域名更好一些，但相对其他域名来说活动会更少。你也可以尝试现在个人博客多使用的.cc、.name、.me、.io等域名。</p>
+</li>
+<li><p>增加CNAME，在你的<code>source</code>目录下藤甲一个名为CNAME文件，并在里面增加上你的域名。</p>
+</li>
+<li><p>在你的域名解析DNS中增加上记录：</p>
+<table>
+<thead>
+<tr>
+<th>记录类型</th>
+<th>主机记录</th>
+<th>解析路线</th>
+<th>记录值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>www</td>
+<td>默认</td>
+<td>IP地址</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>@</td>
+<td>默认</td>
+<td>你的github页面网址</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>记录类型：</p>
+<ul>
+<li>A：指定主机对应的IP地址；</li>
+<li>CNAME：别名记录；</li>
+<li>NS：域名服务器记录；</li>
+<li>MX：邮件交换记录，指向邮箱服务器。</li>
+</ul>
+<p>我们在这里只需要记录一个 A 记录和一个 CNAME 记录就可以了。</p>
+</li>
+<li><p>主机记录（域名前缀：</p>
+<ul>
+<li>@：直接解析主域名，没有前缀；</li>
+<li>某一个英文字符串：前缀为这个字符串的域名；</li>
+<li>：泛解析，匹配其他所有前缀域名。</li>
+</ul>
+</li>
+</ul>
+<p>其中IP地址可以通过<code>ping</code>命令获得：</p>
+<p><img src="/img/Hexo/1570944714395.png" alt="1570944714395"></p>
+</li>
+<li><p>重新部署。</p>
+</li>
+</ol>
+<h2 id="hexo-admin-插件"><a href="#hexo-admin-插件" class="headerlink" title="hexo-admin 插件"></a>hexo-admin 插件</h2><p><strong>hexo-admin</strong>插件是一个方便后台登录管理hexo博客的插件，你可以在这上面方便地创建并编写新博客。</p>
+<p><img src="/img/Hexo/1570944895391.png" alt="1570944895391"></p>
+<h3 id="安装本插件"><a href="#安装本插件" class="headerlink" title="安装本插件"></a>安装本插件</h3><p>在博客目录下打开终端并输入：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-admin</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用本插件"><a href="#使用本插件" class="headerlink" title="使用本插件"></a>使用本插件</h3><p>首先你要在本地预览你的博客，输入：</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>然后打开浏览器访问<code>localhost:4000/admin</code>即可进入该插件后台。</p>
+<h3 id="配置本插件"><a href="#配置本插件" class="headerlink" title="配置本插件"></a>配置本插件</h3><p>为防止他人试用本插件，我们可以在设置中添加用户名密码。在 Settings 中找到 Setup authentification here。</p>
+<p><img src="/img/Hexo/1570945162102.png" alt="1570945162102"></p>
+<p><img src="/img/Hexo/1570945192774.png" alt="1570945192774"></p>
+<p>设置你的用户名和密码。</p>
+<p>然后将下方生成的配置文件内容存放到博客配置文件<code>_config.yml</code>中，即可加密。</p>
 
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright" style="padding-bottom: 15px;">
-        <span><font color="#657786">© 2019 · </font><font color="#2d96bd">KONGJUNE</font> </span>
-        <br>
-        <span id="sitetime"></span>
-        <br>
-        <span><font color="#657786">由</font><a href="https://hexo.io" target="_blank"><font color="#2d96bd"> Hexo </font></a><font color="#657786">强力驱动 | 使用主题</font><a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank"><font color="#2d96bd"> Chic </font></a></span>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="KONGJUNE">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        KONGJUNE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        💭️ Learning &amp; Looking...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Tianjin, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kongjune" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/kongjune">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="微博" href="https://weibo.com/2111639114">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm-study/">
+            <span class="level-start">
+                <span class="level-item">Algorithm study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a> <a href="/tags/Learning-Note/" style="font-size: 15px;">Learning Note</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Solution/" style="font-size: 12.5px;">Solution</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KONGJUNE&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
     </div>
 </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

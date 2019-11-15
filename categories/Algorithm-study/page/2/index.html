@@ -1,261 +1,1379 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>分类: Algorithm study - KONGJUNE&#39;s BLOG</title>
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="KONGJUNE&#39;s BLOG">
+<meta property="og:url" content="http://kongjune.com/categories/Algorithm-study/page/2/index.html">
+<meta property="og:site_name" content="KONGJUNE&#39;s BLOG">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://kongjune.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KONGJUNE&#39;s BLOG">
+<meta name="twitter:image" content="http://kongjune.com/images/og_image.png">
 
 
 
-<title>Category: Algorithm study | KONGJUNE&#39;s BLOG</title>
-
-
-
-    <link rel="icon" type="image/png" href="/favicon.png">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="icon" href="/images/favicon.svg">
 
 
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-    <script src="/js/timeCount.js"></script>
-    
-
-
-
-    
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
     
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <script>
-    $("#toTop").attr("style", "display:none;");
-    $(function() {
-        $(window).scroll(function() {
-            var scroll_top = $(window).scrollTop();
-            if (scroll_top >= 100) {
-                $("#toTop").fadeIn();
-            } else {
-                $("#toTop").fadeOut();
-            }
-        })
-    })
-</script>
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">KONGJUNE&#39;s BLOG</a></div>
-            <div class="menu navbar-right">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default" style="display: none;">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">KONGJUNE&#39;s BLOG</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                <a class="menu-item" href="/archives">归档</a>
-                
-                <a class="menu-item" href="/category">类别</a>
-                
-                <a class="menu-item" href="/tag">标签</a>
-                
-                <a class="menu-item" href="/mc">Minecraft</a>
-                
-            </div>
-        </div>
-    </nav>
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if (toggleMenu.classList.contains("active")) {
-            toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        } else {
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-<body>
-    <div id="toTop" class="box" style="z-index:9999;">
-        <div class="box-in"></div>
-    </div>
-</body>
-<script>
-    var timer = null;
-    toTop.onclick = function() {
-        cancelAnimationFrame(timer);
-        timer = requestAnimationFrame(function fn() {
-            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var sPeed = oTop / 10;
-            if (oTop > 0) {
-                document.body.scrollTop = document.documentElement.scrollTop = oTop - sPeed;
-                timer = requestAnimationFrame(fn);
-            } else {
-                cancelAnimationFrame(timer);
-            }
-        });
-    }
-</script>
-
-        <div class="main">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-
-
-    
-<div class="container">
-    <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;分类&nbsp;·&nbsp;Algorithm study-</h2>
+                <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">档案</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于 &amp; 友链</a>
+                
+                <a class="navbar-item"
+                href="/mc">Minecraft</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-    <style>
-<!--
-#archive-box a{
-  transition: box-shadow .3s;
-  -moz-transition: box-shadow .3s;	/* Firefox 4 */
-  -webkit-transition: box-shadow .3s;	/* Safari 和 Chrome */
-  -o-transition: box-shadow .3s;	/* Opera */
-}
-
-#archive-box a:hover{
-  box-shadow: 0px 0px 10px #2c2c2c;
-}
--->
-</style>
-<div class="post-wrap archive">
+</nav>
     
-    
-    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Algorithm study</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
 
     
-    <h1>
-        <font size="5">📅</font> 2019
-    </h1>
+<div class="card">
     
-
-    <article class="archive-item">
-        
-        <div id="archive-box">
-        <a style="display:block; background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/img/动态规划/banner.jpeg); background-position-x: center; background-position-y: center; height: 60px; width: auto; padding: 5rem 1rem .5rem; margin: 3px; line-height:18px; -moz-background-size:100% 100%;background-size:cover;" href="/2019/07/17/动态规划/">
-            <p style="word-wrap: break-word; word-break: break-all;">
-                <font class="archive-item-link" style="color: #FFFFFF;" size="4">算法学习：动态规划</font>
-            </p>
-            <hr style="color: #BBBBBB;">
-            <p>
-                
-                <font color="#CCCCCC" size="1px">🏷️</font>
-                
-                <font color="#CCCCCC" size="1px">ACM&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Programming&nbsp;</font>
-                
-                <font color="#CCCCCC" size="1px">Learning Note&nbsp;</font>
-                
-                
-                <span class="archive-item-date">2019-07-17</span>
-            </p>
+    <div class="card-image">
+        <a href="/2019/07/17/动态规划/" class="image is-7by1">
+            <img class="thumbnail" src="/img/动态规划/banner.jpeg" alt="算法学习：动态规划">
         </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-17T05:49:34.000Z">2019-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16 分钟 读完 (大约 2374 个字)
+                </span>
+                
+                
+            </div>
         </div>
         
-    </article>
-    
-    
-    <nav class="pagination">
-        <a class="page-number" href="/categories/Algorithm-study/">1</a><span class="page-number current">2</span>
-    </nav>
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/17/动态规划/">算法学习：动态规划</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="基本动态规划"><a href="#基本动态规划" class="headerlink" title="基本动态规划"></a>基本动态规划</h1><blockquote>
+<p><strong>动态规划</strong> <em>(Dynamic Programming)</em> 是运筹学的一个分支，是求解决策过程最优化的数学方法。</p>
+<div align="right"><font size="3">——摘自百度百科</font></div>
+以下内容学习自《算法图解》
+</blockquote>
+<p><strong>实例背景：</strong></p>
+<p>假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255604617.png" alt="1563255604617"></p>
+<table>
+<thead>
+<tr>
+<th align="center">音响(S)</th>
+<th align="center">笔记本电脑(L)</th>
+<th align="center">吉他(G)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">3000美元</td>
+<td align="center">2000美元</td>
+<td align="center">1500美元</td>
+</tr>
+<tr>
+<td align="center">4磅</td>
+<td align="center">3磅</td>
+<td align="center">1磅</td>
+</tr>
+</tbody></table>
+<p>  为了让偷窃价值最高，他该偷窃哪些内容呢？</p>
+<ul>
+<li><p><strong>方法一</strong>：枚举出每一种情况，然后比较每一种情况所能得到的货物的总价值。具体如下图所示：</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563255813206.png" alt="1563255813206"></p>
+<p>当有3件物品时，我们需要罗列出8种情况。而当4件物品时就需要罗列16种情况；5件物品就需要32种情况，也就是说这样的求解方法的时间复杂度达到了$O(2^n)$。</p>
+</li>
+<li><p><strong>方法二</strong>：动态规划</p>
+<p>对于大的背包，我们可以先将其分解为一个个小的背包来考虑，最后用小的背包的情况来推知大的背包的最佳情况。</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563257702433.png" alt="1563257702433"></p>
+<p>那么我们就会得到如下的一个表格：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>  从左到右分别为<strong>1磅背包</strong>、<strong>2磅背包</strong>、<strong>3磅背包</strong>、<strong>4磅背包</strong>的情况，然后我们从第一行开始对表格进行填充：</p>
+<ul>
+<li><p><strong>吉他行</strong></p>
+<p>对于每一格，这个小偷都要考虑一个问题：“我到底要不要偷这个东西？”</p>
+<p>对于第一个格，它的背包容量为1磅，所以我可以将吉他装下，所以他肯定是要偷的啦～ 于是表格就会更新成下面的这个样子：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>而对于之后的每个格，因为现在只有吉他可以偷，而这些包都可以放下吉他，所以我们就将这些格的内容更新如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>那这小偷既然可以直接推知四磅的情况，为什么还要记录1磅、2磅、3磅的情况呢？因为这些小问题将为解决后面的大问题作铺垫！😀</p>
+</li>
+<li><p><strong>音响行</strong></p>
+<p>在第二行，我们可以偷的东西变成了吉他和音响，其上面一行记录了我们是否应该偷吉他以及已经获得了的价值最大值。那么我们结合它的上一行来判断是否需要偷音响。</p>
+<p>对于第一格，无论怎样都装不下音响，所以继承了上一行的吉他的总价值，列表变成如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>相同的，2磅与3磅时也装不下音响（<del>这音响居然这么大🌚</del>），所以表格变成了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>对于4磅时，音响可以装下了，那么他要不要偷这个音响呢？如果偷音响的话，那么我获得的价值将会是<code>dp[0][0] + v[1]</code>（<code>dp[x][y]</code>指列表中第x行第x列的元素（其中在上面的列表中第x列忽略，值全部为$0$），<code>v[i]</code>指第<code>i</code>件物品<del>待偷物</del>的价值），可得到值为 $ \$ 3000$，如果不偷这个音响，则最后值为<code>dp[0][4]</code>，可到的值为 $\$1500$，所以得出结论还是偷音响好。得到如下的列表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>笔记本电脑行</strong>：</p>
+<p>从音响一行已经可以了解到，有以下式子的成立：（$h[x]$ 指的是第 $x$ 可被偷物的质量/体积）<br>$$<br>dp[i][j] = \max(dp[i - 1][j - h[x]]+v[x]\ ,\ dp[i - 1][j])<br>$$<br>所以根据这个公式，我们可以轻而易举的来填写笔记本电脑这一行，得到如下的列表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+</tbody></table>
+<p>举最后一格来解释：4磅的空间已经可以放下笔记本电脑，如果不偷笔记本电脑的话，我将得到<code>dp[1][4]</code>的价值，值为 $ \$3000$。如果他偷笔记本电脑的话，我就可以获得<code>dp[1][4 - 3] + v[2] = dp[1][1] + v[2]</code>的价值，值为 $ \$ 3500$。取更大的，我们就可以知道这一格应为 $ \$ 3500$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>现在表格全部填写完毕了，最右下方的格子即为最终答案：$ \$ 3500$。</p>
+<ul>
+<li><p><strong>再加一件商品又是如何呢？</strong></p>
+<p>假如小偷现在又发现了一个新鲜玩意儿：iPhone！(I)（<del>这东西这么贵肯定要偷的啊🤪</del>）</p>
+<p><img src="/img/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1563261773092.png" alt="1563261773092"></p>
+<p>那我们需要重新计算整个表格么？<strong>不需要！</strong>这也是动态规划的一大优点，我逐步计算出了前面的最大价值，那么再有新的元素出现，前面的数据依旧是可以用的！</p>
+<p>那么我们的列表多出一行，成为以下的样子：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>从第一个格开始计算，这个iPhone太小了啊，1磅的空间就可以将它装下，所以此时第一个格就面临着要不要偷iPhone的抉择。如果不偷的话，就是<code>dp[2][1]</code>，值为 $ \$ 1500$。如果偷，就是<code>dp[2][1 - h(3)] + v[3] = dp[2][0] + v[3]</code>，值为 $ \$ 2000$。所以看来偷iPhone是个更好的选择！现在表格就成了：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<p>依次以上面的方法对表格进行填充，最终表格成为：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>吉他</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>音响</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$3000 <em>(S)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>笔记本电脑</strong></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$1500 <em>(G)</em></td>
+<td align="center">$2000 <em>(L)</em></td>
+<td align="center">$3500 <em>(G&amp;L)</em></td>
+</tr>
+<tr>
+<td align="center"><strong>iPhone</strong></td>
+<td align="center">$2000 <em>(I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$3500 <em>(G&amp;I)</em></td>
+<td align="center">$4000 <em>(L&amp;I)</em></td>
+</tr>
+</tbody></table>
+<p>所以此时的最大值就变成了 $ \$ 4000$，更多了呢！🤑</p>
+</li>
+</ul>
+<p>从以上内容可以看出，动态规划真的是一个神奇好用的算法呢！</p>
+<p>那么怎么敲它的代码呢？</p>
+<p><strong>C++</strong>：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> w[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;; <span class="hljs-comment">// 每个物品的重量，w[0]无用</span></span><br><span class="line"><span class="hljs-keyword">int</span> p[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1500</span>, <span class="hljs-number">3000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">2000</span>&#125;; <span class="hljs-comment">// 每个物品的价值，p[0]无用</span></span><br><span class="line"><span class="hljs-keyword">int</span> n = <span class="hljs-number">4</span>; <span class="hljs-comment">// 物品的个数</span></span><br><span class="line"><span class="hljs-keyword">int</span> m = <span class="hljs-number">4</span>; <span class="hljs-comment">// 背包的载重量</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; x; <span class="hljs-comment">// 用以记录所有的被装入背包的物品</span></span><br><span class="line"><span class="hljs-keyword">int</span> v = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> dp[<span class="hljs-number">5</span>][<span class="hljs-number">5</span>]; <span class="hljs-comment">// 注意多出一行一列</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dp_funtion</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n + <span class="hljs-number">1</span>; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; m + <span class="hljs-number">1</span>; j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(j &gt;= w[i])</span><br><span class="line">                dp[i][j] = max(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - w[i]] + p[i]);</span><br><span class="line">            <span class="hljs-keyword">else</span> dp[i][j] = dp[i - <span class="hljs-number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">int</span> j = m;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n; j &gt; <span class="hljs-number">0</span>; j++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (dp[i][j] &gt; dp[i - <span class="hljs-number">1</span>][j])&#123;</span><br><span class="line">            x.push_back(i);</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> dp[n][m];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>Python</strong>：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 这里使用了图解中的吉他，音箱，电脑，手机做的测试，数据保持一致</span></span><br><span class="line">w = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>]   <span class="hljs-comment">#n个物体的重量(w[0]无用)</span></span><br><span class="line">p = [<span class="hljs-number">0</span>, <span class="hljs-number">1500</span>, <span class="hljs-number">3000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">2000</span>]   <span class="hljs-comment">#n个物体的价值(p[0]无用)</span></span><br><span class="line">n = len(w) - <span class="hljs-number">1</span>   <span class="hljs-comment">#计算n的个数</span></span><br><span class="line">m = <span class="hljs-number">4</span>   <span class="hljs-comment">#背包的载重量</span></span><br><span class="line"></span><br><span class="line">x = []   <span class="hljs-comment">#装入背包的物体，元素为True时，对应物体被装入(x[0]无用)</span></span><br><span class="line">v = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-comment">#optp[i][j]表示在前i个物体中，能够装入载重量为j的背包中的物体的最大价值</span></span><br><span class="line">optp = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> range(m + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> raw <span class="hljs-keyword">in</span> range(n + <span class="hljs-number">1</span>)]</span><br><span class="line"><span class="hljs-comment">#optp 相当于做了一个n*m的全零矩阵的赶脚，n行为物件，m列为自背包载重量</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">knapsack_dynamic</span><span class="hljs-params">(w, p, n, m, x)</span>:</span></span><br><span class="line">    <span class="hljs-comment">#计算optp[i][j]</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):       <span class="hljs-comment"># 物品一件件来</span></span><br><span class="line">        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, m + <span class="hljs-number">1</span>):   <span class="hljs-comment"># j为子背包的载重量，寻找能够承载物品的子背包</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (j &gt;= w[i]):    <span class="hljs-comment"># 当物品的重量小于背包能够承受的载重量的时候，才考虑能不能放进去</span></span><br><span class="line">                optp[i][j] = max(optp[i - <span class="hljs-number">1</span>][j], optp[i - <span class="hljs-number">1</span>][j - w[i]] + p[i])</span><br><span class="line">                <span class="hljs-comment"># optp[i - 1][j]是上一个单元的值， optp[i - 1][j - w[i]]为剩余空间的价值</span></span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                optp[i][j] = optp[i - <span class="hljs-number">1</span>][j]</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">#递推装入背包的物体,寻找跳变的地方，从最后结果开始逆推</span></span><br><span class="line">    j = m</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> optp[i][j] &gt; optp[i - <span class="hljs-number">1</span>][j]:</span><br><span class="line">            x.append(i)</span><br><span class="line">            j = j - w[i]  </span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">#返回最大价值，即表格中最后一行最后一列的值</span></span><br><span class="line">    v = optp[n][m]</span><br><span class="line">    <span class="hljs-keyword">return</span> v</span><br></pre></td></tr></table></figure>
 
-</div>
-
-</div>
-
+<h1 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h1><p>区间DP就是在区间上进行动态规划，求解一段区间上的最优解。主要是通过合并小区间的最优解进而得出整个大区间上的最优解的DP算法。</p>
+<p>首先枚举区间长度<code>len</code>为每次分割成的小区间长度（由长到短不断合并），内层枚举该长度下的起点。然后在这个起点与中点之间枚举分割殿，求解这段小区间在某个分割点下的最优解。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> len = <span class="hljs-number">1</span>; len &lt;= n; len++)&#123;<span class="hljs-comment">//枚举长度</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j + len &lt;= n+<span class="hljs-number">1</span>; j++)&#123;<span class="hljs-comment">//枚举起点，ends&lt;=n</span></span><br><span class="line">        <span class="hljs-keyword">int</span> ends = j + len - <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = j; i &lt; ends; i++)&#123;<span class="hljs-comment">//枚举分割点，更新小区间最优解</span></span><br><span class="line">            dp[j][ends] = min(dp[j][ends], dp[j][i] + dp[i+<span class="hljs-number">1</span>][ends] + something); </span><br><span class="line">            <span class="hljs-comment">// something替换</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright" style="padding-bottom: 15px;">
-        <span><font color="#657786">© 2019 · </font><font color="#2d96bd">KONGJUNE</font> </span>
-        <br>
-        <span id="sitetime"></span>
-        <br>
-        <span><font color="#657786">由</font><a href="https://hexo.io" target="_blank"><font color="#2d96bd"> Hexo </font></a><font color="#657786">强力驱动 | 使用主题</font><a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank"><font color="#2d96bd"> Chic </font></a></span>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Algorithm-study/">上一页</a>
+        </div>
+        <div class="pagination-next is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Algorithm-study/page/3/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/Algorithm-study/">1</a></li>
+            
+            <li><a class="pagination-link is-current" href="/categories/Algorithm-study/page/2/">2</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="KONGJUNE">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        KONGJUNE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        💭️ Learning &amp; Looking...
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Tianjin, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kongjune" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/kongjune">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="微博" href="https://weibo.com/2111639114">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm-study/">
+            <span class="level-start">
+                <span class="level-item">Algorithm study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Solution/">
+            <span class="level-start">
+                <span class="level-item">Solution</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a> <a href="/tags/Learning-Note/" style="font-size: 15px;">Learning Note</a> <a href="/tags/Programming/" style="font-size: 20px;">Programming</a> <a href="/tags/Solution/" style="font-size: 12.5px;">Solution</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/13/Hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/Hexo/banner.png" alt="使用Hexo搭建个人博客并部署到Github">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-13T03:11:52.000Z">2019-10-13</time></div>
+                    <a href="/2019/10/13/Hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用Hexo搭建个人博客并部署到Github</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/14/马拉车算法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/马拉车算法/banner.jpg" alt="算法学习：马拉车算法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-14T08:55:52.000Z">2019-08-14</time></div>
+                    <a href="/2019/08/14/马拉车算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：马拉车算法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/HDU6641/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6641/banner.jpg" alt="题解：HDU6641 TDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T10:59:52.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/HDU6641/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6641 TDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/07/HDU6629/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/HDU6629/banner.jpg" alt="题解：HDU6629 String Mathching">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T04:00:09.000Z">2019-08-07</time></div>
+                    <a href="/2019/08/07/HDU6629/" class="title has-link-black-ter is-size-6 has-text-weight-normal">题解：HDU6629 String Mathching</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Solution/">Solution</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/06/扩展KMP/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/img/扩展KMP/banner.jpg" alt="算法学习：扩展KMP">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-06T14:33:09.000Z">2019-08-06</time></div>
+                    <a href="/2019/08/06/扩展KMP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法学习：扩展KMP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm-study/">Algorithm study</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ACM/">
+                        <span class="tag">ACM</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Front-end/">
+                        <span class="tag">Front-end</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Learning-Note/">
+                        <span class="tag">Learning Note</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Programming/">
+                        <span class="tag">Programming</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Solution/">
+                        <span class="tag">Solution</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="KONGJUNE&#39;s BLOG" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 KONGJUNE&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
     </div>
 </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>
