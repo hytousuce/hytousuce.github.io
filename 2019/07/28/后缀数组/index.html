@@ -19,7 +19,7 @@
 <meta property="og:description" content="学习自：  https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0 https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;amp;comment_rep">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/后缀数组/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:12:21.917Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:30.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：后缀数组">
 <meta name="twitter:description" content="学习自：  https://www.cnblogs.com/victorique/p/8480093.html#autoid-0-0-0 https://blog.csdn.net/Tiw_Air_Op1721/article/details/81275953?comment_content=%E6%8F%90%E9%86%92%E5%A1%AB%E5%9D%91&amp;amp;comment_rep">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -388,16 +393,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -414,6 +426,38 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#后缀数组简介">
+        <span class="has-mr-6">1</span>
+        <span>后缀数组简介</span>
+        </a></li><li>
+        <a class="is-flex" href="#后缀数组的实现">
+        <span class="has-mr-6">2</span>
+        <span>后缀数组的实现</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#变量定义">
+        <span class="has-mr-6">2.1</span>
+        <span>变量定义</span>
+        </a></li><li>
+        <a class="is-flex" href="#倍增算法">
+        <span class="has-mr-6">2.2</span>
+        <span>倍增算法</span>
+        </a></li><li>
+        <a class="is-flex" href="#基数排序">
+        <span class="has-mr-6">2.3</span>
+        <span>基数排序</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -945,7 +989,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：后缀数组" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

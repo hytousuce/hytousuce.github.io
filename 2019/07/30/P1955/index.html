@@ -19,7 +19,7 @@
 <meta property="og:description" content="算法：并查基、离散化、文件读入与写出。  题目描述在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。 考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/P1955/banner.png">
-<meta property="og:updated_time" content="2019-11-15T16:11:39.593Z">
+<meta property="og:updated_time" content="2019-11-16T16:10:31.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解：洛谷P1955：[NOI2015]程序自动分析">
 <meta name="twitter:description" content="算法：并查基、离散化、文件读入与写出。  题目描述在实现程序自动分析的过程中，常常需要判定一些约束条件是否能被同时满足。 考虑一个约束满足问题的简化版本：假设 $x_1，x_2，x_3\dots$代表程序中出现的变量，给定 $n$ 个形如$x_i=x_j$或$x_i \neq x_j$的变量相等/不等的约束条件，请判定是否可以分别为每一个变量赋予恰当的值，使得上述所有约束条件同时被满足。例如，一个">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -460,16 +465,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -486,6 +498,54 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#题目描述">
+        <span class="has-mr-6">1.1</span>
+        <span>题目描述</span>
+        </a></li><li>
+        <a class="is-flex" href="#输入格式">
+        <span class="has-mr-6">1.2</span>
+        <span>输入格式</span>
+        </a></li><li>
+        <a class="is-flex" href="#输出格式">
+        <span class="has-mr-6">1.3</span>
+        <span>输出格式</span>
+        </a></li><li>
+        <a class="is-flex" href="#输入输出样例">
+        <span class="has-mr-6">1.4</span>
+        <span>输入输出样例</span>
+        </a></li><li>
+        <a class="is-flex" href="#说明-提示">
+        <span class="has-mr-6">1.5</span>
+        <span>说明/提示</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#文件读入与写出">
+        <span class="has-mr-6">2</span>
+        <span>文件读入与写出</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#C的方法">
+        <span class="has-mr-6">2.1</span>
+        <span>C的方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#C-的方法">
+        <span class="has-mr-6">2.2</span>
+        <span>C++的方法</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#正式题解">
+        <span class="has-mr-6">3</span>
+        <span>正式题解</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1017,7 +1077,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="题解：洛谷P1955：[NOI2015]程序自动分析" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

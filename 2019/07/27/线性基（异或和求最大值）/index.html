@@ -19,7 +19,7 @@
 <meta property="og:description" content="线性基   ——异或和求最大值 学习自博客：https://blog.sengxian.com/algorithms/linear-basis  基（basis）是线性代数中的一个概念，他是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素被称为基向量。向量空间中的任意一个元素，都可以唯一地被表示成基向量的线性组合。异或空间基向量，被称为线性基。 从线性代数开始的异或世界线性">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/线性基（异或和求最大值）/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:13:33.757Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:07.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：线性基">
 <meta name="twitter:description" content="线性基   ——异或和求最大值 学习自博客：https://blog.sengxian.com/algorithms/linear-basis  基（basis）是线性代数中的一个概念，他是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素被称为基向量。向量空间中的任意一个元素，都可以唯一地被表示成基向量的线性组合。异或空间基向量，被称为线性基。 从线性代数开始的异或世界线性">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -457,16 +462,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -483,6 +495,62 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#线性基-——异或和求最大值">
+        <span class="has-mr-6">1</span>
+        <span>线性基   ——异或和求最大值</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#从线性代数开始的异或世界">
+        <span class="has-mr-6">1.1</span>
+        <span>从线性代数开始的异或世界</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#线性空间（向量空间）">
+        <span class="has-mr-6">1.1.1</span>
+        <span>线性空间（向量空间）</span>
+        </a></li><li>
+        <a class="is-flex" href="#线性无关">
+        <span class="has-mr-6">1.1.2</span>
+        <span>线性无关</span>
+        </a></li><li>
+        <a class="is-flex" href="#线性组合">
+        <span class="has-mr-6">1.1.3</span>
+        <span>线性组合</span>
+        </a></li><li>
+        <a class="is-flex" href="#张成（Span）">
+        <span class="has-mr-6">1.1.4</span>
+        <span>张成（Span）</span>
+        </a></li><li>
+        <a class="is-flex" href="#基（Basis">
+        <span class="has-mr-6">1.1.5</span>
+        <span>基（Basis)</span>
+        </a></li><li>
+        <a class="is-flex" href="#线性相关性引理（Linear-Dependent-Lemma）">
+        <span class="has-mr-6">1.1.6</span>
+        <span>线性相关性引理（Linear Dependent Lemma）</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#线性基">
+        <span class="has-mr-6">1.2</span>
+        <span>线性基</span>
+        </a></li><li>
+        <a class="is-flex" href="#线性基的应用">
+        <span class="has-mr-6">1.3</span>
+        <span>线性基的应用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#例题-1-To-xor-or-not-to-xor">
+        <span class="has-mr-6">1.3.1</span>
+        <span>例题$(1)$ To xor or not to xor</span>
+        </a></li></ul></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1014,7 +1082,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：线性基" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

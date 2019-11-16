@@ -19,7 +19,7 @@
 <meta property="og:description" content="Banner 图源网络，侵删。  离散化离散化：将无限空间中的有限个体映射到有限的空间中。 比如说我有一个无尽的坐标轴，上面有 $10^4$ 个点，每个点的坐标值可以很大很大接近无限。如果我想知道比其中一个点小的点有多少个，暴力比较每个点的坐标值则会因为数据过大而 Boom。而我们通过点与点相对关系，将点的值进行重新赋值，则可以大大减小算法的复杂度。 比如，我现在的数轴上只有6个点， 他们的坐标">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/离散化/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:12:44.165Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:22.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：离散化">
 <meta name="twitter:description" content="Banner 图源网络，侵删。  离散化离散化：将无限空间中的有限个体映射到有限的空间中。 比如说我有一个无尽的坐标轴，上面有 $10^4$ 个点，每个点的坐标值可以很大很大接近无限。如果我想知道比其中一个点小的点有多少个，暴力比较每个点的坐标值则会因为数据过大而 Boom。而我们通过点与点相对关系，将点的值进行重新赋值，则可以大大减小算法的复杂度。 比如，我现在的数轴上只有6个点， 他们的坐标">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -379,16 +384,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -405,6 +417,30 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#离散化">
+        <span class="has-mr-6">1</span>
+        <span>离散化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#离散化方法：排序-二分">
+        <span class="has-mr-6">1.1</span>
+        <span>离散化方法：排序+二分</span>
+        </a></li><li>
+        <a class="is-flex" href="#离散化方法：排序-暴力">
+        <span class="has-mr-6">1.2</span>
+        <span>离散化方法：排序+暴力</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -936,7 +972,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：离散化" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

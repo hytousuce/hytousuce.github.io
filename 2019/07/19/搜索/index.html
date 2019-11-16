@@ -19,7 +19,7 @@
 <meta property="og:description" content="深度优先搜索（DFS）DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。 如下图所示的图：  它的DFS遍历顺序为：$1 \rightarrow 2">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/搜索/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:13:18.777Z">
+<meta property="og:updated_time" content="2019-11-16T16:10:57.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：搜索">
 <meta name="twitter:description" content="深度优先搜索（DFS）DFS是一种使用栈结构的搜索方式，一般使用递归实现（因为递归就是在压栈嘛）。一般用于判断是否图是否连通或找到图的拓扑序来解决更多的图论问题，最基础使用DFS的问题就是迷宫问题。在进行搜索时，不断地向深处找下一个节点，如果没有下一个节点或下一个节点已经被访问的话，就回溯到有下一个节点可访问的点继续搜索。 如下图所示的图：  它的DFS遍历顺序为：$1 \rightarrow 2">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -435,16 +440,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -461,6 +473,54 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#深度优先搜索（DFS）">
+        <span class="has-mr-6">1</span>
+        <span>深度优先搜索（DFS）</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#HINT">
+        <span class="has-mr-6">1.1</span>
+        <span>HINT</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#深度优先搜索的优化">
+        <span class="has-mr-6">2</span>
+        <span>深度优先搜索的优化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#题目描述">
+        <span class="has-mr-6">2.1</span>
+        <span>题目描述</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#广度优先搜索（BFS）">
+        <span class="has-mr-6">3</span>
+        <span>广度优先搜索（BFS）</span>
+        </a></li><li>
+        <a class="is-flex" href="#广度优先搜索的优化">
+        <span class="has-mr-6">4</span>
+        <span>广度优先搜索的优化</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#题目背景">
+        <span class="has-mr-6">4.1</span>
+        <span>题目背景</span>
+        </a></li><li>
+        <a class="is-flex" href="#题目描述-1">
+        <span class="has-mr-6">4.2</span>
+        <span>题目描述</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#A-算法">
+        <span class="has-mr-6">5</span>
+        <span>A*算法</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -992,7 +1052,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：搜索" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

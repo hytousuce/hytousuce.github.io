@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -575,16 +580,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -601,6 +613,86 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#前置环境安装">
+        <span class="has-mr-6">1</span>
+        <span>前置环境安装</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安装前提">
+        <span class="has-mr-6">1.1</span>
+        <span>安装前提</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装hexo">
+        <span class="has-mr-6">1.2</span>
+        <span>安装hexo</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#初始化你的博客">
+        <span class="has-mr-6">2</span>
+        <span>初始化你的博客</span>
+        </a></li><li>
+        <a class="is-flex" href="#增加你的第一篇博客">
+        <span class="has-mr-6">3</span>
+        <span>增加你的第一篇博客</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置">
+        <span class="has-mr-6">4</span>
+        <span>配置</span>
+        </a></li><li>
+        <a class="is-flex" href="#主题">
+        <span class="has-mr-6">5</span>
+        <span>主题</span>
+        </a></li><li>
+        <a class="is-flex" href="#部署到-Github">
+        <span class="has-mr-6">6</span>
+        <span>部署到 Github</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#在Github的设置">
+        <span class="has-mr-6">6.1</span>
+        <span>在Github的设置</span>
+        </a></li><li>
+        <a class="is-flex" href="#在本地Git中配置你的Github账户信息">
+        <span class="has-mr-6">6.2</span>
+        <span>在本地Git中配置你的Github账户信息</span>
+        </a></li><li>
+        <a class="is-flex" href="#在Hexo中配置上你的-Github-信息">
+        <span class="has-mr-6">6.3</span>
+        <span>在Hexo中配置上你的 Github 信息</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#其他">
+        <span class="has-mr-6">7</span>
+        <span>其他</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#绑定个人域名">
+        <span class="has-mr-6">7.1</span>
+        <span>绑定个人域名</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo-admin-插件">
+        <span class="has-mr-6">7.2</span>
+        <span>hexo-admin 插件</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安装本插件">
+        <span class="has-mr-6">7.2.1</span>
+        <span>安装本插件</span>
+        </a></li><li>
+        <a class="is-flex" href="#使用本插件">
+        <span class="has-mr-6">7.2.2</span>
+        <span>使用本插件</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置本插件">
+        <span class="has-mr-6">7.2.3</span>
+        <span>配置本插件</span>
+        </a></li></ul></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1132,7 +1224,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="使用Hexo搭建个人博客并部署到Github" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

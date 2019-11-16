@@ -19,7 +19,7 @@
 <meta property="og:description" content="2019年8月5日下午，冰冷的雨滴击打着脆弱的窗户玻璃，机房里异常的安静，仿佛每个人都等待着一轮风暴。HDU的第五场多校赛已经过去了一半，距离吃饭只有两个半小时了，但我却没有一点开心的感觉。抬头，映入眼帘的就是一道魔鬼签到题目，和红色背景白色字体的“（-5）”字眼。机房的空调从来没有这么好使过，我甚至感到浑身寒冷，有几分想要颤抖身体。 比赛还是如期地结束了。这场比赛的这个签到题我还是没能做出来。是">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/扩展KMP/banner.jpg">
-<meta property="og:updated_time" content="2019-11-15T16:12:31.221Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:26.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：扩展KMP">
 <meta name="twitter:description" content="2019年8月5日下午，冰冷的雨滴击打着脆弱的窗户玻璃，机房里异常的安静，仿佛每个人都等待着一轮风暴。HDU的第五场多校赛已经过去了一半，距离吃饭只有两个半小时了，但我却没有一点开心的感觉。抬头，映入眼帘的就是一道魔鬼签到题目，和红色背景白色字体的“（-5）”字眼。机房的空调从来没有这么好使过，我甚至感到浑身寒冷，有几分想要颤抖身体。 比赛还是如期地结束了。这场比赛的这个签到题我还是没能做出来。是">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -455,16 +460,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -481,6 +493,38 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#算法引入">
+        <span class="has-mr-6">1</span>
+        <span>算法引入</span>
+        </a></li><li>
+        <a class="is-flex" href="#算法思想">
+        <span class="has-mr-6">2</span>
+        <span>算法思想</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#我们为何引入并使用next-数组">
+        <span class="has-mr-6">2.1</span>
+        <span>我们为何引入并使用next[]数组</span>
+        </a></li><li>
+        <a class="is-flex" href="#获得next-数组">
+        <span class="has-mr-6">2.2</span>
+        <span>获得next[]数组</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#算法模板">
+        <span class="has-mr-6">3</span>
+        <span>算法模板</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1012,7 +1056,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：扩展KMP" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

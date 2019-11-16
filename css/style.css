@@ -4,8 +4,16 @@
 html {
   font-size: 14px;
 }
-body {
-  background-color: #f7f7f7;
+body:before {
+  content: '';
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background: url("/images/background.jpg");
+  background-size: cover;
 }
 body,
 button,

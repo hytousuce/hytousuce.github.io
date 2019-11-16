@@ -19,7 +19,7 @@
 <meta property="og:description" content="个人认为来源于二进制的思想。  对于如图式的一系列区域。 以往的记录方式，都是从A出发，走一步到了A右面一格，走两步到了A右面两格位置，……，走11步，走到了B位置。这样记录的话，每个节点都需要记录 $n - i$ 条内容，全部也就是需要 $\frac{n(n-1)}{2}$条，也就是 $O(n^2)$ 的空间复杂度。而由于每个数都可以写为2进制，那么每个点我只需要记录走一步、走两步、走四步、走八">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/倍增思想/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:11:48.877Z">
+<meta property="og:updated_time" content="2019-11-16T16:10:34.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：倍增思想">
 <meta name="twitter:description" content="个人认为来源于二进制的思想。  对于如图式的一系列区域。 以往的记录方式，都是从A出发，走一步到了A右面一格，走两步到了A右面两格位置，……，走11步，走到了B位置。这样记录的话，每个节点都需要记录 $n - i$ 条内容，全部也就是需要 $\frac{n(n-1)}{2}$条，也就是 $O(n^2)$ 的空间复杂度。而由于每个数都可以写为2进制，那么每个点我只需要记录走一步、走两步、走四步、走八">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -470,16 +475,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -496,6 +508,50 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#位运算符">
+        <span class="has-mr-6">1</span>
+        <span>位运算符</span>
+        </a></li><li>
+        <a class="is-flex" href="#快速幂">
+        <span class="has-mr-6">2</span>
+        <span>快速幂</span>
+        </a></li><li>
+        <a class="is-flex" href="#ST表">
+        <span class="has-mr-6">3</span>
+        <span>ST表</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#预处理（实例中为查找最小值的ST表）">
+        <span class="has-mr-6">3.1</span>
+        <span>预处理（实例中为查找最小值的ST表）</span>
+        </a></li><li>
+        <a class="is-flex" href="#查找（实例为查找最小值）">
+        <span class="has-mr-6">3.2</span>
+        <span>查找（实例为查找最小值）</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#LCA">
+        <span class="has-mr-6">4</span>
+        <span>LCA</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#倍增法求LCA">
+        <span class="has-mr-6">4.1</span>
+        <span>倍增法求LCA</span>
+        </a></li><li>
+        <a class="is-flex" href="#ST表求LCA">
+        <span class="has-mr-6">4.2</span>
+        <span>ST表求LCA</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1027,7 +1083,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：倍增思想" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

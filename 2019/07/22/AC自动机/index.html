@@ -19,7 +19,7 @@
 <meta property="og:description" content="字典树 学习自博客：https://blog.csdn.net/qq_42815188/article/details/88677836  字典树（又称为单词查找树，Tire 树）是一种树形结构。它与字典相似，当要查找的一个单词是否在字典树中，首先看单词的第一个字母是否在字典树的第一层。如果不在，说明字典树中没有该单词；如果在，就在该单词的子节点中找是否有单词的第二个字母，如果没有，则说明没有此单">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/AC自动机/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:08:02.912Z">
+<meta property="og:updated_time" content="2019-11-16T16:10:03.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：字典树、KMP与AC自动机">
 <meta name="twitter:description" content="字典树 学习自博客：https://blog.csdn.net/qq_42815188/article/details/88677836  字典树（又称为单词查找树，Tire 树）是一种树形结构。它与字典相似，当要查找的一个单词是否在字典树中，首先看单词的第一个字母是否在字典树的第一层。如果不在，说明字典树中没有该单词；如果在，就在该单词的子节点中找是否有单词的第二个字母，如果没有，则说明没有此单">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -605,16 +610,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -631,6 +643,54 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#字典树">
+        <span class="has-mr-6">1</span>
+        <span>字典树</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#构建字典树">
+        <span class="has-mr-6">1.1</span>
+        <span>构建字典树</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#编号方案">
+        <span class="has-mr-6">1.1.1</span>
+        <span>编号方案</span>
+        </a></li><li>
+        <a class="is-flex" href="#插入操作">
+        <span class="has-mr-6">1.1.2</span>
+        <span>插入操作</span>
+        </a></li><li>
+        <a class="is-flex" href="#查询操作">
+        <span class="has-mr-6">1.1.3</span>
+        <span>查询操作</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#KMP-算法">
+        <span class="has-mr-6">2</span>
+        <span>KMP 算法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#纯暴力匹配">
+        <span class="has-mr-6">2.1</span>
+        <span>纯暴力匹配</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#KMP算法匹配字符串">
+        <span class="has-mr-6">2.1.1</span>
+        <span>KMP算法匹配字符串</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#AC-自动机">
+        <span class="has-mr-6">3</span>
+        <span>AC 自动机</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1162,7 +1222,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：字典树、KMP与AC自动机" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

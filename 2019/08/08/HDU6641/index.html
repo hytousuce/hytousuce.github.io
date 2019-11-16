@@ -19,7 +19,7 @@
 <meta property="og:description" content="本题为 2019 HDU Multi-University Training Contest 6 的 1008 题。 题目传送门：🚪  Problem DescriptionFor a positive integer $n$, let’s denote function $f(n,m)$ as the $m$-th smallest integer $x$ that $x&amp;gt;n$ and">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/HDU6641/banner.jpg">
-<meta property="og:updated_time" content="2019-11-15T16:11:22.441Z">
+<meta property="og:updated_time" content="2019-11-16T16:10:27.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="题解：HDU6641 TDL">
 <meta name="twitter:description" content="本题为 2019 HDU Multi-University Training Contest 6 的 1008 题。 题目传送门：🚪  Problem DescriptionFor a positive integer $n$, let’s denote function $f(n,m)$ as the $m$-th smallest integer $x$ that $x&amp;gt;n$ and">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -378,16 +383,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -404,6 +416,46 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#Problem-Description">
+        <span class="has-mr-6">1.1</span>
+        <span>Problem Description</span>
+        </a></li><li>
+        <a class="is-flex" href="#Input">
+        <span class="has-mr-6">1.2</span>
+        <span>Input</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output">
+        <span class="has-mr-6">1.3</span>
+        <span>Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Input">
+        <span class="has-mr-6">1.4</span>
+        <span>Sample Input</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Output">
+        <span class="has-mr-6">1.5</span>
+        <span>Sample Output</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#题意-amp-题解">
+        <span class="has-mr-6">2</span>
+        <span>题意 &amp; 题解</span>
+        </a></li><li>
+        <a class="is-flex" href="#AC代码">
+        <span class="has-mr-6">3</span>
+        <span>AC代码</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -935,7 +987,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="题解：HDU6641 TDL" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

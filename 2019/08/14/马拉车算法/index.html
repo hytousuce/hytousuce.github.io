@@ -19,7 +19,7 @@
 <meta property="og:description" content="学习自博客：  https://www.cnblogs.com/love-yh/p/7072161.html https://blog.csdn.net/happyrocking/article/details/82622881   马拉车算法（音译，Manacher’s algorithm）是一个复杂度为 $O(n)$ 的、求一个字符串最长回文子序列的算法。 回文字符串，就是指无论从左向右读还">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/马拉车算法/banner.jpg">
-<meta property="og:updated_time" content="2019-11-15T16:12:56.465Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:18.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：马拉车算法">
 <meta name="twitter:description" content="学习自博客：  https://www.cnblogs.com/love-yh/p/7072161.html https://blog.csdn.net/happyrocking/article/details/82622881   马拉车算法（音译，Manacher’s algorithm）是一个复杂度为 $O(n)$ 的、求一个字符串最长回文子序列的算法。 回文字符串，就是指无论从左向右读还">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -443,16 +448,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -469,6 +481,38 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#马拉车算法思想">
+        <span class="has-mr-6">1</span>
+        <span>马拉车算法思想</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#去除字符串长度奇偶分类的问题">
+        <span class="has-mr-6">1.1</span>
+        <span>去除字符串长度奇偶分类的问题</span>
+        </a></li><li>
+        <a class="is-flex" href="#半径数组">
+        <span class="has-mr-6">1.2</span>
+        <span>半径数组</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#p-数组求解">
+        <span class="has-mr-6">2</span>
+        <span>$p[]$ 数组求解</span>
+        </a></li><li>
+        <a class="is-flex" href="#算法模板">
+        <span class="has-mr-6">3</span>
+        <span>算法模板</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1000,7 +1044,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：马拉车算法" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a

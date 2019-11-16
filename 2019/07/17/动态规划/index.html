@@ -19,7 +19,7 @@
 <meta property="og:description" content="基本动态规划 动态规划 (Dynamic Programming) 是运筹学的一个分支，是求解决策过程最优化的数学方法。 ——摘自百度百科 以下内容学习自《算法图解》  实例背景： 假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：     音响(S) 笔记本电脑(L) 吉他(G)    3000美元 2000美元 1500美元   4磅 3磅 1磅     为了让偷窃价值最">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://kongjune.com/img/动态规划/banner.jpeg">
-<meta property="og:updated_time" content="2019-11-15T16:12:11.729Z">
+<meta property="og:updated_time" content="2019-11-16T16:11:35.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习：动态规划">
 <meta name="twitter:description" content="基本动态规划 动态规划 (Dynamic Programming) 是运筹学的一个分支，是求解决策过程最优化的数学方法。 ——摘自百度百科 以下内容学习自《算法图解》  实例背景： 假如有一个小偷，他的背包大小确定，假设为4磅。他有以下三件物品可以偷窃：     音响(S) 笔记本电脑(L) 吉他(G)    3000美元 2000美元 1500美元   4磅 3磅 1磅     为了让偷窃价值最">
@@ -84,6 +84,7 @@ var _hmt = _hmt || [];
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="is-3-column">
+    <div class="toBeDraged"></div>
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -119,6 +120,10 @@ var _hmt = _hmt || [];
             
             <div class="navbar-end">
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
@@ -774,16 +779,23 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=974124729&amp;site=qq&amp;menu=yes">
                 
-                <i class="fab fa-zhihu"></i>
+                <i class="fab fa-qq"></i>
                 
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="微博" href="https://weibo.com/2111639114">
+                title="邮箱" href="mailto:ycysyxx@sina.com">
                 
-                <i class="fab fa-weibo"></i>
+                <i class="fas fa-envelope"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/kongjune-44">
+                
+                <i class="fab fa-zhihu"></i>
                 
             </a>
             
@@ -800,6 +812,26 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#基本动态规划">
+        <span class="has-mr-6">1</span>
+        <span>基本动态规划</span>
+        </a></li><li>
+        <a class="is-flex" href="#区间DP">
+        <span class="has-mr-6">2</span>
+        <span>区间DP</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -1331,7 +1363,7 @@ var _hmt = _hmt || [];
                     <img src="/images/logo.svg" alt="算法学习：动态规划" height="28">
                 
                 </a>
-                <span id="sitetime"></span>
+                <span id="sitetime" class="is-size-7"></span>
                 <p class="is-size-7">
                 &copy; 2019 KONGJUNE&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
