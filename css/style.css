@@ -4,16 +4,8 @@
 html {
   font-size: 14px;
 }
-body:before {
-  content: '';
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
-  background: url("/images/background.jpg");
-  background-size: cover;
+body {
+  background-color: #f7f7f7;
 }
 body,
 button,
@@ -280,6 +272,15 @@ img.thumbnail {
   #toc-mask.is-active {
     display: block;
   }
+}
+/* ---------------------------------
+ *         MathJax overflow
+ * --------------------------------- */
+.MathJax_Preview {
+  overflow: auto;
+}
+.MathJax_Display {
+  overflow: auto;
 }
 /* ---------------------------------
  *         Custom modifiers
